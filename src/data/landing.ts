@@ -137,7 +137,7 @@ export const services: readonly Service[] = [
     description:
       "We enable smarter hiring with innovative technology and connected platforms that simplify and strengthen the recruitment process.",
     image: "",
-    video: "/videos/technology.mp4",
+    video: "/videos/Technology & platform.mp4",
     alt: "Technology and platform professionals",
     pills: ["IT Staffing", "Digital Delivery Support"],
   },
