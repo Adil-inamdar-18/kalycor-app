@@ -1,18 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
 
 import { Container } from "@/components/layout";
-
 import { getLandingData } from "@/services/siteService";
-
 import { anchors } from "@/config/routes";
 
 export function Industries() {
   const { industries } = getLandingData();
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useEffect(() => {
@@ -26,8 +24,16 @@ export function Industries() {
 
     document.addEventListener("pointerdown", onPointerDown);
 
-    return () => document.removeEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, []);
+
+  const activeIndustry = industries[activeIndex];
+
+  if (!activeIndustry) {
+    return null;
+  }
 
   return (
     <section
@@ -53,147 +59,175 @@ export function Industries() {
 
         {/* INDUSTRIES */}
         <div
-          className="mx-auto w-full max-w-[1100px]"
+          className="
+            mx-auto
+            grid
+            w-full
+            max-w-[1200px]
+            grid-cols-1
+            gap-10
+            tl:grid-cols-[1fr_0.85fr]
+            tl:items-start
+            tl:gap-[70px]
+          "
           data-industries-accordion
         >
+          {/* LEFT SIDE */}
           <div className="border-t border-sand-300">
-            {industries.map((industry, index) => (
-              <details
-                key={industry.title}
-                open={openIndex === index}
-                onMouseEnter={() => setOpenIndex(index)}
-                className="group border-b border-sand-200"
-              >
-                {/* INDUSTRY TITLE */}
-                <summary
-                  onClick={(event) => {
-                    event.preventDefault();
-                    setOpenIndex(openIndex === index ? null : index);
+            {industries.map((industry, index) => {
+              const isOpen = openIndex === index;
+              const isActive = activeIndex === index;
+
+              return (
+                <div
+                  key={industry.title}
+                  className="border-b border-sand-200"
+                  onMouseEnter={() => {
+                    setActiveIndex(index);
+                    setOpenIndex(index);
                   }}
-                  className="
-                    flex
-                    cursor-pointer
-                    items-center
-                    justify-center
-                    gap-4
-                    py-5
-                    font-heading
-                    text-[15px]
-                    font-normal
-                    text-sky-700
-                    transition-all
-                    duration-slow
-                    group-hover:text-navy-900
-                    tl:py-6
-                    tl:text-[17px]
-                  "
                 >
-                  <span
+                  {/* TITLE */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setOpenIndex(isOpen ? null : index);
+                    }}
                     className="
-                      grid
-                      h-[27px]
-                      w-[27px]
-                      flex-[0_0_27px]
-                      place-items-center
-                      rounded-full
-                      border
-                      border-steel-300
-                      text-[17px]
-                      font-light
-                      leading-none
+                      flex
+                      w-full
+                      cursor-pointer
+                      items-center
+                      gap-4
+                      py-5
+                      text-left
+                      font-heading
+                      text-[15px]
+                      font-normal
                       text-sky-700
-                      transition-all
+                      transition-colors
                       duration-slow
-                      group-hover:bg-paper-50
-                      group-open:rotate-45
-                      group-open:bg-paper-50
+                      hover:text-navy-900
+                      tl:py-6
+                      tl:text-[17px]
                     "
                   >
-                    +
-                  </span>
-
-                  {industry.title}
-                </summary>
-
-                {/* OPEN CONTENT */}
-                <div
-                  className="
-                    grid
-                    grid-rows-[0fr]
-                    opacity-0
-                    transition-[grid-template-rows,opacity]
-                    duration-[400ms]
-                    ease-out
-                    group-open:grid-rows-[1fr]
-                    group-open:opacity-100
-                  "
-                >
-                  <div className="min-h-0 overflow-hidden">
-                    <div
-                      className="
+                    <span
+                      className={`
                         grid
-                        grid-cols-1
-                        gap-6
-                        pb-7
-                        pt-2
-                        tl:grid-cols-2
-                        tl:items-center
-                        tl:gap-10
-                        tl:pb-10
-                        tl:pt-4
-                      "
+                        h-[27px]
+                        w-[27px]
+                        flex-[0_0_27px]
+                        place-items-center
+                        rounded-full
+                        border
+                        border-steel-300
+                        text-[17px]
+                        font-light
+                        leading-none
+                        text-sky-700
+                        transition-all
+                        duration-[400ms]
+                        ${isOpen ? "rotate-45 bg-paper-50 text-navy-900" : ""}
+                      `}
                     >
-                      {/* CONTENT LEFT */}
-                      <div className="order-2 tl:order-1">
-                        <p
-                          className="
-                            max-w-[600px]
-                            text-body-sm
-                            leading-body
-                            text-paragraph
-                            tl:pr-4
-                          "
-                        >
+                      +
+                    </span>
+
+                    <span
+                      className={`
+                        transition-transform
+                        duration-[400ms]
+                        ${isActive ? "translate-x-1 text-navy-900" : ""}
+                      `}
+                    >
+                      {industry.title}
+                    </span>
+                  </button>
+
+                  {/* CONTENT */}
+                  <div
+                    className={`
+                      grid
+                      transition-[grid-template-rows,opacity]
+                      duration-[450ms]
+                      ease-out
+                      ${
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }
+                    `}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="pb-7 pl-[43px] pr-4 pt-1 tl:pb-8">
+                        <p className="max-w-[650px] text-body-sm leading-body text-paragraph">
                           {industry.body}
                         </p>
-                      </div>
-
-                      {/* IMAGE RIGHT */}
-                      <div
-                        className="
-                          order-1
-                          h-[220px]
-                          w-full
-                          overflow-hidden
-                          rounded-[7px]
-                          bg-divider-100
-                          tl:order-2
-                          tl:h-[280px]
-                        "
-                      >
-                        <Image
-                          src={industry.image}
-                          alt={industry.alt}
-                          width={1200}
-                          height={800}
-                          loading="lazy"
-                          className="
-                            block
-                            h-full
-                            w-full
-                            object-cover
-                            transition-transform
-                            duration-slower
-                            ease-out-expo
-                            group-hover:scale-[1.03]
-                          "
-                        />
                       </div>
                     </div>
                   </div>
                 </div>
-              </details>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* RIGHT SIDE IMAGE */}
+          <div
+            className="
+              relative
+              hidden
+              h-[420px]
+              w-full
+              overflow-hidden
+              rounded-[7px]
+              bg-divider-100
+              tl:block
+              tl:h-[480px]
+            "
+          >
+            <Image
+              key={activeIndustry.image}
+              src={activeIndustry.image}
+              alt={activeIndustry.alt}
+              width={1200}
+              height={800}
+              priority={activeIndex === 0}
+              className="
+                absolute
+                inset-0
+                h-full
+                w-full
+                object-cover
+                transition-all
+                duration-[500ms]
+                ease-out
+                hover:scale-[1.03]
+              "
+            />
+
+            {/* IMAGE OVERLAY */}
+            <div className="absolute inset-0 bg-black/5" />
+
+            {/* IMAGE TITLE */}
+            <div
+              className="
+                absolute
+                inset-x-0
+                bottom-0
+                bg-gradient-to-t
+                from-black/60
+                to-transparent
+                px-7
+                pb-7
+                pt-20
+              "
+            >
+              <div className="font-heading text-[20px] font-medium text-white">
+                {activeIndustry.title}
+              </div>
+            </div>
           </div>
         </div>
       </Container>
