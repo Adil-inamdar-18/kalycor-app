@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,9 +15,41 @@ import CtaPair from "./CtaPair";
 
 export function Header() {
   const { navMenus, mobileLinks } = getLandingData();
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleLogoClick = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+
+    closeMenu();
+
+    const homeHash = anchors.landing.home.replace("#", "");
+
+    const homeElement = document.getElementById(homeHash);
+
+    if (homeElement) {
+      // Smoothly scroll to home
+      homeElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Update URL hash
+      window.location.hash = homeHash;
+    } else {
+      // If home section doesn't exist, go to top
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      window.location.hash = homeHash;
+    }
+  };
 
   return (
     <header className="sticky top-0 z-header border-b border-line bg-background/95 backdrop-blur-[8px]">
@@ -26,6 +57,7 @@ export function Header() {
         {/* Logo */}
         <Brand
           href={anchors.landing.home}
+          onClick={handleLogoClick}
           className="group [--brand-gap:8px] [--brand-mark:50px] [--brand-size:20px] transition-transform duration-fast hover:scale-[1.03] md:[--brand-gap:12px] md:[--brand-size:24px] nav:[--brand-mark:58px]"
           nameClassName="transition-transform duration-fast"
           mark={
@@ -111,7 +143,10 @@ export function Header() {
           Contact Us
         </Link>
 
-        <CtaPair className="mt-2.5 flex gap-2.5" onNavigate={closeMenu} />
+        <CtaPair
+          className="mt-2.5 flex gap-2.5"
+          onNavigate={closeMenu}
+        />
       </nav>
     </header>
   );
