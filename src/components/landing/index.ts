@@ -1,0 +1,10 @@
+export { UtilityBar } from './UtilityBar';
+export { Header } from './Header';
+export { Hero } from './Hero';
+export { Services } from './Services';
+export { Stats } from './Stats';
+export { Approach } from './Approach';
+export { Industries } from './Industries';
+export { Opportunities } from './Opportunities';
+export { Reviews } from './Reviews';
+export { Footer } from './Footer';
