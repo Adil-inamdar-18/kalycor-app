@@ -163,13 +163,12 @@ export const services: readonly Service[] = [
     pills: ["Hire, Train and Deploy (HTD)", "Managed Capacity"],
   },
 
-{
+  {
     title: "Talent & Platforms",
     description:
       "We connect businesses with skilled professionals and scalable talent solutions.",
-    image:
-      "",
-      video:"/videos/talent.mp4",
+    image: "",
+    video: "/videos/talent.mp4",
     alt: "Talent solutions professionals",
     pills: ["Talent Acquisition", "Workforce Solutions"],
   },
@@ -184,8 +183,6 @@ export const services: readonly Service[] = [
     alt: "Workforce team collaborating",
     pills: ["Hire, Train and Deploy (HTD)", "Managed Capacity"],
   },
-
-  
 ];
 
 /**
@@ -195,7 +192,7 @@ export const services: readonly Service[] = [
  */
 export const approachPhotos: readonly ApproachPhoto[] = [
   {
-    src: "/images/approach-1.jpg",
+    src: "/images/approach-new1.jpeg",
     alt: "People collaborating at work",
     width: 177,
     height: 241,
@@ -203,7 +200,7 @@ export const approachPhotos: readonly ApproachPhoto[] = [
       "h-[300px] tp:absolute tp:left-[2%] tp:top-[45px] tp:h-[241px] tp:w-[177px] dl:left-[4%]",
   },
   {
-    src: "/images/approach-2.jpg",
+    src: "/images/approach-new2.jpeg",
     alt: "Professional at work",
     width: 176,
     height: 242,
@@ -211,7 +208,7 @@ export const approachPhotos: readonly ApproachPhoto[] = [
       "h-[300px] tp:absolute tp:right-[2%] tp:top-[4px] tp:h-[242px] tp:w-[176px] dl:right-[4%]",
   },
   {
-    src: "/images/approach-3.jpg",
+    src: "/images/approach-new3.jpeg",
     alt: "Diverse team together",
     width: 354,
     height: 199,
@@ -219,7 +216,7 @@ export const approachPhotos: readonly ApproachPhoto[] = [
       "h-[220px] tp:absolute tp:bottom-0 tp:left-[2%] tp:h-[199px] tp:w-[354px] dl:left-[4%]",
   },
   {
-    src: "/images/approach-4.jpg",
+    src: "/images/approach-new4.jpeg",
     alt: "People connecting and collaborating",
     width: 294,
     height: 188,
@@ -236,30 +233,30 @@ export const approachCopy = {
 
 export const industries: readonly Industry[] = [
   {
-    title: "Banking, Financial Services, and Insurance",
+    title: "Agriculture",
     image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/agriculture.jpeg",
     alt: "Modern business professionals and corporate environment",
     body: "Risk, operations, technology, and specialized talent for financial institutions navigating regulation, transformation, and growth.",
   },
   {
-    title: "Healthcare, Pharma, and Lifesciences",
+    title: "Security",
     image:
-      "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/security.jpeg",
     alt: "Healthcare professional in a modern clinical setting",
     body: "Clinical, administrative, technology, and specialized talent supporting healthcare and life-science organizations.",
   },
   {
-    title: "Telecom, Media, and Technology",
+    title: "RealEstate",
     image:
-      "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/property.jpeg",
     alt: "Technology team collaborating in an office",
     body: "Engineering, product, digital, and technology talent for teams building and modernizing connected experiences.",
   },
   {
-    title: "Energy, Oil, and Gas",
+    title: "Import & Exports",
     image:
-      "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/import-export.jpeg",
     alt: "Energy infrastructure and industrial operations",
     body: "Field, technical, engineering, and project talent supporting energy operations and evolving industry needs.",
   },

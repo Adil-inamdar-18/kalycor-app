@@ -1,5 +1,5 @@
-import type { FormEvent } from 'react';
-import { LocationIcon, SearchIconThin } from './icons';
+import type { FormEvent } from "react";
+import { LocationIcon, SearchIconThin } from "./icons";
 
 export interface JobsHeroProps {
   keyword: string;
@@ -10,9 +10,9 @@ export interface JobsHeroProps {
 }
 
 const fieldClass =
-  'flex min-h-[54px] min-w-0 items-center gap-[13px] px-2 ts:min-h-0 ts:px-0';
+  "flex min-h-[54px] min-w-0 items-center gap-[13px] px-2 ts:min-h-0 ts:px-0";
 const inputClass =
-  'w-full border-0 bg-transparent text-body text-paragraph outline-none placeholder:text-graphite-400';
+  "w-full border-0 bg-transparent text-body text-paragraph outline-none placeholder:text-graphite-400";
 
 export function Hero({
   keyword,
@@ -22,7 +22,7 @@ export function Hero({
   onSubmit,
 }: JobsHeroProps) {
   return (
-    <section className="relative flex min-h-[620px] items-end overflow-hidden bg-cover bg-center bg-no-repeat [background-image:var(--gradient-hero-wash),url('/images/hero.jpg')] px-4 pb-[18px] text-white ts:min-h-[680px] ts:px-6 ts:pb-[26px] dl:min-h-[750px] after:pointer-events-none after:absolute after:inset-0 after:bg-hero-scrim after:content-['']">
+    <section className="relative flex min-h-[620px] items-end overflow-hidden bg-cover bg-center bg-no-repeat [background-image:var(--gradient-hero-wash),url('/images/jobs-hero.png')] px-4 pb-[18px] text-white ts:min-h-[680px] ts:px-6 ts:pb-[26px] dl:min-h-[750px] after:pointer-events-none after:absolute after:inset-0 after:bg-hero-scrim after:content-['']">
       <div className="relative z-[2] mx-auto w-full max-w-[1200px]">
         <div className="mb-[55px] text-center ts:mb-[88px]">
           <h1 className="mb-2 font-sans text-[39px] font-normal italic leading-[1.05] tracking-[-1.5px] text-white sm:text-h1 sm:tracking-[-2px]">
