@@ -12,7 +12,7 @@ export const site = {
   description:
     'Kalycor connects people, businesses, and opportunities through solutions built for a changing world.',
   logo: {
-    src: '/images/logo.png',
+    src: '/images/new-logo.png',
     width: 58,
     height: 58,
     alt: 'Kalycor logo',
