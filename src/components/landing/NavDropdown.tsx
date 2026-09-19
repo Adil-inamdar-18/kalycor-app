@@ -1,20 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
-import { LinkList } from "@/components/ui";
-import type { NavMenu } from "@/types";
+
 import { cn } from "@/lib/utils";
+
+import type { NavMenu } from "@/types";
+
 import CtaPair from "./CtaPair";
 
 const panel =
-  "invisible fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] min-h-[430px] -translate-x-1/2 translate-y-2 rounded-[6px] border border-line bg-surface p-[55px] opacity-0 shadow-menu transition-all duration-fast group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100";
-
-const groupHeading =
-  "mb-[14px] font-heading text-[13px] font-semibold tracking-[0.02em] text-navy-950";
+  "invisible fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 translate-y-2 overflow-hidden border border-line bg-surface opacity-0 shadow-menu transition-all duration-fast group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100";
 
 const menuLink =
-  "text-[15px] leading-[1.7] text-heading transition-colors duration-fast hover:text-navy-950";
+  "flex h-[58px] items-center border-b border-line px-[26px] font-heading text-[15px] font-semibold leading-[1.25] text-heading transition-colors duration-fast hover:bg-navy-950/[0.025] hover:text-navy-950";
 
 export function NavDropdown({ menu }: { menu: NavMenu }) {
-  const { label, kicker, description, layout, groups = [], links = [] } = menu;
+  const {
+    label,
+    kicker,
+    description,
+    links = [],
+    panelImage,
+    panelImageAlt,
+    panelDescription,
+  } = menu;
 
   return (
     <div className="group relative">
@@ -53,70 +61,54 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
         </span>
       </button>
 
-      {/* Large Centered Popup */}
-      <div
-        className={cn(
-          panel,
-
-          layout === "split" && "grid grid-cols-[0.8fr_1.2fr] gap-[80px]",
-
-          layout === "grid" && "grid grid-cols-[0.55fr_1.45fr] gap-[80px]",
-
-          layout === "list" && "grid grid-cols-[0.55fr_1.45fr] gap-[80px]",
-        )}
-      >
-        {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center">
-          <div className="font-heading text-[22px] font-semibold leading-[1.2] text-heading">
+      {/* Mega Menu */}
+      <div className={cn(panel, "grid grid-cols-[0.85fr_1fr_0.9fr]")}>
+        {/* LEFT — CONTENT + CTA */}
+        <div className="flex flex-col justify-start border-r border-line px-[32px] py-[36px]">
+          <h3 className="font-heading text-[26px] font-medium leading-[1.2] text-heading underline decoration-teal-700 decoration-[1px] underline-offset-[5px]">
             {kicker ?? label}
-          </div>
+          </h3>
 
-          <p className="mt-5 max-w-[40ch] text-[15px] leading-[1.8] text-paragraph">
+          <p className="mt-[34px] max-w-[48ch] text-[15px] leading-[1.48] text-paragraph">
             {description}
           </p>
 
-          {layout === "split" && (
-            <CtaPair className="mt-[30px] flex gap-3" size="sm" />
-          )}
+          <CtaPair className="mt-[34px] flex gap-3" size="sm" />
         </div>
 
-        {/* GROUPED LINKS */}
-        {layout === "split" && (
-          <div className="grid grid-cols-2 gap-x-[65px] gap-y-[40px]">
-            {groups.map((group) => (
-              <div key={group.title}>
-                <h5 className={groupHeading}>{group.title}</h5>
+        {/* MIDDLE — LINK LIST */}
+        <div className="overflow-y-auto border-r border-line">
+          {links.map((link) => (
+            <Link key={link.label} href={link.href} className={menuLink}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
-                <LinkList
-                  links={group.links}
-                  itemClassName="mb-[10px]"
-                  linkClassName={menuLink}
+        {/* RIGHT — IMAGE + DESCRIPTION */}
+        <div className="bg-[#f1f2f2] p-[12px]">
+          <div className="flex h-full flex-col bg-white">
+            {panelImage && (
+              <div className="relative h-[205px] w-full shrink-0 overflow-hidden">
+                <Image
+                  src={panelImage}
+                  alt={panelImageAlt ?? ""}
+                  fill
+                  className="object-cover grayscale"
+                  sizes="400px"
                 />
               </div>
-            ))}
-          </div>
-        )}
+            )}
 
-        {/* GRID LINKS */}
-        {layout === "grid" && (
-          <div className="grid grid-cols-3 content-center gap-x-[55px] gap-y-[22px]">
-            {links.map((link) => (
-              <Link href={link.href} key={link.label} className={menuLink}>
-                {link.label}
-              </Link>
-            ))}
+            {panelDescription && (
+              <div className="px-[26px] py-[26px]">
+                <p className="text-[15px] leading-[1.55] text-paragraph">
+                  {panelDescription}
+                </p>
+              </div>
+            )}
           </div>
-        )}
-
-        {/* LIST LINKS */}
-        {layout === "list" && (
-          <LinkList
-            links={links}
-            className="grid grid-cols-2 content-center gap-x-[65px]"
-            itemClassName="mb-[12px]"
-            linkClassName={menuLink}
-          />
-        )}
+        </div>
       </div>
     </div>
   );
