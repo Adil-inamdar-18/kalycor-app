@@ -1,10 +1,12 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Container } from '@/components/layout';
-import { site } from '@/config/site';
-import { cn } from '@/lib/utils';
+import { Container } from "@/components/layout";
 
-import type { LinkItem } from '@/types';
+import { site } from "@/config/site";
+
+import { cn } from "@/lib/utils";
+
+import type { LinkItem } from "@/types";
 
 interface HeroPanelProps {
   tag: string;
@@ -18,25 +20,19 @@ interface HeroPanelProps {
  * One audience panel inside the hero.
  * Same component is used for businesses and job seekers.
  */
-function HeroPanel({
-  tag,
-  title,
-  cta,
-  id,
-  className,
-}: HeroPanelProps) {
+function HeroPanel({ tag, title, cta, id, className }: HeroPanelProps) {
   return (
     <div
       id={id}
       tabIndex={id ? -1 : undefined}
       className={cn(
-        'group relative overflow-hidden',
-        'px-7 py-9 text-left',
-        'transition-all duration-slow',
-        'hover:z-[3] hover:-translate-y-1',
-        'hover:shadow-panel',
-        'tp:px-10 tp:py-11',
-        className
+        "group relative overflow-hidden",
+        "px-6 py-6 text-left",
+        "transition-all duration-slow",
+        "hover:z-[3] hover:-translate-y-1",
+        "hover:shadow-panel",
+        "tp:px-7 tp:py-7",
+        className,
       )}
     >
       {/* Subtle panel glow */}
@@ -64,10 +60,10 @@ function HeroPanel({
         <Link
           href={cta.href}
           className="
-            mt-7 inline-flex items-center gap-3
+            mt-5 inline-flex items-center gap-2
             border-b border-current
-            pb-1.5
-            font-heading text-[15px] font-semibold
+            pb-1
+            font-heading text-[13px] font-semibold
             transition-all duration-fast
           "
         >
@@ -75,7 +71,7 @@ function HeroPanel({
 
           <span
             className="
-              text-lg leading-none
+              text-base leading-none
               transition-transform duration-fast
               group-hover:translate-x-1.5
             "
@@ -100,8 +96,8 @@ export function Hero() {
         text-primary-fg
       "
     >
-          {/* BACKGROUND VIDEO */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      {/* BACKGROUND VIDEO */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           className="
             h-full w-full
@@ -112,35 +108,36 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
         >
-          <source src="/videos/" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
       </div>
 
-          {/* VIDEO OVERLAY
-          Uses existing global navy variables. */}
+      {/* VIDEO OVERLAY */}
       <div
         className="
-          absolute inset-0 -z-10
-          bg-primary/80
-        "
+    pointer-events-none
+    absolute inset-0 z-[1]
+    bg-primary/0
+  "
       />
 
-      {/* Additional subtle gradient */}
+      {/* ADDITIONAL SUBTLE GRADIENT */}
       <div
         className="
-          absolute inset-0 -z-10
-          bg-gradient-to-b
-          from-primary/70
-          via-primary/80
-          to-primary/95
-        "
+    pointer-events-none
+    absolute inset-0 z-[1]
+    bg-gradient-to-b
+    from-primary/25
+    via-primary/30
+    to-primary/60
+  "
       />
 
-          {/* HERO CONTENT */}
-      <Container className="relative z-[1]">
+      {/* HERO CONTENT */}
+      <Container className="relative z-[2]">
         <div
           className="
             flex min-h-[calc(100svh-76px)]
@@ -150,8 +147,6 @@ export function Hero() {
             tp:py-20
           "
         >
-         
-
           {/* Main heading */}
           <h1
             className="
@@ -171,9 +166,7 @@ export function Hero() {
             Starts Here
           </h1>
 
-       
-
-              {/* AUDIENCE PANELS */}
+          {/* AUDIENCE PANELS */}
           <div
             className="
               mx-auto mt-12 w-full
@@ -213,7 +206,7 @@ export function Hero() {
         </div>
       </Container>
 
-          {/* BOTTOM SCROLL INDICATOR */}
+      {/* BOTTOM SCROLL INDICATOR */}
       <div
         className="
           absolute bottom-7 left-1/2
