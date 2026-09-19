@@ -25,27 +25,62 @@ export const utilityLinks: readonly LinkItem[] = [
 export const solutionsGroups: readonly LinkGroup[] = [
   {
     title: "Talent & Hiring",
-    links: [{ label: "Recruitment & Placement", href: a.solutions }],
+    links: [
+      {
+        label: "Recruitment & Placement",
+        href: a.solutions,
+      },
+    ],
   },
+
   {
     title: "Flexible Workforce",
-    links: [{ label: "Workforce Solutions", href: a.solutions }],
+    links: [
+      {
+        label: "Workforce Solutions",
+        href: a.solutions,
+      },
+    ],
   },
+
   {
     title: "Scaled & Managed Delivery",
-    links: [{ label: "Professional Services", href: a.solutions }],
+    links: [
+      {
+        label: "Professional Services",
+        href: a.solutions,
+      },
+    ],
   },
+
   {
     title: "Technology & Platform",
-    links: [{ label: "Technology Solutions", href: a.solutions }],
+    links: [
+      {
+        label: "Technology Solutions",
+        href: a.solutions,
+      },
+    ],
   },
+
   {
     title: "Capability Enablement",
-    links: [{ label: "Career Opportunities", href: crossLinks.findJob }],
+    links: [
+      {
+        label: "Career Opportunities",
+        href: crossLinks.findJob,
+      },
+    ],
   },
+
   {
     title: "Tailored Programs",
-    links: [{ label: "Customized Solutions", href: a.solutions }],
+    links: [
+      {
+        label: "Customized Solutions",
+        href: a.solutions,
+      },
+    ],
   },
 ];
 
@@ -74,41 +109,65 @@ export const whoWeAreNavLinks: readonly LinkItem[] = [
   { label: "Contact Us", href: a.contact },
 ];
 
-/* ---------------------------------------------------------------------------
-   Main navigation. Header renders one <NavDropdown> per entry, so adding a
-   menu is a data change rather than a markup change.
-   -------------------------------------------------------------------------- */
+//  Main navigation. Header renders one <NavDropdown> per entry, so adding a
+//  menu is a data change rather than a markup change.
 export const navMenus: readonly NavMenu[] = [
   {
     key: "solutions",
     label: "Solutions",
+    kicker: "Solutions",
     description:
       "Flexible workforce and talent solutions shaped around the challenge in front of you, not a fixed package.",
-    layout: "split",
-    groups: solutionsGroups,
+    layout: "list",
+    panelImage: "/images/approach-new3.jpeg",
+    panelImageAlt: "Kalycor team collaborating",
+    panelDescription:
+      "We build flexible talent and workforce solutions around your business needs, helping organizations find the right people, capabilities, and support to move forward.",
+    links: solutionsGroups.flatMap((group) => group.links),
   },
+
   {
     key: "industries",
     label: "Industries",
+    kicker: "Industries",
     description:
-      "We place talent across ten sectors — from technology and healthcare to logistics and the public sector.",
-    layout: "grid",
-    links: industriesNavLabels.map((label) => ({ label, href: a.industries })),
+      "Every industry has unique challenges, and having the right talent makes all the difference. We provide customized workforce solutions that help businesses stay competitive, adaptable, and ahead of the curve. With deep industry expertise and a vast talent network, we ensure you have the right people to drive efficiency, productivity, and long-term success. Wherever your business is headed, we’ll help you get there.",
+    layout: "list",
+    panelImage: "/images/approach-new3.jpeg",
+    panelImageAlt: "Kalycor team collaborating",
+    panelDescription:
+      "Kalycor connects businesses with the right talent and workforce solutions, helping organizations build high-performing teams, improve efficiency, and create sustainable growth.",
+    links: industriesNavLabels.map((label) => ({
+      label,
+      href: a.industries,
+    })),
   },
+
   {
     key: "opportunities",
     label: "Opportunities",
+    kicker: "Opportunities",
     description:
-      "Search open roles, submit your resume, or refer someone great.",
+      "Explore opportunities, connect with the right talent, and take the next step toward your future.",
     layout: "list",
+    panelImage: "/images/approach-new4.jpeg",
+    panelImageAlt: "Professionals connecting and collaborating",
+    panelDescription:
+      "Whether you are searching for your next opportunity or looking for the right talent, Kalycor helps create meaningful connections between people and businesses.",
     links: opportunitiesNavLinks,
   },
+
   {
     key: "who-we-are",
     label: "Who We Are",
+    kicker: "Who We Are",
     description:
-      "Kalycor connects people, businesses, and opportunities through solutions built for a changing world.",
+      "Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.",
     layout: "list",
+    panelImage: "/images/approach-new1.jpeg",
+    panelImageAlt: "Kalycor professionals collaborating",
+    panelDescription:
+      "We believe meaningful human connections create better opportunities, stronger teams, and lasting business impact.",
     links: whoWeAreNavLinks,
   },
 ];
@@ -234,29 +293,25 @@ export const approachCopy = {
 export const industries: readonly Industry[] = [
   {
     title: "Agriculture",
-    image:
-      "/images/agriculture.jpeg",
+    image: "/images/agriculture.jpeg",
     alt: "Modern business professionals and corporate environment",
     body: "Risk, operations, technology, and specialized talent for financial institutions navigating regulation, transformation, and growth.",
   },
   {
     title: "Security",
-    image:
-      "/images/security.jpeg",
+    image: "/images/security.jpeg",
     alt: "Healthcare professional in a modern clinical setting",
     body: "Clinical, administrative, technology, and specialized talent supporting healthcare and life-science organizations.",
   },
   {
     title: "RealEstate",
-    image:
-      "/images/property.jpeg",
+    image: "/images/property.jpeg",
     alt: "Technology team collaborating in an office",
     body: "Engineering, product, digital, and technology talent for teams building and modernizing connected experiences.",
   },
   {
     title: "Import & Exports",
-    image:
-      "/images/import-export.jpeg",
+    image: "/images/import-export.jpeg",
     alt: "Energy infrastructure and industrial operations",
     body: "Field, technical, engineering, and project talent supporting energy operations and evolving industry needs.",
   },

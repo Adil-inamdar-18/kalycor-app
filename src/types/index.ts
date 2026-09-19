@@ -16,7 +16,7 @@ export interface LinkGroup {
 
 /* -------------------------------------------------------------- landing -- */
 
-export type NavMenuLayout = 'split' | 'grid' | 'list';
+export type NavMenuLayout = "split" | "grid" | "list";
 
 export interface NavMenu {
   key: string;
@@ -26,6 +26,9 @@ export interface NavMenu {
   layout: NavMenuLayout;
   groups?: readonly LinkGroup[];
   links?: readonly LinkItem[];
+  panelImage?: string;
+  panelImageAlt?: string;
+  panelDescription?: string;
 }
 
 export interface Service {
@@ -55,8 +58,8 @@ export interface Industry {
 }
 
 export type Stat =
-  | { type: 'count'; count: number; label: string }
-  | { type: 'badge'; icon: string; badge: string; note: string };
+  | { type: "count"; count: number; label: string }
+  | { type: "badge"; icon: string; badge: string; note: string };
 
 export interface Review {
   quote: string;
@@ -72,7 +75,7 @@ export interface SocialLink {
 
 /* ----------------------------------------------------------------- jobs -- */
 
-export type JobType = 'Full-time' | 'Part-time' | 'Contract' | 'Internship';
+export type JobType = "Full-time" | "Part-time" | "Contract" | "Internship";
 
 export interface Job {
   title: string;
@@ -85,7 +88,7 @@ export interface Job {
   date: string;
 }
 
-export type SortKey = 'latest' | 'oldest' | 'title' | 'company';
+export type SortKey = "latest" | "oldest" | "title" | "company";
 
 export interface SortOption {
   value: SortKey;
@@ -93,12 +96,12 @@ export interface SortOption {
 }
 
 export type TrendingIconKey =
-  | 'aerospace'
-  | 'automotive'
-  | 'banking'
-  | 'energy'
-  | 'pharma'
-  | 'retail';
+  | "aerospace"
+  | "automotive"
+  | "banking"
+  | "energy"
+  | "pharma"
+  | "retail";
 
 export interface TrendingCategory {
   category: string;
