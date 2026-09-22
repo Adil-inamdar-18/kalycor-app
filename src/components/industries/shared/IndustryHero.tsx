@@ -1,14 +1,36 @@
+import Image from 'next/image';
+
 import { Button } from '@/components/ui';
 import { Container } from '@/components/layout';
 import type { IndustryPage } from '@/types';
 
 export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary-fg">
+    <section className="relative isolate overflow-hidden bg-primary text-primary-fg">
+      {/* Background Image */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <Image
+          src={hero.image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+
+        {/* Theme-based overlay */}
+        <div className="absolute inset-0 bg-primary/0" />
+
+        {/* Subtle right-side visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/55" />
+      </div>
+
+      {/* Decorative circles */}
       <div
         className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full border border-primary-fg/10"
         aria-hidden="true"
       />
+
       <div
         className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-accent/30"
         aria-hidden="true"
@@ -34,7 +56,11 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <Button href={hero.primaryCta.href} variant="light" size="lg">
+            <Button
+              href={hero.primaryCta.href}
+              variant="light"
+              size="lg"
+            >
               {hero.primaryCta.label}
             </Button>
 
