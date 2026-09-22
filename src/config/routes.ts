@@ -22,7 +22,7 @@ export const anchors = {
     industries: '#industries',
     whoWeAre: '#who-we-are',
     opportunities: '#opportunities',
-    contact: '#contact',
+    contact: '/contact',
   },
   jobs: {
     top: '#top',
@@ -33,7 +33,7 @@ export const anchors = {
     solutions: '#solutions',
     services: '#services',
     about: '#about',
-    contact: '#contact',
+    contact: '/contact',
   },
 } as const;
 

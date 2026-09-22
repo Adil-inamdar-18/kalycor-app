@@ -1,13 +1,14 @@
 import Image from 'next/image';
-
-import { Button } from '@/components/ui';
 import { Container } from '@/components/layout';
-import type { IndustryPage } from '@/types';
+import type { ReachUsPageData } from '@/types/reach-us';
 
-export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
+export function ReachUsHero({
+  hero,
+}: {
+  hero: ReachUsPageData['hero'];
+}) {
   return (
-    <section className="relative isolate overflow-hidden bg-primary text-primary-fg">
-      {/* Background Image */}
+    <section className="relative isolate min-h-[620px] overflow-hidden bg-primary text-primary-fg sm:min-h-[680px]">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
           src={hero.image}
@@ -18,14 +19,11 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
           className="object-cover"
         />
 
-        {/* Theme-based overlay */}
-        <div className="absolute inset-0 bg-primary/0" />
+        <div className="absolute inset-0 bg-primary/80" />
 
-        {/* Subtle right-side visibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/55" />
       </div>
 
-      {/* Decorative circles */}
       <div
         className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full border border-primary-fg/10"
         aria-hidden="true"
@@ -37,7 +35,7 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
       />
 
       <Container className="relative">
-        <div className="flex min-h-[620px] max-w-4xl flex-col justify-center py-24">
+        <div className="flex min-h-[620px] max-w-4xl flex-col justify-center py-24 sm:min-h-[680px]">
           <p className="mb-5 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
             {hero.kicker}
           </p>
@@ -51,32 +49,18 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
             ))}
           </h1>
 
+          <div
+            className="mt-7 h-px w-16 bg-accent"
+            aria-hidden="true"
+          />
+
           <p className="mt-7 max-w-2xl text-body-lg leading-8 text-primary-fg/70">
             {hero.description}
           </p>
-
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <Button
-              href={hero.primaryCta.href}
-              variant="light"
-              size="lg"
-            >
-              {hero.primaryCta.label}
-            </Button>
-
-            <Button
-              href={hero.secondaryCta.href}
-              variant="outline"
-              size="lg"
-              className="border-primary-fg/30 text-primary-fg hover:border-primary-fg hover:bg-primary-fg hover:text-primary"
-            >
-              {hero.secondaryCta.label}
-            </Button>
-          </div>
         </div>
       </Container>
     </section>
   );
 }
 
-export default IndustryHero;
+export default ReachUsHero;
