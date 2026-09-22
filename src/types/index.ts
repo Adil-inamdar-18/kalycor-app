@@ -95,6 +95,66 @@ export interface SortOption {
   label: string;
 }
 
+/* ------------------------------------------------------------ industries -- */
+
+export interface NumberedItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface IndustryPage {
+  slug: string;
+  /** Nav-facing name, e.g. "Agriculture". */
+  name: string;
+  metaTitle: string;
+  metaDescription: string;
+  hero: {
+    kicker: string;
+    title: readonly string[];
+    description: string;
+    primaryCta: LinkItem;
+    secondaryCta: LinkItem;
+  };
+  overview: {
+    id: string;
+    kicker: string;
+    heading: string;
+    paragraph: string;
+    areas: readonly string[];
+  };
+  solutions: {
+    id: string;
+    kicker: string;
+    heading: string;
+    description: string;
+    items: readonly NumberedItem[];
+  };
+  areas: {
+    kicker: string;
+    heading: string;
+    description: string;
+    items: readonly NumberedItem[];
+  };
+  future: {
+    kicker: string;
+    title: readonly string[];
+    description: string;
+  };
+  whyKalycor: {
+    kicker: string;
+    heading: string;
+    description: string;
+    items: readonly NumberedItem[];
+  };
+  cta: {
+    kicker: string;
+    title: readonly string[];
+    description: string;
+    buttonLabel: string;
+  };
+}
+
 export type TrendingIconKey =
   | "aerospace"
   | "automotive"

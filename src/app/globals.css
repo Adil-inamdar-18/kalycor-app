@@ -325,8 +325,8 @@
   --container-pad: 0px;
   --container-gutter: 24px;
   --radius-card: var(--radius-md);
-  --btn-radius: var(--radius-sm);
-  --btn-font: var(--font-body);
+  --btn-radius: var(--radius-xs);
+  --btn-font: var(--font-heading);
   --btn-outline-fg: var(--primary);
   --btn-outline-border: var(--line);
   --btn-outline-bg-hover: var(--primary-soft);
@@ -359,8 +359,8 @@
   --container-max: 80rem;
   --container-pad: 24px;
   --section-py: 96px;
-  --btn-radius: var(--radius-sm);
-  --btn-font: var(--font-body);
+  --btn-radius: var(--radius-xs);
+  --btn-font: var(--font-heading);
 }
 
 /* ============================================================ 8. BASE ==== */

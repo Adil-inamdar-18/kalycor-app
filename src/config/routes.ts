@@ -6,6 +6,12 @@ export const routes = {
   home: '/',
   jobs: '/jobs',
   business: '/for-business',
+  industries: {
+    agriculture: '/industries/agriculture',
+    importExport: '/industries/import-export',
+    realEstate: '/industries/realestate',
+    security: '/industries/security',
+  },
 } as const;
 
 /** In-page anchors, per page. */
@@ -37,6 +43,9 @@ export const crossLinks = {
   hireTalent: routes.business,
   backHome: routes.home,
   contactOnHome: `${routes.home}${anchors.landing.contact}`,
+  /** The real contact form lives on /for-business — used by pages (like
+   *  industries) that don't have a contact section of their own. */
+  contact: `${routes.business}${anchors.business.contact}`,
 } as const;
 
 export default routes;

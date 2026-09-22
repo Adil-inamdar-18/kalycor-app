@@ -24,6 +24,8 @@
 import * as landing from '@/data/landing';
 import * as business from '@/data/business';
 import * as jobsData from '@/data/jobs';
+import { industryPages, type IndustrySlug } from '@/data/industries';
+import type { IndustryPage } from '@/types';
 
 /** All content for the landing (`/`) route. */
 export function getLandingData() {
@@ -38,4 +40,14 @@ export function getBusinessData() {
 /** All content for the `/jobs` route: listings plus filter/search UI data. */
 export function getJobsData() {
   return jobsData;
+}
+
+/** Content for every `/industries/[slug]` route, keyed by slug. */
+export function getIndustriesData() {
+  return industryPages;
+}
+
+/** Content for a single `/industries/[slug]` route. */
+export function getIndustryData(slug: IndustrySlug): IndustryPage {
+  return industryPages[slug];
 }
