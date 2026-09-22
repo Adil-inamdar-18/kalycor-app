@@ -1,7 +1,7 @@
 // All copy and links below are taken verbatim from the original landing page.
 // URLs are never hard-coded here — they come from src/config/routes.ts.
 
-import { anchors, crossLinks } from "@/config/routes";
+import { anchors, crossLinks, routes } from "@/config/routes";
 import type {
   ApproachPhoto,
   Industry,
@@ -84,17 +84,11 @@ export const solutionsGroups: readonly LinkGroup[] = [
   },
 ];
 
-export const industriesNavLabels: readonly string[] = [
-  "Technology",
-  "Healthcare",
-  "Finance & Banking",
-  "Manufacturing",
-  "Engineering",
-  "Retail & Consumer",
-  "Logistics",
-  "Energy",
-  "Professional Services",
-  "Government & Public Sector",
+export const industriesNavLinks: readonly LinkItem[] = [
+  { label: "Agriculture", href: routes.industries.agriculture },
+  { label: "Import & Exports", href: routes.industries.importExport },
+  { label: "Security", href: routes.industries.security },
+  { label: "RealEstate", href: routes.industries.realEstate },
 ];
 
 export const opportunitiesNavLinks: readonly LinkItem[] = [
@@ -137,10 +131,7 @@ export const navMenus: readonly NavMenu[] = [
     panelImageAlt: "Kalycor team collaborating",
     panelDescription:
       "Kalycor connects businesses with the right talent and workforce solutions, helping organizations build high-performing teams, improve efficiency, and create sustainable growth.",
-    links: industriesNavLabels.map((label) => ({
-      label,
-      href: a.industries,
-    })),
+    links: industriesNavLinks,
   },
 
   {
