@@ -3,18 +3,25 @@
  * footer, hero and CTA across the three pages follows.
  */
 
-
 export const routes = {
   home: "/",
   jobs: "/jobs",
   business: "/for-business",
 
+  solutions: {
+    workforce: "/solutions/workforce-solutions",
+    recruitmentPlacement: "/solutions/recruitment-placement",
+    professionalServices: "/solutions/professional-services",
+    technologySolutions: "/solutions/technology-solutions",
+    careerOpportunities: "/solutions/career-opportunities",
+    customizedSolutions: "/solutions/customized-solutions",
+  },
+
   whoWeAre: {
     home: "/whoweare",
     aboutUs: "/whoweare/about-us",
     diversityInclusion: "/whoweare/diversity-inclusion",
-    corporateSocialResponsibility:
-      "/whoweare/corporate-social-responsibility",
+    corporateSocialResponsibility: "/whoweare/corporate-social-responsibility",
     blogs: "/whoweare/blogs",
   },
 
@@ -29,23 +36,23 @@ export const routes = {
 /** In-page anchors, per page. */
 export const anchors = {
   landing: {
-    home: '#home',
-    solutions: '#solutions',
-    industries: '#industries',
-    whoWeAre: '#who-we-are',
-    opportunities: '#opportunities',
-    contact: '/contact',
+    home: "#home",
+    solutions: "#solutions",
+    industries: "#industries",
+    whoWeAre: "#who-we-are",
+    opportunities: "#opportunities",
+    contact: "/contact",
   },
   jobs: {
-    top: '#top',
-    jobs: '#jobs',
+    top: "#top",
+    jobs: "#jobs",
   },
   business: {
-    home: '#home',
-    solutions: '#solutions',
-    services: '#services',
-    about: '#about',
-    contact: '/contact',
+    home: "#home",
+    solutions: "#solutions",
+    services: "#services",
+    about: "#about",
+    contact: "/contact",
   },
 } as const;
 
@@ -59,6 +66,5 @@ export const crossLinks = {
    *  industries) that don't have a contact section of their own. */
   contact: `${routes.business}${anchors.business.contact}`,
 } as const;
-
 
 export default routes;
