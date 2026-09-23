@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import type { NavMenu } from "@/types";
 
 import CtaPair from "./CtaPair";
+import routes from "@/config/routes";
 
 const panel =
   "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
@@ -51,20 +52,25 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
       {/* Navigation Trigger */}
       <button
         type="button"
+        onClick={() => {
+          if (menu.key === "who-we-are") {
+            window.location.href = routes.whoWeAre.home;
+          }
+        }}
         className="
-          flex
-          cursor-pointer
-          items-center
-          gap-[6px]
-          rounded-xs
-          px-[13px]
-          py-2.5
-          font-medium
-          text-heading
-          transition-colors
-          duration-fast
-          hover:text-navy-950
-        "
+    flex
+    cursor-pointer
+    items-center
+    gap-[6px]
+    rounded-xs
+    px-[13px]
+    py-2.5
+    font-medium
+    text-heading
+    transition-colors
+    duration-fast
+    hover:text-navy-950
+  "
       >
         {label}
 
