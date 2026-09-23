@@ -1,19 +1,37 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
 
 import type { NavMenu } from "@/types";
 
 import CtaPair from "./CtaPair";
 
 const panel =
-  "invisible fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 translate-y-2 overflow-hidden border border-line bg-surface opacity-0 shadow-menu transition-all duration-fast group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100";
+  "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
 
 const menuLink =
   "flex h-[58px] items-center border-b border-line px-[26px] font-heading text-[15px] font-semibold leading-[1.25] text-heading transition-colors duration-fast hover:bg-navy-950/[0.025] hover:text-navy-950";
 
 export function NavDropdown({ menu }: { menu: NavMenu }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnter = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+    }
+
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 300);
+  };
   const {
     label,
     kicker,
@@ -25,7 +43,11 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
   } = menu;
 
   return (
-    <div className="group relative">
+    <div
+      className="group relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Navigation Trigger */}
       <button
         type="button"
@@ -62,7 +84,15 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
       </button>
 
       {/* Mega Menu */}
-      <div className={cn(panel, "grid grid-cols-[0.85fr_1fr_0.9fr]")}>
+      <div
+        className={cn(
+          panel,
+          "grid grid-cols-[0.85fr_1fr_0.9fr]",
+          isOpen
+            ? "visible translate-y-0 opacity-100"
+            : "invisible translate-y-2 opacity-0",
+        )}
+      >
         {/* LEFT — CONTENT + CTA */}
         <div className="flex flex-col justify-start border-r border-line px-[32px] py-[36px]">
           <h3 className="font-heading text-[26px] font-medium leading-[1.2] text-heading underline decoration-teal-700 decoration-[1px] underline-offset-[5px]">
