@@ -20,34 +20,31 @@ export function Header() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const handleLogoClick = (
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-
     closeMenu();
 
-    const homeHash = anchors.landing.home.replace("#", "");
+    const isHomePage = window.location.pathname === "/";
 
-    const homeElement = document.getElementById(homeHash);
+    if (isHomePage) {
+      const homeHash = anchors.landing.home.replace("#", "");
+      const homeElement = document.getElementById(homeHash);
 
-    if (homeElement) {
-      // Smoothly scroll to home
-      homeElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      if (homeElement) {
+        homeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
 
-      // Update URL hash
-      window.location.hash = homeHash;
+        window.history.replaceState(null, "", `#${homeHash}`);
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
     } else {
-      // If home section doesn't exist, go to top
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
-      window.location.hash = homeHash;
+      window.location.href = "/";
     }
   };
 
@@ -143,10 +140,7 @@ export function Header() {
           Contact Us
         </Link>
 
-        <CtaPair
-          className="mt-2.5 flex gap-2.5"
-          onNavigate={closeMenu}
-        />
+        <CtaPair className="mt-2.5 flex gap-2.5" onNavigate={closeMenu} />
       </nav>
     </header>
   );
