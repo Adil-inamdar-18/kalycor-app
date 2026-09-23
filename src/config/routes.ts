@@ -2,15 +2,27 @@
  * Every URL in the site lives here. Change a path once and every header,
  * footer, hero and CTA across the three pages follows.
  */
+
+
 export const routes = {
-  home: '/',
-  jobs: '/jobs',
-  business: '/for-business',
+  home: "/",
+  jobs: "/jobs",
+  business: "/for-business",
+
+  whoWeAre: {
+    home: "/whoweare",
+    aboutUs: "/whoweare/about-us",
+    diversityInclusion: "/whoweare/diversity-inclusion",
+    corporateSocialResponsibility:
+      "/whoweare/corporate-social-responsibility",
+    blogs: "/whoweare/blogs",
+  },
+
   industries: {
-    agriculture: '/industries/agriculture',
-    importExport: '/industries/import-export',
-    realEstate: '/industries/realestate',
-    security: '/industries/security',
+    agriculture: "/industries/agriculture",
+    importExport: "/industries/import-export",
+    realEstate: "/industries/realestate",
+    security: "/industries/security",
   },
 } as const;
 
@@ -47,5 +59,6 @@ export const crossLinks = {
    *  industries) that don't have a contact section of their own. */
   contact: `${routes.business}${anchors.business.contact}`,
 } as const;
+
 
 export default routes;

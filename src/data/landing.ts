@@ -24,7 +24,7 @@ export const utilityLinks: readonly LinkItem[] = [
 
 export const solutionsGroups: readonly LinkGroup[] = [
   {
-    title: "Talent & Hiring",
+    title: "Leadership & Strategic Hiring",
     links: [
       {
         label: "Recruitment & Placement",
@@ -34,7 +34,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
   },
 
   {
-    title: "Flexible Workforce",
+    title: "Flexible Workforce Experience",
     links: [
       {
         label: "Workforce Solutions",
@@ -44,7 +44,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
   },
 
   {
-    title: "Scaled & Managed Delivery",
+    title: "Scaled Hiring",
     links: [
       {
         label: "Professional Services",
@@ -64,17 +64,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
   },
 
   {
-    title: "Capability Enablement",
-    links: [
-      {
-        label: "Career Opportunities",
-        href: crossLinks.findJob,
-      },
-    ],
-  },
-
-  {
-    title: "Tailored Programs",
+    title: "WorkForce Creation & Deployment",
     links: [
       {
         label: "Customized Solutions",
@@ -92,15 +82,32 @@ export const industriesNavLinks: readonly LinkItem[] = [
 ];
 
 export const opportunitiesNavLinks: readonly LinkItem[] = [
+  { label: "Join Us", href: crossLinks.findJob },
   { label: "Search Jobs", href: crossLinks.findJob },
   { label: "Submit Resume", href: crossLinks.findJob },
-  { label: "Referral Program", href: a.opportunities },
-  { label: "Global Talent Assistance", href: a.contact },
+  { label: "Referral Program", href: "" },
+  { label: "Global Talent Assistance", href: "" },
+  { label: "Kalycor Global Talent Center", href: "" },
+  { label: "Events", href: "" },
 ];
 
 export const whoWeAreNavLinks: readonly LinkItem[] = [
-  { label: "Our Approach", href: a.whoWeAre },
-  { label: "Contact Us", href: a.contact },
+  {
+    label: "About Us",
+    href: routes.whoWeAre.aboutUs,
+  },
+  {
+    label: "Diversity and Inclusion",
+    href: routes.whoWeAre.diversityInclusion,
+  },
+  {
+    label: "Corporate Social Responsibility",
+    href: routes.whoWeAre.corporateSocialResponsibility,
+  },
+  {
+    label: "Blogs",
+    href: routes.whoWeAre.blogs,
+  },
 ];
 
 //  Main navigation. Header renders one <NavDropdown> per entry, so adding a
