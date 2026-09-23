@@ -55,6 +55,12 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
         onClick={() => {
           if (menu.key === "who-we-are") {
             window.location.href = routes.whoWeAre.home;
+            return;
+          }
+
+          if (menu.key === "solutions") {
+            window.location.href = routes.home + "#solutions";
+            return;
           }
         }}
         className="

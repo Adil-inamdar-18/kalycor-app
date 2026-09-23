@@ -28,7 +28,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
     links: [
       {
         label: "Recruitment & Placement",
-        href: a.solutions,
+        href: routes.solutions.recruitmentPlacement,
       },
     ],
   },
@@ -38,7 +38,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
     links: [
       {
         label: "Workforce Solutions",
-        href: a.solutions,
+        href: routes.solutions.workforce,
       },
     ],
   },
@@ -48,7 +48,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
     links: [
       {
         label: "Professional Services",
-        href: a.solutions,
+        href: routes.solutions.professionalServices,
       },
     ],
   },
@@ -58,7 +58,17 @@ export const solutionsGroups: readonly LinkGroup[] = [
     links: [
       {
         label: "Technology Solutions",
-        href: a.solutions,
+        href: routes.solutions.technologySolutions,
+      },
+    ],
+  },
+
+  {
+    title: "Career Opportunities",
+    links: [
+      {
+        label: "Career Opportunities",
+        href: routes.solutions.careerOpportunities,
       },
     ],
   },
@@ -68,7 +78,7 @@ export const solutionsGroups: readonly LinkGroup[] = [
     links: [
       {
         label: "Customized Solutions",
-        href: a.solutions,
+        href: routes.solutions.customizedSolutions,
       },
     ],
   },
@@ -89,6 +99,33 @@ export const opportunitiesNavLinks: readonly LinkItem[] = [
   { label: "Global Talent Assistance", href: "" },
   { label: "Kalycor Global Talent Center", href: "" },
   { label: "Events", href: "" },
+];
+
+export const solutionsNavLinks: readonly LinkItem[] = [
+  {
+    label: "Workforce Solutions",
+    href: routes.solutions.workforce,
+  },
+  {
+    label: "Recruitment & Placement",
+    href: routes.solutions.recruitmentPlacement,
+  },
+  {
+    label: "Professional Services",
+    href: routes.solutions.professionalServices,
+  },
+  {
+    label: "Technology Solutions",
+    href: routes.solutions.technologySolutions,
+  },
+  {
+    label: "Career Opportunities",
+    href: routes.solutions.careerOpportunities,
+  },
+  {
+    label: "Customized Solutions",
+    href: routes.solutions.customizedSolutions,
+  },
 ];
 
 export const whoWeAreNavLinks: readonly LinkItem[] = [
@@ -118,13 +155,13 @@ export const navMenus: readonly NavMenu[] = [
     label: "Solutions",
     kicker: "Solutions",
     description:
-      "Flexible workforce and talent solutions shaped around the challenge in front of you, not a fixed package.",
+      "Flexible solutions that connect people, capabilities, and opportunities around your business needs.",
     layout: "list",
-    panelImage: "/images/approach-new3.jpeg",
-    panelImageAlt: "Kalycor team collaborating",
+    panelImage: "/images/approach-new1.jpeg",
+    panelImageAlt: "Kalycor professionals collaborating",
     panelDescription:
-      "We build flexible talent and workforce solutions around your business needs, helping organizations find the right people, capabilities, and support to move forward.",
-    links: solutionsGroups.flatMap((group) => group.links),
+      "From workforce solutions to technology and customized support, we help organizations build what comes next.",
+    links: solutionsNavLinks,
   },
 
   {
