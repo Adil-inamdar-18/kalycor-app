@@ -17,6 +17,17 @@ export const routes = {
     customizedSolutions: "/solutions/customized-solutions",
   },
 
+  opportunities: {
+  home: "/opportunities",
+  joinUs: "/opportunities/join-us",
+  searchJobs: "/opportunities/search-jobs",
+  submitResume: "/opportunities/submit-resume",
+  referralProgram: "/opportunities/referral-program",
+  globalTalentAssistance: "/opportunities/global-talent-assistance",
+  globalTalentCenter: "/opportunities/global-talent-center",
+  events: "/opportunities/events",
+},
+
   whoWeAre: {
     home: "/whoweare",
     aboutUs: "/whoweare/about-us",

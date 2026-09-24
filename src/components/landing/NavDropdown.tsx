@@ -62,6 +62,10 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
             window.location.href = routes.home + "#solutions";
             return;
           }
+          if (menu.key === "opportunities") {
+            window.location.href = routes.opportunities.home;
+            return;
+          }
         }}
         className="
     flex
