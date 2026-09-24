@@ -92,13 +92,34 @@ export const industriesNavLinks: readonly LinkItem[] = [
 ];
 
 export const opportunitiesNavLinks: readonly LinkItem[] = [
-  { label: "Join Us", href: crossLinks.findJob },
-  { label: "Search Jobs", href: crossLinks.findJob },
-  { label: "Submit Resume", href: crossLinks.findJob },
-  { label: "Referral Program", href: "" },
-  { label: "Global Talent Assistance", href: "" },
-  { label: "Kalycor Global Talent Center", href: "" },
-  { label: "Events", href: "" },
+  {
+    label: "Join Us",
+    href: routes.opportunities.joinUs,
+  },
+  {
+    label: "Search Jobs",
+    href: routes.opportunities.searchJobs,
+  },
+  {
+    label: "Submit Resume",
+    href: routes.opportunities.submitResume,
+  },
+  {
+    label: "Referral Program",
+    href: routes.opportunities.referralProgram,
+  },
+  {
+    label: "Global Talent Assistance",
+    href: routes.opportunities.globalTalentAssistance,
+  },
+  {
+    label: "Kalycor Global Talent Center",
+    href: routes.opportunities.globalTalentCenter,
+  },
+  {
+    label: "Events",
+    href: routes.opportunities.events,
+  },
 ];
 
 export const solutionsNavLinks: readonly LinkItem[] = [
@@ -212,7 +233,7 @@ export const mobileLinks: readonly LinkItem[] = [
   { label: "Solutions", href: a.solutions },
   { label: "Industries", href: a.industries },
   { label: "Who We Are", href: a.whoWeAre },
-  { label: "Opportunities", href: a.opportunities },
+  { label: "Opportunities", href: routes.opportunities.home },
   { label: "Contact", href: a.contact },
 ];
 
