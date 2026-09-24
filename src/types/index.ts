@@ -45,6 +45,61 @@ export interface Service {
   video?: string;
 }
 
+/* ---------------------------------------------------- solution pages -- */
+/** Shared content shape for the reusable solution-detail template — the
+ *  five sections every `/solutions/<slug>` page is built from. */
+export interface SolutionHeroContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+}
+
+export interface SolutionIntroContent {
+  kicker: string;
+  heading: string;
+  paragraphs: readonly string[];
+}
+
+export interface SolutionCapabilityItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface SolutionCapabilitiesContent {
+  kicker: string;
+  heading: string;
+  items: readonly SolutionCapabilityItem[];
+}
+
+export interface SolutionBenefitsContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  points: readonly string[];
+}
+
+export interface SolutionCtaContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
+export interface SolutionPageContent {
+  hero: SolutionHeroContent;
+  intro: SolutionIntroContent;
+  capabilities: SolutionCapabilitiesContent;
+  benefits: SolutionBenefitsContent;
+  cta: SolutionCtaContent;
+}
+
+
 export interface ApproachPhoto {
   src: string;
   alt: string;

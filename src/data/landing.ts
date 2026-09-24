@@ -237,6 +237,17 @@ export const mobileLinks: readonly LinkItem[] = [
   { label: "Contact", href: a.contact },
 ];
 
+/** Where each service card's pill button goes — keyed by the pill's exact
+ *  label so any card can reuse a pill without repeating its href. */
+export const servicePillHref: Record<string, string> = {
+  "Talent Acquisition": routes.solutions.talentAcquisition,
+  "Workforce Solutions": routes.solutions.workforce,
+  "IT Staffing": routes.solutions.itStaffing,
+  "Digital Delivery Support": routes.solutions.digitalDeliverySupport,
+  "Hire, Train and Deploy (HTD)": routes.solutions.hireTrainDeploy,
+  "Managed Capacity": routes.solutions.managedCapacity,
+};
+
 export const services: readonly Service[] = [
   {
     title: "Leadership & Strategic Hiring ",
