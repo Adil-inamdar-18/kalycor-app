@@ -11,12 +11,12 @@ export default function BlogsIntro() {
               {blogsIntro.kicker}
             </p>
 
-            <h2 className="max-w-md text-3xl font-semibold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            <h2 className="max-w-md text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
               {blogsIntro.heading}
             </h2>
           </div>
 
-          <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          <p className="max-w-3xl text-base leading-8 text-muted md:text-lg">
             {blogsIntro.body}
           </p>
         </div>

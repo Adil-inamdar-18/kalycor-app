@@ -11,23 +11,23 @@ export default function BlogGrid() {
           {blogPosts.map((post) => (
             <article
               key={post.title}
-              className="group flex h-full flex-col rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
+              className="group flex h-full flex-col rounded-2xl border border-line bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
                   {post.category}
                 </span>
 
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs text-muted">
                   {post.date}
                 </span>
               </div>
 
-              <h2 className="mt-7 text-xl font-semibold leading-tight text-foreground md:text-2xl">
+              <h2 className="mt-7 text-xl font-semibold leading-tight text-heading md:text-2xl">
                 {post.title}
               </h2>
 
-              <p className="mt-4 flex-1 leading-7 text-muted-foreground">
+              <p className="mt-4 flex-1 leading-7 text-muted">
                 {post.description}
               </p>
 

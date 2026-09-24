@@ -10,7 +10,7 @@ export default function WorkforceCapabilities() {
             {workforceCapabilities.kicker}
           </p>
 
-          <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
             {workforceCapabilities.heading}
           </h2>
         </div>
@@ -19,21 +19,21 @@ export default function WorkforceCapabilities() {
           {workforceCapabilities.items.map((item) => (
             <article
               key={item.number}
-              className="group rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
+              className="group rounded-2xl border border-line bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
             >
               <div className="flex items-start justify-between gap-6">
                 <span className="text-sm font-semibold tracking-[0.15em] text-primary">
                   {item.number}
                 </span>
 
-                <span className="h-px w-12 bg-border transition-all duration-300 group-hover:w-20 group-hover:bg-primary" />
+                <span className="h-px w-12 bg-line transition-all duration-300 group-hover:w-20 group-hover:bg-primary" />
               </div>
 
-              <h3 className="mt-8 text-xl font-semibold text-foreground md:text-2xl">
+              <h3 className="mt-8 text-xl font-semibold text-heading md:text-2xl">
                 {item.title}
               </h3>
 
-              <p className="mt-4 max-w-xl leading-7 text-muted-foreground">
+              <p className="mt-4 max-w-xl leading-7 text-muted">
                 {item.description}
               </p>
             </article>

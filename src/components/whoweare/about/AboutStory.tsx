@@ -11,20 +11,20 @@ export default function AboutStory() {
               {aboutStory.kicker}
             </p>
 
-            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
               {aboutStory.heading}
             </h2>
           </div>
 
           <div className="max-w-3xl space-y-6">
-            <p className="text-base leading-8 text-foreground md:text-lg">
+            <p className="text-base leading-8 text-heading md:text-lg">
               {aboutStory.body}
             </p>
 
             {aboutStory.paragraphs.map((paragraph) => (
               <p
                 key={paragraph}
-                className="text-base leading-8 text-muted-foreground md:text-lg"
+                className="text-base leading-8 text-muted md:text-lg"
               >
                 {paragraph}
               </p>

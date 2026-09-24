@@ -86,7 +86,13 @@ export function Button(props: ButtonProps) {
 
   const classes = unstyled
     ? className
-    : cn(base, variants[variant], sizes[size], block && 'w-full', className);
+    : // `sizes[size]` comes before `variants[variant]` on purpose: the size
+      // classes include this project's custom font-size tokens
+      // (text-caption / text-button / text-body), which tailwind-merge
+      // doesn't recognise as font sizes and instead treats as text-color
+      // utilities. Ordering the variant's real text color last means it's
+      // the one tailwind-merge keeps when it (incorrectly) dedupes the two.
+      cn(base, sizes[size], variants[variant], block && 'w-full', className);
 
   const content = (
     <>

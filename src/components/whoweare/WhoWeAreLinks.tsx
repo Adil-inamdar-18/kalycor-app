@@ -12,12 +12,12 @@ export default function WhoWeAreLinks() {
             Explore Kalycor
           </p>
 
-          <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
             Discover More About Who We Are
           </h2>
         </div>
 
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
           {whoWeAreLinks.map((link) => (
             <Link
               key={link.title}
@@ -26,16 +26,16 @@ export default function WhoWeAreLinks() {
             >
               <div className="flex items-start justify-between gap-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-primary-foreground md:text-2xl">
+                  <h3 className="text-xl font-semibold text-heading transition-colors duration-300 group-hover:text-primary-fg md:text-2xl">
                     {link.title}
                   </h3>
 
-                  <p className="mt-4 max-w-md leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-primary-foreground/80">
+                  <p className="mt-4 max-w-md leading-7 text-muted transition-colors duration-300 group-hover:text-primary-fg/80">
                     {link.description}
                   </p>
                 </div>
 
-                <span className="text-2xl text-primary transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-foreground">
+                <span className="text-2xl text-primary transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-fg">
                   →
                 </span>
               </div>
