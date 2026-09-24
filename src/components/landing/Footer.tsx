@@ -75,7 +75,10 @@ export function Footer() {
           <Link href={anchors.landing.contact} className="text-caption underline">
             Candidate Portal Login
           </Link>
-          <CtaPair className="flex items-center gap-2.5" size="sm" />
+          <CtaPair
+            className="flex items-center gap-2.5 [--btn-outline-bg-hover:var(--inverse-fg)] [--btn-outline-border:var(--inverse-fg)] [--btn-outline-fg:var(--inverse-fg)] [--btn-outline-fg-hover:var(--inverse)]"
+            size="sm"
+          />
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-inverse-fg/[0.12] py-5 text-caption text-inverse-fg/55">

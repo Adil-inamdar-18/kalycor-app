@@ -141,15 +141,15 @@
   --space-8: 64px;
   --space-9: 80px;
 
-  --section-py: 96px;      /* default vertical rhythm for <Section> */
+  --section-py: 96px; /* default vertical rhythm for <Section> */
   --section-py-sm: 72px;
   --section-py-lg: 110px;
-  --content-gap: 24px;     /* gap between cards / grid cells          */
+  --content-gap: 24px; /* gap between cards / grid cells          */
   --card-padding: 24px;
 
   /* ======================================================== 4. LAYOUT ==== */
   --container-max: 1200px; /* max content width                       */
-  --container-pad: 32px;   /* inner horizontal padding                */
+  --container-pad: 32px; /* inner horizontal padding                */
   --container-gutter: 0px; /* outer breathing room                    */
 
   --radius-none: 0px;
@@ -277,7 +277,7 @@
    The three pages share every component; only these variables differ.
    -------------------------------------------------------------------------- */
 
-[data-surface='landing'] {
+[data-surface="landing"] {
   --bg: var(--k-paper-50);
   --surface: var(--k-white);
   --surface-alt: var(--k-blue-50);
@@ -301,7 +301,7 @@
   --brand-size: 24px;
 }
 
-[data-surface='jobs'] {
+[data-surface="jobs"] {
   --bg: var(--k-paper-50);
   --surface: var(--k-white);
   --surface-alt: var(--k-blue-50);
@@ -339,7 +339,7 @@
   --brand-secondary: var(--heading);
 }
 
-[data-surface='business'] {
+[data-surface="business"] {
   --bg: var(--k-paper-50);
   --surface: var(--k-white);
   --surface-alt: var(--k-blue-50);
@@ -393,6 +393,27 @@
     text-wrap: balance;
   }
 
+  /* Headings always resolve their own color above, so they never pick up
+     an ancestor's text color through inheritance — even when a section
+     opts into light text with `text-white` / `text-inverse-fg` for a dark
+     background. Let headings inherit in that case instead of forcing the
+     surface's (dark) --heading tone on them. Scoped to text color only, so
+     it never touches backgrounds on this or any other section. */
+  .text-white h1,
+  .text-white h2,
+  .text-white h3,
+  .text-white h4,
+  .text-white h5,
+  .text-white h6,
+  .text-inverse-fg h1,
+  .text-inverse-fg h2,
+  .text-inverse-fg h3,
+  .text-inverse-fg h4,
+  .text-inverse-fg h5,
+  .text-inverse-fg h6 {
+    color: inherit;
+  }
+
   /* Keyboard focus ring follows the active surface's primary colour. */
   :focus-visible {
     outline: 2px solid hsl(var(--primary));
@@ -421,17 +442,17 @@
     color: hsl(var(--primary-fg));
   }
 
-  [data-surface='business'] ::-webkit-scrollbar {
+  [data-surface="business"] ::-webkit-scrollbar {
     width: 8px;
   }
-  [data-surface='business'] ::-webkit-scrollbar-track {
+  [data-surface="business"] ::-webkit-scrollbar-track {
     background: hsl(var(--k-blue-50));
   }
-  [data-surface='business'] ::-webkit-scrollbar-thumb {
+  [data-surface="business"] ::-webkit-scrollbar-thumb {
     background: hsl(var(--k-navy-900) / 0.3);
     border-radius: 4px;
   }
-  [data-surface='business'] ::-webkit-scrollbar-thumb:hover {
+  [data-surface="business"] ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--k-navy-900) / 0.5);
   }
 

@@ -11,12 +11,12 @@ export default function OpportunitiesIntro() {
               {opportunitiesIntro.kicker}
             </p>
 
-            <h2 className="max-w-md text-3xl font-semibold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            <h2 className="max-w-md text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
               {opportunitiesIntro.heading}
             </h2>
           </div>
 
-          <div className="max-w-3xl space-y-6 text-base leading-8 text-muted-foreground md:text-lg">
+          <div className="max-w-3xl space-y-6 text-base leading-8 text-muted md:text-lg">
             {opportunitiesIntro.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
