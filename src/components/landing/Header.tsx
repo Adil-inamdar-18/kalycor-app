@@ -6,19 +6,36 @@ import Link from "next/link";
 
 import { Brand, Container } from "@/components/layout";
 import { site } from "@/config/site";
-import { anchors } from "@/config/routes";
+import routes, { anchors } from "@/config/routes";
 import { getLandingData } from "@/services/siteService";
 import { cn } from "@/lib/utils";
 
 import NavDropdown from "./NavDropdown";
 import CtaPair from "./CtaPair";
 
+/** Where each mega-menu's "overview" link goes — mirrors the click
+ *  behaviour of the desktop NavDropdown trigger. */
+const menuOverviewHref: Record<string, string> = {
+  solutions: `${routes.home}${anchors.landing.solutions}`,
+  industries: `${routes.home}${anchors.landing.industries}`,
+  opportunities: routes.opportunities.home,
+  "who-we-are": routes.whoWeAre.home,
+};
+
 export function Header() {
-  const { navMenus, mobileLinks } = getLandingData();
+  const { navMenus } = getLandingData();
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenSection(null);
+  };
+
+  const toggleSection = (key: string) => {
+    setOpenSection((current) => (current === key ? null : key));
+  };
 
   const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -111,19 +128,76 @@ export function Header() {
         className={cn(
           "flex-col gap-0.5 border-t border-line bg-surface",
           "px-container-pad pb-6 pt-3 nav:hidden",
+          "max-h-[calc(100dvh-76px)] overflow-y-auto",
           menuOpen ? "flex" : "hidden",
         )}
       >
-        {mobileLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            onClick={closeMenu}
-            className="border-b border-line px-1 py-3 text-body font-medium text-heading"
-          >
-            {link.label}
-          </Link>
-        ))}
+        <Link
+          href={anchors.landing.home}
+          onClick={handleLogoClick}
+          className="border-b border-line px-1 py-3 text-body font-medium text-heading"
+        >
+          Home
+        </Link>
+
+        {navMenus.map((menu) => {
+          const isExpanded = openSection === menu.key;
+
+          return (
+            <div key={menu.key} className="border-b border-line">
+              <button
+                type="button"
+                onClick={() => toggleSection(menu.key)}
+                aria-expanded={isExpanded}
+                aria-controls={`mobileSection-${menu.key}`}
+                className="flex w-full items-center justify-between px-1 py-3 text-left text-body font-medium text-heading"
+              >
+                {menu.label}
+                <span
+                  className={cn(
+                    "text-[11px] text-paragraph transition-transform duration-fast",
+                    isExpanded && "rotate-180",
+                  )}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div
+                id={`mobileSection-${menu.key}`}
+                className={cn(
+                  "grid transition-all duration-fast",
+                  isExpanded
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0",
+                )}
+              >
+                <div className="overflow-hidden">
+                  <div className="flex flex-col gap-0.5 pb-3 pl-3">
+                    <Link
+                      href={menuOverviewHref[menu.key] ?? "#"}
+                      onClick={closeMenu}
+                      className="py-2 text-sm font-semibold text-heading"
+                    >
+                      {menu.kicker ?? menu.label} overview
+                    </Link>
+
+                    {(menu.links ?? []).map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        onClick={closeMenu}
+                        className="py-2 text-sm text-paragraph"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
 
         {/* Mobile Contact CTA */}
         <Link
