@@ -9,7 +9,7 @@ import { getLandingData } from "@/services/siteService";
 import { anchors } from "@/config/routes";
 
 export function Services() {
-  const { services } = getLandingData();
+  const { services, servicePillHref } = getLandingData();
   const gridRef = useRef<HTMLDivElement>(null);
 
   // Move cards with arrows
@@ -235,7 +235,9 @@ export function Services() {
                     {service.pills.map((pill) => (
                       <Link
                         key={pill}
-                        href={anchors.landing.solutions}
+                        href={
+                          servicePillHref[pill] ?? anchors.landing.solutions
+                        }
                         className="
                           inline-block
                           rounded-pill

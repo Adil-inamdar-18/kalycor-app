@@ -15,6 +15,11 @@ export const routes = {
     technologySolutions: "/solutions/technology-solutions",
     careerOpportunities: "/solutions/career-opportunities",
     customizedSolutions: "/solutions/customized-solutions",
+    talentAcquisition: "/solutions/talent-acquisition",
+    itStaffing: "/solutions/it-staffing",
+    digitalDeliverySupport: "/solutions/digital-delivery-support",
+    hireTrainDeploy: "/solutions/hire-train-deploy",
+    managedCapacity: "/solutions/managed-capacity",
   },
 
   opportunities: {
