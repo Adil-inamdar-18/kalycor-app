@@ -184,6 +184,14 @@ export interface IndustryPage {
     description: string;
     primaryCta: LinkItem;
     secondaryCta: LinkItem;
+    /** Index of the title line rendered with the green gradient. */
+    accentLine?: number;
+    /** Two small floating cards over the image (icon = lucide name key). */
+    badges?: readonly { icon: string; title: string; subtitle: string }[];
+    /** Feature row shown under the buttons. */
+    highlights?: readonly { icon: string; label: string }[];
+    /** Video for the "Watch Our Story" button. Button hidden when omitted. */
+    storyVideo?: string;
   };
 
   overview: {
@@ -204,7 +212,13 @@ export interface IndustryPage {
     kicker: string;
     heading: string;
     description: string;
-    steps: readonly { number: string; title: string; description: string }[];
+    steps: readonly {
+      number: string;
+      title: string;
+      description: string;
+      /** Optional card photo; falls back to a shared default. */
+      image?: string;
+    }[];
   };
 
   solutions: {

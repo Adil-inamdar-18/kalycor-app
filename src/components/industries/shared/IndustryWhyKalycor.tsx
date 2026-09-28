@@ -36,13 +36,6 @@ export function IndustryWhyKalycor({
                 index === 0 && 'sm:col-span-2 lg:col-span-1 lg:row-span-2'
               )}
             >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute right-3 top-0 select-none font-heading text-[88px] font-bold leading-none text-line/50"
-              >
-                {item.number}
-              </span>
-
               <div className="relative z-10">
                 <h3 className="max-w-[22ch] text-h3 font-semibold leading-tight text-heading transition-colors duration-300 group-hover:text-accent">
                   {item.title}

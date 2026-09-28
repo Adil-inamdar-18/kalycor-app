@@ -38,14 +38,14 @@ export default function AgriculturePage() {
         <IndustryStats stats={data.stats} />
         <IndustryOverview overview={data.overview} />
         <IndustryProcess process={data.process} />
-        <IndustrySolutions solutions={data.solutions} />
-        <IndustryCaseStudy caseStudy={data.caseStudy} />
+        {/* <IndustrySolutions solutions={data.solutions} /> */}
+        {/* <IndustryCaseStudy caseStudy={data.caseStudy} /> */}
         <IndustryAreas areas={data.areas} />
         <IndustryTestimonials testimonials={data.testimonials} />
         <IndustryWhyKalycor whyKalycor={data.whyKalycor} />
-        <IndustryFuture future={data.future} />
+        {/* <IndustryFuture future={data.future} /> */}
         <IndustryFAQ faq={data.faq} />
-        <IndustryCTA cta={data.cta} />
+        {/* <IndustryCTA cta={data.cta} /> */}
       </main>
       <Footer />
     </>

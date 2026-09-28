@@ -3,13 +3,13 @@ import { Container } from '@/components/layout';
 import type { IndustryPage } from '@/types';
 
 /**
- * A floating proof-point strip that overlaps the bottom edge of the hero,
+ * A floating proof-point strip that sits just below the hero,
  * rather than a full-width band — keeps the page from reading as a stack
  * of identical horizontal sections.
  */
 export function IndustryStats({ stats }: { stats: IndustryPage['stats'] }) {
   return (
-    <div className="relative z-10 -mt-8 sm:-mt-12 lg:-mt-16">
+    <div className="relative z-10 mt-6 lg:mt-10">
       <Container>
         <div className="overflow-hidden rounded-panel bg-inverse text-inverse-fg shadow-deep">
           <div className="flex items-center justify-between gap-4 border-b border-inverse-fg/10 px-6 py-5 sm:px-8">
