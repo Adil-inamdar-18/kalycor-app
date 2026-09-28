@@ -2,11 +2,16 @@ import type { Metadata } from 'next';
 import { Footer, Header } from '@/components/landing';
 import {
   IndustryHero,
+  IndustryStats,
   IndustryOverview,
+  IndustryProcess,
   IndustrySolutions,
+  IndustryCaseStudy,
   IndustryAreas,
-  IndustryFuture,
+  IndustryTestimonials,
   IndustryWhyKalycor,
+  IndustryFuture,
+  IndustryFAQ,
   IndustryCTA,
 } from '@/components/industries/shared';
 import { getIndustryData } from '@/services/siteService';
@@ -30,11 +35,16 @@ export default function ImportExportPage() {
       <Header />
       <main>
         <IndustryHero hero={data.hero} />
+        <IndustryStats stats={data.stats} />
         <IndustryOverview overview={data.overview} />
+        <IndustryProcess process={data.process} />
         <IndustrySolutions solutions={data.solutions} />
+        <IndustryCaseStudy caseStudy={data.caseStudy} />
         <IndustryAreas areas={data.areas} />
-        <IndustryFuture future={data.future} />
+        <IndustryTestimonials testimonials={data.testimonials} />
         <IndustryWhyKalycor whyKalycor={data.whyKalycor} />
+        <IndustryFuture future={data.future} />
+        <IndustryFAQ faq={data.faq} />
         <IndustryCTA cta={data.cta} />
       </main>
       <Footer />

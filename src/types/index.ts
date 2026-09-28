@@ -194,6 +194,19 @@ export interface IndustryPage {
     areas: readonly string[];
   };
 
+  stats: {
+    kicker: string;
+    heading: string;
+    items: readonly { value: string; label: string }[];
+  };
+
+  process: {
+    kicker: string;
+    heading: string;
+    description: string;
+    steps: readonly { number: string; title: string; description: string }[];
+  };
+
   solutions: {
     id: string;
     kicker: string;
@@ -202,11 +215,26 @@ export interface IndustryPage {
     items: readonly NumberedItem[];
   };
 
+  caseStudy: {
+    kicker: string;
+    heading: string;
+    client: string;
+    challenge: string;
+    approach: string;
+    results: readonly { value: string; label: string }[];
+  };
+
   areas: {
     kicker: string;
     heading: string;
     description: string;
     items: readonly NumberedItem[];
+  };
+
+  testimonials: {
+    kicker: string;
+    heading: string;
+    items: readonly { quote: string; name: string; role: string }[];
   };
 
   future: {
@@ -220,6 +248,13 @@ export interface IndustryPage {
     heading: string;
     description: string;
     items: readonly NumberedItem[];
+  };
+
+  faq: {
+    kicker: string;
+    heading: string;
+    description: string;
+    items: readonly { question: string; answer: string }[];
   };
 
   cta: {
