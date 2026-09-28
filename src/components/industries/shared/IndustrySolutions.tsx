@@ -1,7 +1,5 @@
 import { Container, Section } from '@/components/layout';
 
-import { cn } from '@/lib/utils';
-
 import type { IndustryPage } from '@/types';
 
 export function IndustrySolutions({
@@ -27,15 +25,12 @@ export function IndustrySolutions({
           </p>
         </div>
 
-        {/* Bento grid — first card is featured and spans two rows on desktop */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
-          {solutions.items.map((item, index) => (
+        {/* Solution Cards */}
+        <div className="mt-14 grid overflow-hidden rounded-card border border-inverse-fg/10 bg-inverse-fg/10 md:grid-cols-2">
+          {solutions.items.map((item) => (
             <article
               key={item.number}
-              className={cn(
-                'group relative flex flex-col justify-between overflow-hidden rounded-card border border-inverse-fg/10 bg-inverse-fg/[0.04] p-7 transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:bg-inverse-fg/[0.08] sm:p-8',
-                index === 0 && 'sm:col-span-2 lg:col-span-2 lg:row-span-2'
-              )}
+              className="group relative bg-inverse p-7 transition-colors duration-slow hover:bg-inverse-fg/[0.05] sm:p-9 lg:p-10"
             >
               {/* Accent line */}
               <div
@@ -56,20 +51,19 @@ export function IndustrySolutions({
                 </span>
               </div>
 
-              <div className="mt-10">
-                <h3
-                  className={cn(
-                    'max-w-md text-h3 font-semibold leading-tight text-inverse-fg',
-                    index === 0 && 'sm:text-[1.75rem] lg:text-[2rem]'
-                  )}
-                >
-                  {item.title}
-                </h3>
+              <h3 className="mt-10 max-w-md text-h3 font-semibold leading-tight text-inverse-fg sm:text-[1.75rem]">
+                {item.title}
+              </h3>
 
-                <p className="mt-4 max-w-lg text-body leading-7 text-inverse-fg/60 transition-colors duration-slow group-hover:text-inverse-fg/75">
-                  {item.description}
-                </p>
-              </div>
+              <p className="mt-4 max-w-lg text-body leading-7 text-inverse-fg/60 transition-colors duration-slow group-hover:text-inverse-fg/75">
+                {item.description}
+              </p>
+
+              {/* Bottom accent */}
+              <div
+                className="mt-10 h-px w-10 bg-inverse-fg/10 transition-all duration-slow group-hover:w-16 group-hover:bg-accent/60"
+                aria-hidden="true"
+              />
             </article>
           ))}
         </div>
