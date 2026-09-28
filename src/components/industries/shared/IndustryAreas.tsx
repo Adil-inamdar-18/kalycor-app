@@ -4,16 +4,17 @@ import type { IndustryPage } from '@/types';
 
 export function IndustryAreas({ areas }: { areas: IndustryPage['areas'] }) {
   return (
-    <Section as="section" tone="surface" className="overflow-hidden">
+    <Section as="section" tone="surface">
       <Container>
         {/* Header */}
-        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <div className="max-w-3xl">
-            <p className="mb-4 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-16">
+          <div className="max-w-2xl">
+            <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
+              <span className="h-px w-10 bg-accent" aria-hidden="true" />
               {areas.kicker}
             </p>
 
-            <h2 className="text-h2 font-semibold leading-tight tracking-tight text-heading">
+            <h2 className="text-h2 font-bold leading-[1.08] tracking-tight text-heading">
               {areas.heading}
             </h2>
           </div>
@@ -22,44 +23,34 @@ export function IndustryAreas({ areas }: { areas: IndustryPage['areas'] }) {
             {areas.description}
           </p>
         </div>
-      </Container>
 
-      {/* Horizontal scroll rail */}
-      <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:none] sm:px-[max(theme(spacing.6),calc((100vw-theme(maxWidth.container))/2+theme(spacing.6)))] [&::-webkit-scrollbar]:hidden">
-        {areas.items.map((item) => (
-          <div
-            key={item.number}
-            className="group relative flex min-h-[280px] w-[260px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-card border border-line bg-surface-alt p-7 transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:shadow-float sm:w-[280px] sm:p-8"
-          >
-            {/* Number */}
-            <span className="relative z-10 font-heading text-caption font-medium text-accent">
-              {item.number}
-            </span>
+        {/* Cards: a plain grid so every card lines up and nothing is cut off */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {areas.items.map((item) => (
+            <article
+              key={item.number}
+              className="group relative flex flex-col overflow-hidden rounded-card border border-line bg-surface-alt p-7 transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:bg-surface hover:shadow-float sm:p-8"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-100 font-heading text-body-sm font-semibold text-teal-700 transition-colors duration-slow group-hover:bg-accent group-hover:text-primary-fg">
+                {item.number}
+              </span>
 
-            {/* Content */}
-            <div className="relative z-10">
-              <h3 className="text-h3 font-semibold leading-tight text-heading">
+              <h3 className="mt-6 text-h3 font-semibold leading-tight text-heading">
                 {item.title}
               </h3>
 
-              <p className="mt-4 text-body-sm leading-7 text-muted">
+              <p className="mt-3 text-body-sm leading-7 text-muted">
                 {item.description}
               </p>
-            </div>
 
-            {/* Decorative element */}
-            <div
-              className="absolute -bottom-16 -right-16 h-32 w-32 rounded-full border border-accent/20 transition-transform duration-slower ease-out group-hover:scale-150"
-              aria-hidden="true"
-            />
-          </div>
-        ))}
-      </div>
-
-      <Container>
-        <p className="mt-2 text-caption text-muted sm:hidden">
-          Swipe to see more →
-        </p>
+              {/* Accent line that grows on hover */}
+              <span
+                className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-slow group-hover:scale-x-100"
+                aria-hidden="true"
+              />
+            </article>
+          ))}
+        </div>
       </Container>
     </Section>
   );

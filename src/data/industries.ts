@@ -21,7 +21,14 @@ export const agriculture: IndustryPage = {
   hero: {
     image: "/images/industries/agriculture.jpeg",
     kicker: "Agriculture",
-    title: ["Empowering Agriculture.", "Growing What’s Next."],
+    title: ["Empowering", "Agriculture.", "Growing What’s Next."],
+    accentLine: 1,
+    highlights: [
+      { icon: "sprout", label: "Higher Yields" },
+      { icon: "shield", label: "Sustainable Practices" },
+      { icon: "settings", label: "Smart Technology" },
+      { icon: "users", label: "Stronger Communities" },
+    ],
     description:
       "Connecting agriculture businesses with the people, technology, and solutions they need to build more efficient, sustainable, and resilient operations.",
     primaryCta: {
