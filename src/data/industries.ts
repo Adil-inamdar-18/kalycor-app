@@ -30,6 +30,16 @@ export const agriculture: IndustryPage = {
     },
     secondaryCta: contactCta,
   },
+  stats: {
+    kicker: "Agriculture at a Glance",
+    heading: "Field-tested workforce and technology support",
+    items: [
+      { value: "500+", label: "Agriculture and agritech professionals placed" },
+      { value: "18", label: "States supported across farm and food-production operations" },
+      { value: "92%", label: "Client retention across multi-season contracts" },
+      { value: "72 hrs", label: "Average time to deploy a qualified field team" },
+    ],
+  },
   overview: {
     id: "agriculture-overview",
     kicker: "Agriculture Industry",
@@ -45,7 +55,39 @@ export const agriculture: IndustryPage = {
       "Agricultural Equipment & Technology",
     ],
   },
-  solutions: {
+    process: {
+    kicker: "How We Work",
+    heading: "From Brief to Boots on the Ground",
+    description:
+      "A straightforward process built to get the right agricultural talent in place without slowing down your season.",
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Operation",
+        description:
+          "We learn your crop cycles, sites, and the roles that keep your operation running.",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "We tap our agriculture network and vet candidates for skills, reliability, and safety compliance.",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected candidates are onboarded and placed on-site, ready to work within days.",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We stay engaged through the season, adjusting headcount as planting, harvest, and demand shift.",
+      },
+    ],
+  },
+solutions: {
     id: "agriculture-solutions",
     kicker: "What We Do",
     heading: "Solutions Built for Agriculture",
@@ -78,7 +120,21 @@ export const agriculture: IndustryPage = {
       },
     ],
   },
-  areas: {
+    caseStudy: {
+    kicker: "Case Study",
+    heading: "Staffing a Harvest Season Without the Scramble",
+    client: "Regional Produce & Food-Processing Operator",
+    challenge:
+      "A multi-site produce operator needed to more than double its field and packing-line headcount within three weeks of harvest, without compromising on safety compliance.",
+    approach:
+      "We activated our regional agriculture talent pool, ran expedited screening against the client's safety and food-handling standards, and staged onboarding across sites so teams were ready before the first truck arrived.",
+    results: [
+      { value: "140", label: "Field and packing roles filled in 18 days" },
+      { value: "0", label: "Safety compliance issues across the season" },
+      { value: "3 sites", label: "Staffed on a single coordinated timeline" },
+    ],
+  },
+areas: {
     kicker: "Our Focus Areas",
     heading: "Where We Create Impact",
     description:
@@ -122,7 +178,31 @@ export const agriculture: IndustryPage = {
       },
     ],
   },
-  future: {
+    testimonials: {
+    kicker: "What Clients Say",
+    heading: "Trusted Across the Agriculture Sector",
+    items: [
+      {
+        quote:
+          "Kalycor understood our harvest timeline from day one. They had qualified field staff on site faster than any agency we'd used before.",
+        name: "Operations Director",
+        role: "Regional Produce Operator",
+      },
+      {
+        quote:
+          "What stood out was the compliance rigor. Every worker they placed was properly screened before they set foot on our packing line.",
+        name: "Plant Manager",
+        role: "Food Processing Facility",
+      },
+      {
+        quote:
+          "They flex with our seasons instead of forcing us into a fixed contract. That adaptability has made them our go-to partner.",
+        name: "VP of Operations",
+        role: "Multi-Site Agribusiness",
+      },
+    ],
+  },
+future: {
     kicker: "The Future of Agriculture",
     title: ["From Field", "to Future."],
     description:
@@ -130,7 +210,7 @@ export const agriculture: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "Rooted in Agriculture. Built for Growth.",
     description:
       "We bring together people, expertise, and technology to help agriculture businesses respond to today’s challenges and build for tomorrow.",
     items: [
@@ -166,6 +246,34 @@ export const agriculture: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Agriculture Staffing, Answered",
+    description:
+      "Straight answers to what agriculture and agritech businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you staff up quickly for harvest and peak seasons?",
+        answer:
+          "Yes. We keep a ready pipeline of vetted field, processing, and logistics workers so seasonal teams can scale up or down within days, not weeks.",
+      },
+      {
+        question: "Do you handle compliance for farm and food-production labor?",
+        answer:
+          "Every placement is screened against relevant labor, safety, and food-handling requirements so you can onboard workers with confidence.",
+      },
+      {
+        question: "Can you help us find agritech and precision-farming talent?",
+        answer:
+          "We recruit across agronomy, equipment technology, and farm-management software, connecting you with specialists who understand both agriculture and technology.",
+      },
+      {
+        question: "What if our staffing needs change mid-season?",
+        answer:
+          "Our workforce solutions are built to flex. We adjust team size and skill mix as conditions, yields, and demand shift throughout the season.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Grow Together",
     title: ["Ready to Grow", "What’s Next?"],
@@ -192,6 +300,16 @@ export const importExport: IndustryPage = {
     },
     secondaryCta: contactCta,
   },
+  stats: {
+    kicker: "Global Trade at a Glance",
+    heading: "Coverage across borders and supply chains",
+    items: [
+      { value: "40+", label: "Countries touched through client trade operations" },
+      { value: "300+", label: "Logistics and trade professionals placed" },
+      { value: "15 days", label: "Average time to staff a new warehouse or trade desk" },
+      { value: "95%", label: "Client satisfaction across cross-border engagements" },
+    ],
+  },
   overview: {
     id: "import-export-overview",
     kicker: "Import & Export Industry",
@@ -207,7 +325,39 @@ export const importExport: IndustryPage = {
       "Trade Technology & Solutions",
     ],
   },
-  solutions: {
+    process: {
+    kicker: "How We Work",
+    heading: "From Brief to Border-Ready Teams",
+    description:
+      "A clear process for standing up trade, logistics, and warehousing teams wherever your business operates.",
+    steps: [
+      {
+        number: "01",
+        title: "Map the Requirement",
+        description:
+          "We learn your trade lanes, compliance needs, and the roles each market requires.",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "Candidates are matched for trade experience, language fluency, and regulatory knowledge.",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Teams are onboarded and placed at your warehouse, trade desk, or logistics hub.",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust staffing as trade volumes, markets, and seasonal demand change.",
+      },
+    ],
+  },
+solutions: {
     id: "import-export-solutions",
     kicker: "What We Do",
     heading: "Solutions for a Connected World",
@@ -240,7 +390,21 @@ export const importExport: IndustryPage = {
       },
     ],
   },
-  areas: {
+    caseStudy: {
+    kicker: "Case Study",
+    heading: "Standing Up a New Import Hub in Two Weeks",
+    client: "Mid-Size Import & Distribution Business",
+    challenge:
+      "A growing importer needed a fully staffed warehouse and trade-documentation desk in a new region, with no existing local hiring network.",
+    approach:
+      "We recruited and screened warehouse, logistics, and trade-compliance staff locally, coordinated onboarding around the client's launch date, and stayed on to support the first two months of ramp-up.",
+    results: [
+      { value: "45", label: "Roles filled across warehouse and trade desk" },
+      { value: "14 days", label: "From kickoff to a fully staffed site" },
+      { value: "100%", label: "Roles retained through the ramp-up period" },
+    ],
+  },
+areas: {
     kicker: "Our Focus Areas",
     heading: "Where We Create Impact",
     description:
@@ -284,7 +448,31 @@ export const importExport: IndustryPage = {
       },
     ],
   },
-  future: {
+    testimonials: {
+    kicker: "What Clients Say",
+    heading: "Trusted Across Global Trade",
+    items: [
+      {
+        quote:
+          "We needed a warehouse staffed in a market we'd never operated in. Kalycor had a full team trained and ready inside two weeks.",
+        name: "Logistics Director",
+        role: "Import & Distribution Business",
+      },
+      {
+        quote:
+          "Their understanding of trade compliance saved us from hiring mistakes we'd made in the past. Every candidate came pre-vetted for the role.",
+        name: "Head of Trade Compliance",
+        role: "International Sourcing Company",
+      },
+      {
+        quote:
+          "As we've expanded into new markets, Kalycor has expanded with us. It genuinely feels like one partner across every region.",
+        name: "COO",
+        role: "Global Trade & Logistics Firm",
+      },
+    ],
+  },
+future: {
     kicker: "The Future of Global Trade",
     title: ["From Local", "to Global."],
     description:
@@ -292,7 +480,7 @@ export const importExport: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "One Partner. Every Border.",
     description:
       "We bring together people, expertise, and technology to help businesses operate more effectively in an increasingly connected global economy.",
     items: [
@@ -328,6 +516,34 @@ export const importExport: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Global Trade Staffing, Answered",
+    description:
+      "Straight answers to what import and export businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you support staffing across multiple countries at once?",
+        answer:
+          "Yes. We coordinate hiring for trade, logistics, and warehousing roles across markets, so your operations stay consistent wherever you expand.",
+      },
+      {
+        question: "Do you place people with customs and compliance experience?",
+        answer:
+          "We recruit professionals experienced in customs documentation, trade compliance, and international shipping regulations to keep your operations audit-ready.",
+      },
+      {
+        question: "Can you find multilingual talent for global accounts?",
+        answer:
+          "Language and market fluency are part of our screening for international sourcing, sales, and account-management roles.",
+      },
+      {
+        question: "How quickly can you ramp up a new warehouse or trade desk?",
+        answer:
+          "Most warehouse and trade-desk teams are fully staffed within about two weeks, with core roles filled even faster when timelines are tight.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Move Forward",
     title: ["Ready to Move", "What’s Next?"],
@@ -355,6 +571,16 @@ export const realEstate: IndustryPage = {
     },
     secondaryCta: contactCta,
   },
+  stats: {
+    kicker: "Real Estate at a Glance",
+    heading: "Teams that keep properties and projects moving",
+    items: [
+      { value: "250+", label: "Property and facilities teams built" },
+      { value: "1,200+", label: "Units supported across managed portfolios" },
+      { value: "10 days", label: "Average time to fill property management roles" },
+      { value: "90%", label: "Clients who return for their next project" },
+    ],
+  },
   overview: {
     id: "real-estate-overview",
     kicker: "Real Estate Industry",
@@ -370,7 +596,39 @@ export const realEstate: IndustryPage = {
       "Facilities & Operations",
     ],
   },
-  solutions: {
+    process: {
+    kicker: "How We Work",
+    heading: "From Brief to Boots on the Property",
+    description:
+      "A dependable process for building property, facilities, and construction-support teams as your portfolio grows.",
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Portfolio",
+        description:
+          "We learn your properties, project timelines, and the roles each site needs.",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "Candidates are matched for property, facilities, or construction-support experience.",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Teams are onboarded and placed across your properties or project sites.",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust staffing as your portfolio, projects, and tenant needs evolve.",
+      },
+    ],
+  },
+solutions: {
     id: "real-estate-solutions",
     kicker: "What We Do",
     heading: "Solutions for a Changing Property Landscape",
@@ -403,7 +661,21 @@ export const realEstate: IndustryPage = {
       },
     ],
   },
-  areas: {
+    caseStudy: {
+    kicker: "Case Study",
+    heading: "Scaling a Property Management Team Across a Growing Portfolio",
+    client: "Regional Property Management Firm",
+    challenge:
+      "A property manager acquiring several new buildings needed to staff leasing, maintenance, and tenant-support roles across sites within a single quarter.",
+    approach:
+      "We built a rolling recruitment pipeline matched to each property's needs, staggered onboarding around acquisition dates, and provided ongoing support as the portfolio kept growing.",
+    results: [
+      { value: "60+", label: "Property and facilities roles placed" },
+      { value: "1,200+", label: "Units brought under staffed management" },
+      { value: "90%", label: "First-year retention across placed staff" },
+    ],
+  },
+areas: {
     kicker: "Our Focus Areas",
     heading: "Where We Create Impact",
     description:
@@ -447,7 +719,31 @@ export const realEstate: IndustryPage = {
       },
     ],
   },
-  future: {
+    testimonials: {
+    kicker: "What Clients Say",
+    heading: "Trusted Across Real Estate",
+    items: [
+      {
+        quote:
+          "As we acquired new properties, Kalycor scaled our property management team right alongside us, without a single gap in coverage.",
+        name: "Portfolio Manager",
+        role: "Regional Property Management Firm",
+      },
+      {
+        quote:
+          "Their construction-support staffing kept our project on schedule when our own hiring pipeline couldn't keep up.",
+        name: "Project Director",
+        role: "Commercial Construction Firm",
+      },
+      {
+        quote:
+          "Tenant-facing roles are hard to get right. Kalycor's candidates consistently fit our culture and stayed long-term.",
+        name: "Director of Operations",
+        role: "Residential Property Group",
+      },
+    ],
+  },
+future: {
     kicker: "The Future of Real Estate",
     title: ["From Property", "to Possibility."],
     description:
@@ -455,7 +751,7 @@ export const realEstate: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "From Blueprint to Building.",
     description:
       "We bring together people, expertise, and technology to help real estate businesses operate more effectively and create opportunities for sustainable growth.",
     items: [
@@ -491,6 +787,34 @@ export const realEstate: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Real Estate Staffing, Answered",
+    description:
+      "Straight answers to what property and real estate businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you staff a growing property portfolio as it scales?",
+        answer:
+          "Yes. We build property-management and facilities teams that expand with your portfolio, from a handful of units to large, multi-site operations.",
+      },
+      {
+        question: "Do you supply workforce support for construction projects?",
+        answer:
+          "We place workforce and professional-services support across construction and infrastructure projects, coordinated around your project timelines.",
+      },
+      {
+        question: "Can you help fill leasing and tenant-facing roles quickly?",
+        answer:
+          "Leasing, tenant support, and customer-service roles are among our fastest fills, since we maintain an active pipeline of property-experienced candidates.",
+      },
+      {
+        question: "Do you support both commercial and residential portfolios?",
+        answer:
+          "We work across commercial, residential, and mixed-use portfolios, tailoring teams to the operational needs of each property type.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Build Together",
     title: ["Ready to Build", "What’s Next?"],
@@ -515,6 +839,16 @@ export const security: IndustryPage = {
     primaryCta: { label: "Explore Our Solutions", href: "#security-solutions" },
     secondaryCta: contactCta,
   },
+  stats: {
+    kicker: "Security at a Glance",
+    heading: "Dependable coverage when it matters most",
+    items: [
+      { value: "350+", label: "Security and risk professionals deployed" },
+      { value: "24/7", label: "Coverage supported across client sites" },
+      { value: "99%", label: "Screening and compliance pass rate" },
+      { value: "48 hrs", label: "Average time to mobilize a security team" },
+    ],
+  },
   overview: {
     id: "security-overview",
     kicker: "Security Industry",
@@ -530,7 +864,39 @@ export const security: IndustryPage = {
       "Security Workforce Solutions",
     ],
   },
-  solutions: {
+    process: {
+    kicker: "How We Work",
+    heading: "From Brief to Boots on Site",
+    description:
+      "A disciplined process for deploying screened, compliant security teams as fast as your risk profile demands.",
+    steps: [
+      {
+        number: "01",
+        title: "Assess the Risk",
+        description:
+          "We learn your sites, threat profile, and the coverage your operation requires.",
+      },
+      {
+        number: "02",
+        title: "Screen & Verify",
+        description:
+          "Candidates undergo background verification and role-specific compliance checks.",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Vetted personnel are onboarded and placed on-site, often within 48 hours.",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust coverage as risks, events, and operational needs change.",
+      },
+    ],
+  },
+solutions: {
     id: "security-solutions",
     kicker: "What We Do",
     heading: "Solutions Built for Safer Operations",
@@ -563,7 +929,21 @@ export const security: IndustryPage = {
       },
     ],
   },
-  areas: {
+    caseStudy: {
+    kicker: "Case Study",
+    heading: "Mobilizing Multi-Site Coverage in Under 48 Hours",
+    client: "Corporate Campus with Multiple Facilities",
+    challenge:
+      "A corporate client needed round-the-clock security coverage across three facilities on short notice, with strict background-screening requirements.",
+    approach:
+      "We drew from our pre-screened security bench, verified compliance against the client's standards, and mobilized shift-based teams across all three sites within two days.",
+    results: [
+      { value: "3 sites", label: "Fully staffed within 48 hours" },
+      { value: "24/7", label: "Coverage sustained from day one" },
+      { value: "100%", label: "Screening and compliance pass rate" },
+    ],
+  },
+areas: {
     kicker: "Our Focus Areas",
     heading: "Where We Create Impact",
     description:
@@ -607,7 +987,31 @@ export const security: IndustryPage = {
       },
     ],
   },
-  future: {
+    testimonials: {
+    kicker: "What Clients Say",
+    heading: "Trusted Across Security Operations",
+    items: [
+      {
+        quote:
+          "We had multi-site coverage confirmed within two days, with every guard fully screened. That turnaround is rare in this industry.",
+        name: "Head of Facilities",
+        role: "Corporate Campus",
+      },
+      {
+        quote:
+          "Kalycor's screening process is thorough without slowing us down. We've never had a compliance concern with a placement.",
+        name: "Director of Security",
+        role: "Multi-Site Enterprise",
+      },
+      {
+        quote:
+          "They understand risk, not just staffing. Their teams adapt as our threat profile and event schedule change.",
+        name: "VP of Risk Management",
+        role: "National Retail Operator",
+      },
+    ],
+  },
+future: {
     kicker: "The Future of Security",
     title: ["From Protection", "to Preparedness."],
     description:
@@ -615,7 +1019,7 @@ export const security: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "Ready Before Risk Is.",
     description:
       "We bring together people, expertise, and technology to help organizations build safer, stronger, and more resilient operations.",
     items: [
@@ -648,6 +1052,34 @@ export const security: IndustryPage = {
         title: "Long-Term Partnership",
         description:
           "Work with a partner focused on understanding your organization and supporting sustainable operational improvement.",
+      },
+    ],
+  },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Security Staffing, Answered",
+    description:
+      "Straight answers to what organizations most often ask us before they hire security and risk teams.",
+    items: [
+      {
+        question: "How thoroughly are security personnel screened?",
+        answer:
+          "Every candidate goes through background verification and role-specific compliance checks before being placed on your site.",
+      },
+      {
+        question: "Can you scale coverage for events or short-term needs?",
+        answer:
+          "Yes. We can mobilize additional security personnel for events, seasonal demand, or short-term projects, typically within 48 hours.",
+      },
+      {
+        question: "Do you support technology-enabled security operations?",
+        answer:
+          "We place professionals experienced with surveillance systems, access control, and monitoring technology alongside traditional security roles.",
+      },
+      {
+        question: "Can you provide round-the-clock coverage across multiple sites?",
+        answer:
+          "We build shift-based teams structured for 24/7 coverage across single or multi-site operations, coordinated to your risk profile.",
       },
     ],
   },

@@ -1,7 +1,12 @@
 export { IndustryHero } from './IndustryHero';
+export { IndustryStats } from './IndustryStats';
 export { IndustryOverview } from './IndustryOverview';
+export { IndustryProcess } from './IndustryProcess';
 export { IndustrySolutions } from './IndustrySolutions';
+export { IndustryCaseStudy } from './IndustryCaseStudy';
 export { IndustryAreas } from './IndustryAreas';
+export { IndustryTestimonials } from './IndustryTestimonials';
 export { IndustryFuture } from './IndustryFuture';
 export { IndustryWhyKalycor } from './IndustryWhyKalycor';
+export { IndustryFAQ } from './IndustryFAQ';
 export { IndustryCTA } from './IndustryCTA';
