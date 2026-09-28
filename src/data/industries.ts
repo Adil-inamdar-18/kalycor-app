@@ -30,6 +30,16 @@ export const agriculture: IndustryPage = {
     },
     secondaryCta: contactCta,
   },
+  stats: {
+    kicker: "Agriculture at a Glance",
+    heading: "Field-tested workforce and technology support",
+    items: [
+      { value: "500+", label: "Agriculture and agritech professionals placed" },
+      { value: "18", label: "States supported across farm and food-production operations" },
+      { value: "92%", label: "Client retention across multi-season contracts" },
+      { value: "72 hrs", label: "Average time to deploy a qualified field team" },
+    ],
+  },
   overview: {
     id: "agriculture-overview",
     kicker: "Agriculture Industry",
@@ -130,7 +140,7 @@ export const agriculture: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "Rooted in Agriculture. Built for Growth.",
     description:
       "We bring together people, expertise, and technology to help agriculture businesses respond to today’s challenges and build for tomorrow.",
     items: [
@@ -166,6 +176,34 @@ export const agriculture: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Agriculture Staffing, Answered",
+    description:
+      "Straight answers to what agriculture and agritech businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you staff up quickly for harvest and peak seasons?",
+        answer:
+          "Yes. We keep a ready pipeline of vetted field, processing, and logistics workers so seasonal teams can scale up or down within days, not weeks.",
+      },
+      {
+        question: "Do you handle compliance for farm and food-production labor?",
+        answer:
+          "Every placement is screened against relevant labor, safety, and food-handling requirements so you can onboard workers with confidence.",
+      },
+      {
+        question: "Can you help us find agritech and precision-farming talent?",
+        answer:
+          "We recruit across agronomy, equipment technology, and farm-management software, connecting you with specialists who understand both agriculture and technology.",
+      },
+      {
+        question: "What if our staffing needs change mid-season?",
+        answer:
+          "Our workforce solutions are built to flex. We adjust team size and skill mix as conditions, yields, and demand shift throughout the season.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Grow Together",
     title: ["Ready to Grow", "What’s Next?"],
@@ -191,6 +229,16 @@ export const importExport: IndustryPage = {
       href: "#import-export-solutions",
     },
     secondaryCta: contactCta,
+  },
+  stats: {
+    kicker: "Global Trade at a Glance",
+    heading: "Coverage across borders and supply chains",
+    items: [
+      { value: "40+", label: "Countries touched through client trade operations" },
+      { value: "300+", label: "Logistics and trade professionals placed" },
+      { value: "15 days", label: "Average time to staff a new warehouse or trade desk" },
+      { value: "95%", label: "Client satisfaction across cross-border engagements" },
+    ],
   },
   overview: {
     id: "import-export-overview",
@@ -292,7 +340,7 @@ export const importExport: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "One Partner. Every Border.",
     description:
       "We bring together people, expertise, and technology to help businesses operate more effectively in an increasingly connected global economy.",
     items: [
@@ -328,6 +376,34 @@ export const importExport: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Global Trade Staffing, Answered",
+    description:
+      "Straight answers to what import and export businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you support staffing across multiple countries at once?",
+        answer:
+          "Yes. We coordinate hiring for trade, logistics, and warehousing roles across markets, so your operations stay consistent wherever you expand.",
+      },
+      {
+        question: "Do you place people with customs and compliance experience?",
+        answer:
+          "We recruit professionals experienced in customs documentation, trade compliance, and international shipping regulations to keep your operations audit-ready.",
+      },
+      {
+        question: "Can you find multilingual talent for global accounts?",
+        answer:
+          "Language and market fluency are part of our screening for international sourcing, sales, and account-management roles.",
+      },
+      {
+        question: "How quickly can you ramp up a new warehouse or trade desk?",
+        answer:
+          "Most warehouse and trade-desk teams are fully staffed within about two weeks, with core roles filled even faster when timelines are tight.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Move Forward",
     title: ["Ready to Move", "What’s Next?"],
@@ -354,6 +430,16 @@ export const realEstate: IndustryPage = {
       href: "#real-estate-solutions",
     },
     secondaryCta: contactCta,
+  },
+  stats: {
+    kicker: "Real Estate at a Glance",
+    heading: "Teams that keep properties and projects moving",
+    items: [
+      { value: "250+", label: "Property and facilities teams built" },
+      { value: "1,200+", label: "Units supported across managed portfolios" },
+      { value: "10 days", label: "Average time to fill property management roles" },
+      { value: "90%", label: "Clients who return for their next project" },
+    ],
   },
   overview: {
     id: "real-estate-overview",
@@ -455,7 +541,7 @@ export const realEstate: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "From Blueprint to Building.",
     description:
       "We bring together people, expertise, and technology to help real estate businesses operate more effectively and create opportunities for sustainable growth.",
     items: [
@@ -491,6 +577,34 @@ export const realEstate: IndustryPage = {
       },
     ],
   },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Real Estate Staffing, Answered",
+    description:
+      "Straight answers to what property and real estate businesses most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you staff a growing property portfolio as it scales?",
+        answer:
+          "Yes. We build property-management and facilities teams that expand with your portfolio, from a handful of units to large, multi-site operations.",
+      },
+      {
+        question: "Do you supply workforce support for construction projects?",
+        answer:
+          "We place workforce and professional-services support across construction and infrastructure projects, coordinated around your project timelines.",
+      },
+      {
+        question: "Can you help fill leasing and tenant-facing roles quickly?",
+        answer:
+          "Leasing, tenant support, and customer-service roles are among our fastest fills, since we maintain an active pipeline of property-experienced candidates.",
+      },
+      {
+        question: "Do you support both commercial and residential portfolios?",
+        answer:
+          "We work across commercial, residential, and mixed-use portfolios, tailoring teams to the operational needs of each property type.",
+      },
+    ],
+  },
   cta: {
     kicker: "Let’s Build Together",
     title: ["Ready to Build", "What’s Next?"],
@@ -514,6 +628,16 @@ export const security: IndustryPage = {
       "Connecting businesses with people, technology, and solutions that help create safer, more resilient, and better-prepared environments.",
     primaryCta: { label: "Explore Our Solutions", href: "#security-solutions" },
     secondaryCta: contactCta,
+  },
+  stats: {
+    kicker: "Security at a Glance",
+    heading: "Dependable coverage when it matters most",
+    items: [
+      { value: "350+", label: "Security and risk professionals deployed" },
+      { value: "24/7", label: "Coverage supported across client sites" },
+      { value: "99%", label: "Screening and compliance pass rate" },
+      { value: "48 hrs", label: "Average time to mobilize a security team" },
+    ],
   },
   overview: {
     id: "security-overview",
@@ -615,7 +739,7 @@ export const security: IndustryPage = {
   },
   whyKalycor: {
     kicker: "Why Kalycor",
-    heading: "People, Expertise & Technology",
+    heading: "Ready Before Risk Is.",
     description:
       "We bring together people, expertise, and technology to help organizations build safer, stronger, and more resilient operations.",
     items: [
@@ -648,6 +772,34 @@ export const security: IndustryPage = {
         title: "Long-Term Partnership",
         description:
           "Work with a partner focused on understanding your organization and supporting sustainable operational improvement.",
+      },
+    ],
+  },
+  faq: {
+    kicker: "Common Questions",
+    heading: "Security Staffing, Answered",
+    description:
+      "Straight answers to what organizations most often ask us before they hire security and risk teams.",
+    items: [
+      {
+        question: "How thoroughly are security personnel screened?",
+        answer:
+          "Every candidate goes through background verification and role-specific compliance checks before being placed on your site.",
+      },
+      {
+        question: "Can you scale coverage for events or short-term needs?",
+        answer:
+          "Yes. We can mobilize additional security personnel for events, seasonal demand, or short-term projects, typically within 48 hours.",
+      },
+      {
+        question: "Do you support technology-enabled security operations?",
+        answer:
+          "We place professionals experienced with surveillance systems, access control, and monitoring technology alongside traditional security roles.",
+      },
+      {
+        question: "Can you provide round-the-clock coverage across multiple sites?",
+        answer:
+          "We build shift-based teams structured for 24/7 coverage across single or multi-site operations, coordinated to your risk profile.",
       },
     ],
   },

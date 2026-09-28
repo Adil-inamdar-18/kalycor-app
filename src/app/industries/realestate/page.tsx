@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { Footer, Header } from '@/components/landing';
 import {
   IndustryHero,
+  IndustryStats,
   IndustryOverview,
   IndustrySolutions,
   IndustryAreas,
   IndustryFuture,
   IndustryWhyKalycor,
+  IndustryFAQ,
   IndustryCTA,
 } from '@/components/industries/shared';
 import { getIndustryData } from '@/services/siteService';
@@ -30,11 +32,13 @@ export default function RealEstatePage() {
       <Header />
       <main>
         <IndustryHero hero={data.hero} />
+        <IndustryStats stats={data.stats} />
         <IndustryOverview overview={data.overview} />
         <IndustrySolutions solutions={data.solutions} />
         <IndustryAreas areas={data.areas} />
         <IndustryFuture future={data.future} />
         <IndustryWhyKalycor whyKalycor={data.whyKalycor} />
+        <IndustryFAQ faq={data.faq} />
         <IndustryCTA cta={data.cta} />
       </main>
       <Footer />
