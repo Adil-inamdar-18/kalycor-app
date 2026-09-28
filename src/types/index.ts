@@ -19,7 +19,7 @@ export interface LinkGroup {
 
 /* -------------------------------------------------------------- landing -- */
 
-export type NavMenuLayout = "split" | "grid" | "list";
+export type NavMenuLayout = 'split' | 'grid' | 'list';
 
 export interface NavMenu {
   key: string;
@@ -99,6 +99,7 @@ export interface SolutionPageContent {
   cta: SolutionCtaContent;
 }
 
+
 export interface ApproachPhoto {
   src: string;
   alt: string;
@@ -117,8 +118,8 @@ export interface Industry {
 }
 
 export type Stat =
-  | { type: "count"; count: number; label: string }
-  | { type: "badge"; icon: string; badge: string; note: string };
+  | { type: 'count'; count: number; label: string }
+  | { type: 'badge'; icon: string; badge: string; note: string };
 
 export interface Review {
   quote: string;
@@ -134,7 +135,11 @@ export interface SocialLink {
 
 /* ----------------------------------------------------------------- jobs -- */
 
-export type JobType = "Full-time" | "Part-time" | "Contract" | "Internship";
+export type JobType =
+  | 'Full-time'
+  | 'Part-time'
+  | 'Contract'
+  | 'Internship';
 
 export interface Job {
   title: string;
@@ -148,7 +153,7 @@ export interface Job {
   date: string;
 }
 
-export type SortKey = "latest" | "oldest" | "title" | "company";
+export type SortKey = 'latest' | 'oldest' | 'title' | 'company';
 
 export interface SortOption {
   value: SortKey;
@@ -189,12 +194,6 @@ export interface IndustryPage {
     areas: readonly string[];
   };
 
-  stats: {
-    kicker: string;
-    heading: string;
-    items: readonly { value: string; label: string }[];
-  };
-
   solutions: {
     id: string;
     kicker: string;
@@ -223,13 +222,6 @@ export interface IndustryPage {
     items: readonly NumberedItem[];
   };
 
-  faq: {
-    kicker: string;
-    heading: string;
-    description: string;
-    items: readonly { question: string; answer: string }[];
-  };
-
   cta: {
     kicker: string;
     title: readonly string[];
@@ -239,12 +231,12 @@ export interface IndustryPage {
 }
 
 export type TrendingIconKey =
-  | "aerospace"
-  | "automotive"
-  | "banking"
-  | "energy"
-  | "pharma"
-  | "retail";
+  | 'aerospace'
+  | 'automotive'
+  | 'banking'
+  | 'energy'
+  | 'pharma'
+  | 'retail';
 
 export interface TrendingCategory {
   category: string;
