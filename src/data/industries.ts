@@ -21,7 +21,7 @@ export const agriculture: IndustryPage = {
   hero: {
     image: "/images/industries/agriculture.jpeg",
     kicker: "Agriculture",
-    title: ["Empowering Agriculture.", "Growing What’s Next."],
+    title: ["Empowering Agriculture.", "Growing What’s Next"],
     description:
       "Connecting agriculture businesses with the people, technology, and solutions they need to build more efficient, sustainable, and resilient operations.",
     primaryCta: {
