@@ -32,7 +32,12 @@ function iconFor(title: string, index: number): LucideIcon {
 
 export function AboutValues(content: AboutValuesProps) {
   return (
-    <Section as="section" tone="inverse" className="relative overflow-hidden">
+    <Section
+      as="section"
+      id="values"
+      tone="inverse"
+      className="relative scroll-mt-32 overflow-hidden"
+    >
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
@@ -47,7 +52,7 @@ export function AboutValues(content: AboutValuesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
-            className="lg:sticky lg:top-28 lg:self-start"
+            className="lg:sticky lg:top-40 lg:self-start"
           >
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
               <span className="h-px w-10 bg-accent" aria-hidden="true" />
@@ -101,4 +106,4 @@ export function AboutValues(content: AboutValuesProps) {
   );
 }
 
-export default AboutValues;
+export default AboutValues;

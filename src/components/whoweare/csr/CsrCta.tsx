@@ -1,44 +1,64 @@
-import Link from "next/link";
+'use client';
 
-import { Container } from "@/components/layout";
-import { csrCta } from "@/data/csr";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+import { Container, Section } from '@/components/layout';
+import { Button } from '@/components/ui/Button';
+import { csrCta } from '@/data/csr';
+
+import { Kicker } from '../shared/Kicker';
 
 export default function CsrCta() {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <Section as="section" tone="page" spacing="sm">
       <Container>
-        <div className="overflow-hidden rounded-3xl bg-[#141A32] px-7 py-12 md:px-12 md:py-16 lg:px-16">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/60">
-              {csrCta.kicker}
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-3xl bg-teal-900 px-7 py-14 text-center text-white md:px-16 md:py-20"
+        >
+          <motion.span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-200/25 blur-[100px]"
+            animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.08, 1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          />
 
-            <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl">
+          <div className="relative mx-auto max-w-2xl">
+            <Kicker tone="light" rule={false} className="mb-4 justify-center">
+              {csrCta.kicker}
+            </Kicker>
+            <h2 className="text-h2 font-bold leading-[1.1] tracking-tight">
               {csrCta.heading}
             </h2>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+            <p className="mt-5 text-body-lg leading-8 text-white/75">
               {csrCta.body}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button
                 href={csrCta.primaryHref}
-                className="inline-flex items-center justify-center rounded-full bg-[#e9c176] px-7 py-3.5 text-sm font-semibold text-[#141A32] transition-transform duration-300 hover:-translate-y-0.5"
+                variant="light"
+                size="lg"
+                icon={<ArrowRight className="h-4 w-4" aria-hidden="true" />}
+                className="flex-row-reverse"
               >
                 {csrCta.primaryLabel}
-              </Link>
-
+              </Button>
               <Link
                 href={csrCta.secondaryHref}
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#141A32]"
+                className="inline-flex items-center justify-center rounded-button border border-white/40 px-[34px] py-[15px] font-heading text-body font-medium text-white transition-colors duration-fast hover:border-white hover:bg-white/10"
               >
                 {csrCta.secondaryLabel}
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }
