@@ -1,19 +1,28 @@
 import { Footer, Header } from "@/components/landing";
-import ProfessionalBenefits from "@/components/solutions/professional/ProfessionalBenefits";
-import ProfessionalCapabilities from "@/components/solutions/professional/ProfessionalCapabilities";
-import ProfessionalCta from "@/components/solutions/professional/ProfessionalCta";
-import ProfessionalHero from "@/components/solutions/professional/ProfessionalHero";
-import ProfessionalIntro from "@/components/solutions/professional/ProfessionalIntro";
+import {
+  ProfessionalBenefits,
+  ProfessionalCapabilities,
+  ProfessionalCta,
+  ProfessionalHero,
+  ProfessionalIntro,
+} from "@/components/solutions/professional";
+import {
+  professionalBenefits,
+  professionalCapabilities,
+  professionalCta,
+  professionalHero,
+  professionalIntro,
+} from "@/data/solutions/professionalServices";
 
 export default function ProfessionalServicesPage() {
   return (
     <main>
       <Header />
-      <ProfessionalHero />
-      <ProfessionalIntro />
-      <ProfessionalCapabilities />
-      <ProfessionalBenefits />
-      <ProfessionalCta />
+      <ProfessionalHero {...professionalHero} />
+      <ProfessionalIntro {...professionalIntro} />
+      <ProfessionalCapabilities {...professionalCapabilities} />
+      <ProfessionalBenefits {...professionalBenefits} />
+      <ProfessionalCta {...professionalCta} />
       <Footer />
     </main>
   );

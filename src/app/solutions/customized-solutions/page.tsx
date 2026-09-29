@@ -1,19 +1,28 @@
 import { Footer, Header } from "@/components/landing";
-import CustomizedBenefits from "@/components/solutions/customized/CustomizedBenefits";
-import CustomizedCapabilities from "@/components/solutions/customized/CustomizedCapabilities";
-import CustomizedCta from "@/components/solutions/customized/CustomizedCta";
-import CustomizedHero from "@/components/solutions/customized/CustomizedHero";
-import CustomizedIntro from "@/components/solutions/customized/CustomizedIntro";
+import {
+  CustomizedBenefits,
+  CustomizedCapabilities,
+  CustomizedCta,
+  CustomizedHero,
+  CustomizedIntro,
+} from "@/components/solutions/customized";
+import {
+  customizedBenefits,
+  customizedCapabilities,
+  customizedCta,
+  customizedHero,
+  customizedIntro,
+} from "@/data/solutions/customizedSolutions";
 
 export default function CustomizedSolutionsPage() {
   return (
     <main>
       <Header />
-      <CustomizedHero />
-      <CustomizedIntro />
-      <CustomizedCapabilities />
-      <CustomizedBenefits />
-      <CustomizedCta />
+      <CustomizedHero {...customizedHero} />
+      <CustomizedIntro {...customizedIntro} />
+      <CustomizedCapabilities {...customizedCapabilities} />
+      <CustomizedBenefits {...customizedBenefits} />
+      <CustomizedCta {...customizedCta} />
       <Footer />
     </main>
   );

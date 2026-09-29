@@ -1,19 +1,28 @@
 import { Footer, Header } from "@/components/landing";
-import RecruitmentBenefits from "@/components/solutions/recruitment/RecruitmentBenefits";
-import RecruitmentCapabilities from "@/components/solutions/recruitment/RecruitmentCapabilities";
-import RecruitmentCta from "@/components/solutions/recruitment/RecruitmentCta";
-import RecruitmentHero from "@/components/solutions/recruitment/RecruitmentHero";
-import RecruitmentIntro from "@/components/solutions/recruitment/RecruitmentIntro";
+import {
+  RecruitmentBenefits,
+  RecruitmentCapabilities,
+  RecruitmentCta,
+  RecruitmentHero,
+  RecruitmentIntro,
+} from "@/components/solutions/recruitment";
+import {
+  recruitmentBenefits,
+  recruitmentCapabilities,
+  recruitmentCta,
+  recruitmentHero,
+  recruitmentIntro,
+} from "@/data/solutions/recruitmentPlacement";
 
 export default function RecruitmentPlacementPage() {
   return (
     <main>
       <Header />
-      <RecruitmentHero />
-      <RecruitmentIntro />
-      <RecruitmentCapabilities />
-      <RecruitmentBenefits />
-      <RecruitmentCta />
+      <RecruitmentHero {...recruitmentHero} />
+      <RecruitmentIntro {...recruitmentIntro} />
+      <RecruitmentCapabilities {...recruitmentCapabilities} />
+      <RecruitmentBenefits {...recruitmentBenefits} />
+      <RecruitmentCta {...recruitmentCta} />
       <Footer />
     </main>
   );
