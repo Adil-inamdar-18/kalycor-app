@@ -110,7 +110,6 @@ solutions: {
         title: "Workforce Solutions",
         description:
           "Build reliable teams for agricultural operations, production, logistics, and support functions.",
-          image:""
       },
       {
         number: "02",
