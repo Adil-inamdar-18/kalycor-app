@@ -1,15 +1,25 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Container, Section } from "@/components/layout";
+import { Container, Section } from '@/components/layout';
 
-import type { IndustryPage } from "@/types";
+import type { IndustryPage } from '@/types';
 
-
+/**
+ * Used when a step in the industry data has no `image` of its own, so every
+ * industry gets photo cards without touching its data. Set `image` on a step
+ * to override any of these.
+ */
+const fallbackImages = [
+  '/images/approach-new1.jpeg',
+  '/images/approach-new2.jpeg',
+  '/images/approach-new4.jpeg',
+  '/images/approach-new3.jpeg',
+] as const;
 
 export function IndustryProcess({
   process,
 }: {
-  process: IndustryPage["process"];
+  process: IndustryPage['process'];
 }) {
   return (
     <Section as="section" tone="inverse" className="relative overflow-hidden">
@@ -44,8 +54,9 @@ export function IndustryProcess({
 
         {/* Flip cards */}
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {process.steps.map((step) => {
-            const image = step.image;
+          {process.steps.map((step, index) => {
+            const image =
+              step.image ?? fallbackImages[index % fallbackImages.length];
 
             return (
               <div

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Footer, Header } from '@/components/landing';
 import { JobBoard } from '@/components/jobs';
 import { anchors } from '@/config/routes';
@@ -7,7 +8,9 @@ export default function JobsPage() {
     <>
       <Header />
       <main id={anchors.jobs.top.slice(1)}>
-        <JobBoard />
+        <Suspense fallback={null}>
+          <JobBoard />
+        </Suspense>
       </main>
       <Footer />
     </>

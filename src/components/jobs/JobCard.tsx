@@ -1,12 +1,14 @@
-import type { Job } from '@/types';
-import { BriefcaseIcon, LocationIcon } from './icons';
+"use client";
+
+import type { Job } from "@/types";
+import { BriefcaseIcon, LocationIcon } from "./icons";
 
 function formatDate(dateString: string) {
   const date = new Date(`${dateString}T00:00:00`);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
   });
 }
 
@@ -23,7 +25,9 @@ export function JobCard({ job }: { job: Job }) {
             {job.title}
           </a>
         </div>
-        <div className="mb-[13px] text-small font-medium text-muted">{job.company}</div>
+        <div className="mb-[13px] text-small font-medium text-muted">
+          {job.company}
+        </div>
         <div className="flex flex-wrap items-center gap-3.5 text-caption text-muted">
           <span className="inline-flex items-center gap-1.5">
             <LocationIcon className="h-4 w-4 text-primary" />

@@ -1,20 +1,8 @@
-import { Footer, Header } from "@/components/landing";
-import OpportunitiesAreas from "@/components/opportunities/OpportunitiesAreas";
-import OpportunitiesBenefits from "@/components/opportunities/OpportunitiesBenefits";
-import OpportunitiesCta from "@/components/opportunities/OpportunitiesCta";
-import OpportunitiesHero from "@/components/opportunities/OpportunitiesHero";
-import OpportunitiesIntro from "@/components/opportunities/OpportunitiesIntro";
+import { redirect } from "next/navigation";
 
+import { routes } from "@/config/routes";
+
+/** The Opportunities menu lands on Join Us; there is no separate overview page. */
 export default function OpportunitiesPage() {
-  return (
-    <main>
-      <Header />
-      <OpportunitiesHero />
-      <OpportunitiesIntro />
-      <OpportunitiesAreas />
-      <OpportunitiesBenefits />
-      <OpportunitiesCta />
-      <Footer />
-    </main>
-  );
+  redirect(routes.opportunities.joinUs);
 }

@@ -23,15 +23,15 @@ export const routes = {
   },
 
   opportunities: {
-  home: "/opportunities",
-  joinUs: "/opportunities/join-us",
-  searchJobs: "/opportunities/search-jobs",
-  submitResume: "/opportunities/submit-resume",
-  referralProgram: "/opportunities/referral-program",
-  globalTalentAssistance: "/opportunities/global-talent-assistance",
-  globalTalentCenter: "/opportunities/global-talent-center",
-  events: "/opportunities/events",
-},
+    home: "/opportunities/join-us",
+    joinUs: "/opportunities/join-us",
+    searchJobs: "/jobs",
+    submitResume: "/opportunities/submit-resume",
+    referralProgram: "/opportunities/referral-program",
+    globalTalentAssistance: "/opportunities/global-talent-assistance",
+    globalTalentCenter: "/opportunities/global-talent-center",
+    events: "/opportunities/events",
+  },
 
   whoWeAre: {
     home: "/whoweare",
