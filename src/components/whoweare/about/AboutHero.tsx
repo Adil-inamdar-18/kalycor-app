@@ -1,37 +1,65 @@
-import Image from "next/image";
+'use client';
 
-import { Container } from "@/components/layout";
-import { aboutHero } from "@/data/aboutUs";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
-export default function AboutHero() {
+import { Container } from '@/components/layout';
+import type { aboutHero } from '@/data/aboutUs';
+
+type AboutHeroProps = typeof aboutHero;
+
+export function AboutHero(content: AboutHeroProps) {
   return (
-    <section className="relative isolate min-h-[560px] overflow-hidden">
+    <section className="relative isolate min-h-[560px] overflow-hidden bg-inverse">
       <Image
-        src={aboutHero.image}
-        alt={aboutHero.imageAlt}
+        src={content.image}
+        alt={content.imageAlt}
         fill
         priority
         className="object-cover"
         sizes="100vw"
       />
+      <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/80 to-inverse/30" />
 
-      <div className="absolute inset-0 bg-[#141A32]/75" />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-accent/25 blur-[120px]"
+        animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.08, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-      <Container className="relative z-10 flex min-h-[560px] items-center py-20 md:py-28">
-        <div className="max-w-4xl text-white">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-            {aboutHero.kicker}
-          </p>
+      <Container className="relative z-10 flex min-h-[560px] flex-col justify-center pb-40 pt-20">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-5 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent"
+        >
+          <span className="h-px w-10 bg-accent" aria-hidden="true" />
+          {content.kicker}
+        </motion.p>
 
-          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            {aboutHero.heading}
-          </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-inverse-fg sm:text-5xl lg:text-6xl"
+        >
+          {content.heading}
+        </motion.h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
-            {aboutHero.body}
-          </p>
-        </div>
+        <motion.span
+          aria-hidden="true"
+          className="mt-12 flex h-10 w-10 items-center justify-center rounded-full border border-inverse-fg/30 text-inverse-fg/70"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ChevronDown className="h-5 w-5" />
+        </motion.span>
       </Container>
     </section>
   );
 }
+
+export default AboutHero;
