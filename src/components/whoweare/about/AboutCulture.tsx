@@ -4,33 +4,33 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { Container, Section } from '@/components/layout';
-import type { aboutStory } from '@/data/aboutUs';
+import type { aboutCulture } from '@/data/aboutUs';
 
-type AboutStoryProps = typeof aboutStory;
+type AboutCultureProps = typeof aboutCulture;
 
-export function AboutStory(content: AboutStoryProps) {
+export function AboutCulture(content: AboutCultureProps) {
   return (
-    <Section as="section" tone="page" className="pt-0">
+    <Section as="section" tone="page">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative mx-auto w-full max-w-md"
           >
             <span
-              className="absolute -left-5 -top-5 h-28 w-28 rounded-tl-[3rem] border-l-4 border-t-4 border-accent"
+              className="absolute -bottom-5 -left-5 h-full w-full rounded-t-[10rem] rounded-b-3xl border-2 border-accent/40"
               aria-hidden="true"
             />
-            <div className="relative aspect-[4/3] overflow-hidden rounded-br-[6rem] rounded-tl-[6rem] rounded-bl-3xl rounded-tr-3xl shadow-float">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-t-[10rem] rounded-b-3xl shadow-float">
               <Image
                 src={content.image}
                 alt={content.imageAlt}
                 fill
                 className="object-cover"
-                sizes="(min-width: 1024px) 52vw, 100vw"
+                sizes="(min-width: 1024px) 34vw, 90vw"
               />
             </div>
           </motion.div>
@@ -41,16 +41,19 @@ export function AboutStory(content: AboutStoryProps) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
-              <span className="h-px w-10 bg-accent" aria-hidden="true" />
-              {content.kicker}
-            </p>
-
             <h2 className="text-h2 font-bold leading-[1.1] tracking-tight text-heading">
               {content.heading}
             </h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '7rem' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mt-6 h-1 rounded-full bg-accent"
+              aria-hidden="true"
+            />
 
-            <div className="mt-6 space-y-5">
+            <div className="mt-8 space-y-5">
               {content.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-body leading-8 text-paragraph">
                   {paragraph}
@@ -64,4 +67,4 @@ export function AboutStory(content: AboutStoryProps) {
   );
 }
 
-export default AboutStory;
+export default AboutCulture;

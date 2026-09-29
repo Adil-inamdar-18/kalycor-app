@@ -1,42 +1,69 @@
-import Link from "next/link";
+'use client';
 
-import { Container } from "@/components/layout";
-import { careerCta } from "@/data/solutions/careerOpportunities";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
-export default function CareerCta() {
+import { Container, Section } from '@/components/layout';
+import type { SolutionCtaContent } from '@/types';
+
+export function CareerCta(content: SolutionCtaContent) {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <Section as="section" tone="surface">
       <Container>
-        <div className="rounded-3xl bg-[#141A32] px-6 py-14 text-center text-white sm:px-10 md:py-20 lg:px-16">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#e9c176]">
-            {careerCta.kicker}
-          </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-3xl bg-inverse px-7 py-12 text-inverse-fg md:px-12 md:py-16 lg:px-16"
+        >
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-32 -top-32 h-[360px] w-[360px] rounded-full bg-accent/25 blur-[110px]"
+            animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.06, 1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          />
 
-          <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
-            {careerCta.heading}
-          </h2>
+          <div className="relative max-w-3xl">
+            <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
+              <span className="h-px w-10 bg-accent" aria-hidden="true" />
+              {content.kicker}
+            </p>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
-            {careerCta.body}
-          </p>
+            <h2 className="text-h2 font-bold leading-[1.1] tracking-tight">
+              {content.heading}
+            </h2>
 
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href={careerCta.primaryHref}
-              className="inline-flex items-center justify-center rounded-full bg-[#e9c176] px-7 py-3.5 text-sm font-semibold text-[#141A32] transition hover:bg-[#ffdea5]"
-            >
-              {careerCta.primaryLabel}
-            </Link>
+            <p className="mt-6 max-w-2xl text-body-lg leading-8 text-inverse-fg/70">
+              {content.body}
+            </p>
 
-            <Link
-              href={careerCta.secondaryHref}
-              className="inline-flex items-center justify-center rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/5"
-            >
-              {careerCta.secondaryLabel}
-            </Link>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href={content.primaryHref}
+                  className="inline-flex items-center justify-center gap-2 rounded-button bg-accent px-7 py-3.5 font-heading text-button font-semibold text-primary-fg hover:bg-teal-700"
+                >
+                  {content.primaryLabel}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href={content.secondaryHref}
+                  className="inline-flex items-center justify-center rounded-button border border-inverse-fg/30 px-7 py-3.5 font-heading text-button font-semibold text-inverse-fg hover:border-inverse-fg hover:bg-inverse-fg/10"
+                >
+                  {content.secondaryLabel}
+                </Link>
+              </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }
+
+export default CareerCta;

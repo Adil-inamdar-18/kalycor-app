@@ -1,21 +1,40 @@
 import { Footer, Header } from "@/components/landing";
-import AboutCta from "@/components/whoweare/about/AboutCta";
-import AboutHero from "@/components/whoweare/about/AboutHero";
-import AboutIntro from "@/components/whoweare/about/AboutIntro";
-import AboutServices from "@/components/whoweare/about/AboutServices";
-import AboutStory from "@/components/whoweare/about/AboutStory";
-import AboutValues from "@/components/whoweare/about/AboutValues";
+import {
+  AboutCta,
+  AboutCulture,
+  AboutHero,
+  AboutIntro,
+  AboutMission,
+  AboutServices,
+  AboutStatement,
+  AboutStory,
+  AboutValues,
+} from "@/components/whoweare/about";
+import {
+  aboutCta,
+  aboutCulture,
+  aboutHero,
+  aboutIntro,
+  aboutMission,
+  aboutServices,
+  aboutStatement,
+  aboutStory,
+  aboutValues,
+} from "@/data/aboutUs";
 
 export default function AboutUsPage() {
   return (
     <main>
       <Header />
-      <AboutHero />
-      <AboutIntro />
-      <AboutStory />
-      <AboutServices />
-      <AboutValues />
-      <AboutCta />
+      <AboutHero {...aboutHero} />
+      <AboutIntro {...aboutIntro} />
+      <AboutStory {...aboutStory} />
+      <AboutStatement {...aboutStatement} />
+      <AboutServices {...aboutServices} />
+      <AboutValues {...aboutValues} />
+      <AboutCulture {...aboutCulture} />
+      <AboutCta {...aboutCta} />
+      <AboutMission {...aboutMission} />
       <Footer />
     </main>
   );
