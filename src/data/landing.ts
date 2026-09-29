@@ -178,7 +178,7 @@ export const navMenus: readonly NavMenu[] = [
     description:
       "Flexible solutions that connect people, capabilities, and opportunities around your business needs.",
     layout: "list",
-    panelImage: "/images/approach-new1.jpeg",
+    panelImage: "/images/navdropdown-1.jpeg",
     panelImageAlt: "Kalycor professionals collaborating",
     panelDescription:
       "From workforce solutions to technology and customized support, we help organizations build what comes next.",
@@ -192,7 +192,7 @@ export const navMenus: readonly NavMenu[] = [
     description:
       "Every industry has unique challenges, and having the right talent makes all the difference. We provide customized workforce solutions that help businesses stay competitive, adaptable, and ahead of the curve. With deep industry expertise and a vast talent network, we ensure you have the right people to drive efficiency, productivity, and long-term success. Wherever your business is headed, we’ll help you get there.",
     layout: "list",
-    panelImage: "/images/approach-new3.jpeg",
+    panelImage: "/images/navdropdown-2.jpeg",
     panelImageAlt: "Kalycor team collaborating",
     panelDescription:
       "Kalycor connects businesses with the right talent and workforce solutions, helping organizations build high-performing teams, improve efficiency, and create sustainable growth.",
@@ -206,7 +206,7 @@ export const navMenus: readonly NavMenu[] = [
     description:
       "Explore opportunities, connect with the right talent, and take the next step toward your future.",
     layout: "list",
-    panelImage: "/images/approach-new4.jpeg",
+    panelImage: "/images/navdropdown-3.jpeg",
     panelImageAlt: "Professionals connecting and collaborating",
     panelDescription:
       "Whether you are searching for your next opportunity or looking for the right talent, Kalycor helps create meaningful connections between people and businesses.",

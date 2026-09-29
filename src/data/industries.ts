@@ -73,24 +73,28 @@ export const agriculture: IndustryPage = {
         title: "Understand the Operation",
         description:
           "We learn your crop cycles, sites, and the roles that keep your operation running.",
+          image:"/images/Understand the Operation.jpg"
       },
       {
         number: "02",
         title: "Source & Screen",
         description:
           "We tap our agriculture network and vet candidates for skills, reliability, and safety compliance.",
+          image:"/images/Source & Screen(agriculture).jpg"
       },
       {
         number: "03",
         title: "Deploy the Team",
         description:
           "Selected candidates are onboarded and placed on-site, ready to work within days.",
+          image:"/images/Deploy the Team(agriculture).jpg"
       },
       {
         number: "04",
         title: "Support & Scale",
         description:
           "We stay engaged through the season, adjusting headcount as planting, harvest, and demand shift.",
+          image:"/images/Support & Scale(agriculture).jpg"
       },
     ],
   },
@@ -106,12 +110,14 @@ solutions: {
         title: "Workforce Solutions",
         description:
           "Build reliable teams for agricultural operations, production, logistics, and support functions.",
+          image:""
       },
       {
         number: "02",
         title: "Recruitment & Placement",
         description:
           "Connect with skilled professionals across agriculture, food production, technology, and management.",
+          
       },
       {
         number: "03",
@@ -152,6 +158,7 @@ areas: {
         title: "Farming & Cultivation",
         description:
           "Supporting modern farming operations with the people and solutions needed for efficient cultivation.",
+          
       },
       {
         number: "02",
@@ -343,24 +350,28 @@ export const importExport: IndustryPage = {
         title: "Map the Requirement",
         description:
           "We learn your trade lanes, compliance needs, and the roles each market requires.",
+          image:"/images/Map the Requirement(importExport).jpg"
       },
       {
         number: "02",
         title: "Source & Screen",
         description:
           "Candidates are matched for trade experience, language fluency, and regulatory knowledge.",
+          image:"/images/Source & Screen(importExport).jpg"
       },
       {
         number: "03",
         title: "Deploy the Team",
         description:
           "Teams are onboarded and placed at your warehouse, trade desk, or logistics hub.",
+          image:"/images/Deploy the Team(importExport).jpg"
       },
       {
         number: "04",
         title: "Support & Scale",
         description:
           "We adjust staffing as trade volumes, markets, and seasonal demand change.",
+          image:"/images/Support & Scale(importExport).jpg"
       },
     ],
   },
@@ -614,24 +625,28 @@ export const realEstate: IndustryPage = {
         title: "Understand the Portfolio",
         description:
           "We learn your properties, project timelines, and the roles each site needs.",
+          image:"/images/realestate-card-1.jpg"
       },
       {
         number: "02",
         title: "Source & Screen",
         description:
           "Candidates are matched for property, facilities, or construction-support experience.",
+          image:"/images/realestate-card-2.jpg"
       },
       {
         number: "03",
         title: "Deploy the Team",
         description:
           "Teams are onboarded and placed across your properties or project sites.",
+          image:"/images/realestate-card-3.jpg"
       },
       {
         number: "04",
         title: "Support & Scale",
         description:
           "We adjust staffing as your portfolio, projects, and tenant needs evolve.",
+          image:"/images/realestate-card-4.jpg"
       },
     ],
   },
@@ -882,24 +897,28 @@ export const security: IndustryPage = {
         title: "Assess the Risk",
         description:
           "We learn your sites, threat profile, and the coverage your operation requires.",
+          image:"/images/Assess the Risk(security).jpg"
       },
       {
         number: "02",
         title: "Screen & Verify",
         description:
           "Candidates undergo background verification and role-specific compliance checks.",
+          image:"/images/Screen & Verify(security).jpg"
       },
       {
         number: "03",
         title: "Deploy the Team",
         description:
           "Vetted personnel are onboarded and placed on-site, often within 48 hours.",
+          image:"/images/Deploy the Team(security).jpg"
       },
       {
         number: "04",
         title: "Support & Scale",
         description:
           "We adjust coverage as risks, events, and operational needs change.",
+          image:"/images/Support & Scale(security).jpg"
       },
     ],
   },
