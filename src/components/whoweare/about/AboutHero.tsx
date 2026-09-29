@@ -1,27 +1,33 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 import { Container } from '@/components/layout';
+
 import type { aboutHero } from '@/data/aboutUs';
 
 type AboutHeroProps = typeof aboutHero;
 
 export function AboutHero(content: AboutHeroProps) {
   return (
-    <section className="relative isolate min-h-[560px] overflow-hidden bg-inverse">
-      <Image
-        src={content.image}
-        alt={content.imageAlt}
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/80 to-inverse/30" />
+    <section className="relative isolate min-h-screen overflow-hidden bg-inverse">
+      {/* Background Video */}
+    <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  aria-hidden="true"
+  className="absolute inset-0 h-full w-full object-cover"
+>
+  <source src="/videos/hero.mp4" type="video/mp4" />
+</video>
 
+      {/* Video Overlay */}
+<div className="absolute inset-0 bg-gradient-to-r from-inverse/85 via-inverse/55 to-inverse/20" />
+      {/* Animated Accent */}
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-accent/25 blur-[120px]"
@@ -29,7 +35,8 @@ export function AboutHero(content: AboutHeroProps) {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <Container className="relative z-10 flex min-h-[560px] flex-col justify-center pb-40 pt-20">
+      {/* Content */}
+      <Container className="relative z-10 flex min-h-screen flex-col justify-center pb-40 pt-20">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
