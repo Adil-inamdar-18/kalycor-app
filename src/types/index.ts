@@ -217,7 +217,7 @@ export interface IndustryPage {
       title: string;
       description: string;
       /** Optional card photo; falls back to a shared default. */
-      image?: string;
+      image: string;
     }[];
   };
 
