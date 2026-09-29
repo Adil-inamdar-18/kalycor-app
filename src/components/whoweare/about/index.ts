@@ -1,9 +1,11 @@
 export { AboutHero } from './AboutHero';
 export { AboutIntro } from './AboutIntro';
+export { AboutSubnav } from './AboutSubnav';
 export { AboutStory } from './AboutStory';
-export { AboutStatement } from './AboutStatement';
-export { AboutServices } from './AboutServices';
+export { AboutMissionVision } from './AboutMissionVision';
 export { AboutValues } from './AboutValues';
-export { AboutCulture } from './AboutCulture';
+export { AboutJourney } from './AboutJourney';
+export { AboutMilestones } from './AboutMilestones';
+export { AboutLeadership } from './AboutLeadership';
+export { AboutServices } from './AboutServices';
 export { AboutCta } from './AboutCta';
-export { AboutMission } from './AboutMission';

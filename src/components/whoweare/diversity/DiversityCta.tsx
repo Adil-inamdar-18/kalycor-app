@@ -1,44 +1,78 @@
-import Link from "next/link";
+'use client';
 
-import { Container } from "@/components/layout";
-import { diversityCta } from "@/data/diversityInclusion";
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
+import { Container, Section } from '@/components/layout';
+import { diversityCta } from '@/data/diversityInclusion';
+
+import { Kicker } from '../shared/Kicker';
+
+/** Closing section: two clear paths depending on who is reading. */
 export default function DiversityCta() {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <Section as="section" tone="page">
       <Container>
-        <div className="overflow-hidden rounded-3xl bg-[#141A32] px-7 py-12 md:px-12 md:py-16 lg:px-16">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/60">
-              {diversityCta.kicker}
-            </p>
+        <div className="grid items-stretch gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            className="relative min-h-[320px] overflow-hidden rounded-t-[10rem] rounded-b-3xl shadow-float"
+          >
+            <Image
+              src={diversityCta.image}
+              alt={diversityCta.imageAlt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
+          </motion.div>
 
-            <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl">
+          <motion.div
+            initial={{ opacity: 0, x: 28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex flex-col justify-center"
+          >
+            <Kicker className="mb-4">{diversityCta.kicker}</Kicker>
+            <h2 className="text-h2 font-bold leading-[1.1] tracking-tight text-heading">
               {diversityCta.heading}
             </h2>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+            <p className="mt-5 text-body-lg leading-8 text-paragraph">
               {diversityCta.body}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href={diversityCta.primaryHref}
-                className="inline-flex items-center justify-center rounded-full bg-[#e9c176] px-7 py-3.5 text-sm font-semibold text-[#141A32] transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {diversityCta.primaryLabel}
-              </Link>
-
-              <Link
-                href={diversityCta.secondaryHref}
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#141A32]"
-              >
-                {diversityCta.secondaryLabel}
-              </Link>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {diversityCta.paths.map((path) => (
+                <Link
+                  key={path.title}
+                  href={path.href}
+                  className="group flex flex-col rounded-card border border-line bg-surface p-6 transition-all duration-slow hover:-translate-y-1 hover:border-accent hover:shadow-float"
+                >
+                  <h3 className="font-heading text-h4 font-bold leading-tight text-heading">
+                    {path.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-body-sm leading-6 text-paragraph">
+                    {path.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-heading text-small font-semibold text-accent">
+                    {path.label}
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-base group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

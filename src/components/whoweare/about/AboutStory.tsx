@@ -10,7 +10,12 @@ type AboutStoryProps = typeof aboutStory;
 
 export function AboutStory(content: AboutStoryProps) {
   return (
-    <Section as="section" tone="page" className="pt-0">
+    <Section
+      as="section"
+      id="story"
+      tone="page"
+      className="scroll-mt-32 pt-16 md:pt-20"
+    >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <motion.div
@@ -64,4 +69,4 @@ export function AboutStory(content: AboutStoryProps) {
   );
 }
 
-export default AboutStory;
+export default AboutStory;

@@ -1,20 +1,27 @@
 import { Footer, Header } from "@/components/landing";
-import DiversityCommitment from "@/components/whoweare/diversity/DiversityCommitment";
+import DiversityBelonging from "@/components/whoweare/diversity/DiversityBelonging";
 import DiversityCta from "@/components/whoweare/diversity/DiversityCta";
 import DiversityHero from "@/components/whoweare/diversity/DiversityHero";
-import DiversityIntro from "@/components/whoweare/diversity/DiversityIntro";
-import DiversityWorkplace from "@/components/whoweare/diversity/DiversityWorkplace";
+import DiversityInitiatives from "@/components/whoweare/diversity/DiversityInitiatives";
+import DiversityPillars from "@/components/whoweare/diversity/DiversityPillars";
+import DiversityProgress from "@/components/whoweare/diversity/DiversityProgress";
 
+/**
+ * Diversity & Inclusion is a people-and-belonging page: a warm split hero,
+ * a statement of belonging, interactive commitments, initiatives by
+ * audience, accountability, and two ways to connect.
+ */
 export default function DiversityInclusionPage() {
   return (
     <main>
-        <Header/>
+      <Header />
       <DiversityHero />
-      <DiversityIntro />
-      <DiversityCommitment />
-      <DiversityWorkplace />
+      <DiversityBelonging />
+      <DiversityPillars />
+      <DiversityInitiatives />
+      <DiversityProgress />
       <DiversityCta />
-      <Footer/>
+      <Footer />
     </main>
   );
 }

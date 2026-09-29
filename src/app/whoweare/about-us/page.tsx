@@ -1,40 +1,50 @@
 import { Footer, Header } from "@/components/landing";
 import {
   AboutCta,
-  AboutCulture,
   AboutHero,
   AboutIntro,
-  AboutMission,
+  AboutJourney,
+  AboutLeadership,
+  AboutMilestones,
+  AboutMissionVision,
   AboutServices,
-  AboutStatement,
   AboutStory,
+  AboutSubnav,
   AboutValues,
 } from "@/components/whoweare/about";
 import {
   aboutCta,
-  aboutCulture,
   aboutHero,
   aboutIntro,
-  aboutMission,
+  aboutJourney,
+  aboutLeadership,
+  aboutMilestones,
+  aboutMissionVision,
   aboutServices,
-  aboutStatement,
   aboutStory,
   aboutValues,
 } from "@/data/aboutUs";
 
+/**
+ * About Us is a company-story page: it reads top to bottom as
+ * who we are → why we exist → what we believe → how we got here →
+ * where we stand → who leads us → what we do.
+ */
 export default function AboutUsPage() {
   return (
     <main>
       <Header />
       <AboutHero {...aboutHero} />
       <AboutIntro {...aboutIntro} />
+      <AboutSubnav />
       <AboutStory {...aboutStory} />
-      <AboutStatement {...aboutStatement} />
-      <AboutServices {...aboutServices} />
+      <AboutMissionVision {...aboutMissionVision} />
       <AboutValues {...aboutValues} />
-      <AboutCulture {...aboutCulture} />
+      <AboutJourney {...aboutJourney} />
+      <AboutMilestones {...aboutMilestones} />
+      <AboutLeadership {...aboutLeadership} />
+      <AboutServices {...aboutServices} />
       <AboutCta {...aboutCta} />
-      <AboutMission {...aboutMission} />
       <Footer />
     </main>
   );
