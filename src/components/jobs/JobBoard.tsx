@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Container } from '@/components/layout';
 import { getJobsData } from '@/services/siteService';
 import type { JobType, SortKey } from '@/types';
@@ -21,13 +22,20 @@ function scrollToJobs() {
 
 export function JobBoard() {
   const { jobs, sortOptions } = getJobsData();
+  // Supports arriving pre-filtered from another page's quick-search form,
+  // e.g. the opportunities hub (?q=...&location=...) — falls back to empty
+  // when there's nothing in the URL, so /jobs behaves exactly as before.
+  const searchParams = useSearchParams();
+  const initialKeyword = searchParams.get('q') ?? '';
+  const initialLocation = searchParams.get('location') ?? '';
+
   // Hero search inputs (what's typed) vs. applied search terms (what's
   // actually filtered on) are kept separate, matching the original behaviour:
   // typing in the hero fields doesn't filter live — only submitting does.
-  const [keywordInput, setKeywordInput] = useState('');
-  const [locationInput, setLocationInput] = useState('');
-  const [appliedKeyword, setAppliedKeyword] = useState('');
-  const [appliedLocation, setAppliedLocation] = useState('');
+  const [keywordInput, setKeywordInput] = useState(initialKeyword);
+  const [locationInput, setLocationInput] = useState(initialLocation);
+  const [appliedKeyword, setAppliedKeyword] = useState(initialKeyword);
+  const [appliedLocation, setAppliedLocation] = useState(initialLocation);
 
   const [selectedTypes, setSelectedTypes] = useState<JobType[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);

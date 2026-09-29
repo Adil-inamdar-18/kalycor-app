@@ -99,6 +99,55 @@ export interface SolutionPageContent {
   cta: SolutionCtaContent;
 }
 
+/* --------------------------------------------------- opportunities pages -- */
+/** Shared content shape for the reusable opportunities-portal template —
+ *  the sections every `/opportunities` / `/opportunities/<slug>` page is
+ *  built from. Mirrors the Solution*Content shapes above by design, so the
+ *  two template families stay easy to reason about together. */
+export interface OpportunityHeroContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+}
+
+export interface OpportunityIntroContent {
+  kicker: string;
+  heading: string;
+  paragraphs: readonly string[];
+}
+
+/** A grid item that can optionally act as a link to another opportunities
+ *  page — used by the hub page's "Explore Opportunities" grid so each
+ *  pathway card is real portal navigation, not just decorative copy. */
+export interface OpportunityGridItem extends NumberedItem {
+  href?: string;
+}
+
+export interface OpportunityGridContent {
+  kicker: string;
+  heading: string;
+  items: readonly OpportunityGridItem[];
+}
+
+export interface OpportunityBenefitsContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  points: readonly string[];
+}
+
+export interface OpportunityCtaContent {
+  kicker: string;
+  heading: string;
+  body: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
 
 export interface ApproachPhoto {
   src: string;
@@ -217,7 +266,7 @@ export interface IndustryPage {
       title: string;
       description: string;
       /** Optional card photo; falls back to a shared default. */
-      image: string;
+      image?: string;
     }[];
   };
 

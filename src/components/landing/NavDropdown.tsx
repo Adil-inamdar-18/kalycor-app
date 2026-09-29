@@ -140,7 +140,7 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
                   src={panelImage}
                   alt={panelImageAlt ?? ""}
                   fill
-                  className="object-cover"
+                  className="object-cover grayscale"
                   sizes="400px"
                 />
               </div>

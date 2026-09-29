@@ -1,3 +1,5 @@
+import { routes } from "@/config/routes";
+
 export const opportunitiesHero = {
   kicker: "Opportunities",
   heading: "Connect With Opportunities That Move You Forward.",
@@ -25,42 +27,49 @@ export const opportunitiesAreas = {
       title: "Join Us",
       description:
         "Explore opportunities to become part of Kalycor and contribute to the work we are building together.",
+      href: routes.opportunities.joinUs,
     },
     {
       number: "02",
       title: "Search Jobs",
       description:
         "Discover career opportunities that match your skills, experience, interests, and professional goals.",
+      href: routes.opportunities.searchJobs,
     },
     {
       number: "03",
       title: "Submit Resume",
       description:
         "Share your profile with us so we can connect your experience and capabilities with relevant opportunities.",
+      href: routes.opportunities.submitResume,
     },
     {
       number: "04",
       title: "Referral Program",
       description:
         "Help connect talented professionals with meaningful opportunities through our referral network.",
+      href: routes.opportunities.referralProgram,
     },
     {
       number: "05",
       title: "Global Talent Assistance",
       description:
         "Explore support and opportunities designed to connect talent with organizations across different markets.",
+      href: routes.opportunities.globalTalentAssistance,
     },
     {
       number: "06",
       title: "Kalycor Global Talent Center",
       description:
         "Connect with a dedicated talent ecosystem designed to bring people, skills, and opportunities together.",
+      href: routes.opportunities.globalTalentCenter,
     },
     {
       number: "07",
       title: "Events",
       description:
         "Discover events and activities that create opportunities for people, businesses, and professional connections.",
+      href: routes.opportunities.events,
     },
   ],
 } as const;
