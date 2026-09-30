@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { Button } from '@/components/ui';
-import type { SolutionHeroContent } from '@/types';
+import { Container } from "@/components/layout";
+import { Button } from "@/components/ui";
+import type { SolutionHeroContent } from "@/types";
 
 const stats = [
-  { value: '500+', label: 'Careers placed' },
-  { value: '18', label: 'States supported' },
-  { value: '92%', label: 'Client retention' },
+  { value: "500+", label: "Careers placed" },
+  { value: "18", label: "States supported" },
+  { value: "92%", label: "Client retention" },
 ] as const;
 
 export function CareerHero(content: SolutionHeroContent) {
@@ -26,19 +26,24 @@ export function CareerHero(content: SolutionHeroContent) {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/85 to-inverse/40" />
-
+      <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/25 to-inverse/10" />
+      
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-accent/25 blur-[120px]"
         animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.08, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 bottom-0 h-[320px] w-[320px] rounded-full bg-accent/10 blur-[100px]"
         animate={{ opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       />
 
       <Container className="relative z-10 flex min-h-[640px] flex-col justify-center py-20">

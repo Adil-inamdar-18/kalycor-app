@@ -15,7 +15,7 @@ export function SolutionHero(content: SolutionHeroContent) {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-[#141A32]/75" />
+      {/* <div className="absolute inset-0 bg-[#141A32]/75" /> */}
 
       <Container className="relative z-10 flex min-h-[560px] items-center py-20 md:py-28">
         <div className="max-w-4xl text-white">
