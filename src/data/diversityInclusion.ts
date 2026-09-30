@@ -20,15 +20,15 @@ export const diversityHero = {
   },
   images: {
     main: {
-      src: "/images/opportunities/join-us.jpg",
+      src: "/images/percpective1.jpg",
       alt: "Colleagues from different backgrounds working together at laptops",
     },
     tall: {
-      src: "/images/approach-new2.jpeg",
+      src: "/images/perspective.jpg",
       alt: "A Kalycor team member smiling while working",
     },
     small: {
-      src: "/images/opportunities/referral-program.jpg",
+      src: "/images/percpective2.jpg",
       alt: "A diverse team collaborating around a table",
     },
   },
@@ -240,7 +240,7 @@ export const diversityCta = {
   kicker: "Let's Connect",
   heading: "Build a more inclusive future with us.",
   body: "Whether you are looking for new opportunities or building stronger teams, Kalycor can help you connect people, capabilities, and possibilities.",
-  image: "/images/opportunities/submit-resume.jpg",
+  image: "/images/futurewithUs.jpg",
   imageAlt: "Two professionals in conversation at an office desk",
   paths: [
     {
