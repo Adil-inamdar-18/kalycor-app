@@ -19,7 +19,14 @@ interface HeroPanelProps {
  * One audience panel inside the hero.
  * Same component is used for businesses and job seekers.
  */
-function HeroPanel({ tag, title, cta, id, className, buttonClassName }: HeroPanelProps) {
+function HeroPanel({
+  tag,
+  title,
+  cta,
+  id,
+  className,
+  buttonClassName,
+}: HeroPanelProps) {
   return (
     <div
       id={id}
@@ -35,9 +42,7 @@ function HeroPanel({ tag, title, cta, id, className, buttonClassName }: HeroPane
       )}
     >
       {/* Subtle panel glow */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-slow group-hover:opacity-100"
-      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-slow group-hover:opacity-100" />
 
       <div className="relative z-[1] flex h-full flex-col">
         <div className="mb-2 font-heading text-caption font-medium uppercase tracking-wide opacity-80">
@@ -86,7 +91,7 @@ export function Hero() {
       className="
         relative
         isolate
-        min-h-[calc(100svh-76px)]
+        min-h-screen min-h-svh
         overflow-hidden
         bg-primary
         text-primary-fg
@@ -143,12 +148,15 @@ export function Hero() {
         <div
           className="
             flex
-            min-h-[calc(100svh-76px)]
+            min-h-screen min-h-svh
             flex-col
             justify-center
-            py-12
-            sm:py-14
-            tp:py-20
+            pb-12
+            pt-[124px]
+            sm:pb-14
+            sm:pt-[132px]
+            tp:pb-20
+            tp:pt-[156px]
           "
         >
           {/* MAIN HEADING */}
