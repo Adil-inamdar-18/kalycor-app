@@ -2,7 +2,7 @@ export const technologyHero = {
   kicker: "Technology Solutions",
   heading: "Technology That Helps Your Business Move Forward.",
   body: "We connect businesses with technology capabilities and practical solutions designed to improve processes, strengthen capabilities, and create new opportunities.",
-  image: "/images/hero.jpg",
+  image: "/images/technology-solutions.jpeg",
   imageAlt: "Professionals working with technology",
 } as const;
 

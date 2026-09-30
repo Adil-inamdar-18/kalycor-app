@@ -2,7 +2,7 @@ export const careerHero = {
   kicker: "Career Opportunities",
   heading: "Find Opportunities That Move Your Career Forward.",
   body: "We connect professionals with meaningful opportunities that align with their skills, experience, ambitions, and career goals.",
-  image: "/images/hero.jpg",
+  image: "/images/career-opportunity.jpeg",
   imageAlt: "Professionals working together",
 } as const;
 

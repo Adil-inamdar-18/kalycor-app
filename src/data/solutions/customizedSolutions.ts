@@ -2,7 +2,7 @@ export const customizedHero = {
   kicker: "Customized Solutions",
   heading: "Solutions Designed Around Your Unique Needs.",
   body: "Every organization has different challenges. We connect people, capabilities, and solutions around your specific requirements.",
-  image: "/images/hero.jpg",
+  image: "/images/custumizoded.jpeg",
   imageAlt: "Professionals collaborating on a customized business solution",
 } as const;
 

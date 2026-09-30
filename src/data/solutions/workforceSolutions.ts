@@ -2,7 +2,7 @@ export const workforceHero = {
   kicker: "Workforce Solutions",
   heading: "Building Workforce Solutions Around Your Business.",
   body: "We help organizations build flexible, capable, and reliable teams through workforce solutions designed around changing business needs.",
-  image: "/images/hero.jpg",
+  image: "/images/workforce-solution.jpeg",
   imageAlt: "Professionals working together",
 } as const;
 

@@ -2,7 +2,7 @@ export const recruitmentHero = {
   kicker: "Recruitment & Placement",
   heading: "Connecting the Right Talent With the Right Opportunity.",
   body: "We connect organizations with skilled professionals and help people discover opportunities aligned with their capabilities, experience, and ambitions.",
-  image: "/images/hero.jpg",
+  image: "/images/recruitement-placement.jpeg",
   imageAlt: "Professionals connecting and collaborating",
 } as const;
 
