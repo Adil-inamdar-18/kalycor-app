@@ -1,67 +1,79 @@
-import type { ContactOffice } from "@/types/contact";
+import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 
-export function ContactOfficeCard({ office }: { office: ContactOffice }) {
+import { cn } from '@/lib/utils';
+import type { ContactOffice } from '@/types/contact';
+
+interface ContactOfficeCardProps {
+  office: ContactOffice;
+  /** Show the country label. Off inside the India group, where it repeats. */
+  showCountry?: boolean;
+}
+
+export function ContactOfficeCard({
+  office,
+  showCountry = false,
+}: ContactOfficeCardProps) {
+  const hasMap = office.mapUrl && office.mapUrl !== '#';
+
   return (
-    <article className="group relative overflow-hidden rounded-card border border-line bg-surface p-7 transition-all duration-slow hover:-translate-y-1 hover:border-accent/50 hover:shadow-card sm:p-8">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface p-6 transition-all duration-slow hover:-translate-y-1 hover:border-accent/50 hover:shadow-card sm:p-7">
       <div
         className="absolute left-0 top-0 h-0.5 w-0 bg-accent transition-all duration-slow group-hover:w-full"
         aria-hidden="true"
       />
 
-      <div className="flex items-start justify-between gap-5">
-        <div>
-          <p className="font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
-            {office.country}
-          </p>
+      {showCountry && (
+        <p className="mb-2 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
+          {office.country}
+        </p>
+      )}
 
-          <h3 className="mt-3 text-h3 font-semibold leading-tight text-heading">
-            {office.city}
-          </h3>
-        </div>
+      <h4 className={cn('text-h3 font-semibold leading-tight text-heading')}>
+        {office.city}
+      </h4>
 
-        <span
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-lg text-muted transition-all duration-slow group-hover:border-accent/40 group-hover:text-accent"
-          aria-hidden="true"
-        >
-          ↗
-        </span>
-      </div>
+      <ul className="mt-6 space-y-4">
+        <li className="flex gap-3">
+          <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+          <span className="text-body leading-7 text-muted">{office.address}</span>
+        </li>
 
-      <div className="mt-7 space-y-4">
-        <p className="text-body leading-7 text-muted">{office.address}</p>
-
-        <a
-          href={`tel:${office.phone}`}
-          className="block text-body font-medium text-heading transition-colors duration-300 hover:text-accent"
-        >
-          {office.phone}
-        </a>
+        <li className="flex items-center gap-3">
+          <Phone className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+          <a
+            href={`tel:${office.phone.replace(/\s/g, '')}`}
+            className="text-body font-medium text-heading transition-colors duration-300 hover:text-accent"
+          >
+            {office.phone}
+          </a>
+        </li>
 
         {office.email && (
-          <a
-            href={`mailto:${office.email}`}
-            className="block break-all text-body-sm text-muted transition-colors duration-300 hover:text-accent"
-          >
-            {office.email}
-          </a>
+          <li className="flex items-center gap-3">
+            <Mail className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+            <a
+              href={`mailto:${office.email}`}
+              className="break-all text-body-sm text-muted transition-colors duration-300 hover:text-accent"
+            >
+              {office.email}
+            </a>
+          </li>
         )}
-      </div>
+      </ul>
 
-      {office.mapUrl && office.mapUrl !== "#" && (
-        <div className="mt-7 border-t border-line pt-5">
+      {hasMap && (
+        <div className="mt-auto pt-6">
           <a
             href={office.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-body-sm font-semibold text-heading transition-colors duration-300 hover:text-accent"
+            className="flex items-center justify-between border-t border-line pt-5 text-body-sm font-semibold text-heading transition-colors duration-300 hover:text-accent"
           >
-            <span>Get Directions</span>
-            <span
-              className="transition-transform duration-300 group-hover:translate-x-1"
+            Get Directions
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
               aria-hidden="true"
-            >
-              →
-            </span>
+            />
           </a>
         </div>
       )}
