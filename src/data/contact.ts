@@ -2,7 +2,7 @@ import type { ContactPageData } from "@/types/contact";
 
 export const contactPage: ContactPageData = {
   hero: {
-    image: "/images/contact/contact-hero.jpg",
+    image: "/images/contact/contact-the-hero.jpg",
     kicker: "Get In Touch",
     title: ["Let’s Connect", "and Create What’s Next."],
     description:
@@ -81,7 +81,7 @@ export const contactPage: ContactPageData = {
       'Looking for the right people for your business? Connect with our team to explore talent and workforce solutions.',
     href: '/for-business',
     label: 'Find Talent',
-    image: '/images/contact/find-talent.jpg',
+    image: '/images/contact/find-talents.jpg',
   },
   {
     id: 'find-jobs',
@@ -90,7 +90,7 @@ export const contactPage: ContactPageData = {
       'Looking for your next opportunity? Explore career possibilities and connect with roles that match your goals.',
     href: '/jobs',
     label: 'Find Jobs',
-    image: '/images/contact/find-jobs.jpg',
+    image: '/images/contact/find-jobss.jpg',
   },
   {
     id: 'refer-candidate',
@@ -98,10 +98,23 @@ export const contactPage: ContactPageData = {
     description:
       'Know someone who could be a great fit? Refer a candidate and help connect talent with the right opportunity.',
     href: '/reach-us',
-    label: 'Refer a Candidate',
-    image: '/images/contact/refer-candidate.jpg',
+    label: 'Refer a Candidates',
+    image: '/images/contact/refer-candidates.jpg',
   },
 ],
+  },
+
+  form: {
+    kicker: "Send a Message",
+    heading: "Tell Us How We Can Help.",
+    description:
+      "Share a few details and the right team will get back to you.",
+    topics: [
+      "Hiring talent",
+      "Looking for a job",
+      "Referring a candidate",
+      "Something else",
+    ],
   },
 };
 

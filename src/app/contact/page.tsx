@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/contact/contactForm";
 import { ContactHero } from "@/components/contact/ContactHero";
 import { ContactOffices } from "@/components/contact/ContactOffices";
 import { ContactReachUs } from "@/components/contact/ContactReachUs";
@@ -8,8 +9,9 @@ export default function ContactPage() {
     <main>
       <Header />
       <ContactHero />
-      <ContactOffices />
       <ContactReachUs />
+      <ContactOffices />
+      <ContactForm />
       <Footer />
     </main>
   );
