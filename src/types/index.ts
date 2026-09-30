@@ -155,6 +155,9 @@ export interface ApproachPhoto {
   width: number;
   height: number;
 
+  /** CSS object-position for the crop, e.g. "50% 22%". Defaults to centre. */
+  objectPosition?: string;
+
   /** Tailwind classes that place the photo in the editorial composition. */
   position: string;
 }

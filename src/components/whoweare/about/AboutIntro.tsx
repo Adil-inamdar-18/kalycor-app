@@ -9,48 +9,46 @@ type AboutIntroProps = typeof aboutIntro;
 
 export function AboutIntro(content: AboutIntroProps) {
   return (
-    <section className="relative z-20 bg-background pb-20 md:pb-28">
+    <section className="relative z-20 bg-background pb-16 pt-12 md:pb-24 md:pt-16">
       <Container>
-        {/* Overlapping lead card, sits over the bottom edge of the hero */}
+        {/* Card sits below the hero with breathing room */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          className="relative -mt-28 overflow-hidden rounded-3xl border border-line bg-surface p-8 shadow-float md:p-12 lg:p-14"
+          className="relative grid overflow-hidden rounded-3xl border border-line bg-white shadow-float lg:grid-cols-12"
         >
-          <span
-            className="absolute inset-y-0 left-0 w-1.5 bg-accent"
-            aria-hidden="true"
-          />
-          <p className="max-w-4xl text-body-lg leading-9 text-paragraph md:text-xl md:leading-10">
-            {content.leadStart}
-            <strong className="font-bold text-heading">
-              {content.leadHighlight}
-            </strong>
-            {content.leadEnd}
-          </p>
+          {/* Lead */}
+          <div className="flex items-center px-6 py-9 sm:px-10 sm:py-11 md:px-14 md:py-14 lg:col-span-7 lg:pr-12">
+            <p className="font-heading text-[clamp(20px,2vw,27px)] font-normal leading-[1.5] tracking-tight text-navy-900/70">
+              {content.leadStart}
+              <strong className="font-semibold text-navy-900">
+                {content.leadHighlight}
+              </strong>
+              {content.leadEnd}
+            </p>
+          </div>
+
+          {/* Statement */}
+          <div className="relative flex items-center overflow-hidden bg-navy-900 px-6 py-9 text-white sm:px-10 sm:py-11 md:px-14 md:py-14 lg:col-span-5 lg:px-12">
+            {/* Soft glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-accent/25 blur-[90px]"
+            />
+
+            <div className="relative flex flex-col gap-5">
+              <span
+                className="h-3.5 w-3.5 rotate-45 bg-accent"
+                aria-hidden="true"
+              />
+              <h2 className="text-[clamp(16px,1.35vw,19px)] font-medium leading-[1.7] text-white/90">
+                {content.statement}
+              </h2>
+            </div>
+          </div>
         </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mx-auto mt-16 max-w-4xl text-center text-h3 font-bold leading-snug tracking-tight text-heading md:mt-20"
-        >
-          {content.statement}
-        </motion.h2>
-
-        {/* Divider: line — mark — line */}
-        <div
-          className="mx-auto mt-14 flex max-w-3xl items-center gap-4"
-          aria-hidden="true"
-        >
-          <span className="h-px flex-1 bg-line" />
-          <span className="h-3 w-3 rotate-45 bg-accent" />
-          <span className="h-px flex-1 bg-line" />
-        </div>
       </Container>
     </section>
   );
