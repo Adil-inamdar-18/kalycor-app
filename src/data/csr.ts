@@ -84,7 +84,7 @@ export const csrFocus: CsrFocusContent = {
         "Referral pathways into open roles",
       ],
       outcome: { value: 800, suffix: "+", label: "People supported" },
-      image: "/images/opportunities/join-us.jpg",
+      image: "/images/supporting.jpg",
       imageAlt: "Colleagues helping each other at a shared workstation",
     },
     {
@@ -99,7 +99,7 @@ export const csrFocus: CsrFocusContent = {
         "Partnerships with non-profit groups",
       ],
       outcome: { value: 1500, suffix: "+", label: "Volunteer hours" },
-      image: "/images/opportunities/referral-program.jpg",
+      image: "/images/communities.jpg",
       imageAlt: "A group planning a community initiative together",
     },
     {
@@ -114,7 +114,7 @@ export const csrFocus: CsrFocusContent = {
         "Regular review of supplier and partner standards",
       ],
       outcome: { value: 100, suffix: "%", label: "Team members trained on our code" },
-      image: "/images/approach-new3.jpeg",
+      image: "/images/Responsible business.jpg",
       imageAlt: "A team meeting at a boardroom table",
     },
     {
@@ -129,7 +129,7 @@ export const csrFocus: CsrFocusContent = {
         "Long-term partnerships over short-term wins",
       ],
       outcome: { value: 90, suffix: "%", label: "Hiring workflows paperless" },
-      image: "/images/industries/agriculture.jpeg",
+      image: "/images/Sustainable.jpg",
       imageAlt: "Young seedlings growing in fertile soil",
     },
   ],
