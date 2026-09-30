@@ -108,12 +108,7 @@ export default function CsrHero() {
           ))}
         </motion.dl>
 
-        {csrDraftNotice && (
-          <p className="mt-3 text-center text-micro text-muted">
-            Figures shown are illustrative placeholders. Replace them in
-            src/data/csr.ts with verified results.
-          </p>
-        )}
+        
       </Container>
     </section>
   );
