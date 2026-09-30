@@ -37,4 +37,10 @@ export interface ContactPageData {
     description: string;
     items: readonly ContactReachOption[];
   };
+  form: {
+    kicker: string;
+    heading: string;
+    description: string;
+    topics: readonly string[];
+  };
 }

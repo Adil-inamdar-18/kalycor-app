@@ -1,72 +1,66 @@
 import { Container, Section } from '@/components/layout';
 import { contactPage } from '@/data/contact';
+import type { ContactOffice } from '@/types/contact';
 
 import { ContactOfficeCard } from './ContactOfficeCard';
+import { ContactSectionHeader } from './ContactSectionHeader';
+
+function OfficeGroup({
+  title,
+  offices,
+  showCountry,
+}: {
+  title: string;
+  offices: readonly ContactOffice[];
+  showCountry?: boolean;
+}) {
+  return (
+    <div className="grid gap-6 border-t border-line pt-10 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-12">
+      <div>
+        <h3 className="text-h3 font-semibold tracking-tight text-heading">
+          {title}
+        </h3>
+        <p className="mt-1 text-body-sm text-muted">
+          {offices.length} {offices.length === 1 ? 'office' : 'offices'}
+        </p>
+      </div>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        {offices.map((office) => (
+          <ContactOfficeCard
+            key={office.id}
+            office={office}
+            showCountry={showCountry}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function ContactOffices() {
   const { offices } = contactPage;
 
   return (
-    <Section as="section" tone="surface">
+    <Section
+      as="section"
+      id="offices"
+      className="scroll-mt-20 bg-surface-alt"
+    >
       <Container>
-        <div className="max-w-3xl">
-          <p className="mb-4 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
-            {offices.kicker}
-          </p>
+        <ContactSectionHeader
+          kicker={offices.kicker}
+          heading={offices.heading}
+          description={offices.description}
+        />
 
-          <h2 className="text-h2 font-semibold leading-[1.08] tracking-tight text-heading">
-            {offices.heading}
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-body-lg leading-8 text-muted">
-            {offices.description}
-          </p>
-        </div>
-
-        {/* India Offices */}
-        <div className="mt-14">
-          <div className="mb-7 flex items-center gap-4">
-            <h3 className="text-h3 font-semibold tracking-tight text-heading">
-              India
-            </h3>
-
-            <div
-              className="h-px flex-1 bg-line"
-              aria-hidden="true"
-            />
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {offices.india.map((office) => (
-              <ContactOfficeCard
-                key={office.id}
-                office={office}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* International Offices */}
-        <div className="mt-16">
-          <div className="mb-7 flex items-center gap-4">
-            <h3 className="text-h3 font-semibold tracking-tight text-heading">
-              Global Offices
-            </h3>
-
-            <div
-              className="h-px flex-1 bg-line"
-              aria-hidden="true"
-            />
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {offices.international.map((office) => (
-              <ContactOfficeCard
-                key={office.id}
-                office={office}
-              />
-            ))}
-          </div>
+        <div className="mt-12 space-y-10 lg:mt-14">
+          <OfficeGroup title="India" offices={offices.india} />
+          <OfficeGroup
+            title="Global Offices"
+            offices={offices.international}
+            showCountry
+          />
         </div>
       </Container>
     </Section>
