@@ -14,44 +14,6 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-offwhite pt-16 lg:pt-20"
     >
-      {/* Abstract curved background lines */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <svg
-          className="absolute right-0 top-0 h-full w-full opacity-[0.07]"
-          viewBox="0 0 1200 800"
-          fill="none"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <motion.path
-            d="M 800 0 Q 1100 200 900 400 T 1000 800"
-            stroke="hsl(284, 58%, 16%)"
-            strokeWidth="1.5"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2.5, ease: 'easeInOut' }}
-          />
-          <motion.path
-            d="M 850 0 Q 1150 250 950 450 T 1050 800"
-            stroke="hsl(273, 43%, 44%)"
-            strokeWidth="1"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, ease: 'easeInOut', delay: 0.3 }}
-          />
-          <motion.path
-            d="M 900 0 Q 1200 300 1000 500 T 1100 800"
-            stroke="hsl(276, 42%, 67%)"
-            strokeWidth="0.8"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3.5, ease: 'easeInOut', delay: 0.6 }}
-          />
-        </svg>
-      </div>
-
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:gap-8 lg:px-10">
         {/* Left — text content */}
         <div className="lg:col-span-6 xl:col-span-5">
@@ -128,19 +90,6 @@ export function Hero() {
               className="h-full w-full object-cover"
             />
           </div>
-          {/* Purple accent block */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease, delay: 0.8 }}
-            className="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-lg bg-plum lg:block"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="absolute -top-4 -right-4 hidden h-20 w-20 rounded-full border-2 border-brand/30 lg:block"
-          />
         </motion.div>
       </div>
 

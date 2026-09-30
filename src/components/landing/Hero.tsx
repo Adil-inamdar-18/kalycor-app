@@ -12,100 +12,67 @@ interface HeroPanelProps {
   cta: LinkItem;
   id?: string;
   className?: string;
+  buttonClassName?: string;
 }
 
 /**
  * One audience panel inside the hero.
  * Same component is used for businesses and job seekers.
  */
-function HeroPanel({ tag, title, cta, id, className }: HeroPanelProps) {
+function HeroPanel({ tag, title, cta, id, className, buttonClassName }: HeroPanelProps) {
   return (
     <div
       id={id}
       tabIndex={id ? -1 : undefined}
       className={cn(
-        "group relative overflow-hidden",
+        "group relative flex flex-col overflow-hidden",
         "px-5 py-5 text-left",
         "transition-all duration-slow",
-        "hover:z-[3] hover:-translate-y-1",
+        "hover:z-[3] hover:-translate-y-0.5",
         "hover:shadow-panel",
         "sm:px-6 sm:py-6",
-        "tp:px-7 tp:py-7",
         className,
       )}
     >
       {/* Subtle panel glow */}
       <div
-        className="
-          pointer-events-none absolute inset-0
-          opacity-0 transition-opacity duration-slow
-          group-hover:opacity-100
-          bg-gradient-to-br
-          from-white/[0.08]
-          via-transparent
-          to-transparent
-        "
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-slow group-hover:opacity-100"
       />
 
-      <div className="relative z-[1]">
-        <div
-          className="
-            mb-2
-            font-heading
-            text-caption
-            font-medium
-            uppercase
-            tracking-wide
-            opacity-80
-            sm:mb-3
-          "
-        >
+      <div className="relative z-[1] flex h-full flex-col">
+        <div className="mb-2 font-heading text-caption font-medium uppercase tracking-wide opacity-80">
           {tag}
         </div>
 
-        <h2
-          className="
-            max-w-[12ch]
-            text-[clamp(26px,7vw,42px)]
-            leading-[1.08]
-            text-inherit
-          "
-        >
+        <h2 className="max-w-[12ch] text-[clamp(22px,5.5vw,32px)] leading-[1.1] text-inherit">
           {title}
         </h2>
 
+        {/* CTA: solid button, same square radius as the rest of the site */}
         <Link
           href={cta.href}
-          className="
-            mt-4
-            inline-flex
-            items-center
-            gap-2
-            border-b
-            border-current
-            pb-1
-            font-heading
-            text-[12px]
-            font-semibold
-            transition-all
-            duration-fast
-            sm:mt-5
-            sm:text-[13px]
-          "
+          className={cn(
+            "mt-5 inline-flex w-fit items-center gap-3",
+            "rounded-button border px-4 py-2.5",
+            "font-heading text-[13px] font-semibold leading-none",
+            "transition-colors duration-fast",
+            "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current",
+            buttonClassName,
+          )}
         >
           <span>{cta.label}</span>
-
-          <span
-            className="
-              text-base
-              leading-none
-              transition-transform
-              duration-fast
-              group-hover:translate-x-1.5
-            "
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            className="h-4 w-4 shrink-0 transition-transform duration-fast group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            →
-          </span>
+            <path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" />
+          </svg>
         </Link>
       </div>
     </div>
@@ -212,16 +179,14 @@ export function Hero() {
               mx-auto
               mt-8
               w-full
-              max-w-[1100px]
-              overflow-hidden
-              border
-              border-primary-fg/20
-              bg-primary/30
-              backdrop-blur-[6px]
-              sm:mt-10
-              tp:mt-12
-              tp:grid
+              grid
+              max-w-[880px]
+              gap-4
+              sm:mt-8
+              sm:gap-5
+              tp:mt-9
               tp:grid-cols-2
+              tp:gap-6
             "
           >
             {/* BUSINESS PANEL */}
@@ -229,13 +194,12 @@ export function Hero() {
               tag="For Businesses"
               title="Find Amazing Talent"
               cta={site.ctas.exploreSolutions}
+              buttonClassName="border-background bg-background text-inverse hover:bg-transparent hover:text-background"
               className="
-                border-b
+                border
                 border-primary-fg/20
                 bg-inverse/90
                 text-background
-                tp:border-b-0
-                tp:border-r
               "
             />
 
@@ -245,7 +209,10 @@ export function Hero() {
               tag="For Job Seekers"
               title="Find Your Dream Job"
               cta={site.ctas.findOpportunity}
+              buttonClassName="border-primary-fg bg-primary-fg text-primary hover:bg-transparent hover:text-primary-fg"
               className="
+                border
+                border-primary-fg/20
                 bg-primary/90
                 text-primary-fg
               "
