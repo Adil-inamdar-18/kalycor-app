@@ -1,66 +1,54 @@
-'use client';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { Container, Section } from "@/components/layout";
+import type { SolutionCtaContent } from "@/types";
 
-import { Container, Section } from '@/components/layout';
-import type { SolutionCtaContent } from '@/types';
-
+/** Closing banner: dark rounded strip with photo, message and actions. */
 export function CustomizedCta(content: SolutionCtaContent) {
   return (
     <Section as="section" tone="surface">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl bg-inverse px-7 py-12 text-inverse-fg md:px-12 md:py-16 lg:px-16"
-        >
-          <motion.div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-32 -top-32 h-[360px] w-[360px] rounded-full bg-accent/25 blur-[110px]"
-            animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.06, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          />
+        <div className="flex flex-col overflow-hidden rounded-[28px] bg-inverse text-inverse-fg shadow-deep md:flex-row md:items-stretch">
+          {/* Photo */}
+          <div className="relative h-48 w-full shrink-0 md:h-auto md:w-[280px] lg:w-[340px]">
+            <Image
+              src="/images/approach-new1.jpeg"
+              alt="Kalycor professionals collaborating"
+              fill
+              sizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 100vw"
+              className="object-cover"
+            />
+          </div>
 
-          <div className="relative max-w-3xl">
-            <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
-              <span className="h-px w-10 bg-accent" aria-hidden="true" />
-              {content.kicker}
-            </p>
-
-            <h2 className="text-h2 font-bold leading-[1.1] tracking-tight">
+          {/* Message */}
+          <div className="flex flex-1 flex-col justify-center gap-2 px-6 py-8 md:px-10 md:py-10">
+            <h2 className="max-w-[24ch] font-heading text-[clamp(22px,2.6vw,30px)] font-medium leading-[1.2] tracking-tight text-white">
               {content.heading}
             </h2>
-
-            <p className="mt-6 max-w-2xl text-body-lg leading-8 text-inverse-fg/70">
+            <p className="max-w-[52ch] text-small leading-relaxed text-white/70">
               {content.body}
             </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Link
-                  href={content.primaryHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-button bg-accent px-7 py-3.5 font-heading text-button font-semibold text-primary-fg hover:bg-teal-700"
-                >
-                  {content.primaryLabel}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Link
-                  href={content.secondaryHref}
-                  className="inline-flex items-center justify-center rounded-button border border-inverse-fg/30 px-7 py-3.5 font-heading text-button font-semibold text-inverse-fg hover:border-inverse-fg hover:bg-inverse-fg/10"
-                >
-                  {content.secondaryLabel}
-                </Link>
-              </motion.div>
-            </div>
           </div>
-        </motion.div>
+
+          {/* Actions */}
+          <div className="flex shrink-0 flex-col gap-3 px-6 pb-8 sm:flex-row md:items-center md:px-10 md:py-10 md:pl-0">
+            <Link
+              href={content.primaryHref}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-white px-6 py-3 font-heading text-button font-medium text-navy-900 transition-colors duration-fast hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {content.primaryLabel}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href={content.secondaryHref}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-xl border border-white/40 px-6 py-3 font-heading text-button font-medium text-white transition-colors duration-fast hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {content.secondaryLabel}
+            </Link>
+          </div>
+        </div>
       </Container>
     </Section>
   );

@@ -244,7 +244,7 @@ export const aboutLeadership: AboutLeadershipContent = {
   kicker: "Leadership",
   heading: "The people who steer Kalycor.",
   body: "Our leaders set the direction, protect the culture, and stay close to the clients and professionals we serve.",
-  image: "/images/approach-new4.jpeg",
+  image: "/images/Group Shot.jpg",
   imageAlt: "The Kalycor leadership team standing together",
   leaders: [
     {

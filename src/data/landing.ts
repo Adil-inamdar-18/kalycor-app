@@ -318,20 +318,22 @@ export const services: readonly Service[] = [
  */
 export const approachPhotos: readonly ApproachPhoto[] = [
   {
-    src: "/images/approach-new1.jpeg",
+    src: "/images/aproch1.jpg",
     alt: "People collaborating at work",
-    width: 177,
-    height: 241,
+    width: 354,
+    height: 199,
     position:
-      "h-[300px] tp:absolute tp:left-[2%] tp:top-[45px] tp:h-[241px] tp:w-[177px] dl:left-[4%]",
+      "h-[220px] tp:absolute tp:left-[2%] tp:top-[40px] tp:h-[199px] tp:w-[354px] dl:left-[4%]",
   },
   {
-    src: "/images/approach-new2.jpeg",
+    src: "/images/aproch2.jpg",
     alt: "Professional at work",
-    width: 176,
-    height: 242,
+    width: 354,
+    height: 199,
+    /* portrait source: keep the faces in the landscape crop */
+    objectPosition: "50% 22%",
     position:
-      "h-[300px] tp:absolute tp:right-[2%] tp:top-[4px] tp:h-[242px] tp:w-[176px] dl:right-[4%]",
+      "h-[220px] tp:absolute tp:right-[2%] tp:top-[40px] tp:h-[199px] tp:w-[354px] dl:right-[4%]",
   },
   {
     src: "/images/approach-new3.jpeg",
