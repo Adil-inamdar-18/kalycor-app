@@ -1,43 +1,76 @@
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-import { Container } from "@/components/layout";
-import { whoWeAreCta } from "@/data/whoweare";
+import { Container } from '@/components/layout';
+import { Button } from '@/components/ui';
+import { whoWeAreCta as cta } from '@/data/whoweare';
+
+import { Kicker } from './shared/Kicker';
+import { Reveal } from './shared/Reveal';
 
 export default function WhoWeAreCta() {
   return (
-    <section className="bg-background py-20 md:py-28">
-      <Container>
-        <div className="overflow-hidden rounded-3xl bg-[#141A32] px-7 py-12 md:px-12 md:py-16 lg:px-16">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/60">
-              {whoWeAreCta.kicker}
-            </p>
+    <section
+      id="connect"
+      className="relative isolate overflow-hidden bg-primary text-primary-fg"
+    >
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <Image
+          src={cta.image}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-transparent to-primary/60" />
+      </div>
 
-            <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl">
-              {whoWeAreCta.heading}
-            </h2>
+      <Container className="relative py-section lg:py-section-lg">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <Kicker tone="light" className="justify-center">
+            {cta.kicker}
+          </Kicker>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
-              {whoWeAreCta.body}
-            </p>
+          <h2 className="mt-6 text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-tight text-primary-fg">
+            {cta.heading}
+          </h2>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href={whoWeAreCta.primaryHref}
-                className="inline-flex items-center justify-center rounded-full bg-[#e9c176] px-7 py-3.5 text-sm font-semibold text-[#141A32] transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {whoWeAreCta.primaryLabel}
-              </Link>
+          <p className="mx-auto mt-6 max-w-2xl text-body-lg leading-8 text-primary-fg/80">
+            {cta.body}
+          </p>
 
-              <Link
-                href={whoWeAreCta.secondaryHref}
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#141A32]"
-              >
-                {whoWeAreCta.secondaryLabel}
-              </Link>
-            </div>
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button href={cta.primaryHref} variant="light" size="lg">
+              {cta.primaryLabel}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Button>
+
+            <Button
+              href={cta.secondaryHref}
+              variant="outline"
+              size="lg"
+              className="!border-primary-fg/50 !text-primary-fg hover:!bg-primary-fg hover:!text-primary"
+            >
+              {cta.secondaryLabel}
+            </Button>
           </div>
-        </div>
+
+          <ul className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-primary-fg/20 pt-7 text-body-sm">
+            {cta.audience.map((item) => (
+              <li key={item.label} className="text-primary-fg/70">
+                {item.prompt}{' '}
+                <Link
+                  href={item.href}
+                  className="font-semibold text-primary-fg underline-offset-4 transition-colors duration-300 hover:text-teal-200 hover:underline"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </Container>
     </section>
   );
