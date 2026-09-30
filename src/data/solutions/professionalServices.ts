@@ -2,7 +2,7 @@ export const professionalHero = {
   kicker: "Professional Services",
   heading: "Expertise That Helps Your Business Move Forward.",
   body: "We connect organizations with professional expertise and capabilities designed to address business, operational, and workforce challenges.",
-  image: "/images/hero.jpg",
+  image: "/images/professional-service.jpeg",
   imageAlt: "Professionals collaborating on business solutions",
 } as const;
 

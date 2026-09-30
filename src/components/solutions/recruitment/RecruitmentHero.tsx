@@ -26,8 +26,7 @@ export function RecruitmentHero(content: SolutionHeroContent) {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/85 to-inverse/40" />
-
+            <div className="absolute inset-0 bg-gradient-to-r from-inverse via-inverse/25 to-inverse/10" />
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-accent/25 blur-[120px]"
