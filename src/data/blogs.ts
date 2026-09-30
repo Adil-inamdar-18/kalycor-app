@@ -66,7 +66,7 @@ export const blogPosts: readonly BlogPost[] = [
     date: "2026-09-15",
     author,
     authorRole,
-    cover: "/images/opportunities/events.jpg",
+    cover: "/images/blog11.jpg",
     coverAlt: "A team reviewing plans and charts around a shared table",
     takeaways: [
       "Plan around the work that needs doing, not just the roles on an org chart.",

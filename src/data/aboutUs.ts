@@ -17,7 +17,7 @@ export const aboutIntro = {
 export const aboutStory = {
   kicker: "Our Story",
   heading: "Understanding Needs. Creating Connections. Building What Comes Next.",
-  image: "/images/opportunities/join-us.jpg",
+  image: "/images/aboutUsStory.jpg",
   imageAlt: "Kalycor colleagues collaborating at a shared workstation",
   paragraphs: [
     "The world of work and business continues to change. Organizations need the right people, capabilities, and technology to adapt, while professionals need opportunities that align with their skills and ambitions.",
