@@ -25,11 +25,6 @@ function Photo({ photo }: { photo: ApproachPhoto }) {
   );
 }
 
-/**
- * Editorial photo composition:
- * - Stacked layout on mobile
- * - Collage layout from 781px and above
- */
 export function Approach() {
   const { approachCopy, approachPhotos } = getLandingData();
 
