@@ -244,7 +244,7 @@ export function Hero() {
           tp:flex
         "
       >
-        <span
+        {/* <span
           className="
             text-[11px]
             font-medium
@@ -253,9 +253,9 @@ export function Hero() {
           "
         >
           Scroll
-        </span>
+        </span> */}
 
-        <span className="h-8 w-px bg-primary-fg/40" />
+        {/* <span className="h-8 w-px bg-primary-fg/40" /> */}
       </div>
     </section>
   );

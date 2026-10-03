@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { site } from '@/config/site';
 import { Footer, Header } from '@/components/landing';
-// UtilityBar is available in '@/components/landing' but currently disabled
-// on the landing page (see the commented-out usage below). Re-add the
-// import if it's switched back on.
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.tagline}`,
