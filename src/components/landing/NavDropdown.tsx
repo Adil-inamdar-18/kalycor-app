@@ -84,19 +84,7 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
       >
         {label}
 
-        <span
-          className="
-            mt-px
-            text-[10px]
-            text-paragraph
-            transition-transform
-            duration-fast
-            group-hover:rotate-180
-            group-focus-within:rotate-180
-          "
-        >
-          ▾
-        </span>
+     
       </button>
 
       {/* Mega Menu */}
