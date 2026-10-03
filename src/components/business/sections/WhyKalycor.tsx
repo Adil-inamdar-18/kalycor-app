@@ -8,7 +8,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function WhyKalycor() {
   const { whyKalycorData } = getBusinessData();
   return (
-    <section className="relative overflow-hidden bg-offwhite py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-offwhite py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

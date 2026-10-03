@@ -20,7 +20,7 @@ export default function DiversityPillars() {
       as="section"
       id={diversityPillars.id}
       tone="page"
-      className="scroll-mt-24 bg-surface-alt"
+      className="scroll-mt-16 bg-surface-alt"
     >
       <Container>
         <motion.div

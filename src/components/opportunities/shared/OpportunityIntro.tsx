@@ -3,7 +3,7 @@ import type { OpportunityIntroContent } from "@/types";
 
 export default function OpportunityIntro({ kicker, heading, paragraphs }: OpportunityIntroContent) {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-background py-20 md:py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>

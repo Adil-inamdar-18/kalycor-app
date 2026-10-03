@@ -59,7 +59,7 @@ export default function SubmitResumeForm() {
           {sent ? (
             <Done title="Resume received" body={`Thanks${v.name ? `, ${v.name.split(" ")[0]}` : ""}. Our team will review your profile and contact you at ${v.email} if there is a relevant match.`} />
           ) : (
-            <form id="resume-form" onSubmit={submit} className="scroll-mt-28 space-y-6 rounded-3xl border border-line bg-surface p-6 shadow-float md:p-9">
+            <form id="resume-form" onSubmit={submit} className="scroll-mt-20 space-y-6 rounded-3xl border border-line bg-surface p-6 shadow-float md:p-9">
               <div
                 onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
                 onDragLeave={() => setDrag(false)}

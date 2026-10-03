@@ -49,7 +49,7 @@ export default function ReferralFlow() {
       />
 
       <section className="border-b border-line bg-surface">
-        <Container className="grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
+        <Container className="grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-16">
           <div>
             <Eyebrow>{referralProgramIntro.kicker}</Eyebrow>
             <h2 className="text-h2 font-bold text-heading">{referralProgramIntro.heading}</h2>
@@ -67,7 +67,7 @@ export default function ReferralFlow() {
         </Container>
       </section>
 
-      <Section tone="page" id="referral-process" className="scroll-mt-28">
+      <Section tone="page" id="referral-process" className="scroll-mt-20">
         <Container>
           <Eyebrow>{referralProgramProcess.kicker}</Eyebrow>
           <h2 className="mb-12 max-w-2xl text-h2 font-bold text-heading">{referralProgramProcess.heading}</h2>
@@ -102,7 +102,7 @@ export default function ReferralFlow() {
             </div>
           </div>
 
-          <div id="referral-form" className="scroll-mt-28">
+          <div id="referral-form" className="scroll-mt-20">
             {sent ? (
               <Done title="Referral sent" body="Thank you. Our team will review the profile and contact your referral if there is a fit." />
             ) : (

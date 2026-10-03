@@ -36,7 +36,7 @@ export function AboutValues(content: AboutValuesProps) {
       as="section"
       id="values"
       tone="inverse"
-      className="relative scroll-mt-32 overflow-hidden"
+      className="relative scroll-mt-20 overflow-hidden"
     >
       <motion.div
         aria-hidden="true"

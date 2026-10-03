@@ -12,7 +12,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Solutions() {
   const { solutionsData } = getBusinessData();
   return (
-    <section id="solutions" className="relative overflow-hidden bg-cream py-24 lg:py-32">
+    <section id="solutions" className="relative overflow-hidden bg-cream py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
           heading={solutionsData.heading}

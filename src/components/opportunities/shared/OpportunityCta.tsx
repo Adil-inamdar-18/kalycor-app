@@ -13,7 +13,7 @@ export default function OpportunityCta({
   secondaryHref,
 }: OpportunityCtaContent) {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-background py-20 md:py-20">
       <Container>
         <div className="rounded-3xl bg-[#141A32] px-6 py-14 text-center text-white sm:px-10 md:py-20 lg:px-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#e9c176]">

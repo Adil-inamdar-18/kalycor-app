@@ -14,7 +14,7 @@ export function AboutStory(content: AboutStoryProps) {
       as="section"
       id="story"
       tone="page"
-      className="scroll-mt-32 pt-16 md:pt-20"
+      className="scroll-mt-20 pt-16 md:pt-20"
     >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">

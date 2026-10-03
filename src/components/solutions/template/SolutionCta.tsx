@@ -5,7 +5,7 @@ import type { SolutionCtaContent } from "@/types";
 
 export function SolutionCta(content: SolutionCtaContent) {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-background py-20 md:py-20">
       <Container>
         <div className="overflow-hidden rounded-3xl bg-[#141A32] px-7 py-12 text-white md:px-12 md:py-16 lg:px-16">
           <div className="max-w-3xl">

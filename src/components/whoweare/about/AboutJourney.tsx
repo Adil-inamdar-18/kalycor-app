@@ -27,7 +27,7 @@ export function AboutJourney(content: AboutJourneyContent) {
       as="section"
       id="journey"
       tone="page"
-      className="scroll-mt-32 overflow-hidden"
+      className="scroll-mt-20 overflow-hidden"
     >
       <Container>
         <motion.div

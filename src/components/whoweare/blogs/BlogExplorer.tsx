@@ -51,7 +51,7 @@ export default function BlogExplorer({
   const chips: readonly (BlogCategory | typeof ALL)[] = [ALL, ...categories];
 
   return (
-    <Section as="section" id="articles" tone="page" className="scroll-mt-24 bg-surface-alt">
+    <Section as="section" id="articles" tone="page" className="scroll-mt-16 bg-surface-alt">
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <h2 className="font-heading text-h2 font-bold leading-[1.1] tracking-tight text-heading">

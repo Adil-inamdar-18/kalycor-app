@@ -21,7 +21,7 @@ export default function CsrFocusAreas() {
       as="section"
       id={csrFocus.id}
       tone="page"
-      className="scroll-mt-24 bg-surface-alt"
+      className="scroll-mt-16 bg-surface-alt"
     >
       <Container>
         <motion.div
@@ -45,7 +45,7 @@ export default function CsrFocusAreas() {
               <article
                 key={area.id}
                 id={area.id}
-                className="grid scroll-mt-32 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+                className="grid scroll-mt-20 items-center gap-10 lg:grid-cols-2 lg:gap-16"
               >
                 <motion.div
                   initial={{ opacity: 0, x: imageRight ? 28 : -28 }}

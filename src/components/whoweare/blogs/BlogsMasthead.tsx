@@ -14,7 +14,7 @@ import { Kicker } from '../shared/Kicker';
 export default function BlogsMasthead() {
   return (
     <section className="border-b border-line bg-background">
-      <Container className="py-16 md:py-24">
+      <Container className="py-16 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}

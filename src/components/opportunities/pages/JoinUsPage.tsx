@@ -36,7 +36,7 @@ export default function JoinUsPage() {
       />
 
       <section className="border-b border-line bg-surface">
-        <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+        <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
           <div>
             <Eyebrow>{joinUsIntro.kicker}</Eyebrow>
             <h2 className="text-h2 font-bold text-heading">{joinUsIntro.heading}</h2>

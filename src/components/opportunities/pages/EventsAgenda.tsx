@@ -36,7 +36,7 @@ export default function EventsAgenda() {
         media={heroMedia.events}
         actions={[{ label: "Browse events", href: "#events-list" }]}
       />
-      <section id="events-list" className="scroll-mt-28 bg-background py-12 md:py-16">
+      <section id="events-list" className="scroll-mt-20 bg-background py-12 md:py-16">
         <Container className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
           <div>
             <div className="mb-6 flex flex-wrap items-center gap-2">

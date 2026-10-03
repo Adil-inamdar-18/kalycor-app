@@ -9,7 +9,7 @@ type AboutIntroProps = typeof aboutIntro;
 
 export function AboutIntro(content: AboutIntroProps) {
   return (
-    <section className="relative z-20 bg-background pb-16 pt-12 md:pb-24 md:pt-16">
+    <section className="relative z-20 bg-background pb-16 pt-12 md:pb-16 md:pt-16">
       <Container>
         {/* Card sits below the hero with breathing room */}
         <motion.div

@@ -10,7 +10,7 @@ export default function OpportunityBenefits({
   points,
 }: OpportunityBenefitsContent) {
   return (
-    <section className="bg-[#141A32] py-20 text-white md:py-28">
+    <section className="bg-[#141A32] py-20 text-white md:py-20">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>

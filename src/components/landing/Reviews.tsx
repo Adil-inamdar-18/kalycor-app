@@ -30,7 +30,7 @@ export function Reviews() {
   return (
     <section
       id={anchors.landing.whoWeAre.slice(1)}
-      className="relative overflow-hidden border-y border-teal-400/10 bg-reviews py-[72px] tp:py-section before:pointer-events-none before:absolute before:right-[-190px] before:top-[-240px] before:h-[420px] before:w-[420px] before:rounded-full before:bg-white/[0.38] before:content-[''] after:pointer-events-none after:bottom-[-220px] after:left-[-210px] after:absolute after:h-[330px] after:w-[330px] after:rounded-full after:bg-teal-500/[0.08] after:content-['']"
+      className="relative overflow-hidden border-y border-teal-400/10 bg-reviews py-12 tp:py-section before:pointer-events-none before:absolute before:right-[-190px] before:top-[-240px] before:h-[420px] before:w-[420px] before:rounded-full before:bg-white/[0.38] before:content-[''] after:pointer-events-none after:bottom-[-220px] after:left-[-210px] after:absolute after:h-[330px] after:w-[330px] after:rounded-full after:bg-teal-500/[0.08] after:content-['']"
     >
       <Container className="relative z-[1]">
         <div className="mb-[34px] max-w-[820px] tp:mb-12">
