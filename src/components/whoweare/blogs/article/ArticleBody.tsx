@@ -23,7 +23,7 @@ export default function ArticleBody({ blocks }: ArticleBodyProps) {
               <h2
                 key={index}
                 id={slugifyHeading(block.text)}
-                className="scroll-mt-32 pt-6 font-heading text-[clamp(24px,2.6vw,32px)] font-bold leading-tight tracking-tight text-heading"
+                className="scroll-mt-20 pt-6 font-heading text-[clamp(24px,2.6vw,32px)] font-bold leading-tight tracking-tight text-heading"
               >
                 {block.text}
               </h2>

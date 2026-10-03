@@ -8,7 +8,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Offerings() {
   const { offeringsData } = getBusinessData();
   return (
-    <section className="relative overflow-hidden bg-plum py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-plum py-16 lg:py-20">
       {/* Subtle background texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
         <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800">

@@ -9,7 +9,7 @@ import { Kicker } from '../shared/Kicker';
 
 export default function CsrPurpose() {
   return (
-    <section className="bg-background pb-20 md:pb-24">
+    <section className="bg-background pb-20 md:pb-16">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <motion.div

@@ -80,7 +80,7 @@ export default function TalentAssistance() {
             </dl>
           </div>
 
-          <div id="advisor-form" className="scroll-mt-28">
+          <div id="advisor-form" className="scroll-mt-20">
           {sent ? (
             <Done title="Request received" body="An advisor will get back to you shortly." />
           ) : (

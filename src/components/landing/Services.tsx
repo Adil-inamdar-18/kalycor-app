@@ -75,7 +75,7 @@ export function Services() {
           className="mb-8"
         />
 
-        <div className="relative">
+        <div className="relative mb-16 xl:mb-0">
           {/* Left arrow */}
           <button
             type="button"
@@ -83,13 +83,15 @@ export function Services() {
             onClick={() => slideCards("left")}
             className="
               absolute
-              left-[-58px]
-              top-1/2
+              left-[calc(50%-52px)]
+              -bottom-14
               z-[20]
+              xl:bottom-auto
+              xl:top-1/2
               flex
               h-11
               w-11
-              -translate-y-1/2
+              xl:-translate-y-1/2
               items-center
               justify-center
               rounded-full
@@ -103,7 +105,7 @@ export function Services() {
               hover:border-primary
               hover:bg-primary
               hover:text-primary-fg
-              sm:left-[-64px]
+              xl:left-[-64px]
             "
           >
             <svg
@@ -269,13 +271,15 @@ export function Services() {
             onClick={() => slideCards("right")}
             className="
               absolute
-              right-[-58px]
-              top-1/2
+              right-[calc(50%-52px)]
+              -bottom-14
               z-[20]
+              xl:bottom-auto
+              xl:top-1/2
               flex
               h-11
               w-11
-              -translate-y-1/2
+              xl:-translate-y-1/2
               items-center
               justify-center
               rounded-full
@@ -289,7 +293,7 @@ export function Services() {
               hover:border-primary
               hover:bg-primary
               hover:text-primary-fg
-              sm:right-[-64px]
+              xl:right-[-64px]
             "
           >
             <svg

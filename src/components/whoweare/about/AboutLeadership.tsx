@@ -17,7 +17,7 @@ export function AboutLeadership(content: AboutLeadershipContent) {
       as="section"
       id="leadership"
       tone="page"
-      className="scroll-mt-32"
+      className="scroll-mt-20"
     >
       <Container>
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_1fr] lg:gap-20">

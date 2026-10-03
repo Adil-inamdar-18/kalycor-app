@@ -29,7 +29,7 @@ export function IndustryFuture({ future }: { future: IndustryPage["future"] }) {
           />
 
           {/* Content */}
-          <div className="relative flex min-h-[480px] items-center px-7 py-16 sm:px-12 sm:py-20 lg:px-16 lg:py-24">
+          <div className="relative flex min-h-[480px] items-center px-7 py-16 sm:px-12 sm:py-20 lg:px-16 lg:py-16">
             <div className="max-w-4xl">
               <p className="mb-5 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
                 {future.kicker}

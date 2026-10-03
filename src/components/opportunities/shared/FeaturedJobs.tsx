@@ -17,7 +17,7 @@ export default function FeaturedJobs() {
   if (featured.length === 0) return null;
 
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-background py-20 md:py-20">
       <Container>
         <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
           <div>

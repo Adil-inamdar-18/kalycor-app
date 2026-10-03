@@ -22,7 +22,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-offwhite py-24 lg:py-32">
+    <section id="contact" className="relative overflow-hidden bg-offwhite py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left — heading */}

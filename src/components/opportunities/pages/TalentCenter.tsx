@@ -44,7 +44,7 @@ export default function TalentCenter() {
       />
 
       <section className="border-b border-line bg-surface">
-        <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1fr_1fr] lg:py-24">
+        <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1fr_1fr] lg:py-16">
           <div>
             <Eyebrow>{globalTalentCenterIntro.kicker}</Eyebrow>
             <h2 className="text-h2 font-bold text-heading">{globalTalentCenterIntro.heading}</h2>

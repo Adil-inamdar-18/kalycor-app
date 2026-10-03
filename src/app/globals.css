@@ -141,9 +141,9 @@
   --space-8: 64px;
   --space-9: 80px;
 
-  --section-py: 96px; /* default vertical rhythm for <Section> */
-  --section-py-sm: 72px;
-  --section-py-lg: 110px;
+  --section-py: 64px; /* default vertical rhythm for <Section> */
+  --section-py-sm: 48px;
+  --section-py-lg: 80px;
   --content-gap: 24px; /* gap between cards / grid cells          */
   --card-padding: 24px;
 
@@ -294,7 +294,7 @@
 
   --container-max: 1200px;
   --container-pad: 32px;
-  --section-py: 96px;
+  --section-py: 64px;
   --btn-radius: var(--radius-xs);
   --btn-font: var(--font-heading);
   --brand-mark: 58px;
@@ -358,7 +358,7 @@
 
   --container-max: 80rem;
   --container-pad: 24px;
-  --section-py: 96px;
+  --section-py: 64px;
   --btn-radius: var(--radius-xs);
   --btn-font: var(--font-heading);
 }
@@ -435,6 +435,15 @@
   textarea {
     font: inherit;
     color: inherit;
+  }
+
+  /* Never let a stray element widen the page on small screens (no sideways
+     scroll). `clip` doesn't create a scroll container, so sticky/fixed
+     headers keep working. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   ::selection {

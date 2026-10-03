@@ -3,7 +3,7 @@ import type { SolutionCapabilitiesContent } from "@/types";
 
 export function SolutionCapabilities(content: SolutionCapabilitiesContent) {
   return (
-    <section className="bg-muted/30 py-20 md:py-28">
+    <section className="bg-muted/30 py-20 md:py-20">
       <Container>
         <div className="mb-12 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-primary">

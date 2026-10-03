@@ -16,7 +16,7 @@ export function AboutMissionVision(content: AboutMissionVisionProps) {
       as="section"
       id="mission"
       tone="page"
-      className="scroll-mt-32 bg-surface-alt"
+      className="scroll-mt-20 bg-surface-alt"
     >
       <Container>
         <motion.div
