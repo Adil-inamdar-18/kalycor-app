@@ -30,11 +30,11 @@ const FADE_HERO_RATIO = 0.6;
 const FADE_MIN_PX = 160;
 const FADE_MAX_PX = 520;
 
-/** Below the desktop-nav breakpoint the bar must turn solid quickly, otherwise
- *  its dark text sits over the hero content while the background is still
- *  half transparent. */
-const MOBILE_BREAKPOINT_PX = 981;
-const MOBILE_FADE_PX = 80;
+/** Below the desktop-nav breakpoint the hero text sits right under the bar, so
+ *  the fade is shortened: still transparent at the top, but white before the
+ *  heading scrolls behind it. */
+const COMPACT_BREAKPOINT_PX = 981;
+const COMPACT_FADE_PX = 120;
 
 /** Progress at which text/logo/icons switch from light to dark. */
 const LIGHT_UNTIL = 0.5;
@@ -102,8 +102,6 @@ export function Header() {
    *  the DOM directly so scrolling never re-renders the menus. */
   const progressRef = useRef(0);
   const menuOpenRef = useRef(false);
-  /** True below the desktop-nav breakpoint: the bar is always solid there. */
-  const compactRef = useRef(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -126,17 +124,19 @@ export function Header() {
       header.style.removeProperty("background-color");
       header.style.removeProperty("border-bottom-color");
       header.style.removeProperty("box-shadow");
+      header.style.removeProperty("backdrop-filter");
       setLight(false);
       return;
     }
 
     // Open mobile menu always sits on a white bar so the panel stays legible.
-    const p = menuOpenRef.current || compactRef.current ? 1 : progressRef.current;
+    const p = menuOpenRef.current ? 1 : progressRef.current;
     const shadow = clamp01((p - SHADOW_FROM) / (1 - SHADOW_FROM));
 
     // Only the background layers carry alpha; content colours are untouched.
     header.style.backgroundColor = `hsl(var(--surface) / ${p})`;
     header.style.borderBottomColor = `hsl(var(--line) / ${p})`;
+    header.style.backdropFilter = p > 0 ? `blur(${(8 * p).toFixed(1)}px)` : "none";
     header.style.boxShadow =
       shadow > 0 ? `0 4px 20px -6px rgba(15, 23, 42, ${0.16 * shadow})` : "none";
 
@@ -150,8 +150,8 @@ export function Header() {
     const box = hero.getBoundingClientRect();
     const scrolled = Math.max(0, -box.top);
     const range =
-      window.innerWidth < MOBILE_BREAKPOINT_PX
-        ? MOBILE_FADE_PX
+      window.innerWidth < COMPACT_BREAKPOINT_PX
+        ? COMPACT_FADE_PX
         : Math.min(
             FADE_MAX_PX,
             Math.max(FADE_MIN_PX, box.height * FADE_HERO_RATIO),
@@ -179,14 +179,6 @@ export function Header() {
       }
     };
 
-    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT_PX - 1}px)`);
-    const onMq = () => {
-      compactRef.current = mq.matches;
-      paint();
-    };
-    compactRef.current = mq.matches;
-    mq.addEventListener("change", onMq);
-
     detect();
 
     let frame = 0;
@@ -205,7 +197,6 @@ export function Header() {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
-      mq.removeEventListener("change", onMq);
     };
   }, [pathname, solidHeader, updateScrollState, paint]);
 
