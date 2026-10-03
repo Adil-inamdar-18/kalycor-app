@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, Section } from "@/components/layout";
@@ -8,9 +8,99 @@ import { SectionTitle } from "@/components/ui";
 import { getLandingData } from "@/services/siteService";
 import { anchors } from "@/config/routes";
 
+/**
+ * Fixed hit-area around each card. Hover is read from this element (which
+ * never moves) while the inner card does the lift/scale, so the cursor can
+ * never "fall off" a moving card and retrigger hover. Also drives the video.
+ */
+function ServiceCardShell({ children }: { children: React.ReactNode }) {
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+    };
+  }, []);
+
+  const handleEnter = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    event.currentTarget.querySelector("video")?.play().catch(() => {});
+  };
+
+  const handleLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+    const video = event.currentTarget.querySelector("video");
+    if (!video) return;
+
+    video.pause();
+
+    // Rewind only after the card has finished settling back, so the frame
+    // never changes while the image is still animating.
+    resetTimer.current = setTimeout(() => {
+      video.currentTime = 0;
+    }, 350);
+  };
+
+  return (
+    <div
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      className="
+        svc-shell
+        group/shell
+        relative
+        z-[1]
+        flex
+        flex-[0_0_82vw]
+        hover:z-[100]
+        sm:flex-[0_0_340px]
+        nav:flex-[0_0_calc((100%_-_72px)/4)]
+      "
+    >
+      {children}
+    </div>
+  );
+}
+
 export function Services() {
   const { services, servicePillHref } = getLandingData();
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const targetRef = useRef(0);
+  const frameRef = useRef<number | null>(null);
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // One eased scroll loop shared by arrows + mouse wheel, so scrolling never
+  // fights itself (no stacked smooth-scroll queues = no jitter).
+  const animateTo = useCallback((target: number) => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const max = grid.scrollWidth - grid.clientWidth;
+    targetRef.current = Math.max(0, Math.min(max, target));
+
+    if (frameRef.current !== null) return;
+
+    const step = () => {
+      const el = gridRef.current;
+      if (!el) {
+        frameRef.current = null;
+        return;
+      }
+
+      const diff = targetRef.current - el.scrollLeft;
+
+      if (Math.abs(diff) < 0.5) {
+        el.scrollLeft = targetRef.current;
+        frameRef.current = null;
+        return;
+      }
+
+      el.scrollLeft += diff * 0.18;
+      frameRef.current = requestAnimationFrame(step);
+    };
+
+    frameRef.current = requestAnimationFrame(step);
+  }, []);
 
   // Move cards with arrows
   const slideCards = (direction: "left" | "right") => {
@@ -22,48 +112,58 @@ export function Services() {
 
     const gap = 24;
     const scrollAmount = (card.offsetWidth + gap) * 4;
+    const max = grid.scrollWidth - grid.clientWidth;
+    const base = frameRef.current !== null ? targetRef.current : grid.scrollLeft;
 
     if (direction === "right") {
-      if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
-        grid.scrollTo({
-          left: 0,
-          behavior: "smooth",
-        });
-      } else {
-        grid.scrollBy({
-          left: scrollAmount,
-          behavior: "smooth",
-        });
-      }
+      animateTo(base >= max - 10 ? 0 : base + scrollAmount);
     } else {
-      if (grid.scrollLeft <= 10) {
-        grid.scrollTo({
-          left: grid.scrollWidth,
-          behavior: "smooth",
-        });
-      } else {
-        grid.scrollBy({
-          left: -scrollAmount,
-          behavior: "smooth",
-        });
-      }
+      animateTo(base <= 10 ? max : base - scrollAmount);
     }
   };
 
-  // Mouse wheel scroll
-  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+  useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
 
-    if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-      event.preventDefault();
+    // Native, non-passive wheel listener (React's onWheel is passive, so
+    // preventDefault there is ignored and the page scrolls at the same time).
+    const onWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
-      grid.scrollBy({
-        left: event.deltaY,
-        behavior: "smooth",
-      });
-    }
-  };
+      const max = grid.scrollWidth - grid.clientWidth;
+      const base =
+        frameRef.current !== null ? targetRef.current : grid.scrollLeft;
+      const atStart = base <= 0 && event.deltaY < 0;
+      const atEnd = base >= max && event.deltaY > 0;
+
+      // Let the page scroll normally once the carousel hits either end.
+      if (atStart || atEnd) return;
+
+      event.preventDefault();
+      animateTo(base + event.deltaY);
+    };
+
+    // While the list is moving, cards sweeping under a still cursor must not
+    // trigger hover on/off (that was the flicker). Re-enabled right after.
+    const onScroll = () => {
+      grid.dataset.scrolling = "true";
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
+        delete grid.dataset.scrolling;
+      }, 140);
+    };
+
+    grid.addEventListener("wheel", onWheel, { passive: false });
+    grid.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      grid.removeEventListener("wheel", onWheel);
+      grid.removeEventListener("scroll", onScroll);
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    };
+  }, [animateTo]);
 
   return (
     <Section id={anchors.landing.solutions.slice(1)}>
@@ -126,141 +226,142 @@ export function Services() {
           {/* Service cards */}
           <div
             ref={gridRef}
-            onWheel={handleWheel}
             className="
+              -mb-3
+              -mt-3
               flex
               gap-[18px]
               overflow-x-auto
               overflow-y-visible
-              pb-5
-              pt-5
+              pb-8
+              pt-8
               scrollbar-none
+              data-[scrolling=true]:[&_.svc-shell]:pointer-events-none
               sm:gap-6
               nav:gap-6
             "
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
+              scrollBehavior: "auto",
             }}
           >
             {services.map((service) => (
-              <article
-                key={service.title}
-                onMouseEnter={(event) => {
-                  event.currentTarget.querySelector("video")?.play();
-                }}
-                onMouseLeave={(event) => {
-                  const video = event.currentTarget.querySelector("video");
-
-                  if (video) {
-                    video.pause();
-                    video.currentTime = 0;
-                  }
-                }}
-                className="
-                  group
-                  relative
-                  z-[1]
-                  flex
-                  min-h-[390px]
-                  flex-[0_0_82vw]
-                  flex-col
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-line
-                  bg-surface-alt
-                  transition-all
-                  duration-slow
-                  hover:z-[100]
-                  hover:-translate-y-3
-                  hover:scale-[1.045]
-                  hover:border-transparent
-                  sm:min-h-[410px]
-                  sm:flex-[0_0_340px]
-                  nav:min-h-[420px]
-                  nav:flex-[0_0_calc((100%_-_72px)/4)]
-                "
-              >
-                {/* Image / video */}
-                <div className="relative overflow-hidden">
-                  {service.video ? (
-                    <video
-                      src={service.video}
-                      poster={service.image}
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                      aria-label={service.alt}
-                      className="
-                        block
-                        h-[175px]
-                        w-full
-                        object-cover
-                        transition-transform
-                        duration-[350ms]
-                        group-hover:scale-[1.06]
-                      "
-                    />
-                  ) : (
-                    <Image
-                      src={service.image}
-                      alt={service.alt}
-                      width={800}
-                      height={600}
-                      loading="lazy"
-                      className="
-                        block
-                        h-[175px]
-                        w-full
-                        object-cover
-                        transition-transform
-                        duration-[350ms]
-                        group-hover:scale-[1.06]
-                      "
-                    />
-                  )}
-                </div>
-
-                {/* Card content */}
-                <div className="flex flex-grow flex-col px-5 pb-5 pt-5">
-                  <h3 className="mb-[9px] text-h3 text-secondary">
-                    {service.title}
-                  </h3>
-
-                  <p className="mb-4 flex-grow text-small text-paragraph">
-                    {service.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-[9px]">
-                    {service.pills.map((pill) => (
-                      <Link
-                        key={pill}
-                        href={
-                          servicePillHref[pill] ?? anchors.landing.solutions
-                        }
+              /* Stable hit-area: never moves, so hover can't flicker when the
+                 card lifts away from the cursor. It also owns the sizing. */
+              <ServiceCardShell key={service.title}>
+                <article
+                  className="
+                    svc-card
+                    relative
+                    flex
+                    min-h-[390px]
+                    flex-1
+                    flex-col
+                    overflow-hidden
+                    rounded-2xl
+                    border
+                    border-line
+                    bg-surface-alt
+                    transition-[transform,border-color]
+                    duration-slow
+                    ease-[var(--ease)]
+                    will-change-transform
+                    [backface-visibility:hidden]
+                    isolate
+                    group-hover/shell:-translate-y-3
+                    group-hover/shell:scale-[1.045]
+                    group-hover/shell:border-transparent
+                    sm:min-h-[410px]
+                    nav:min-h-[420px]
+                  "
+                >
+                  {/* Image / video */}
+                  <div className="relative isolate overflow-hidden">
+                    {service.video ? (
+                      <video
+                        src={service.video}
+                        poster={service.image}
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        aria-label={service.alt}
                         className="
-                          inline-block
-                          rounded-pill
-                          bg-secondary
-                          px-4
-                          py-[8px]
-                          font-heading
-                          text-micro
-                          font-medium
-                          text-white
-                          transition-colors
-                          duration-fast
-                          hover:bg-navy-950
+                          block
+                          h-[175px]
+                          w-full
+                          object-cover
+                          transition-transform
+                          duration-slow
+                          ease-[var(--ease)]
+                          will-change-transform
+                          [backface-visibility:hidden]
+                          group-hover:scale-[1.06]
                         "
-                      >
-                        {pill}
-                      </Link>
-                    ))}
+                      />
+                    ) : (
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        className="
+                          block
+                          h-[175px]
+                          w-full
+                          object-cover
+                          transition-transform
+                          duration-slow
+                          ease-[var(--ease)]
+                          will-change-transform
+                          [backface-visibility:hidden]
+                          group-hover:scale-[1.06]
+                        "
+                      />
+                    )}
                   </div>
-                </div>
-              </article>
+
+                  {/* Card content */}
+                  <div className="flex flex-grow flex-col px-5 pb-5 pt-5">
+                    <h3 className="mb-[9px] text-h3 text-secondary">
+                      {service.title}
+                    </h3>
+
+                    <p className="mb-4 flex-grow text-small text-paragraph">
+                      {service.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-[9px]">
+                      {service.pills.map((pill) => (
+                        <Link
+                          key={pill}
+                          href={
+                            servicePillHref[pill] ?? anchors.landing.solutions
+                          }
+                          className="
+                            inline-block
+                            rounded-pill
+                            bg-secondary
+                            px-4
+                            py-[8px]
+                            font-heading
+                            text-micro
+                            font-medium
+                            text-white
+                            transition-colors
+                            duration-fast
+                            hover:bg-navy-950
+                          "
+                        >
+                          {pill}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              </ServiceCardShell>
             ))}
           </div>
 
