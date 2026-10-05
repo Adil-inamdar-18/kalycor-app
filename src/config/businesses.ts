@@ -24,6 +24,8 @@ export interface Business {
   /** Absolute URL of the business's own website. */
   url: string;
   icon: LucideIcon;
+  /** Card background photo (path under /public). */
+  image: string;
 }
 
 /** Falls back to the default domain when the env var is unset or blank. */
@@ -41,6 +43,7 @@ export const businesses: readonly Business[] = [
       "https://kalycoragriculture.com",
     ),
     icon: Sprout,
+    image: "/images/agri.jpg",
   },
   {
     key: "import-export",
@@ -52,6 +55,7 @@ export const businesses: readonly Business[] = [
       "https://kalycorexport.com",
     ),
     icon: Ship,
+    image: "/images/Export-Import.jpg",
   },
   {
     key: "security",
@@ -63,6 +67,7 @@ export const businesses: readonly Business[] = [
       "https://kalycorsecurity.com",
     ),
     icon: ShieldCheck,
+    image: "/images/monitoring-sec.jpg",
   },
   {
     key: "real-estate",
@@ -74,6 +79,7 @@ export const businesses: readonly Business[] = [
       "https://kalycorrealestate.com",
     ),
     icon: Building2,
+    image: "/images/real-estate.jpg",
   },
 ];
 
