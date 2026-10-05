@@ -42,10 +42,11 @@ export const routes = {
   },
 
   industries: {
-    agriculture: "/industries/agriculture",
-    importExport: "/industries/import-export",
-    realEstate: "/industries/realestate",
-    security: "/industries/security",
+    bfsi: "/industries/bfsi",
+    healthcare: "/industries/healthcare-pharma-lifesciences",
+    telecomMediaTechnology: "/industries/telecom-media-technology",
+    energy: "/industries/energy-oil-gas",
+    semiconductor: "/industries/semiconductor",
   },
 } as const;
 

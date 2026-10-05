@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import { Brand, Container } from "@/components/layout";
 import { site } from "@/config/site";
+import { businessLinkProps } from "@/config/businesses";
 import routes, { anchors } from "@/config/routes";
 import { getLandingData } from "@/services/siteService";
 import { cn } from "@/lib/utils";
@@ -383,24 +384,38 @@ export function Header() {
               >
                 <div className="overflow-hidden">
                   <div className="flex flex-col gap-0.5 pb-3 pl-3">
-                    <Link
-                      href={menuOverviewHref[menu.key] ?? "#"}
-                      onClick={closeMenu}
-                      className="py-2 text-sm font-semibold text-heading"
-                    >
-                      {menu.kicker ?? menu.label} overview
-                    </Link>
-
-                    {(menu.links ?? []).map((link) => (
+                    {menuOverviewHref[menu.key] && (
                       <Link
-                        key={link.label}
-                        href={link.href}
+                        href={menuOverviewHref[menu.key]}
                         onClick={closeMenu}
-                        className="py-2 text-sm text-paragraph"
+                        className="py-2 text-sm font-semibold text-heading"
                       >
-                        {link.label}
+                        {menu.kicker ?? menu.label} overview
                       </Link>
-                    ))}
+                    )}
+
+                    {(menu.links ?? []).map((link) =>
+                      link.external ? (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          {...businessLinkProps}
+                          onClick={closeMenu}
+                          className="py-2 text-sm text-paragraph"
+                        >
+                          {link.label} ↗
+                        </a>
+                      ) : (
+                        <Link
+                          key={link.label}
+                          href={link.href}
+                          onClick={closeMenu}
+                          className="py-2 text-sm text-paragraph"
+                        >
+                          {link.label}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>

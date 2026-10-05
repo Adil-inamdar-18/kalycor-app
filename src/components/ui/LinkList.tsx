@@ -28,7 +28,7 @@ export function LinkList({
               href={link.href}
               className={linkClassName}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               onClick={onNavigate}
             >
               {link.label}

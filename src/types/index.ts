@@ -19,7 +19,7 @@ export interface LinkGroup {
 
 /* -------------------------------------------------------------- landing -- */
 
-export type NavMenuLayout = 'split' | 'grid' | 'list';
+export type NavMenuLayout = 'split' | 'grid' | 'list' | 'businesses';
 
 export interface NavMenu {
   key: string;
@@ -281,13 +281,20 @@ export interface IndustryPage {
     items: readonly NumberedItem[];
   };
 
-  caseStudy: {
+  caseStudy?: {
     kicker: string;
     heading: string;
     client: string;
     challenge: string;
     approach: string;
     results: readonly { value: string; label: string }[];
+  };
+
+  /** Proof points shown as a second stat strip ("Success Stories"). */
+  successStories: {
+    kicker: string;
+    heading: string;
+    items: readonly { value: string; label: string }[];
   };
 
   areas: {
@@ -297,7 +304,7 @@ export interface IndustryPage {
     items: readonly NumberedItem[];
   };
 
-  testimonials: {
+  testimonials?: {
     kicker: string;
     heading: string;
     items: readonly { quote: string; name: string; role: string }[];

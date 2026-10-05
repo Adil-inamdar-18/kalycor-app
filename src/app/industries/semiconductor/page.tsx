@@ -5,19 +5,14 @@ import {
   IndustryStats,
   IndustryOverview,
   IndustryProcess,
-  IndustrySolutions,
-  IndustryCaseStudy,
   IndustryAreas,
-  IndustryTestimonials,
   IndustryWhyKalycor,
-  IndustryFuture,
   IndustryFAQ,
-  IndustryCTA,
 } from '@/components/industries/shared';
 import { getIndustryData } from '@/services/siteService';
 import { site } from '@/config/site';
 
-const data = getIndustryData('realestate');
+const data = getIndustryData('semiconductor');
 
 export const metadata: Metadata = {
   title: `${data.metaTitle} | ${site.name}`,
@@ -29,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RealEstatePage() {
+export default function SemiconductorPage() {
   return (
     <>
       <Header />
@@ -38,14 +33,12 @@ export default function RealEstatePage() {
         <IndustryStats stats={data.stats} />
         <IndustryOverview overview={data.overview} />
         <IndustryProcess process={data.process} />
-        {/* <IndustrySolutions solutions={data.solutions} /> */}
-        {/* <IndustryCaseStudy caseStudy={data.caseStudy} /> */}
         <IndustryAreas areas={data.areas} />
-        <IndustryTestimonials testimonials={data.testimonials} />
+        <div className="pb-4 pt-12 lg:pt-16">
+          <IndustryStats stats={data.successStories} />
+        </div>
         <IndustryWhyKalycor whyKalycor={data.whyKalycor} />
-        {/* <IndustryFuture future={data.future} /> */}
         <IndustryFAQ faq={data.faq} />
-        {/* <IndustryCTA cta={data.cta} /> */}
       </main>
       <Footer />
     </>
