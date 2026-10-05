@@ -9,9 +9,14 @@ import type { NavMenu } from "@/types";
 
 import CtaPair from "./CtaPair";
 import routes from "@/config/routes";
+import BusinessesMegaMenu from "./BusinessesMegaMenu";
 
 const panel =
   "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
+
+/** Same shell as `panel`, but height follows the content (card grid). */
+const panelAuto =
+  "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
 
 const menuLink =
   "flex h-[58px] items-center border-b border-line px-[26px] font-heading text-[15px] font-semibold leading-[1.25] text-heading transition-colors duration-fast hover:bg-navy-950/[0.025] hover:text-navy-950";
@@ -43,6 +48,8 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
     panelDescription,
   } = menu;
 
+  const isBusinesses = menu.layout === "businesses";
+
   return (
     <div
       className="group relative"
@@ -66,6 +73,10 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
             window.location.href = routes.opportunities.home;
             return;
           }
+          if (isBusinesses) {
+            setIsOpen((open) => !open);
+            return;
+          }
         }}
         className="
     flex
@@ -83,20 +94,23 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
   "
       >
         {label}
-
-     
       </button>
 
       {/* Mega Menu */}
       <div
+        aria-hidden={!isOpen}
         className={cn(
-          panel,
-          "grid grid-cols-[0.85fr_1fr_0.9fr]",
+          isBusinesses ? panelAuto : panel,
+          !isBusinesses && "grid grid-cols-[0.85fr_1fr_0.9fr]",
           isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible translate-y-2 opacity-0",
         )}
       >
+        {isBusinesses ? (
+          <BusinessesMegaMenu onNavigate={() => setIsOpen(false)} />
+        ) : (
+          <>
         {/* LEFT — CONTENT + CTA */}
         <div className="flex flex-col justify-start border-r border-line px-[32px] py-[36px]">
           <h3 className="font-heading text-[26px] font-medium leading-[1.2] text-heading underline decoration-teal-700 decoration-[1px] underline-offset-[5px]">
@@ -143,6 +157,8 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
             )}
           </div>
         </div>
+          </>
+        )}
       </div>
     </div>
   );

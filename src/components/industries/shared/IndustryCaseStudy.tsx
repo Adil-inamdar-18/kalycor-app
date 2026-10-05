@@ -5,7 +5,7 @@ import type { IndustryPage } from '@/types';
 export function IndustryCaseStudy({
   caseStudy,
 }: {
-  caseStudy: IndustryPage['caseStudy'];
+  caseStudy: NonNullable<IndustryPage['caseStudy']>;
 }) {
   return (
     <Section as="section" tone="surface">

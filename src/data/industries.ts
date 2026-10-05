@@ -1,7 +1,13 @@
-// All copy and links below are taken verbatim from the original industry
-// page components. URLs are never hard-coded here — they come from
-// src/config/routes.ts, matching the pattern used by src/data/landing.ts
-// and src/data/business.ts.
+// Industry page content. Industry names, talent domains, workforce strategies
+// and proof points are based on the Collabera industry pages:
+//   https://www.collabera.com/banking-financial-services-and-insurance/
+//   https://www.collabera.com/healthcare-pharma-and-lifesciences/
+//   https://www.collabera.com/telecom-media-and-technology/
+//   https://www.collabera.com/energy-oil-and-gas/
+//   https://www.collabera.com/semiconductor/
+//
+// URLs are never hard-coded here — they come from src/config/routes.ts,
+// matching the pattern used by src/data/landing.ts and src/data/business.ts.
 
 import { crossLinks } from "@/config/routes";
 import type { IndustryPage } from "@/types";
@@ -12,1116 +18,914 @@ const contactCtaAlt = {
   href: crossLinks.contact,
 };
 
-export const agriculture: IndustryPage = {
-  slug: "agriculture",
-  name: "Agriculture",
-  metaTitle: "Agriculture",
-  metaDescription:
-    "Connecting agriculture businesses with the people, technology, and solutions they need to build more efficient, sustainable, and resilient operations.",
-  hero: {
-    image: "/images/industries/agriculture.jpeg",
-    kicker: "Agriculture",
-    title: ["Empowering", "Agriculture.", "Growing What’s Next."],
-    accentLine: 1,
-    highlights: [
-      { icon: "sprout", label: "Higher Yields" },
-      { icon: "shield", label: "Sustainable Practices" },
-      { icon: "settings", label: "Smart Technology" },
-      { icon: "users", label: "Stronger Communities" },
-    ],
-    description:
-      "Connecting agriculture businesses with the people, technology, and solutions they need to build more efficient, sustainable, and resilient operations.",
-    primaryCta: {
-      label: "Explore Our Solutions",
-      href: "#agriculture-solutions",
-    },
-    secondaryCta: contactCta,
-  },
-  stats: {
-    kicker: "Agriculture at a Glance",
-    heading: "Field-tested workforce and technology support",
-    items: [
-      { value: "500+", label: "Agriculture and agritech professionals placed" },
-      { value: "18", label: "States supported across farm and food-production operations" },
-      { value: "92%", label: "Client retention across multi-season contracts" },
-      { value: "72 hrs", label: "Average time to deploy a qualified field team" },
-    ],
-  },
-  overview: {
-    id: "agriculture-overview",
-    kicker: "Agriculture Industry",
-    heading: "Agriculture in a Changing World",
-    paragraph:
-      "Agriculture is evolving rapidly. From modern farming and food production to agricultural technology and supply-chain operations, businesses need adaptable talent and smarter solutions to keep pace with changing demands.",
-    areas: [
-      "Agricultural Operations",
-      "Food Production & Processing",
-      "AgriTech",
-      "Supply Chain & Logistics",
-      "Farm & Field Operations",
-      "Agricultural Equipment & Technology",
-    ],
-  },
-    process: {
+/** Shared "how we work" steps, worded per industry. */
+function buildProcess(
+  industry: string,
+  steps: readonly [string, string, string, string],
+) {
+  return {
     kicker: "How We Work",
-    heading: "From Brief to Boots on the Ground",
-    description:
-      "A straightforward process built to get the right agricultural talent in place without slowing down your season.",
+    heading: `From Brief to Placed Talent in ${industry}`,
+    description: `A clear process for putting the right ${industry.toLowerCase()} professionals in place as fast as your business needs them.`,
     steps: [
-      {
-        number: "01",
-        title: "Understand the Operation",
-        description:
-          "We learn your crop cycles, sites, and the roles that keep your operation running.",
-          image:"/images/Understand the Operation.jpg"
-      },
-      {
-        number: "02",
-        title: "Source & Screen",
-        description:
-          "We tap our agriculture network and vet candidates for skills, reliability, and safety compliance.",
-          image:"/images/Source & Screen(agriculture).jpg"
-      },
-      {
-        number: "03",
-        title: "Deploy the Team",
-        description:
-          "Selected candidates are onboarded and placed on-site, ready to work within days.",
-          image:"/images/Deploy the Team(agriculture).jpg"
-      },
-      {
-        number: "04",
-        title: "Support & Scale",
-        description:
-          "We stay engaged through the season, adjusting headcount as planting, harvest, and demand shift.",
-          image:"/images/Support & Scale(agriculture).jpg"
-      },
+      { number: "01", title: "Understand the Need", description: steps[0] },
+      { number: "02", title: "Source & Screen", description: steps[1] },
+      { number: "03", title: "Deploy the Team", description: steps[2] },
+      { number: "04", title: "Support & Scale", description: steps[3] },
     ],
-  },
-solutions: {
-    id: "agriculture-solutions",
-    kicker: "What We Do",
-    heading: "Solutions Built for Agriculture",
-    description:
-      "From people and processes to technology and growth, our solutions help agriculture businesses adapt, scale, and move forward.",
-    items: [
-      {
-        number: "01",
-        title: "Workforce Solutions",
-        description:
-          "Build reliable teams for agricultural operations, production, logistics, and support functions.",
-      },
-      {
-        number: "02",
-        title: "Recruitment & Placement",
-        description:
-          "Connect with skilled professionals across agriculture, food production, technology, and management.",
-      },
-      {
-        number: "03",
-        title: "Professional Services",
-        description:
-          "Access specialized expertise to improve processes, operations, and business performance.",
-      },
-      {
-        number: "04",
-        title: "Technology Solutions",
-        description:
-          "Support digital transformation through technology-driven solutions designed for modern agriculture.",
-      },
-    ],
-  },
-    caseStudy: {
-    kicker: "Case Study",
-    heading: "Staffing a Harvest Season Without the Scramble",
-    client: "Regional Produce & Food-Processing Operator",
-    challenge:
-      "A multi-site produce operator needed to more than double its field and packing-line headcount within three weeks of harvest, without compromising on safety compliance.",
-    approach:
-      "We activated our regional agriculture talent pool, ran expedited screening against the client's safety and food-handling standards, and staged onboarding across sites so teams were ready before the first truck arrived.",
-    results: [
-      { value: "140", label: "Field and packing roles filled in 18 days" },
-      { value: "0", label: "Safety compliance issues across the season" },
-      { value: "3 sites", label: "Staffed on a single coordinated timeline" },
-    ],
-  },
-areas: {
-    kicker: "Our Focus Areas",
-    heading: "Where We Create Impact",
-    description:
-      "Supporting the people, operations, and technology shaping the future of agriculture.",
-    items: [
-      {
-        number: "01",
-        title: "Farming & Cultivation",
-        description:
-          "Supporting modern farming operations with the people and solutions needed for efficient cultivation.",
-      },
-      {
-        number: "02",
-        title: "Agricultural Equipment",
-        description:
-          "Helping organizations support equipment, machinery, maintenance, and technology-driven agricultural operations.",
-      },
-      {
-        number: "03",
-        title: "Food Processing",
-        description:
-          "Connecting businesses with talent and solutions across food production, processing, packaging, and operations.",
-      },
-      {
-        number: "04",
-        title: "Supply Chain",
-        description:
-          "Supporting the movement of agricultural products through efficient logistics, distribution, and supply-chain operations.",
-      },
-      {
-        number: "05",
-        title: "AgriTech",
-        description:
-          "Supporting technology-driven agriculture through digital solutions, innovation, and specialized talent.",
-      },
-      {
-        number: "06",
-        title: "Agricultural Operations",
-        description:
-          "Providing workforce and business solutions across the diverse operational needs of the agriculture industry.",
-      },
-    ],
-  },
-    testimonials: {
-    kicker: "What Clients Say",
-    heading: "Trusted Across the Agriculture Sector",
-    items: [
-      {
-        quote:
-          "Kalycor understood our harvest timeline from day one. They had qualified field staff on site faster than any agency we'd used before.",
-        name: "Operations Director",
-        role: "Regional Produce Operator",
-      },
-      {
-        quote:
-          "What stood out was the compliance rigor. Every worker they placed was properly screened before they set foot on our packing line.",
-        name: "Plant Manager",
-        role: "Food Processing Facility",
-      },
-      {
-        quote:
-          "They flex with our seasons instead of forcing us into a fixed contract. That adaptability has made them our go-to partner.",
-        name: "VP of Operations",
-        role: "Multi-Site Agribusiness",
-      },
-    ],
-  },
-future: {
-    kicker: "The Future of Agriculture",
-    title: ["From Field", "to Future."],
-    description:
-      "We help agriculture organizations adapt to changing markets, evolving technology, and workforce demands by connecting the right people and solutions with the right opportunities.",
-  },
-  whyKalycor: {
+  };
+}
+
+/** Shared "why Kalycor" block, worded per industry. */
+function buildWhy(industry: string, heading: string) {
+  return {
     kicker: "Why Kalycor",
-    heading: "Rooted in Agriculture. Built for Growth.",
-    description:
-      "We bring together people, expertise, and technology to help agriculture businesses respond to today’s challenges and build for tomorrow.",
+    heading,
+    description: `We bring together people, expertise, and technology to help ${industry} organizations hire faster, adapt to change, and build for what’s next.`,
     items: [
       {
         number: "01",
         title: "Industry-Focused Talent",
-        description:
-          "Connect with people who understand the demands of agriculture and its evolving business landscape.",
+        description: `Connect with professionals who understand the demands of the ${industry} landscape.`,
       },
       {
         number: "02",
         title: "Flexible Workforce Solutions",
         description:
-          "Build teams that can adapt to changing operational needs, business cycles, and growth requirements.",
+          "Contract, direct placement, and managed models that adapt to changing business needs.",
       },
       {
         number: "03",
-        title: "Technology-Enabled Operations",
+        title: "Technology-Enabled Hiring",
         description:
-          "Support modern agriculture with technology-driven solutions that improve efficiency and connectivity.",
+          "Tech-driven talent matching that supports precise hiring decisions and shorter time-to-fill.",
       },
       {
         number: "04",
         title: "Scalable Business Support",
         description:
-          "Access solutions that can grow alongside your organization and changing business requirements.",
+          "Solutions that grow alongside your organization and its changing requirements.",
       },
       {
         number: "05",
         title: "Long-Term Partnership",
         description:
-          "Work with a partner focused on understanding your goals and supporting sustainable growth.",
+          "A partner focused on understanding your goals and supporting sustainable growth.",
       },
     ],
-  },
-  faq: {
-    kicker: "Common Questions",
-    heading: "Agriculture Staffing, Answered",
-    description:
-      "Straight answers to what agriculture and agritech businesses most often ask us before they hire.",
-    items: [
-      {
-        question: "Can you staff up quickly for harvest and peak seasons?",
-        answer:
-          "Yes. We keep a ready pipeline of vetted field, processing, and logistics workers so seasonal teams can scale up or down within days, not weeks.",
-      },
-      {
-        question: "Do you handle compliance for farm and food-production labor?",
-        answer:
-          "Every placement is screened against relevant labor, safety, and food-handling requirements so you can onboard workers with confidence.",
-      },
-      {
-        question: "Can you help us find agritech and precision-farming talent?",
-        answer:
-          "We recruit across agronomy, equipment technology, and farm-management software, connecting you with specialists who understand both agriculture and technology.",
-      },
-      {
-        question: "What if our staffing needs change mid-season?",
-        answer:
-          "Our workforce solutions are built to flex. We adjust team size and skill mix as conditions, yields, and demand shift throughout the season.",
-      },
-    ],
-  },
-  cta: {
-    kicker: "Let’s Grow Together",
-    title: ["Ready to Grow", "What’s Next?"],
-    description: "Let’s build smarter agriculture solutions together.",
-    buttonLabel: contactCtaAlt.label,
-  },
-};
+  };
+}
 
-export const importExport: IndustryPage = {
-  slug: "import-export",
-  name: "Import & Export",
-  metaTitle: "Import & Export",
+/* ------------------------------------------------------------------ BFSI -- */
+
+export const bfsi: IndustryPage = {
+  slug: "bfsi",
+  name: "Banking, Financial Services & Insurance",
+  metaTitle: "Banking, Financial Services & Insurance",
   metaDescription:
-    "Connecting businesses, people, and opportunities across global markets through smarter trade, supply chain, and business solutions.",
+    "Specialized talent for banks, financial institutions, and insurers navigating digital transformation, regulatory change, and cybersecurity.",
   hero: {
-    image: "/images/industries/import-export.jpeg",
-    kicker: "Import & Export",
-    title: ["Connecting Markets.", "Moving What’s Next."],
+    image: "/images/professional-service.jpeg",
+    kicker: "Banking, Financial Services & Insurance",
+    title: ["Specialized Talent.", "Financial Confidence."],
+    accentLine: 1,
+    highlights: [
+      { icon: "users", label: "Wealth & Global Banking" },
+      { icon: "shield", label: "Risk & Compliance" },
+      { icon: "settings", label: "Digital Banking" },
+      { icon: "sprout", label: "Insurance & Underwriting" },
+    ],
     description:
-      "Connecting businesses, people, and opportunities across global markets through smarter trade, supply chain, and business solutions.",
+      "With financial institutions facing digital transformation, regulatory shifts, and cybersecurity concerns, the demand for specialized talent has never been greater. We help you drive innovation, ensure compliance, and enhance customer experiences.",
     primaryCta: {
       label: "Explore Our Solutions",
-      href: "#import-export-solutions",
+      href: "#bfsi-solutions",
     },
     secondaryCta: contactCta,
   },
   stats: {
-    kicker: "Global Trade at a Glance",
-    heading: "Coverage across borders and supply chains",
+    kicker: "BFSI at a Glance",
+    heading: "Our largest industry focus",
     items: [
-      { value: "40+", label: "Countries touched through client trade operations" },
-      { value: "300+", label: "Logistics and trade professionals placed" },
-      { value: "15 days", label: "Average time to staff a new warehouse or trade desk" },
-      { value: "95%", label: "Client satisfaction across cross-border engagements" },
+      { value: "10+", label: "Years of industry experience" },
+      { value: "400+", label: "Global clients" },
+      { value: "5000+", label: "Active candidates" },
+      { value: "10,000+", label: "Qualified BFSI candidates ready for immediate deployment" },
     ],
   },
   overview: {
-    id: "import-export-overview",
-    kicker: "Import & Export Industry",
-    heading: "Connecting Business Across Borders",
+    id: "bfsi-overview",
+    kicker: "BFSI Industry",
+    heading: "Hiring Demands in Banking, Financial Services & Insurance",
     paragraph:
-      "Global trade is constantly evolving. Businesses need reliable people, efficient processes, and adaptable solutions to navigate international markets, supply chains, and changing customer demands.",
+      "BFSI is the cornerstone of our business and our largest industry focus. Organizations need professionals with deep industry knowledge to drive innovation, ensure compliance, and enhance customer experiences.",
     areas: [
-      "Global Trade & Distribution",
-      "Import & Export Operations",
-      "Supply Chain & Logistics",
-      "International Sourcing",
-      "Warehousing & Fulfillment",
-      "Trade Technology & Solutions",
+      "Wealth Management & Global Banking",
+      "Capital Markets & Risk Management",
+      "Retail & Consumer Banking",
+      "Insurance & Underwriting",
+      "Cybersecurity & Data Protection",
+      "Fintech & Digital Banking",
     ],
   },
-    process: {
-    kicker: "How We Work",
-    heading: "From Brief to Border-Ready Teams",
-    description:
-      "A clear process for standing up trade, logistics, and warehousing teams wherever your business operates.",
-    steps: [
-      {
-        number: "01",
-        title: "Map the Requirement",
-        description:
-          "We learn your trade lanes, compliance needs, and the roles each market requires.",
-          image:"/images/Map the Requirement(importExport).jpg"
-      },
-      {
-        number: "02",
-        title: "Source & Screen",
-        description:
-          "Candidates are matched for trade experience, language fluency, and regulatory knowledge.",
-          image:"/images/Source & Screen(importExport).jpg"
-      },
-      {
-        number: "03",
-        title: "Deploy the Team",
-        description:
-          "Teams are onboarded and placed at your warehouse, trade desk, or logistics hub.",
-          image:"/images/Deploy the Team(importExport).jpg"
-      },
-      {
-        number: "04",
-        title: "Support & Scale",
-        description:
-          "We adjust staffing as trade volumes, markets, and seasonal demand change.",
-          image:"/images/Source & Screen(importExport).jpg"
-      },
-    ],
-  },
-solutions: {
-    id: "import-export-solutions",
+  process: buildProcess("BFSI", [
+    "We learn your regulatory environment, technology stack, and the financial roles that matter most.",
+    "We tap our BFSI talent network and vet candidates for domain knowledge and compliance readiness.",
+    "Selected professionals are onboarded and placed quickly, ready to contribute from day one.",
+    "We adjust team size and skill mix as projects, regulations, and demand evolve.",
+  ]),
+  solutions: {
+    id: "bfsi-solutions",
     kicker: "What We Do",
-    heading: "Solutions for a Connected World",
+    heading: "Scalable Workforce Strategies for Finance & Banking",
     description:
-      "From workforce and recruitment to professional and technology solutions, we help businesses operate confidently across markets.",
+      "Customized hiring solutions that help BFSI organizations stay agile.",
     items: [
       {
         number: "01",
-        title: "Workforce Solutions",
-        description:
-          "Build dependable teams across trade operations, logistics, warehousing, customer support, and business functions.",
+        title: "Rapid Talent Deployment",
+        description: "Quickly hiring for in-demand financial roles.",
       },
       {
         number: "02",
-        title: "Recruitment & Placement",
-        description:
-          "Connect businesses with skilled professionals across international trade, supply chain, logistics, and management.",
+        title: "Regulatory-Ready Workforce",
+        description: "Experts who align with compliance standards.",
       },
       {
         number: "03",
-        title: "Professional Services",
+        title: "Flexible Staffing Models",
         description:
-          "Access specialized expertise to improve trade processes, operational efficiency, and business performance.",
-      },
-      {
-        number: "04",
-        title: "Technology Solutions",
-        description:
-          "Enable smarter trade and supply-chain operations through technology-driven solutions and digital capabilities.",
+          "Contract, direct placement, and managed service solutions.",
       },
     ],
   },
-    caseStudy: {
-    kicker: "Case Study",
-    heading: "Standing Up a New Import Hub in Two Weeks",
-    client: "Mid-Size Import & Distribution Business",
-    challenge:
-      "A growing importer needed a fully staffed warehouse and trade-documentation desk in a new region, with no existing local hiring network.",
-    approach:
-      "We recruited and screened warehouse, logistics, and trade-compliance staff locally, coordinated onboarding around the client's launch date, and stayed on to support the first two months of ramp-up.",
-    results: [
-      { value: "45", label: "Roles filled across warehouse and trade desk" },
-      { value: "14 days", label: "From kickoff to a fully staffed site" },
-      { value: "100%", label: "Roles retained through the ramp-up period" },
-    ],
-  },
-areas: {
+  areas: {
     kicker: "Our Focus Areas",
-    heading: "Where We Create Impact",
+    heading: "Specialized Talent for an Evolving Industry",
     description:
-      "Supporting the people, processes, and technology that keep global trade moving.",
+      "Top-tier talent solutions across key financial domains and emerging technologies.",
     items: [
       {
         number: "01",
-        title: "Global Trade & Distribution",
-        description:
-          "Supporting businesses involved in moving products and services across domestic and international markets.",
+        title: "Wealth Management & Global Banking",
+        description: "Advisors, financial analysts, and fintech talent.",
       },
       {
         number: "02",
-        title: "Import & Export Operations",
+        title: "Capital Markets & Risk Management",
         description:
-          "Helping organizations manage the people and operational capabilities required for efficient trade activities.",
+          "Compliance specialists, risk analysts, and fraud prevention experts.",
       },
       {
         number: "03",
-        title: "Supply Chain & Logistics",
+        title: "Retail & Consumer Banking",
         description:
-          "Supporting connected supply chains through workforce, operational, and technology-driven solutions.",
+          "Payment solutions, lending professionals, and digital banking specialists.",
       },
       {
         number: "04",
-        title: "International Sourcing",
+        title: "Insurance & Underwriting",
         description:
-          "Helping businesses connect with the resources, suppliers, and capabilities needed to operate across markets.",
+          "Claims processing, actuarial science, and policy administration.",
       },
       {
         number: "05",
-        title: "Warehousing & Fulfillment",
+        title: "AI, Data & Cloud",
         description:
-          "Supporting efficient warehouse and fulfillment operations through adaptable teams and business solutions.",
+          "Machine learning, data visualization and engineering, cloud computing, and mobile development.",
       },
       {
         number: "06",
-        title: "Trade Technology & Solutions",
+        title: "Security & Emerging Tech",
         description:
-          "Enabling modern trade operations with technology and digital solutions designed for a connected global economy.",
+          "Cybersecurity and data protection, UI/UX for fintech, blockchain, IoT, and quantum computing.",
       },
     ],
   },
-    testimonials: {
-    kicker: "What Clients Say",
-    heading: "Trusted Across Global Trade",
+  successStories: {
+    kicker: "A Trusted Partner in BFSI Talent",
+    heading: "Best-in-class talent for leading financial institutions",
     items: [
-      {
-        quote:
-          "We needed a warehouse staffed in a market we'd never operated in. Kalycor had a full team trained and ready inside two weeks.",
-        name: "Logistics Director",
-        role: "Import & Distribution Business",
-      },
-      {
-        quote:
-          "Their understanding of trade compliance saved us from hiring mistakes we'd made in the past. Every candidate came pre-vetted for the role.",
-        name: "Head of Trade Compliance",
-        role: "International Sourcing Company",
-      },
-      {
-        quote:
-          "As we've expanded into new markets, Kalycor has expanded with us. It genuinely feels like one partner across every region.",
-        name: "COO",
-        role: "Global Trade & Logistics Firm",
-      },
+      { value: "Top 5", label: "Supplier for a leading U.S. multinational financial services company" },
+      { value: "#1", label: "Supplier for a major American bank holding company" },
+      { value: "2,000+", label: "BFSI professionals placed across the U.S. and Canada last year" },
+      { value: "10,000+", label: "Active, qualified BFSI candidates ready for immediate deployment" },
     ],
   },
-future: {
-    kicker: "The Future of Global Trade",
-    title: ["From Local", "to Global."],
+  future: {
+    kicker: "The Future of Financial Services",
+    title: ["From Transactions", "to Transformation."],
     description:
-      "We help businesses navigate changing markets, evolving supply chains, and new opportunities by connecting the right people, processes, and solutions.",
+      "We help financial organizations adapt to technology, regulation, and customer expectations by connecting the right people with the right opportunities.",
   },
-  whyKalycor: {
-    kicker: "Why Kalycor",
-    heading: "One Partner. Every Border.",
-    description:
-      "We bring together people, expertise, and technology to help businesses operate more effectively in an increasingly connected global economy.",
-    items: [
-      {
-        number: "01",
-        title: "Global Trade Expertise",
-        description:
-          "Connect with people and solutions that understand the complexities of modern trade and international business.",
-      },
-      {
-        number: "02",
-        title: "Flexible Workforce Solutions",
-        description:
-          "Build adaptable teams across logistics, operations, warehousing, customer support, and business functions.",
-      },
-      {
-        number: "03",
-        title: "Connected Operations",
-        description:
-          "Support smoother operations by bringing people, processes, and technology together across the supply chain.",
-      },
-      {
-        number: "04",
-        title: "Scalable Business Support",
-        description:
-          "Access solutions that can adapt as your business expands into new markets and opportunities.",
-      },
-      {
-        number: "05",
-        title: "Long-Term Partnership",
-        description:
-          "Work with a partner focused on understanding your business and supporting sustainable growth across markets.",
-      },
-    ],
-  },
+  whyKalycor: buildWhy("BFSI", "Built for Banking. Ready for Change."),
   faq: {
     kicker: "Common Questions",
-    heading: "Global Trade Staffing, Answered",
+    heading: "BFSI Staffing, Answered",
     description:
-      "Straight answers to what import and export businesses most often ask us before they hire.",
+      "Straight answers to what financial institutions most often ask us before they hire.",
     items: [
       {
-        question: "Can you support staffing across multiple countries at once?",
+        question: "Can you hire quickly for in-demand financial roles?",
         answer:
-          "Yes. We coordinate hiring for trade, logistics, and warehousing roles across markets, so your operations stay consistent wherever you expand.",
+          "Yes. Our rapid talent deployment approach draws on a large pool of qualified BFSI candidates so critical roles are filled without long delays.",
       },
       {
-        question: "Do you place people with customs and compliance experience?",
+        question: "Do your professionals understand regulatory requirements?",
         answer:
-          "We recruit professionals experienced in customs documentation, trade compliance, and international shipping regulations to keep your operations audit-ready.",
+          "We place experts who align with compliance standards across risk, capital markets, banking, and insurance functions.",
       },
       {
-        question: "Can you find multilingual talent for global accounts?",
+        question: "Which engagement models do you offer?",
         answer:
-          "Language and market fluency are part of our screening for international sourcing, sales, and account-management roles.",
+          "Contract, direct placement, and managed service solutions, so you can choose the model that fits each project.",
       },
       {
-        question: "How quickly can you ramp up a new warehouse or trade desk?",
+        question: "Can you supply emerging-technology talent for fintech?",
         answer:
-          "Most warehouse and trade-desk teams are fully staffed within about two weeks, with core roles filled even faster when timelines are tight.",
+          "We supply experts in machine learning and AI, cybersecurity, cloud and mobile development, blockchain and digital banking, and more.",
       },
     ],
   },
   cta: {
-    kicker: "Let’s Move Forward",
-    title: ["Ready to Move", "What’s Next?"],
+    kicker: "Let’s Get Started",
+    title: ["Strengthen Your", "Financial Workforce."],
     description:
-      "Let’s build smarter solutions for a more connected global business.",
+      "Let’s build the talent strategy that helps your business scale, innovate, and stay competitive.",
     buttonLabel: contactCtaAlt.label,
   },
 };
 
-export const realEstate: IndustryPage = {
-  slug: "realestate",
-  name: "Real Estate",
-  metaTitle: "Real Estate",
+/* ------------------------------------------------------------- Healthcare -- */
+
+export const healthcare: IndustryPage = {
+  slug: "healthcare-pharma-lifesciences",
+  name: "Healthcare, Pharma & Life Sciences",
+  metaTitle: "Healthcare, Pharma & Life Sciences",
   metaDescription:
-    "Connecting real estate businesses with the people, expertise, and solutions needed to create stronger properties, operations, and opportunities.",
+    "Workforce solutions for healthcare and life sciences organizations advancing research, optimizing care delivery, and ensuring compliance.",
   hero: {
-    image: "/images/industries/realestate.jpeg",
-    kicker: "Real Estate",
-    title: ["Building Opportunities.", "Shaping What’s Next."],
+    image: "/images/approach-new1.jpeg",
+    kicker: "Healthcare, Pharma & Life Sciences",
+    title: ["Advancing Care.", "Powering Innovation."],
+    accentLine: 1,
+    highlights: [
+      { icon: "settings", label: "Healthcare IT" },
+      { icon: "sprout", label: "Life Sciences & Biopharma" },
+      { icon: "shield", label: "Regulatory Compliance" },
+      { icon: "users", label: "Product Development" },
+    ],
     description:
-      "Connecting real estate businesses with the people, expertise, and solutions needed to create stronger properties, operations, and opportunities.",
+      "Driven by digital transformation, regulatory shifts, and patient-centered innovation, healthcare and life sciences organizations need specialized talent to advance research, optimize care delivery, and ensure compliance.",
     primaryCta: {
       label: "Explore Our Solutions",
-      href: "#real-estate-solutions",
+      href: "#healthcare-solutions",
     },
     secondaryCta: contactCta,
   },
   stats: {
-    kicker: "Real Estate at a Glance",
-    heading: "Teams that keep properties and projects moving",
+    kicker: "Healthcare & Life Sciences at a Glance",
+    heading: "Specialized talent at scale",
     items: [
-      { value: "250+", label: "Property and facilities teams built" },
-      { value: "1,200+", label: "Units supported across managed portfolios" },
-      { value: "10 days", label: "Average time to fill property management roles" },
-      { value: "90%", label: "Clients who return for their next project" },
+      { value: "29+", label: "Years of industry experience" },
+      { value: "14M", label: "Pre-screened candidates" },
+      { value: "65%", label: "Of clients are Fortune 500" },
+      { value: "3", label: "Core sectors: Healthcare IT, Life Sciences, Product Development" },
     ],
   },
   overview: {
-    id: "real-estate-overview",
-    kicker: "Real Estate Industry",
-    heading: "Real Estate in a Changing Market",
+    id: "healthcare-overview",
+    kicker: "Healthcare, Pharma & Life Sciences",
+    heading: "Hiring Demands in Healthcare, Pharma & Life Sciences",
     paragraph:
-      "The real estate industry is evolving through changing customer expectations, new technologies, and growing operational demands. Businesses need capable people, efficient processes, and adaptable solutions to keep properties and projects moving forward.",
+      "The healthcare and life sciences industry is evolving rapidly, driven by digital transformation, regulatory shifts, and patient-centered innovation. Securing specialized talent is essential to advancing research, optimizing care delivery, and ensuring compliance.",
     areas: [
-      "Property Development",
-      "Commercial Real Estate",
-      "Residential Real Estate",
-      "Property Management",
-      "Construction & Infrastructure",
-      "Facilities & Operations",
+      "Healthcare IT & Digital Transformation",
+      "Life Sciences & Biopharma",
+      "Healthcare Product Development",
+      "AI, Cloud & Cybersecurity",
+      "Virtual Trials & R&D",
+      "Regulatory Compliance",
     ],
   },
-    process: {
-    kicker: "How We Work",
-    heading: "From Brief to Boots on the Property",
-    description:
-      "A dependable process for building property, facilities, and construction-support teams as your portfolio grows.",
-    steps: [
-      {
-        number: "01",
-        title: "Understand the Portfolio",
-        description:
-          "We learn your properties, project timelines, and the roles each site needs.",
-          image:"/images/realestate-card-1.jpg"
-      },
-      {
-        number: "02",
-        title: "Source & Screen",
-        description:
-          "Candidates are matched for property, facilities, or construction-support experience.",
-          image:"/images/realestate-card-2.jpg"
-      },
-      {
-        number: "03",
-        title: "Deploy the Team",
-        description:
-          "Teams are onboarded and placed across your properties or project sites.",
-          image:"/images/realestate-card-3.jpg"
-      },
-      {
-        number: "04",
-        title: "Support & Scale",
-        description:
-          "We adjust staffing as your portfolio, projects, and tenant needs evolve.",
-          image:"/images/realestate-card-4.jpg"
-      },
-    ],
-  },
-solutions: {
-    id: "real-estate-solutions",
+  process: buildProcess("Healthcare & Life Sciences", [
+    "We learn your research goals, care-delivery model, and the regulated roles you need to fill.",
+    "We tap our talent network and vet candidates for specialized skills and compliance readiness.",
+    "Selected professionals are onboarded and placed quickly with the speed and precision your programs require.",
+    "We rapidly scale teams up or down as market shifts and program needs change.",
+  ]),
+  solutions: {
+    id: "healthcare-solutions",
     kicker: "What We Do",
-    heading: "Solutions for a Changing Property Landscape",
+    heading: "Agile Workforce Strategies for Healthcare & Life Sciences",
     description:
-      "From workforce and recruitment to professional and technology solutions, we help real estate businesses build stronger operations and create better opportunities.",
+      "Flexible workforce solutions that adapt to shifting industry needs.",
     items: [
       {
         number: "01",
-        title: "Workforce Solutions",
-        description:
-          "Build dependable teams across property management, facilities, construction support, customer service, and business operations.",
+        title: "Scalable Teams",
+        description: "Rapidly scale teams based on market shifts.",
       },
       {
         number: "02",
-        title: "Recruitment & Placement",
-        description:
-          "Connect real estate organizations with skilled professionals across property, facilities, construction, sales, and management functions.",
-
+        title: "Specialized Professionals",
+        description: "Immediate access to highly specialized professionals.",
       },
       {
         number: "03",
-        title: "Professional Services",
+        title: "Compliance Expertise",
         description:
-          "Access specialized expertise to improve property operations, project support, workforce management, and business performance.",
-      },
-      {
-        number: "04",
-        title: "Technology Solutions",
-        description:
-          "Enable smarter property and business operations through technology-driven solutions and digital capabilities.",
+          "Experts who ensure adherence to evolving industry standards.",
       },
     ],
   },
-    caseStudy: {
-    kicker: "Case Study",
-    heading: "Scaling a Property Management Team Across a Growing Portfolio",
-    client: "Regional Property Management Firm",
-    challenge:
-      "A property manager acquiring several new buildings needed to staff leasing, maintenance, and tenant-support roles across sites within a single quarter.",
-    approach:
-      "We built a rolling recruitment pipeline matched to each property's needs, staggered onboarding around acquisition dates, and provided ongoing support as the portfolio kept growing.",
-    results: [
-      { value: "60+", label: "Property and facilities roles placed" },
-      { value: "1,200+", label: "Units brought under staffed management" },
-      { value: "90%", label: "First-year retention across placed staff" },
-    ],
-  },
-areas: {
+  areas: {
     kicker: "Our Focus Areas",
-    heading: "Where We Create Impact",
+    heading: "Specialized Talent for an Evolving Industry",
     description:
-      "Supporting the people, processes, and technology that help real estate businesses build, manage, and grow.",
+      "Workforce solutions across key healthcare and life sciences sectors.",
     items: [
       {
         number: "01",
-        title: "Property Development",
-        description:
-          "Supporting development teams with people and operational solutions that help move property projects forward.",
+        title: "Healthcare IT & Digital Transformation",
+        description: "AI, cloud computing, and cybersecurity.",
       },
       {
         number: "02",
-        title: "Commercial Real Estate",
-        description:
-          "Helping commercial property businesses build capable teams and efficient operations across their portfolios.",
+        title: "Life Sciences & Biopharma",
+        description: "Virtual trials, R&D, and regulatory compliance.",
       },
       {
         number: "03",
-        title: "Residential Real Estate",
-        description:
-          "Supporting residential property organizations with workforce and business solutions across their operations.",
-      },
-      {
-        number: "04",
-        title: "Property Management",
-        description:
-          "Helping property management teams improve day-to-day operations, tenant support, facilities, and service delivery.",
-      },
-      {
-        number: "05",
-        title: "Construction & Infrastructure",
-        description:
-          "Connecting businesses with workforce and operational capabilities needed to support construction and infrastructure projects.",
-      },
-      {
-        number: "06",
-        title: "Facilities & Operations",
-        description:
-          "Supporting efficient property and facility operations through dependable teams, processes, and technology.",
+        title: "Healthcare Product Development",
+        description: "Training, research, and medical technology.",
       },
     ],
   },
-    testimonials: {
-    kicker: "What Clients Say",
-    heading: "Trusted Across Real Estate",
+  successStories: {
+    kicker: "A Trusted Partner in Healthcare Talent",
+    heading: "Experience that Fortune 500 clients rely on",
     items: [
-      {
-        quote:
-          "As we acquired new properties, Kalycor scaled our property management team right alongside us, without a single gap in coverage.",
-        name: "Portfolio Manager",
-        role: "Regional Property Management Firm",
-      },
-      {
-        quote:
-          "Their construction-support staffing kept our project on schedule when our own hiring pipeline couldn't keep up.",
-        name: "Project Director",
-        role: "Commercial Construction Firm",
-      },
-      {
-        quote:
-          "Tenant-facing roles are hard to get right. Kalycor's candidates consistently fit our culture and stayed long-term.",
-        name: "Director of Operations",
-        role: "Residential Property Group",
-      },
+      { value: "29+", label: "Years of industry experience" },
+      { value: "14M", label: "Pre-screened candidates in our network" },
+      { value: "65%", label: "Of our clients are Fortune 500 companies" },
     ],
   },
-future: {
-    kicker: "The Future of Real Estate",
-    title: ["From Property", "to Possibility."],
+  future: {
+    kicker: "The Future of Healthcare",
+    title: ["From Research", "to Real-World Care."],
     description:
-      "We help real estate businesses adapt to changing markets by connecting the right people, processes, and technology to create stronger operations and new opportunities.",
+      "We help healthcare and life sciences organizations adapt to evolving standards and patient expectations by connecting the right people with the right opportunities.",
   },
-  whyKalycor: {
-    kicker: "Why Kalycor",
-    heading: "From Blueprint to Building.",
-    description:
-      "We bring together people, expertise, and technology to help real estate businesses operate more effectively and create opportunities for sustainable growth.",
-    items: [
-      {
-        number: "01",
-        title: "Real Estate Industry Understanding",
-        description:
-          "Connect with people and solutions that understand the operational needs of modern property and real estate businesses.",
-      },
-      {
-        number: "02",
-        title: "Flexible Workforce Solutions",
-        description:
-          "Build adaptable teams across property management, facilities, construction support, customer service, and business operations.",
-      },
-      {
-        number: "03",
-        title: "Connected Operations",
-        description:
-          "Bring people, processes, and technology together to support smoother property and facility operations.",
-      },
-      {
-        number: "04",
-        title: "Scalable Business Support",
-        description:
-          "Access flexible solutions that can adapt as your property portfolio, projects, and operational requirements grow.",
-      },
-      {
-        number: "05",
-        title: "Long-Term Partnership",
-        description:
-          "Work with a partner focused on understanding your business and supporting sustainable growth across the real estate lifecycle.",
-      },
-    ],
-  },
+  whyKalycor: buildWhy(
+    "healthcare and life sciences",
+    "Built for Care. Ready for Discovery.",
+  ),
   faq: {
     kicker: "Common Questions",
-    heading: "Real Estate Staffing, Answered",
+    heading: "Healthcare & Life Sciences Staffing, Answered",
     description:
-      "Straight answers to what property and real estate businesses most often ask us before they hire.",
+      "Straight answers to what healthcare and life sciences organizations most often ask us before they hire.",
     items: [
       {
-        question: "Can you staff a growing property portfolio as it scales?",
+        question: "Can you scale teams as market conditions shift?",
         answer:
-          "Yes. We build property-management and facilities teams that expand with your portfolio, from a handful of units to large, multi-site operations.",
+          "Yes. We help you rapidly scale teams up or down based on market shifts and program needs.",
       },
       {
-        question: "Do you supply workforce support for construction projects?",
+        question: "Do you support regulatory and compliance roles?",
         answer:
-          "We place workforce and professional-services support across construction and infrastructure projects, coordinated around your project timelines.",
+          "We provide experts who ensure adherence to evolving industry standards, including regulatory compliance in life sciences.",
       },
       {
-        question: "Can you help fill leasing and tenant-facing roles quickly?",
+        question: "What technology talent do you cover in healthcare?",
         answer:
-          "Leasing, tenant support, and customer-service roles are among our fastest fills, since we maintain an active pipeline of property-experienced candidates.",
+          "Healthcare IT and digital transformation, including AI, cloud computing, and cybersecurity professionals.",
       },
       {
-        question: "Do you support both commercial and residential portfolios?",
+        question: "Can you support R&D and virtual trial teams?",
         answer:
-          "We work across commercial, residential, and mixed-use portfolios, tailoring teams to the operational needs of each property type.",
+          "Our life sciences and biopharma talent covers virtual trials, R&D, and regulatory compliance.",
       },
     ],
   },
   cta: {
-    kicker: "Let’s Build Together",
-    title: ["Ready to Build", "What’s Next?"],
+    kicker: "Let’s Get Started",
+    title: ["Hire Top Healthcare", "& Life Sciences Talent."],
     description:
-      "Let’s create smarter real estate solutions that turn opportunities into lasting growth.",
+      "High-impact talent with the speed, precision, and expertise needed to drive transformation.",
     buttonLabel: contactCtaAlt.label,
   },
 };
 
-export const security: IndustryPage = {
-  slug: "security",
-  name: "Security",
-  metaTitle: "Security",
+/* -------------------------------------------------- Telecom, Media & Tech -- */
+
+export const tmt: IndustryPage = {
+  slug: "telecom-media-technology",
+  name: "Telecom, Media & Technology",
+  metaTitle: "Telecom, Media & Technology",
   metaDescription:
-    "Connecting businesses with people, technology, and solutions that help create safer, more resilient, and better-prepared environments.",
+    "Workforce solutions for telecom, media, and technology companies scaling quickly, protecting digital assets, and optimizing digital experiences.",
   hero: {
-    image: "/images/industries/security.jpeg",
-    kicker: "Security",
-    title: ["Protecting What Matters.", "Securing What’s Next."],
+    image: "/images/technology-solutions.jpeg",
+    kicker: "Telecom, Media & Technology",
+    title: ["Connecting Industries.", "Scaling What’s Next."],
+    accentLine: 1,
+    highlights: [
+      { icon: "settings", label: "Network Infrastructure" },
+      { icon: "shield", label: "Cybersecurity" },
+      { icon: "sprout", label: "Media Technologies" },
+      { icon: "users", label: "Software & Hardware" },
+    ],
     description:
-      "Connecting businesses with people, technology, and solutions that help create safer, more resilient, and better-prepared environments.",
-    primaryCta: { label: "Explore Our Solutions", href: "#security-solutions" },
+      "The TMT industry is advancing rapidly, driven by 5G expansion, AI-driven content, IoT adoption, and cloud computing. We connect you with specialized talent who can keep pace with innovation.",
+    primaryCta: {
+      label: "Explore Our Solutions",
+      href: "#tmt-solutions",
+    },
     secondaryCta: contactCta,
   },
   stats: {
-    kicker: "Security at a Glance",
-    heading: "Dependable coverage when it matters most",
+    kicker: "TMT at a Glance",
+    heading: "Proven with leading telecom and technology firms",
     items: [
-      { value: "350+", label: "Security and risk professionals deployed" },
-      { value: "24/7", label: "Coverage supported across client sites" },
-      { value: "99%", label: "Screening and compliance pass rate" },
-      { value: "48 hrs", label: "Average time to mobilize a security team" },
+      { value: "10+", label: "Years of industry experience" },
+      { value: "400+", label: "Global clients" },
+      { value: "5000+", label: "Active candidates" },
+      { value: "500+", label: "Professionals placed for one multinational telecom corporation" },
     ],
   },
   overview: {
-    id: "security-overview",
-    kicker: "Security Industry",
-    heading: "Security in a Changing World",
+    id: "tmt-overview",
+    kicker: "TMT Industry",
+    heading: "Hiring Demands in Telecom, Media & Technology",
     paragraph:
-      "Businesses today need more than traditional security measures. They need dependable people, strong processes, and adaptable solutions that help protect their workplaces, facilities, assets, and operations.",
+      "Companies must scale quickly, protect digital assets, and optimize digital experiences. Finding specialized talent who can keep pace with innovation is essential for long-term success.",
     areas: [
-      "Corporate & Workplace Security",
-      "Security Operations",
-      "Risk Management",
-      "Facility & Asset Protection",
-      "Technology & Surveillance",
-      "Security Workforce Solutions",
+      "Telecom & Network Infrastructure",
+      "Cybersecurity & Data Protection",
+      "Media & Content Technologies",
+      "Software & Hardware Engineering",
+      "5G, IoT & Cloud Computing",
+      "AI-Driven Content",
     ],
   },
-    process: {
-    kicker: "How We Work",
-    heading: "From Brief to Boots on Site",
-    description:
-      "A disciplined process for deploying screened, compliant security teams as fast as your risk profile demands.",
-    steps: [
-      {
-        number: "01",
-        title: "Assess the Risk",
-        description:
-          "We learn your sites, threat profile, and the coverage your operation requires.",
-          image:"/images/Assess the Risk(security).jpg"
-      },
-      {
-        number: "02",
-        title: "Screen & Verify",
-        description:
-          "Candidates undergo background verification and role-specific compliance checks.",
-          image:"/images/Screen & Verify(security).jpg"
-      },
-      {
-        number: "03",
-        title: "Deploy the Team",
-        description:
-          "Vetted personnel are onboarded and placed on-site, often within 48 hours.",
-          image:"/images/Deploy the Team(security).jpg"
-      },
-      {
-        number: "04",
-        title: "Support & Scale",
-        description:
-          "We adjust coverage as risks, events, and operational needs change.",
-          image:"/images/Support & Scale(security).jpg"
-      },
-    ],
-  },
-solutions: {
-    id: "security-solutions",
+  process: buildProcess("Telecom, Media & Technology", [
+    "We learn your product roadmap, network environment, and the technical roles driving it.",
+    "AI-powered matching surfaces candidates, which we vet for hands-on technical depth.",
+    "Selected professionals are onboarded and placed quickly on fast-moving digital projects.",
+    "We adjust team size and skills as projects, launches, and demand evolve.",
+  ]),
+  solutions: {
+    id: "tmt-solutions",
     kicker: "What We Do",
-    heading: "Solutions Built for Safer Operations",
+    heading: "Scalable Workforce Strategies for Tech & Media",
     description:
-      "From workforce and recruitment to professional and technology solutions, we help organizations build stronger and more resilient security operations.",
+      "Flexible workforce solutions that adapt to shifting industry needs.",
     items: [
       {
         number: "01",
-        title: "Workforce Solutions",
-        description:
-          "Build dependable security and support teams across facilities, workplaces, operations, and business environments.",
+        title: "Rapid Talent Deployment",
+        description: "Hiring experts for fast-moving digital projects.",
       },
       {
         number: "02",
-        title: "Recruitment & Placement",
-        description:
-          "Connect organizations with qualified professionals for security, operations, facility management, and related functions.",
+        title: "Flexible Engagement Models",
+        description: "Contract, direct placement, and project-based staffing.",
       },
       {
         number: "03",
-        title: "Professional Services",
-        description:
-          "Access specialized expertise to strengthen operational processes, workforce management, and security programs.",
-      },
-      {
-        number: "04",
-        title: "Technology Solutions",
-        description:
-          "Support modern security operations with technology-driven solutions that improve visibility, efficiency, and coordination.",
+        title: "Tech-Driven Talent Matching",
+        description: "AI-powered recruitment for precise hiring decisions.",
       },
     ],
   },
-    caseStudy: {
-    kicker: "Case Study",
-    heading: "Mobilizing Multi-Site Coverage in Under 48 Hours",
-    client: "Corporate Campus with Multiple Facilities",
-    challenge:
-      "A corporate client needed round-the-clock security coverage across three facilities on short notice, with strict background-screening requirements.",
-    approach:
-      "We drew from our pre-screened security bench, verified compliance against the client's standards, and mobilized shift-based teams across all three sites within two days.",
-    results: [
-      { value: "3 sites", label: "Fully staffed within 48 hours" },
-      { value: "24/7", label: "Coverage sustained from day one" },
-      { value: "100%", label: "Screening and compliance pass rate" },
-    ],
-  },
-areas: {
+  areas: {
     kicker: "Our Focus Areas",
-    heading: "Where We Create Impact",
+    heading: "Specialized Talent for an Evolving Industry",
     description:
-      "Supporting the people, processes, and technology that help organizations create safer and more resilient environments.",
+      "Workforce solutions across the key sectors of telecom, media, and technology.",
     items: [
       {
         number: "01",
-        title: "Corporate & Workplace Security",
-        description:
-          "Supporting organizations with dependable people and operational solutions for safer workplaces and business environments.",
+        title: "Telecom & Network Infrastructure",
+        description: "LTE, RF engineering, VoIP, and mobile apps.",
       },
       {
         number: "02",
-        title: "Security Operations",
-        description:
-          "Helping businesses strengthen day-to-day security operations through capable teams, processes, and coordinated support.",
+        title: "Cybersecurity & Data Protection",
+        description: "Safeguarding digital assets and network integrity.",
       },
       {
         number: "03",
-        title: "Risk Management",
-        description:
-          "Supporting organizations in identifying operational risks and building processes that improve preparedness and resilience.",
+        title: "Media & Content Technologies",
+        description: "AI-driven streaming and interactive experiences.",
       },
       {
         number: "04",
-        title: "Facility & Asset Protection",
-        description:
-          "Helping protect facilities, properties, equipment, and valuable business assets through structured operational support.",
-      },
-      {
-        number: "05",
-        title: "Technology & Surveillance",
-        description:
-          "Enabling modern security environments through technology-driven solutions, monitoring capabilities, and digital tools.",
-      },
-      {
-        number: "06",
-        title: "Security Workforce Solutions",
-        description:
-          "Connecting organizations with adaptable talent for security, facility operations, support functions, and related business needs.",
+        title: "Software & Hardware Engineering",
+        description: "Product development, testing, and integration.",
       },
     ],
   },
-    testimonials: {
-    kicker: "What Clients Say",
-    heading: "Trusted Across Security Operations",
+  successStories: {
+    kicker: "A Trusted Partner in TMT Talent",
+    heading: "Specialized professionals for leading telecom, media, and tech firms",
     items: [
-      {
-        quote:
-          "We had multi-site coverage confirmed within two days, with every guard fully screened. That turnaround is rare in this industry.",
-        name: "Head of Facilities",
-        role: "Corporate Campus",
-      },
-      {
-        quote:
-          "Kalycor's screening process is thorough without slowing us down. We've never had a compliance concern with a placement.",
-        name: "Director of Security",
-        role: "Multi-Site Enterprise",
-      },
-      {
-        quote:
-          "They understand risk, not just staffing. Their teams adapt as our threat profile and event schedule change.",
-        name: "VP of Risk Management",
-        role: "National Retail Operator",
-      },
+      { value: "#1", label: "Vendor for 3 years at a telecommunications & semiconductor equipment company" },
+      { value: "300+", label: "Professionals deployed globally for a wireless telecommunications provider" },
+      { value: "500+", label: "Professionals placed for a multinational telecom corporation, a top 3 vendor among 5,000+ suppliers" },
     ],
   },
-future: {
-    kicker: "The Future of Security",
-    title: ["From Protection", "to Preparedness."],
+  future: {
+    kicker: "The Future of TMT",
+    title: ["From Connectivity", "to Experience."],
     description:
-      "We help organizations prepare for changing risks and operational challenges by connecting the right people, processes, and technology.",
+      "We help telecom, media, and technology companies scale with the pace of innovation by connecting the right people with the right projects.",
   },
-  whyKalycor: {
-    kicker: "Why Kalycor",
-    heading: "Ready Before Risk Is.",
-    description:
-      "We bring together people, expertise, and technology to help organizations build safer, stronger, and more resilient operations.",
-    items: [
-      {
-        number: "01",
-        title: "Security Industry Understanding",
-        description:
-          "Connect with people and solutions that understand the operational needs of modern security and workplace environments.",
-      },
-      {
-        number: "02",
-        title: "Reliable Workforce Solutions",
-        description:
-          "Build dependable teams across security operations, facilities, support functions, and business environments.",
-      },
-      {
-        number: "03",
-        title: "Technology-Enabled Operations",
-        description:
-          "Bring people, processes, and technology together to support more connected and efficient security operations.",
-      },
-      {
-        number: "04",
-        title: "Scalable Business Support",
-        description:
-          "Access flexible solutions that can adapt as your facilities, workforce, and operational requirements evolve.",
-      },
-      {
-        number: "05",
-        title: "Long-Term Partnership",
-        description:
-          "Work with a partner focused on understanding your organization and supporting sustainable operational improvement.",
-      },
-    ],
-  },
+  whyKalycor: buildWhy("telecom, media, and technology", "Built for Speed. Ready to Scale."),
   faq: {
     kicker: "Common Questions",
-    heading: "Security Staffing, Answered",
+    heading: "TMT Staffing, Answered",
     description:
-      "Straight answers to what organizations most often ask us before they hire security and risk teams.",
+      "Straight answers to what telecom, media, and technology companies most often ask us before they hire.",
     items: [
       {
-        question: "How thoroughly are security personnel screened?",
+        question: "Can you staff fast-moving digital projects?",
         answer:
-          "Every candidate goes through background verification and role-specific compliance checks before being placed on your site.",
+          "Yes. Our rapid talent deployment approach is built for hiring experts for fast-moving digital projects.",
       },
       {
-        question: "Can you scale coverage for events or short-term needs?",
+        question: "Which engagement models do you offer?",
         answer:
-          "Yes. We can mobilize additional security personnel for events, seasonal demand, or short-term projects, typically within 48 hours.",
+          "Contract, direct placement, and project-based staffing.",
       },
       {
-        question: "Do you support technology-enabled security operations?",
+        question: "Do you place telecom and network engineers?",
         answer:
-          "We place professionals experienced with surveillance systems, access control, and monitoring technology alongside traditional security roles.",
+          "We place talent across LTE, RF engineering, VoIP, and mobile apps, alongside cybersecurity and data protection specialists.",
       },
       {
-        question: "Can you provide round-the-clock coverage across multiple sites?",
+        question: "How do you match candidates to roles?",
         answer:
-          "We build shift-based teams structured for 24/7 coverage across single or multi-site operations, coordinated to your risk profile.",
+          "We use AI-powered recruitment and tech-driven matching to support precise hiring decisions.",
       },
     ],
   },
   cta: {
-    kicker: "Let’s Build a Safer Future",
-    title: ["Ready to Secure", "What’s Next?"],
+    kicker: "Let’s Get Started",
+    title: ["Build Your Future", "Workforce Today."],
     description:
-      "Let’s build smarter security solutions for a safer and more resilient business environment.",
+      "High-impact talent with the speed, precision, and expertise needed to drive transformation.",
+    buttonLabel: contactCtaAlt.label,
+  },
+};
+
+/* ------------------------------------------------------------ Energy, Oil -- */
+
+export const energy: IndustryPage = {
+  slug: "energy-oil-gas",
+  name: "Energy, Oil & Gas",
+  metaTitle: "Energy, Oil & Gas",
+  metaDescription:
+    "Specialized talent for energy companies balancing traditional operations with clean energy transitions and digital infrastructure.",
+  hero: {
+    image: "/images/workforce-solution.jpeg",
+    kicker: "Energy, Oil & Gas",
+    title: ["Fueling Progress.", "Powering What’s Next."],
+    accentLine: 1,
+    highlights: [
+      { icon: "settings", label: "Upstream to Downstream" },
+      { icon: "sprout", label: "Renewable Energy" },
+      { icon: "shield", label: "Energy Cybersecurity" },
+      { icon: "users", label: "Engineering & Infrastructure" },
+    ],
+    description:
+      "From clean energy transitions to digital infrastructure, the energy sector is undergoing major shifts. We connect you with skilled professionals to manage traditional operations while leading the future of renewables.",
+    primaryCta: {
+      label: "Explore Our Solutions",
+      href: "#energy-solutions",
+    },
+    secondaryCta: contactCta,
+  },
+  stats: {
+    kicker: "Energy at a Glance",
+    heading: "Flexible talent for a changing industry",
+    items: [
+      { value: "10+", label: "Years of industry experience" },
+      { value: "400+", label: "Global clients" },
+      { value: "5000+", label: "Active candidates" },
+      { value: "30%", label: "Staffing cost reduction delivered for an energy client" },
+    ],
+  },
+  overview: {
+    id: "energy-overview",
+    kicker: "Energy, Oil & Gas Industry",
+    heading: "Hiring Demands in Energy, Oil & Gas",
+    paragraph:
+      "The energy sector is undergoing major shifts, from clean energy transitions to digital infrastructure. Companies need skilled professionals to manage traditional operations while leading the future of renewables.",
+    areas: [
+      "Upstream, Midstream & Downstream Operations",
+      "Renewable Energy & Sustainability",
+      "Energy Technology & Digital Transformation",
+      "Engineering & Infrastructure",
+      "Smart Grid Technology",
+      "Cybersecurity in Energy Infrastructure",
+    ],
+  },
+  process: buildProcess("Energy, Oil & Gas", [
+    "We learn your operations, project timelines, and the field, technical, and engineering roles you need.",
+    "We tap our energy talent network and vet candidates for technical skills and site readiness.",
+    "Selected professionals are onboarded and placed across your sites and projects.",
+    "We adjust staffing as energy demand, projects, and market conditions change.",
+  ]),
+  solutions: {
+    id: "energy-solutions",
+    kicker: "What We Do",
+    heading: "Scalable Workforce Strategies for Energy",
+    description:
+      "Flexible workforce solutions to meet industry fluctuations.",
+    items: [
+      {
+        number: "01",
+        title: "Adaptable Workforce Planning",
+        description: "On-demand hiring for changing energy demands.",
+      },
+      {
+        number: "02",
+        title: "Renewable Energy Talent Pipelines",
+        description: "Specialists in sustainability and alternative energy.",
+      },
+      {
+        number: "03",
+        title: "Flexible Staffing Solutions",
+        description: "Contract, direct placement, and hybrid models.",
+      },
+    ],
+  },
+  areas: {
+    kicker: "Our Focus Areas",
+    heading: "Specialized Talent for an Evolving Industry",
+    description:
+      "Top-tier energy professionals and innovation talent across the energy value chain.",
+    items: [
+      {
+        number: "01",
+        title: "Upstream, Midstream & Downstream Operations",
+        description: "Exploration, refining, and distribution.",
+      },
+      {
+        number: "02",
+        title: "Renewable Energy & Sustainability",
+        description: "Solar, wind, and alternative energy solutions.",
+      },
+      {
+        number: "03",
+        title: "Energy Technology & Digital Transformation",
+        description: "AI-driven analytics, IoT, and cybersecurity.",
+      },
+      {
+        number: "04",
+        title: "Engineering & Infrastructure",
+        description: "Pipeline, drilling, and site development.",
+      },
+      {
+        number: "05",
+        title: "Smart Grid & Analytics",
+        description:
+          "Smart grid technology and AI & data analytics that optimize energy distribution, consumption, and forecasting.",
+      },
+      {
+        number: "06",
+        title: "Infrastructure Security & Sustainable Engineering",
+        description:
+          "Protecting critical operational systems and building eco-friendly energy solutions.",
+      },
+    ],
+  },
+  successStories: {
+    kicker: "Success Stories",
+    heading: "Workforce results for energy and infrastructure clients",
+    items: [
+      { value: "30%", label: "Reduction in staffing costs while improving efficiency" },
+      { value: "Renewables", label: "Workforce strategies developed for renewable energy initiatives" },
+      { value: "Large-scale", label: "Infrastructure projects staffed with critical engineers and project managers" },
+    ],
+  },
+  future: {
+    kicker: "The Future of Energy",
+    title: ["From Fuel", "to Future."],
+    description:
+      "We help energy companies scale efficiently, adapt to market shifts, and drive innovation by connecting the right people with the right opportunities.",
+  },
+  whyKalycor: buildWhy("energy", "Built for Energy. Ready for Transition."),
+  faq: {
+    kicker: "Common Questions",
+    heading: "Energy Staffing, Answered",
+    description:
+      "Straight answers to what energy, oil, and gas companies most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you hire on demand as energy needs change?",
+        answer:
+          "Yes. Adaptable workforce planning gives you on-demand hiring for changing energy demands.",
+      },
+      {
+        question: "Do you have renewable energy talent?",
+        answer:
+          "We build renewable energy talent pipelines with specialists in sustainability, solar, wind, and alternative energy.",
+      },
+      {
+        question: "Can you support engineering and infrastructure projects?",
+        answer:
+          "We place engineers and project managers for pipeline, drilling, and site development projects.",
+      },
+      {
+        question: "Which staffing models are available?",
+        answer: "Contract, direct placement, and hybrid models.",
+      },
+    ],
+  },
+  cta: {
+    kicker: "Let’s Get Started",
+    title: ["Fuel Progress with", "the Right Talent."],
+    description:
+      "Specialized workforce solutions that help energy companies scale efficiently and adapt to market shifts.",
+    buttonLabel: contactCtaAlt.label,
+  },
+};
+
+/* ------------------------------------------------------------ Semiconductor -- */
+
+export const semiconductor: IndustryPage = {
+  slug: "semiconductor",
+  name: "Semiconductor",
+  metaTitle: "Semiconductor",
+  metaDescription:
+    "Specialized talent across chip design, verification, embedded systems, and manufacturing for semiconductor and technology organizations.",
+  hero: {
+    image: "/images/approach-new3.jpeg",
+    kicker: "Semiconductor",
+    title: ["Specialized Talent.", "Semiconductor Growth."],
+    accentLine: 1,
+    highlights: [
+      { icon: "settings", label: "Chip Design" },
+      { icon: "shield", label: "Verification" },
+      { icon: "sprout", label: "Embedded Systems" },
+      { icon: "users", label: "Manufacturing" },
+    ],
+    description:
+      "The semiconductor industry sits at the heart of global innovation, powering everything from consumer electronics to AI and advanced computing. We deliver specialized talent that accelerates innovation and product development.",
+    primaryCta: {
+      label: "Explore Our Solutions",
+      href: "#semiconductor-solutions",
+    },
+    secondaryCta: contactCta,
+  },
+  stats: {
+    kicker: "Semiconductor at a Glance",
+    heading: "High-precision talent, delivered at speed",
+    items: [
+      { value: "30+", label: "Years of expertise sourcing talent for Fortune 500 and Global 1000 organizations" },
+      { value: "14M+", label: "Professionals in our global talent network" },
+      { value: "#1", label: "Vendor for 3 years at a telecom & semiconductor equipment company" },
+      { value: "100+", label: "Consultants placed for that client, with 60+ converted to full-time" },
+    ],
+  },
+  overview: {
+    id: "semiconductor-overview",
+    kicker: "Semiconductor Industry",
+    heading: "Specialized Talent for Semiconductor Growth",
+    paragraph:
+      "We partner with leading semiconductor and technology organizations to deliver specialized talent across chip design, verification, embedded systems, and manufacturing, helping accelerate innovation and product development.",
+    areas: [
+      "Chip Design",
+      "Verification",
+      "Embedded Systems",
+      "Manufacturing",
+      "Product Development",
+      "Advanced Computing & AI",
+    ],
+  },
+  process: buildProcess("Semiconductor", [
+    "We learn your design flow, product roadmap, and the niche roles that gate your schedule.",
+    "We tap specialized talent pipelines and vet candidates for deep technical expertise.",
+    "Selected professionals are onboarded and placed with reduced time-to-fill.",
+    "We adjust team size and skill mix as tape-outs, products, and demand evolve.",
+  ]),
+  solutions: {
+    id: "semiconductor-solutions",
+    kicker: "What We Do",
+    heading: "Hiring Solutions that Scale with Speed and Precision",
+    description:
+      "Customized hiring solutions that help semiconductor organizations scale.",
+    items: [
+      {
+        number: "01",
+        title: "Rapid Talent Deployment",
+        description:
+          "Quickly hire for niche semiconductor roles with reduced time-to-fill.",
+      },
+      {
+        number: "02",
+        title: "Specialized Talent Pipelines",
+        description:
+          "Talent skilled in chip design, verification, embedded systems, and manufacturing.",
+      },
+    ],
+  },
+  areas: {
+    kicker: "Our Focus Areas",
+    heading: "Specialized Talent for a High-Precision Industry",
+    description:
+      "Top-tier semiconductor talent across critical domains.",
+    items: [
+      {
+        number: "01",
+        title: "Chip Design",
+        description:
+          "Specialists who help design the chips behind modern computing.",
+      },
+      {
+        number: "02",
+        title: "Verification",
+        description:
+          "Professionals who validate designs before they reach production.",
+      },
+      {
+        number: "03",
+        title: "Embedded Systems",
+        description:
+          "Engineers who build the systems that bring devices to life.",
+      },
+      {
+        number: "04",
+        title: "Manufacturing",
+        description:
+          "Talent supporting precise, high-volume semiconductor production.",
+      },
+    ],
+  },
+  successStories: {
+    kicker: "A Trusted Partner in Semiconductor Talent",
+    heading: "Long-term partnerships with leading global organizations",
+    items: [
+      { value: "#1", label: "Vendor for 3 years at a telecommunications & semiconductor equipment company" },
+      { value: "100+", label: "Consultants placed" },
+      { value: "60+", label: "Consultants converted to full-time" },
+    ],
+  },
+  future: {
+    kicker: "The Future of Semiconductors",
+    title: ["From Silicon", "to Solutions."],
+    description:
+      "From chip design to manufacturing and embedded systems, we help semiconductor organizations access the specialized talent needed to innovate, scale, and stay competitive.",
+  },
+  whyKalycor: buildWhy("semiconductor", "Built for Precision. Ready to Scale."),
+  faq: {
+    kicker: "Common Questions",
+    heading: "Semiconductor Staffing, Answered",
+    description:
+      "Straight answers to what semiconductor organizations most often ask us before they hire.",
+    items: [
+      {
+        question: "Can you fill niche semiconductor roles quickly?",
+        answer:
+          "Yes. Our rapid talent deployment approach is designed to reduce time-to-fill for niche semiconductor roles.",
+      },
+      {
+        question: "Which semiconductor domains do you cover?",
+        answer:
+          "Chip design, verification, embedded systems, and manufacturing.",
+      },
+      {
+        question: "Do you support both product and manufacturing teams?",
+        answer:
+          "We deliver talent across the product development lifecycle, from design through manufacturing.",
+      },
+      {
+        question: "How do you maintain specialized talent pipelines?",
+        answer:
+          "We build and maintain pipelines of professionals with deep semiconductor skills so clients can scale with speed and precision.",
+      },
+    ],
+  },
+  cta: {
+    kicker: "Let’s Get Started",
+    title: ["Strengthen Your", "Semiconductor Workforce."],
+    description:
+      "Access the specialized talent needed to innovate, scale, and stay competitive.",
     buttonLabel: contactCtaAlt.label,
   },
 };
 
 /** Every industry page, keyed by its URL slug (`/industries/[slug]`). */
 export const industryPages = {
-  agriculture,
-  "import-export": importExport,
-  realestate: realEstate,
-  security,
+  bfsi,
+  "healthcare-pharma-lifesciences": healthcare,
+  "telecom-media-technology": tmt,
+  "energy-oil-gas": energy,
+  semiconductor,
 } as const satisfies Record<string, IndustryPage>;
 
 export type IndustrySlug = keyof typeof industryPages;

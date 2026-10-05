@@ -19,7 +19,7 @@ function initials(text: string) {
 export function IndustryTestimonials({
   testimonials,
 }: {
-  testimonials: IndustryPage['testimonials'];
+  testimonials: NonNullable<IndustryPage['testimonials']>;
 }) {
   return (
     <Section as="section" tone="inverse" className="relative overflow-hidden">

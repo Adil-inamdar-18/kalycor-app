@@ -13,7 +13,7 @@ const accent = 'hsl(var(--k-blue-400))';
 /** Footer column order (independent of the header's order). Labels and links
  *  come from the same `navMenus` data the header renders, so the two stay in
  *  sync automatically. */
-const FOOTER_MENU_ORDER = ['solutions', 'industries', 'who-we-are', 'opportunities'];
+const FOOTER_MENU_ORDER = ['solutions', 'industries', 'our-businesses', 'who-we-are', 'opportunities'];
 
 const columnHeading =
   'font-heading text-kicker font-semibold uppercase tracking-[0.12em] text-inverse-fg';
@@ -107,7 +107,7 @@ export function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-9 pb-10 pt-12 sm:gap-x-8 tl:grid-cols-4 nav:grid-cols-[1.5fr_repeat(4,1fr)] nav:gap-x-10 nav:pt-14">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-9 pb-10 pt-12 sm:gap-x-8 tl:grid-cols-4 nav:grid-cols-[1.5fr_repeat(5,1fr)] nav:gap-x-10 nav:pt-14">
           {/* Brand */}
           <div className="col-span-2 tl:col-span-4 nav:col-span-1">
             <Brand
@@ -129,7 +129,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Solutions, Industries, Who We Are, Opportunities */}
+          {/* Solutions, Industries, Our Businesses, Who We Are, Opportunities */}
           {menus.map((menu) => (
             <nav key={menu.key} aria-label={`${menu.label} pages`}>
               <ColumnHeading>{menu.label}</ColumnHeading>

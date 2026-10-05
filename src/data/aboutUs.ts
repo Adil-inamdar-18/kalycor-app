@@ -165,7 +165,7 @@ export const aboutJourney: AboutJourneyContent = {
       period: "Chapter 04",
       title: "Reaching more industries",
       description:
-        "Our approach travelled well, from agriculture and import-export to real estate and security, adapting to each sector\u2019s realities.",
+        "Our approach travelled well, from financial services and healthcare to telecom, energy, and semiconductor, adapting to each sector\u2019s realities.",
     },
     {
       period: "Chapter 05",
@@ -202,9 +202,9 @@ export const aboutMilestones: AboutMilestonesContent = {
   heading: "Where we stand today.",
   items: [
     {
-      value: 10,
+      value: 5,
       label: "Industries served",
-      note: "From agriculture to real estate",
+      note: "From financial services to semiconductor",
     },
     {
       value: 6,

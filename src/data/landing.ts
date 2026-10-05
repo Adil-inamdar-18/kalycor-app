@@ -2,6 +2,7 @@
 // URLs are never hard-coded here — they come from src/config/routes.ts.
 
 import { anchors, crossLinks, routes } from "@/config/routes";
+import { businesses, businessesMenu } from "@/config/businesses";
 import type {
   ApproachPhoto,
   Industry,
@@ -85,10 +86,11 @@ export const solutionsGroups: readonly LinkGroup[] = [
 ];
 
 export const industriesNavLinks: readonly LinkItem[] = [
-  { label: "Agriculture", href: routes.industries.agriculture },
-  { label: "Import & Exports", href: routes.industries.importExport },
-  { label: "Security", href: routes.industries.security },
-  { label: "RealEstate", href: routes.industries.realEstate },
+  { label: "Banking, Financial Services & Insurance", href: routes.industries.bfsi },
+  { label: "Healthcare, Pharma & Life Sciences", href: routes.industries.healthcare },
+  { label: "Telecom, Media & Technology", href: routes.industries.telecomMediaTechnology },
+  { label: "Energy, Oil & Gas", href: routes.industries.energy },
+  { label: "Semiconductor", href: routes.industries.semiconductor },
 ];
 
 export const opportunitiesNavLinks: readonly LinkItem[] = [
@@ -172,6 +174,20 @@ export const whoWeAreNavLinks: readonly LinkItem[] = [
 //  menu is a data change rather than a markup change.
 export const navMenus: readonly NavMenu[] = [
   {
+    key: "who-we-are",
+    label: "Who We Are",
+    kicker: "Who We Are",
+    description:
+      "Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.",
+    layout: "list",
+    panelImage: "/images/approach-new1.jpeg",
+    panelImageAlt: "Kalycor professionals collaborating",
+    panelDescription:
+      "We believe meaningful human connections create better opportunities, stronger teams, and lasting business impact.",
+    links: whoWeAreNavLinks,
+  },
+
+  {
     key: "solutions",
     label: "Solutions",
     kicker: "Solutions",
@@ -200,6 +216,16 @@ export const navMenus: readonly NavMenu[] = [
   },
 
   {
+    key: "our-businesses",
+    label: "Our Businesses",
+    kicker: businessesMenu.heading,
+    description: businessesMenu.description,
+    layout: "businesses",
+    // Each business is its own website: external links, opened in a new tab.
+    links: businesses.map((b) => ({ label: b.name, href: b.url, external: true })),
+  },
+
+  {
     key: "opportunities",
     label: "Opportunities",
     kicker: "Opportunities",
@@ -211,20 +237,6 @@ export const navMenus: readonly NavMenu[] = [
     panelDescription:
       "Whether you are searching for your next opportunity or looking for the right talent, Kalycor helps create meaningful connections between people and businesses.",
     links: opportunitiesNavLinks,
-  },
-
-  {
-    key: "who-we-are",
-    label: "Who We Are",
-    kicker: "Who We Are",
-    description:
-      "Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.",
-    layout: "list",
-    panelImage: "/images/approach-new1.jpeg",
-    panelImageAlt: "Kalycor professionals collaborating",
-    panelDescription:
-      "We believe meaningful human connections create better opportunities, stronger teams, and lasting business impact.",
-    links: whoWeAreNavLinks,
   },
 ];
 
@@ -361,33 +373,39 @@ export const approachCopy = {
 
 export const industries: readonly Industry[] = [
   {
-    title: "Agriculture",
-    image: "/images/agriculture.jpeg",
-    alt: "Modern business professionals and corporate environment",
-    body: "Risk, operations, technology, and specialized talent for financial institutions navigating regulation, transformation, and growth.",
+    title: "Banking, Financial Services & Insurance",
+    image: "/images/professional-service.jpeg",
+    alt: "Finance professionals collaborating in a modern office",
+    body: "Compliance, risk, digital banking, and technology talent for financial institutions navigating regulation, transformation, and growth.",
   },
   {
-    title: "Security",
-    image: "/images/security.jpeg",
-    alt: "Healthcare professional in a modern clinical setting",
-    body: "Clinical, administrative, technology, and specialized talent supporting healthcare and life-science organizations.",
+    title: "Healthcare, Pharma & Life Sciences",
+    image: "/images/approach-new1.jpeg",
+    alt: "Healthcare and life sciences professionals at work",
+    body: "Healthcare IT, biopharma, R&D, and regulatory talent supporting organizations advancing research and care delivery.",
   },
   {
-    title: "RealEstate",
-    image: "/images/property.jpeg",
-    alt: "Technology team collaborating in an office",
-    body: "Engineering, product, digital, and technology talent for teams building and modernizing connected experiences.",
+    title: "Telecom, Media & Technology",
+    image: "/images/technology-solutions.jpeg",
+    alt: "Technology team working on network and software projects",
+    body: "Network, cybersecurity, media technology, and software and hardware engineering talent for fast-moving digital businesses.",
   },
   {
-    title: "Import & Exports",
-    image: "/images/import-export.jpeg",
+    title: "Energy, Oil & Gas",
+    image: "/images/workforce-solution.jpeg",
     alt: "Energy infrastructure and industrial operations",
-    body: "Field, technical, engineering, and project talent supporting energy operations and evolving industry needs.",
+    body: "Upstream to downstream, renewables, and energy technology talent supporting operations and the clean energy transition.",
+  },
+  {
+    title: "Semiconductor",
+    image: "/images/approach-new3.jpeg",
+    alt: "Engineers working on semiconductor design and electronics",
+    body: "Chip design, verification, embedded systems, and manufacturing talent that accelerates innovation and product development.",
   },
 ];
 
 export const stats: readonly Stat[] = [
-  { type: "count", count: 10, label: "Industries Served" },
+  { type: "count", count: 5, label: "Industries Served" },
   { type: "count", count: 6, label: "Core Solution Areas" },
   {
     type: "badge",
@@ -447,11 +465,11 @@ export const footerColumns: readonly LinkGroup[] = [
   {
     title: "Industries",
     links: [
-      { label: "Technology", href: a.industries },
-      { label: "Healthcare", href: a.industries },
-      { label: "Finance & Banking", href: a.industries },
-      { label: "Manufacturing", href: a.industries },
-      { label: "Explore all industries", href: a.industries },
+      { label: "Banking, Financial Services & Insurance", href: routes.industries.bfsi },
+      { label: "Healthcare, Pharma & Life Sciences", href: routes.industries.healthcare },
+      { label: "Telecom, Media & Technology", href: routes.industries.telecomMediaTechnology },
+      { label: "Energy, Oil & Gas", href: routes.industries.energy },
+      { label: "Semiconductor", href: routes.industries.semiconductor },
     ],
   },
   {
