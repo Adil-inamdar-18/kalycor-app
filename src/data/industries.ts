@@ -13,28 +13,11 @@ import { crossLinks } from "@/config/routes";
 import type { IndustryPage } from "@/types";
 
 const contactCta = { label: "Talk to Our Team", href: crossLinks.contact };
+
 const contactCtaAlt = {
   label: "Start a Conversation",
   href: crossLinks.contact,
 };
-
-/** Shared "how we work" steps, worded per industry. */
-function buildProcess(
-  industry: string,
-  steps: readonly [string, string, string, string],
-) {
-  return {
-    kicker: "How We Work",
-    heading: `From Brief to Placed Talent in ${industry}`,
-    description: `A clear process for putting the right ${industry.toLowerCase()} professionals in place as fast as your business needs them.`,
-    steps: [
-      { number: "01", title: "Understand the Need", description: steps[0] },
-      { number: "02", title: "Source & Screen", description: steps[1] },
-      { number: "03", title: "Deploy the Team", description: steps[2] },
-      { number: "04", title: "Support & Scale", description: steps[3] },
-    ],
-  };
-}
 
 /** Shared "why Kalycor" block, worded per industry. */
 function buildWhy(industry: string, heading: string) {
@@ -81,44 +64,59 @@ function buildWhy(industry: string, heading: string) {
 export const bfsi: IndustryPage = {
   slug: "bfsi",
   name: "Banking, Financial Services & Insurance",
+
   metaTitle: "Banking, Financial Services & Insurance",
+
   metaDescription:
     "Specialized talent for banks, financial institutions, and insurers navigating digital transformation, regulatory change, and cybersecurity.",
+
   hero: {
-    image: "/images/professional-service.jpeg",
+    image: "/images/banking-finance.jpg",
     kicker: "Banking, Financial Services & Insurance",
     title: ["Specialized Talent.", "Financial Confidence."],
     accentLine: 1,
+
     highlights: [
       { icon: "users", label: "Wealth & Global Banking" },
       { icon: "shield", label: "Risk & Compliance" },
       { icon: "settings", label: "Digital Banking" },
       { icon: "sprout", label: "Insurance & Underwriting" },
     ],
+
     description:
       "With financial institutions facing digital transformation, regulatory shifts, and cybersecurity concerns, the demand for specialized talent has never been greater. We help you drive innovation, ensure compliance, and enhance customer experiences.",
+
     primaryCta: {
       label: "Explore Our Solutions",
       href: "#bfsi-solutions",
     },
+
     secondaryCta: contactCta,
   },
+
   stats: {
     kicker: "BFSI at a Glance",
     heading: "Our largest industry focus",
+
     items: [
       { value: "10+", label: "Years of industry experience" },
       { value: "400+", label: "Global clients" },
       { value: "5000+", label: "Active candidates" },
-      { value: "10,000+", label: "Qualified BFSI candidates ready for immediate deployment" },
+      {
+        value: "10,000+",
+        label: "Qualified BFSI candidates ready for immediate deployment",
+      },
     ],
   },
+
   overview: {
     id: "bfsi-overview",
     kicker: "BFSI Industry",
     heading: "Hiring Demands in Banking, Financial Services & Insurance",
+
     paragraph:
       "BFSI is the cornerstone of our business and our largest industry focus. Organizations need professionals with deep industry knowledge to drive innovation, ensure compliance, and enhance customer experiences.",
+
     areas: [
       "Wealth Management & Global Banking",
       "Capital Markets & Risk Management",
@@ -128,18 +126,55 @@ export const bfsi: IndustryPage = {
       "Fintech & Digital Banking",
     ],
   },
-  process: buildProcess("BFSI", [
-    "We learn your regulatory environment, technology stack, and the financial roles that matter most.",
-    "We tap our BFSI talent network and vet candidates for domain knowledge and compliance readiness.",
-    "Selected professionals are onboarded and placed quickly, ready to contribute from day one.",
-    "We adjust team size and skill mix as projects, regulations, and demand evolve.",
-  ]),
+
+  process: {
+    kicker: "How We Work",
+
+    heading: "From Brief to Placed Talent in BFSI",
+
+    description:
+      "A clear process for putting the right BFSI professionals in place as fast as your business needs them.",
+
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Need",
+        description:
+          "We learn your regulatory environment, technology stack, and the financial roles that matter most.",
+        image: "/images/BFSI-1.jpg",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "We tap our BFSI talent network and vet candidates for domain knowledge and compliance readiness.",
+        image: "/images/BFSI-2.jpg",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected professionals are onboarded and placed quickly, ready to contribute from day one.",
+        image: "/images/BFSI-3.jpg",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust team size and skill mix as projects, regulations, and demand evolve.",
+        image: "/images/BFSI-4.jpg",
+      },
+    ],
+  },
+
   solutions: {
     id: "bfsi-solutions",
     kicker: "What We Do",
     heading: "Scalable Workforce Strategies for Finance & Banking",
+
     description:
       "Customized hiring solutions that help BFSI organizations stay agile.",
+
     items: [
       {
         number: "01",
@@ -159,11 +194,14 @@ export const bfsi: IndustryPage = {
       },
     ],
   },
+
   areas: {
     kicker: "Our Focus Areas",
     heading: "Specialized Talent for an Evolving Industry",
+
     description:
       "Top-tier talent solutions across key financial domains and emerging technologies.",
+
     items: [
       {
         number: "01",
@@ -202,28 +240,51 @@ export const bfsi: IndustryPage = {
       },
     ],
   },
+
   successStories: {
     kicker: "A Trusted Partner in BFSI Talent",
     heading: "Best-in-class talent for leading financial institutions",
+
     items: [
-      { value: "Top 5", label: "Supplier for a leading U.S. multinational financial services company" },
-      { value: "#1", label: "Supplier for a major American bank holding company" },
-      { value: "2,000+", label: "BFSI professionals placed across the U.S. and Canada last year" },
-      { value: "10,000+", label: "Active, qualified BFSI candidates ready for immediate deployment" },
+      {
+        value: "Top 5",
+        label:
+          "Supplier for a leading U.S. multinational financial services company",
+      },
+      {
+        value: "#1",
+        label: "Supplier for a major American bank holding company",
+      },
+      {
+        value: "2,000+",
+        label:
+          "BFSI professionals placed across the U.S. and Canada last year",
+      },
+      {
+        value: "10,000+",
+        label:
+          "Active, qualified BFSI candidates ready for immediate deployment",
+      },
     ],
   },
+
   future: {
     kicker: "The Future of Financial Services",
     title: ["From Transactions", "to Transformation."],
+
     description:
       "We help financial organizations adapt to technology, regulation, and customer expectations by connecting the right people with the right opportunities.",
   },
+
   whyKalycor: buildWhy("BFSI", "Built for Banking. Ready for Change."),
+
   faq: {
     kicker: "Common Questions",
     heading: "BFSI Staffing, Answered",
+
     description:
       "Straight answers to what financial institutions most often ask us before they hire.",
+
     items: [
       {
         question: "Can you hire quickly for in-demand financial roles?",
@@ -247,11 +308,14 @@ export const bfsi: IndustryPage = {
       },
     ],
   },
+
   cta: {
     kicker: "Let’s Get Started",
     title: ["Strengthen Your", "Financial Workforce."],
+
     description:
       "Let’s build the talent strategy that helps your business scale, innovate, and stay competitive.",
+
     buttonLabel: contactCtaAlt.label,
   },
 };
@@ -261,44 +325,60 @@ export const bfsi: IndustryPage = {
 export const healthcare: IndustryPage = {
   slug: "healthcare-pharma-lifesciences",
   name: "Healthcare, Pharma & Life Sciences",
+
   metaTitle: "Healthcare, Pharma & Life Sciences",
+
   metaDescription:
     "Workforce solutions for healthcare and life sciences organizations advancing research, optimizing care delivery, and ensuring compliance.",
+
   hero: {
-    image: "/images/approach-new1.jpeg",
+    image: "/images/healthcare-pherma.jpg",
     kicker: "Healthcare, Pharma & Life Sciences",
     title: ["Advancing Care.", "Powering Innovation."],
     accentLine: 1,
+
     highlights: [
       { icon: "settings", label: "Healthcare IT" },
       { icon: "sprout", label: "Life Sciences & Biopharma" },
       { icon: "shield", label: "Regulatory Compliance" },
       { icon: "users", label: "Product Development" },
     ],
+
     description:
       "Driven by digital transformation, regulatory shifts, and patient-centered innovation, healthcare and life sciences organizations need specialized talent to advance research, optimize care delivery, and ensure compliance.",
+
     primaryCta: {
       label: "Explore Our Solutions",
       href: "#healthcare-solutions",
     },
+
     secondaryCta: contactCta,
   },
+
   stats: {
     kicker: "Healthcare & Life Sciences at a Glance",
     heading: "Specialized talent at scale",
+
     items: [
       { value: "29+", label: "Years of industry experience" },
       { value: "14M", label: "Pre-screened candidates" },
       { value: "65%", label: "Of clients are Fortune 500" },
-      { value: "3", label: "Core sectors: Healthcare IT, Life Sciences, Product Development" },
+      {
+        value: "3",
+        label:
+          "Core sectors: Healthcare IT, Life Sciences, Product Development",
+      },
     ],
   },
+
   overview: {
     id: "healthcare-overview",
     kicker: "Healthcare, Pharma & Life Sciences",
     heading: "Hiring Demands in Healthcare, Pharma & Life Sciences",
+
     paragraph:
       "The healthcare and life sciences industry is evolving rapidly, driven by digital transformation, regulatory shifts, and patient-centered innovation. Securing specialized talent is essential to advancing research, optimizing care delivery, and ensuring compliance.",
+
     areas: [
       "Healthcare IT & Digital Transformation",
       "Life Sciences & Biopharma",
@@ -308,18 +388,55 @@ export const healthcare: IndustryPage = {
       "Regulatory Compliance",
     ],
   },
-  process: buildProcess("Healthcare & Life Sciences", [
-    "We learn your research goals, care-delivery model, and the regulated roles you need to fill.",
-    "We tap our talent network and vet candidates for specialized skills and compliance readiness.",
-    "Selected professionals are onboarded and placed quickly with the speed and precision your programs require.",
-    "We rapidly scale teams up or down as market shifts and program needs change.",
-  ]),
+
+  process: {
+    kicker: "How We Work",
+
+    heading: "From Brief to Placed Talent in Healthcare & Life Sciences",
+
+    description:
+      "A clear process for putting the right healthcare and life sciences professionals in place as fast as your business needs them.",
+
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Need",
+        description:
+          "We learn your research goals, care-delivery model, and the regulated roles you need to fill.",
+        image: "/images/Healthcare-1.jpg",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "We tap our talent network and vet candidates for specialized skills and compliance readiness.",
+        image: "/images/health-2.jpg",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected professionals are onboarded and placed quickly with the speed and precision your programs require.",
+        image: "/images/health-3.jpg",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We rapidly scale teams up or down as market shifts and program needs change.",
+        image: "/images/health-4.jpg",
+      },
+    ],
+  },
+
   solutions: {
     id: "healthcare-solutions",
     kicker: "What We Do",
     heading: "Agile Workforce Strategies for Healthcare & Life Sciences",
+
     description:
       "Flexible workforce solutions that adapt to shifting industry needs.",
+
     items: [
       {
         number: "01",
@@ -339,11 +456,14 @@ export const healthcare: IndustryPage = {
       },
     ],
   },
+
   areas: {
     kicker: "Our Focus Areas",
     heading: "Specialized Talent for an Evolving Industry",
+
     description:
       "Workforce solutions across key healthcare and life sciences sectors.",
+
     items: [
       {
         number: "01",
@@ -362,30 +482,38 @@ export const healthcare: IndustryPage = {
       },
     ],
   },
+
   successStories: {
     kicker: "A Trusted Partner in Healthcare Talent",
     heading: "Experience that Fortune 500 clients rely on",
+
     items: [
       { value: "29+", label: "Years of industry experience" },
       { value: "14M", label: "Pre-screened candidates in our network" },
       { value: "65%", label: "Of our clients are Fortune 500 companies" },
     ],
   },
+
   future: {
     kicker: "The Future of Healthcare",
     title: ["From Research", "to Real-World Care."],
+
     description:
       "We help healthcare and life sciences organizations adapt to evolving standards and patient expectations by connecting the right people with the right opportunities.",
   },
+
   whyKalycor: buildWhy(
     "healthcare and life sciences",
     "Built for Care. Ready for Discovery.",
   ),
+
   faq: {
     kicker: "Common Questions",
     heading: "Healthcare & Life Sciences Staffing, Answered",
+
     description:
       "Straight answers to what healthcare and life sciences organizations most often ask us before they hire.",
+
     items: [
       {
         question: "Can you scale teams as market conditions shift?",
@@ -409,11 +537,14 @@ export const healthcare: IndustryPage = {
       },
     ],
   },
+
   cta: {
     kicker: "Let’s Get Started",
     title: ["Hire Top Healthcare", "& Life Sciences Talent."],
+
     description:
       "High-impact talent with the speed, precision, and expertise needed to drive transformation.",
+
     buttonLabel: contactCtaAlt.label,
   },
 };
@@ -423,44 +554,60 @@ export const healthcare: IndustryPage = {
 export const tmt: IndustryPage = {
   slug: "telecom-media-technology",
   name: "Telecom, Media & Technology",
+
   metaTitle: "Telecom, Media & Technology",
+
   metaDescription:
     "Workforce solutions for telecom, media, and technology companies scaling quickly, protecting digital assets, and optimizing digital experiences.",
+
   hero: {
-    image: "/images/technology-solutions.jpeg",
+    image: "/images/telecom-media.jpg",
     kicker: "Telecom, Media & Technology",
     title: ["Connecting Industries.", "Scaling What’s Next."],
     accentLine: 1,
+
     highlights: [
       { icon: "settings", label: "Network Infrastructure" },
       { icon: "shield", label: "Cybersecurity" },
       { icon: "sprout", label: "Media Technologies" },
       { icon: "users", label: "Software & Hardware" },
     ],
+
     description:
       "The TMT industry is advancing rapidly, driven by 5G expansion, AI-driven content, IoT adoption, and cloud computing. We connect you with specialized talent who can keep pace with innovation.",
+
     primaryCta: {
       label: "Explore Our Solutions",
       href: "#tmt-solutions",
     },
+
     secondaryCta: contactCta,
   },
+
   stats: {
     kicker: "TMT at a Glance",
     heading: "Proven with leading telecom and technology firms",
+
     items: [
       { value: "10+", label: "Years of industry experience" },
       { value: "400+", label: "Global clients" },
       { value: "5000+", label: "Active candidates" },
-      { value: "500+", label: "Professionals placed for one multinational telecom corporation" },
+      {
+        value: "500+",
+        label:
+          "Professionals placed for one multinational telecom corporation",
+      },
     ],
   },
+
   overview: {
     id: "tmt-overview",
     kicker: "TMT Industry",
     heading: "Hiring Demands in Telecom, Media & Technology",
+
     paragraph:
       "Companies must scale quickly, protect digital assets, and optimize digital experiences. Finding specialized talent who can keep pace with innovation is essential for long-term success.",
+
     areas: [
       "Telecom & Network Infrastructure",
       "Cybersecurity & Data Protection",
@@ -470,18 +617,55 @@ export const tmt: IndustryPage = {
       "AI-Driven Content",
     ],
   },
-  process: buildProcess("Telecom, Media & Technology", [
-    "We learn your product roadmap, network environment, and the technical roles driving it.",
-    "AI-powered matching surfaces candidates, which we vet for hands-on technical depth.",
-    "Selected professionals are onboarded and placed quickly on fast-moving digital projects.",
-    "We adjust team size and skills as projects, launches, and demand evolve.",
-  ]),
+
+  process: {
+    kicker: "How We Work",
+
+    heading: "From Brief to Placed Talent in Telecom, Media & Technology",
+
+    description:
+      "A clear process for putting the right telecom, media, and technology professionals in place as fast as your business needs them.",
+
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Need",
+        description:
+          "We learn your product roadmap, network environment, and the technical roles driving it.",
+        image: "/images/tele-1.jpg",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "AI-powered matching surfaces candidates, which we vet for hands-on technical depth.",
+        image: "/images/tele-2.jpg",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected professionals are onboarded and placed quickly on fast-moving digital projects.",
+        image: "/images/tele-3.jpg",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust team size and skills as projects, launches, and demand evolve.",
+        image: "/images/tele-4.jpg",
+      },
+    ],
+  },
+
   solutions: {
     id: "tmt-solutions",
     kicker: "What We Do",
     heading: "Scalable Workforce Strategies for Tech & Media",
+
     description:
       "Flexible workforce solutions that adapt to shifting industry needs.",
+
     items: [
       {
         number: "01",
@@ -491,20 +675,25 @@ export const tmt: IndustryPage = {
       {
         number: "02",
         title: "Flexible Engagement Models",
-        description: "Contract, direct placement, and project-based staffing.",
+        description:
+          "Contract, direct placement, and project-based staffing.",
       },
       {
         number: "03",
         title: "Tech-Driven Talent Matching",
-        description: "AI-powered recruitment for precise hiring decisions.",
+        description:
+          "AI-powered recruitment for precise hiring decisions.",
       },
     ],
   },
+
   areas: {
     kicker: "Our Focus Areas",
     heading: "Specialized Talent for an Evolving Industry",
+
     description:
       "Workforce solutions across the key sectors of telecom, media, and technology.",
+
     items: [
       {
         number: "01",
@@ -514,41 +703,68 @@ export const tmt: IndustryPage = {
       {
         number: "02",
         title: "Cybersecurity & Data Protection",
-        description: "Safeguarding digital assets and network integrity.",
+        description:
+          "Safeguarding digital assets and network integrity.",
       },
       {
         number: "03",
         title: "Media & Content Technologies",
-        description: "AI-driven streaming and interactive experiences.",
+        description:
+          "AI-driven streaming and interactive experiences.",
       },
       {
         number: "04",
         title: "Software & Hardware Engineering",
-        description: "Product development, testing, and integration.",
+        description:
+          "Product development, testing, and integration.",
       },
     ],
   },
+
   successStories: {
     kicker: "A Trusted Partner in TMT Talent",
-    heading: "Specialized professionals for leading telecom, media, and tech firms",
+    heading:
+      "Specialized professionals for leading telecom, media, and tech firms",
+
     items: [
-      { value: "#1", label: "Vendor for 3 years at a telecommunications & semiconductor equipment company" },
-      { value: "300+", label: "Professionals deployed globally for a wireless telecommunications provider" },
-      { value: "500+", label: "Professionals placed for a multinational telecom corporation, a top 3 vendor among 5,000+ suppliers" },
+      {
+        value: "#1",
+        label:
+          "Vendor for 3 years at a telecommunications & semiconductor equipment company",
+      },
+      {
+        value: "300+",
+        label:
+          "Professionals deployed globally for a wireless telecommunications provider",
+      },
+      {
+        value: "500+",
+        label:
+          "Professionals placed for a multinational telecom corporation, a top 3 vendor among 5,000+ suppliers",
+      },
     ],
   },
+
   future: {
     kicker: "The Future of TMT",
     title: ["From Connectivity", "to Experience."],
+
     description:
       "We help telecom, media, and technology companies scale with the pace of innovation by connecting the right people with the right projects.",
   },
-  whyKalycor: buildWhy("telecom, media, and technology", "Built for Speed. Ready to Scale."),
+
+  whyKalycor: buildWhy(
+    "telecom, media, and technology",
+    "Built for Speed. Ready to Scale.",
+  ),
+
   faq: {
     kicker: "Common Questions",
     heading: "TMT Staffing, Answered",
+
     description:
       "Straight answers to what telecom, media, and technology companies most often ask us before they hire.",
+
     items: [
       {
         question: "Can you staff fast-moving digital projects?",
@@ -572,11 +788,14 @@ export const tmt: IndustryPage = {
       },
     ],
   },
+
   cta: {
     kicker: "Let’s Get Started",
     title: ["Build Your Future", "Workforce Today."],
+
     description:
       "High-impact talent with the speed, precision, and expertise needed to drive transformation.",
+
     buttonLabel: contactCtaAlt.label,
   },
 };
@@ -586,44 +805,59 @@ export const tmt: IndustryPage = {
 export const energy: IndustryPage = {
   slug: "energy-oil-gas",
   name: "Energy, Oil & Gas",
+
   metaTitle: "Energy, Oil & Gas",
+
   metaDescription:
     "Specialized talent for energy companies balancing traditional operations with clean energy transitions and digital infrastructure.",
+
   hero: {
-    image: "/images/workforce-solution.jpeg",
+    image: "/images/Energy, OilGas.jpg",
     kicker: "Energy, Oil & Gas",
     title: ["Fueling Progress.", "Powering What’s Next."],
     accentLine: 1,
+
     highlights: [
       { icon: "settings", label: "Upstream to Downstream" },
       { icon: "sprout", label: "Renewable Energy" },
       { icon: "shield", label: "Energy Cybersecurity" },
       { icon: "users", label: "Engineering & Infrastructure" },
     ],
+
     description:
       "From clean energy transitions to digital infrastructure, the energy sector is undergoing major shifts. We connect you with skilled professionals to manage traditional operations while leading the future of renewables.",
+
     primaryCta: {
       label: "Explore Our Solutions",
       href: "#energy-solutions",
     },
+
     secondaryCta: contactCta,
   },
+
   stats: {
     kicker: "Energy at a Glance",
     heading: "Flexible talent for a changing industry",
+
     items: [
       { value: "10+", label: "Years of industry experience" },
       { value: "400+", label: "Global clients" },
       { value: "5000+", label: "Active candidates" },
-      { value: "30%", label: "Staffing cost reduction delivered for an energy client" },
+      {
+        value: "30%",
+        label: "Staffing cost reduction delivered for an energy client",
+      },
     ],
   },
+
   overview: {
     id: "energy-overview",
     kicker: "Energy, Oil & Gas Industry",
     heading: "Hiring Demands in Energy, Oil & Gas",
+
     paragraph:
       "The energy sector is undergoing major shifts, from clean energy transitions to digital infrastructure. Companies need skilled professionals to manage traditional operations while leading the future of renewables.",
+
     areas: [
       "Upstream, Midstream & Downstream Operations",
       "Renewable Energy & Sustainability",
@@ -633,41 +867,84 @@ export const energy: IndustryPage = {
       "Cybersecurity in Energy Infrastructure",
     ],
   },
-  process: buildProcess("Energy, Oil & Gas", [
-    "We learn your operations, project timelines, and the field, technical, and engineering roles you need.",
-    "We tap our energy talent network and vet candidates for technical skills and site readiness.",
-    "Selected professionals are onboarded and placed across your sites and projects.",
-    "We adjust staffing as energy demand, projects, and market conditions change.",
-  ]),
+
+  process: {
+    kicker: "How We Work",
+
+    heading: "From Brief to Placed Talent in Energy, Oil & Gas",
+
+    description:
+      "A clear process for putting the right energy professionals in place as fast as your business needs them.",
+
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Need",
+        description:
+          "We learn your operations, project timelines, and the field, technical, and engineering roles you need.",
+        image: "/images/oilgas-1.jpg",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "We tap our energy talent network and vet candidates for technical skills and site readiness.",
+        image: "/images/oilgas-2.jpg",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected professionals are onboarded and placed across your sites and projects.",
+        image: "/images/oilgas-3.jpg",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust staffing as energy demand, projects, and market conditions change.",
+        image: "/images/oilgas-4.jpg",
+      },
+    ],
+  },
+
   solutions: {
     id: "energy-solutions",
     kicker: "What We Do",
     heading: "Scalable Workforce Strategies for Energy",
+
     description:
       "Flexible workforce solutions to meet industry fluctuations.",
+
     items: [
       {
         number: "01",
         title: "Adaptable Workforce Planning",
-        description: "On-demand hiring for changing energy demands.",
+        description:
+          "On-demand hiring for changing energy demands.",
       },
       {
         number: "02",
         title: "Renewable Energy Talent Pipelines",
-        description: "Specialists in sustainability and alternative energy.",
+        description:
+          "Specialists in sustainability and alternative energy.",
       },
       {
         number: "03",
         title: "Flexible Staffing Solutions",
-        description: "Contract, direct placement, and hybrid models.",
+        description:
+          "Contract, direct placement, and hybrid models.",
       },
     ],
   },
+
   areas: {
     kicker: "Our Focus Areas",
     heading: "Specialized Talent for an Evolving Industry",
+
     description:
       "Top-tier energy professionals and innovation talent across the energy value chain.",
+
     items: [
       {
         number: "01",
@@ -677,17 +954,20 @@ export const energy: IndustryPage = {
       {
         number: "02",
         title: "Renewable Energy & Sustainability",
-        description: "Solar, wind, and alternative energy solutions.",
+        description:
+          "Solar, wind, and alternative energy solutions.",
       },
       {
         number: "03",
         title: "Energy Technology & Digital Transformation",
-        description: "AI-driven analytics, IoT, and cybersecurity.",
+        description:
+          "AI-driven analytics, IoT, and cybersecurity.",
       },
       {
         number: "04",
         title: "Engineering & Infrastructure",
-        description: "Pipeline, drilling, and site development.",
+        description:
+          "Pipeline, drilling, and site development.",
       },
       {
         number: "05",
@@ -703,27 +983,51 @@ export const energy: IndustryPage = {
       },
     ],
   },
+
   successStories: {
     kicker: "Success Stories",
-    heading: "Workforce results for energy and infrastructure clients",
+    heading:
+      "Workforce results for energy and infrastructure clients",
+
     items: [
-      { value: "30%", label: "Reduction in staffing costs while improving efficiency" },
-      { value: "Renewables", label: "Workforce strategies developed for renewable energy initiatives" },
-      { value: "Large-scale", label: "Infrastructure projects staffed with critical engineers and project managers" },
+      {
+        value: "30%",
+        label:
+          "Reduction in staffing costs while improving efficiency",
+      },
+      {
+        value: "Renewables",
+        label:
+          "Workforce strategies developed for renewable energy initiatives",
+      },
+      {
+        value: "Large-scale",
+        label:
+          "Infrastructure projects staffed with critical engineers and project managers",
+      },
     ],
   },
+
   future: {
     kicker: "The Future of Energy",
     title: ["From Fuel", "to Future."],
+
     description:
       "We help energy companies scale efficiently, adapt to market shifts, and drive innovation by connecting the right people with the right opportunities.",
   },
-  whyKalycor: buildWhy("energy", "Built for Energy. Ready for Transition."),
+
+  whyKalycor: buildWhy(
+    "energy",
+    "Built for Energy. Ready for Transition.",
+  ),
+
   faq: {
     kicker: "Common Questions",
     heading: "Energy Staffing, Answered",
+
     description:
       "Straight answers to what energy, oil, and gas companies most often ask us before they hire.",
+
     items: [
       {
         question: "Can you hire on demand as energy needs change?",
@@ -736,21 +1040,26 @@ export const energy: IndustryPage = {
           "We build renewable energy talent pipelines with specialists in sustainability, solar, wind, and alternative energy.",
       },
       {
-        question: "Can you support engineering and infrastructure projects?",
+        question:
+          "Can you support engineering and infrastructure projects?",
         answer:
           "We place engineers and project managers for pipeline, drilling, and site development projects.",
       },
       {
         question: "Which staffing models are available?",
-        answer: "Contract, direct placement, and hybrid models.",
+        answer:
+          "Contract, direct placement, and hybrid models.",
       },
     ],
   },
+
   cta: {
     kicker: "Let’s Get Started",
     title: ["Fuel Progress with", "the Right Talent."],
+
     description:
       "Specialized workforce solutions that help energy companies scale efficiently and adapt to market shifts.",
+
     buttonLabel: contactCtaAlt.label,
   },
 };
@@ -760,44 +1069,71 @@ export const energy: IndustryPage = {
 export const semiconductor: IndustryPage = {
   slug: "semiconductor",
   name: "Semiconductor",
+
   metaTitle: "Semiconductor",
+
   metaDescription:
     "Specialized talent across chip design, verification, embedded systems, and manufacturing for semiconductor and technology organizations.",
+
   hero: {
-    image: "/images/approach-new3.jpeg",
+    image: "/images/semi-conductor.jpg",
     kicker: "Semiconductor",
     title: ["Specialized Talent.", "Semiconductor Growth."],
     accentLine: 1,
+
     highlights: [
       { icon: "settings", label: "Chip Design" },
       { icon: "shield", label: "Verification" },
       { icon: "sprout", label: "Embedded Systems" },
       { icon: "users", label: "Manufacturing" },
     ],
+
     description:
       "The semiconductor industry sits at the heart of global innovation, powering everything from consumer electronics to AI and advanced computing. We deliver specialized talent that accelerates innovation and product development.",
+
     primaryCta: {
       label: "Explore Our Solutions",
       href: "#semiconductor-solutions",
     },
+
     secondaryCta: contactCta,
   },
+
   stats: {
     kicker: "Semiconductor at a Glance",
     heading: "High-precision talent, delivered at speed",
+
     items: [
-      { value: "30+", label: "Years of expertise sourcing talent for Fortune 500 and Global 1000 organizations" },
-      { value: "14M+", label: "Professionals in our global talent network" },
-      { value: "#1", label: "Vendor for 3 years at a telecom & semiconductor equipment company" },
-      { value: "100+", label: "Consultants placed for that client, with 60+ converted to full-time" },
+      {
+        value: "30+",
+        label:
+          "Years of expertise sourcing talent for Fortune 500 and Global 1000 organizations",
+      },
+      {
+        value: "14M+",
+        label: "Professionals in our global talent network",
+      },
+      {
+        value: "#1",
+        label:
+          "Vendor for 3 years at a telecom & semiconductor equipment company",
+      },
+      {
+        value: "100+",
+        label:
+          "Consultants placed for that client, with 60+ converted to full-time",
+      },
     ],
   },
+
   overview: {
     id: "semiconductor-overview",
     kicker: "Semiconductor Industry",
     heading: "Specialized Talent for Semiconductor Growth",
+
     paragraph:
       "We partner with leading semiconductor and technology organizations to deliver specialized talent across chip design, verification, embedded systems, and manufacturing, helping accelerate innovation and product development.",
+
     areas: [
       "Chip Design",
       "Verification",
@@ -807,18 +1143,59 @@ export const semiconductor: IndustryPage = {
       "Advanced Computing & AI",
     ],
   },
-  process: buildProcess("Semiconductor", [
-    "We learn your design flow, product roadmap, and the niche roles that gate your schedule.",
-    "We tap specialized talent pipelines and vet candidates for deep technical expertise.",
-    "Selected professionals are onboarded and placed with reduced time-to-fill.",
-    "We adjust team size and skill mix as tape-outs, products, and demand evolve.",
-  ]),
+
+  process: {
+    kicker: "How We Work",
+
+    heading: "From Brief to Placed Talent in Semiconductor",
+
+    description:
+      "A clear process for putting the right semiconductor professionals in place as fast as your business needs them.",
+
+    steps: [
+      {
+        number: "01",
+        title: "Understand the Need",
+        description:
+          "We learn your design flow, product roadmap, and the niche roles that gate your schedule.",
+        image:
+          "/images/semiconductor-1.jpg",
+      },
+      {
+        number: "02",
+        title: "Source & Screen",
+        description:
+          "We tap specialized talent pipelines and vet candidates for deep technical expertise.",
+        image:
+          "/images/semiconductor-2.jpg",
+      },
+      {
+        number: "03",
+        title: "Deploy the Team",
+        description:
+          "Selected professionals are onboarded and placed with reduced time-to-fill.",
+        image:
+          "/images/semiconductor-3.jpg",
+      },
+      {
+        number: "04",
+        title: "Support & Scale",
+        description:
+          "We adjust team size and skill mix as tape-outs, products, and demand evolve.",
+        image:
+          "/images/semiconductor-4.jpg",
+      },
+    ],
+  },
+
   solutions: {
     id: "semiconductor-solutions",
     kicker: "What We Do",
     heading: "Hiring Solutions that Scale with Speed and Precision",
+
     description:
       "Customized hiring solutions that help semiconductor organizations scale.",
+
     items: [
       {
         number: "01",
@@ -834,11 +1211,14 @@ export const semiconductor: IndustryPage = {
       },
     ],
   },
+
   areas: {
     kicker: "Our Focus Areas",
     heading: "Specialized Talent for a High-Precision Industry",
+
     description:
       "Top-tier semiconductor talent across critical domains.",
+
     items: [
       {
         number: "01",
@@ -866,27 +1246,49 @@ export const semiconductor: IndustryPage = {
       },
     ],
   },
+
   successStories: {
     kicker: "A Trusted Partner in Semiconductor Talent",
-    heading: "Long-term partnerships with leading global organizations",
+    heading:
+      "Long-term partnerships with leading global organizations",
+
     items: [
-      { value: "#1", label: "Vendor for 3 years at a telecommunications & semiconductor equipment company" },
-      { value: "100+", label: "Consultants placed" },
-      { value: "60+", label: "Consultants converted to full-time" },
+      {
+        value: "#1",
+        label:
+          "Vendor for 3 years at a telecommunications & semiconductor equipment company",
+      },
+      {
+        value: "100+",
+        label: "Consultants placed",
+      },
+      {
+        value: "60+",
+        label: "Consultants converted to full-time",
+      },
     ],
   },
+
   future: {
     kicker: "The Future of Semiconductors",
     title: ["From Silicon", "to Solutions."],
+
     description:
       "From chip design to manufacturing and embedded systems, we help semiconductor organizations access the specialized talent needed to innovate, scale, and stay competitive.",
   },
-  whyKalycor: buildWhy("semiconductor", "Built for Precision. Ready to Scale."),
+
+  whyKalycor: buildWhy(
+    "semiconductor",
+    "Built for Precision. Ready to Scale.",
+  ),
+
   faq: {
     kicker: "Common Questions",
     heading: "Semiconductor Staffing, Answered",
+
     description:
       "Straight answers to what semiconductor organizations most often ask us before they hire.",
+
     items: [
       {
         question: "Can you fill niche semiconductor roles quickly?",
@@ -899,22 +1301,27 @@ export const semiconductor: IndustryPage = {
           "Chip design, verification, embedded systems, and manufacturing.",
       },
       {
-        question: "Do you support both product and manufacturing teams?",
+        question:
+          "Do you support both product and manufacturing teams?",
         answer:
           "We deliver talent across the product development lifecycle, from design through manufacturing.",
       },
       {
-        question: "How do you maintain specialized talent pipelines?",
+        question:
+          "How do you maintain specialized talent pipelines?",
         answer:
           "We build and maintain pipelines of professionals with deep semiconductor skills so clients can scale with speed and precision.",
       },
     ],
   },
+
   cta: {
     kicker: "Let’s Get Started",
     title: ["Strengthen Your", "Semiconductor Workforce."],
+
     description:
       "Access the specialized talent needed to innovate, scale, and stay competitive.",
+
     buttonLabel: contactCtaAlt.label,
   },
 };

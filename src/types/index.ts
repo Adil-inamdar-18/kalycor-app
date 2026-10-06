@@ -46,8 +46,11 @@ export interface Service {
 }
 
 /* ---------------------------------------------------- solution pages -- */
-/** Shared content shape for the reusable solution-detail template — the
- *  five sections every `/solutions/<slug>` page is built from. */
+
+/**
+ * Shared content shape for the reusable solution-detail template —
+ * the five sections every `/solutions/<slug>` page is built from.
+ */
 export interface SolutionHeroContent {
   kicker: string;
   heading: string;
@@ -100,10 +103,13 @@ export interface SolutionPageContent {
 }
 
 /* --------------------------------------------------- opportunities pages -- */
-/** Shared content shape for the reusable opportunities-portal template —
- *  the sections every `/opportunities` / `/opportunities/<slug>` page is
- *  built from. Mirrors the Solution*Content shapes above by design, so the
- *  two template families stay easy to reason about together. */
+
+/**
+ * Shared content shape for the reusable opportunities-portal template —
+ * the sections every `/opportunities` / `/opportunities/<slug>` page is
+ * built from. Mirrors the Solution*Content shapes above by design, so the
+ * two template families stay easy to reason about together.
+ */
 export interface OpportunityHeroContent {
   kicker: string;
   heading: string;
@@ -118,9 +124,11 @@ export interface OpportunityIntroContent {
   paragraphs: readonly string[];
 }
 
-/** A grid item that can optionally act as a link to another opportunities
- *  page — used by the hub page's "Explore Opportunities" grid so each
- *  pathway card is real portal navigation, not just decorative copy. */
+/**
+ * A grid item that can optionally act as a link to another opportunities
+ * page — used by the hub page's "Explore Opportunities" grid so each
+ * pathway card is real portal navigation, not just decorative copy.
+ */
 export interface OpportunityGridItem extends NumberedItem {
   href?: string;
 }
@@ -147,7 +155,6 @@ export interface OpportunityCtaContent {
   secondaryLabel: string;
   secondaryHref: string;
 }
-
 
 export interface ApproachPhoto {
   src: string;
@@ -236,12 +243,23 @@ export interface IndustryPage {
     description: string;
     primaryCta: LinkItem;
     secondaryCta: LinkItem;
+
     /** Index of the title line rendered with the green gradient. */
     accentLine?: number;
+
     /** Two small floating cards over the image (icon = lucide name key). */
-    badges?: readonly { icon: string; title: string; subtitle: string }[];
+    badges?: readonly {
+      icon: string;
+      title: string;
+      subtitle: string;
+    }[];
+
     /** Feature row shown under the buttons. */
-    highlights?: readonly { icon: string; label: string }[];
+    highlights?: readonly {
+      icon: string;
+      label: string;
+    }[];
+
     /** Video for the "Watch Our Story" button. Button hidden when omitted. */
     storyVideo?: string;
   };
@@ -257,19 +275,27 @@ export interface IndustryPage {
   stats: {
     kicker: string;
     heading: string;
-    items: readonly { value: string; label: string }[];
+    items: readonly {
+      value: string;
+      label: string;
+    }[];
   };
 
   process: {
     kicker: string;
     heading: string;
     description: string;
+
     steps: readonly {
       number: string;
       title: string;
       description: string;
-      /** Optional card photo; falls back to a shared default. */
-      image?: string;
+
+      /**
+       * Card image is required.
+       * Every industry process step must provide its own image.
+       */
+      image: string;
     }[];
   };
 
@@ -287,14 +313,20 @@ export interface IndustryPage {
     client: string;
     challenge: string;
     approach: string;
-    results: readonly { value: string; label: string }[];
+    results: readonly {
+      value: string;
+      label: string;
+    }[];
   };
 
   /** Proof points shown as a second stat strip ("Success Stories"). */
   successStories: {
     kicker: string;
     heading: string;
-    items: readonly { value: string; label: string }[];
+    items: readonly {
+      value: string;
+      label: string;
+    }[];
   };
 
   areas: {
@@ -307,7 +339,11 @@ export interface IndustryPage {
   testimonials?: {
     kicker: string;
     heading: string;
-    items: readonly { quote: string; name: string; role: string }[];
+    items: readonly {
+      quote: string;
+      name: string;
+      role: string;
+    }[];
   };
 
   future: {
@@ -327,7 +363,10 @@ export interface IndustryPage {
     kicker: string;
     heading: string;
     description: string;
-    items: readonly { question: string; answer: string }[];
+    items: readonly {
+      question: string;
+      answer: string;
+    }[];
   };
 
   cta: {
