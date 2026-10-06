@@ -1,4 +1,10 @@
-import { Building2, Ship, ShieldCheck, Sprout, type LucideIcon } from "lucide-react";
+import {
+  Building2,
+  Ship,
+  ShieldCheck,
+  Sprout,
+  type LucideIcon,
+} from "lucide-react";
 
 /**
  * "Our Businesses" — independent businesses operated under the Kalycor brand.
@@ -40,7 +46,7 @@ export const businesses: readonly Business[] = [
       "Sustainable farming, produce and agri-value-chain ventures built for long-term growth.",
     url: domain(
       process.env.NEXT_PUBLIC_AGRICULTURE_URL,
-      "https://kalycoragriculture.com",
+      "https://kalycor-agriculture.vercel.app/",
     ),
     icon: Sprout,
     image: "/images/agri.jpg",
@@ -52,7 +58,7 @@ export const businesses: readonly Business[] = [
       "Cross-border trade and sourcing that connects quality goods with global markets.",
     url: domain(
       process.env.NEXT_PUBLIC_IMPORT_EXPORT_URL,
-      "https://kalycorexport.com",
+      "https://kalycor-import-export.vercel.app/",
     ),
     icon: Ship,
     image: "/images/Export-Import.jpg",
@@ -64,7 +70,7 @@ export const businesses: readonly Business[] = [
       "Trained, reliable security services that protect people, property and operations.",
     url: domain(
       process.env.NEXT_PUBLIC_SECURITY_URL,
-      "https://kalycorsecurity.com",
+      "https://kalycor-security.vercel.app/",
     ),
     icon: ShieldCheck,
     image: "/images/monitoring-sec.jpg",
@@ -76,7 +82,7 @@ export const businesses: readonly Business[] = [
       "Property development and advisory focused on lasting value for owners and investors.",
     url: domain(
       process.env.NEXT_PUBLIC_REAL_ESTATE_URL,
-      "https://kalycorrealestate.com",
+      "https://kalycor-realestate.vercel.app/",
     ),
     icon: Building2,
     image: "/images/real-estate.jpg",
