@@ -26,6 +26,7 @@
      6. SEMANTIC    background / heading / body / primary … per surface
      7. COMPONENTS  button + card defaults, resolved from the above
      8. BASE        the handful of rules Tailwind utilities can't express
+     9. GLASS       site-wide frosted-glass cards + ambient backdrop
 
    Colours are stored as HSL channel triplets (e.g. `214 68% 13%`) because
    Tailwind consumes them as `hsl(var(--token) / <alpha>)`. That is what makes
@@ -182,6 +183,23 @@
   --shadow-quote-hover: 0 28px 65px hsl(var(--k-teal-400) / 0.16);
   --shadow-quote-featured: 0 26px 60px hsl(var(--k-teal-400) / 0.13);
   --shadow-chip: 0 6px 18px hsl(var(--k-teal-400) / 0.12);
+
+  /* Glass (frosted-surface) tokens — consumed by section 9 at the bottom. */
+  --glass-blur: 22px;
+  --glass-saturate: 1.8;
+  --glass-opacity: 0.4; /* card fill over the ambient backdrop    */
+  --glass-opacity-on-dark: 0.9; /* cards that sit on navy/teal bands    */
+  --glass-band-opacity: 0.4; /* full-width light section bands       */
+  --glass-border-opacity: 0.5;
+  --glass-sheen: linear-gradient(
+    135deg,
+    hsl(var(--k-white) / 0.5) 0%,
+    hsl(var(--k-white) / 0.04) 50%,
+    hsl(var(--k-white) / 0.22) 100%
+  );
+  --glass-edge: inset 0 1px 0 0 hsl(var(--k-white) / 0.95),
+    inset 0 0 0 1px hsl(var(--k-white) / 0.5),
+    0 14px 34px -14px hsl(var(--k-navy-800) / 0.28);
 
   /* Gradients that are part of the design rather than one-off decoration. */
   --gradient-hero-wash: linear-gradient(
@@ -474,5 +492,138 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+/* ============================================================ 9. GLASS ====
+   Site-wide glass effect. Every route sits inside a [data-surface] wrapper,
+   so these rules reach every page without touching individual components.
+
+     a. AMBIENT BACKDROP — brand-coloured light fixed behind the page. Glass
+        needs something to blur; without it frosted cards look flat.
+     b. SECTION BANDS    — full-width light <section> backgrounds become
+        translucent so the backdrop shows through between cards.
+     c. GLASS CARDS      — any rounded card/panel with a light fill gets a
+        translucent fill, backdrop blur, a lit top edge and a soft shadow.
+
+   Cards keep their own border, radius, drop shadow and hover styles.
+   Translucency goes through Tailwind's --tw-bg-opacity / --tw-border-opacity,
+   and the edge highlight through --tw-ring-shadow, so utilities still compose.
+   Plain CSS (not in an @layer) so Tailwind never tree-shakes it.
+   Tune everything from the --glass-* tokens in :root.
+   ========================================================================== */
+
+/* a. ambient backdrop */
+[data-surface] {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-surface]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40rem 32rem at 4% 6%, hsl(var(--k-teal-500) / 0.34), transparent 65%),
+    radial-gradient(38rem 36rem at 98% 24%, hsl(var(--k-blue-400) / 0.4), transparent 64%),
+    radial-gradient(44rem 34rem at 12% 78%, hsl(var(--k-blue-400) / 0.3), transparent 64%),
+    radial-gradient(36rem 30rem at 92% 96%, hsl(var(--k-teal-500) / 0.3), transparent 64%),
+    hsl(var(--k-paper-50));
+}
+
+/* b. section bands: let the backdrop show through light full-width sections */
+[data-surface]
+  section:is(.bg-background, .bg-surface, .bg-surface-alt, .bg-white, .bg-cream, .bg-offwhite, .bg-sky-50):not([class*="rounded"]) {
+  --tw-bg-opacity: var(--glass-band-opacity);
+}
+
+/* c. glass cards */
+[data-surface]
+  :is(.rounded-card, .rounded-panel, .rounded-xl, .rounded-2xl, .rounded-3xl):is(
+    .bg-surface,
+    .bg-surface-alt,
+    .bg-background,
+    .bg-white,
+    .bg-cream,
+    .bg-offwhite,
+    .bg-sky-50,
+    .bg-teal-50,
+    .bg-primary-soft,
+    .bg-inverse-fg
+  ):not(button, input, select, textarea, img, svg, section, header, footer, main) {
+  --tw-bg-opacity: var(--glass-opacity);
+  --tw-border-opacity: var(--glass-border-opacity);
+  --tw-ring-shadow: var(--glass-edge);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow, 0 0 #0000);
+  background-image: var(--glass-sheen);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+/* cards that already use a baked-in white alpha (bg-white/20 …) just gain blur */
+[data-surface] [class*="bg-white/"][class*="rounded"]:not(button, input, select, textarea, img, svg) {
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+/* light cards sitting on dark bands stay more opaque so dark text stays crisp */
+[data-surface]
+  :is(
+    .bg-inverse,
+    .bg-primary,
+    .bg-secondary,
+    [class*="bg-navy-"],
+    [class*="bg-plum"],
+    [class*="bg-primary"],
+    [class*="bg-inverse"],
+    [class*="bg-teal-8"],
+    [class*="bg-teal-9"]
+  )
+  :is(.rounded-card, .rounded-panel, .rounded-xl, .rounded-2xl, .rounded-3xl):is(
+    .bg-surface,
+    .bg-surface-alt,
+    .bg-background,
+    .bg-white,
+    .bg-cream,
+    .bg-offwhite,
+    .bg-sky-50,
+    .bg-teal-50,
+    .bg-primary-soft,
+    .bg-inverse-fg
+  ):not(button, input, select, textarea, img, svg, section, header, footer, main) {
+  --tw-bg-opacity: var(--glass-opacity-on-dark);
+}
+
+/* lighter blur on small screens (cheaper to paint) */
+@media (max-width: 640px) {
+  :root {
+    --glass-blur: 14px;
+  }
+}
+
+/* graceful fallback: no backdrop-filter support */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass-opacity: 0.92;
+    --glass-band-opacity: 0.9;
+  }
+}
+
+/* respect "reduce transparency" */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-opacity: 1;
+    --glass-opacity-on-dark: 1;
+    --glass-band-opacity: 1;
+  }
+  [data-surface] * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  [data-surface]::before {
+    display: none;
   }
 }
