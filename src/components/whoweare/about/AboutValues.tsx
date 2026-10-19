@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Handshake,
   Heart,
   Lightbulb,
   ShieldCheck,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { aboutValues } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { aboutValues } from "@/data/aboutUs";
 
 type AboutValuesProps = typeof aboutValues;
 
@@ -21,7 +21,12 @@ const iconRules: ReadonlyArray<[RegExp, LucideIcon]> = [
   [/possibility/i, Lightbulb],
 ];
 
-const fallbackIcons: readonly LucideIcon[] = [Heart, ShieldCheck, Handshake, Lightbulb];
+const fallbackIcons: readonly LucideIcon[] = [
+  Heart,
+  ShieldCheck,
+  Handshake,
+  Lightbulb,
+];
 
 function iconFor(title: string, index: number): LucideIcon {
   return (
@@ -42,7 +47,7 @@ export function AboutValues(content: AboutValuesProps) {
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         animate={{ opacity: [0.5, 0.85, 0.5] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <Container className="relative">
@@ -50,7 +55,7 @@ export function AboutValues(content: AboutValuesProps) {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-40 lg:self-start"
           >
@@ -67,7 +72,7 @@ export function AboutValues(content: AboutValuesProps) {
           <motion.ul
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={{ show: { transition: { staggerChildren: 0.14 } } }}
             className="divide-y divide-inverse-fg/10 rounded-2xl border border-inverse-fg/10 bg-inverse-fg/[0.04] px-7 md:px-9"
           >
@@ -85,7 +90,11 @@ export function AboutValues(content: AboutValuesProps) {
                   className="flex items-start gap-5 py-7"
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-primary-fg">
-                    <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+                    <Icon
+                      className="h-6 w-6"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
                   </span>
 
                   <div>
@@ -106,4 +115,4 @@ export function AboutValues(content: AboutValuesProps) {
   );
 }
 
-export default AboutValues;
+export default AboutValues;

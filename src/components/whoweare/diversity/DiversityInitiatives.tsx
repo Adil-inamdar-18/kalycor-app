@@ -1,25 +1,36 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Globe, HeartHandshake, Layers, MessagesSquare, Search, ShieldCheck, Sprout, UserCheck, Users, type LucideIcon } from 'lucide-react';
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  Globe,
+  HeartHandshake,
+  Layers,
+  MessagesSquare,
+  Search,
+  ShieldCheck,
+  Sprout,
+  UserCheck,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { diversityInitiatives } from '@/data/diversityInclusion';
-import { cn } from '@/lib/utils';
+import { Container, Section } from "@/components/layout";
+import { diversityInitiatives } from "@/data/diversityInclusion";
+import { cn } from "@/lib/utils";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/** One icon per initiative, in the same order as the data. */
 const iconsByGroup: Record<string, readonly LucideIcon[]> = {
   candidates: [Search, ShieldCheck, Globe],
   clients: [Layers, UserCheck, HeartHandshake],
   team: [MessagesSquare, Sprout, Users],
 };
 
-/** Initiatives grouped by who they serve, switched with a segmented control. */
 export default function DiversityInitiatives() {
-  const [groupId, setGroupId] = useState<string>(diversityInitiatives.groups[0].id);
+  const [groupId, setGroupId] = useState<string>(
+    diversityInitiatives.groups[0].id,
+  );
   const group =
     diversityInitiatives.groups.find((g) => g.id === groupId) ??
     diversityInitiatives.groups[0];
@@ -32,7 +43,7 @@ export default function DiversityInitiatives() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
             <Kicker className="mb-4">{diversityInitiatives.kicker}</Kicker>
@@ -43,7 +54,7 @@ export default function DiversityInitiatives() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-body-lg leading-8 text-paragraph"
           >
@@ -51,7 +62,6 @@ export default function DiversityInitiatives() {
           </motion.p>
         </div>
 
-        {/* Segmented control */}
         <div
           role="tablist"
           aria-label="Initiatives by audience"
@@ -74,13 +84,15 @@ export default function DiversityInitiatives() {
                   <motion.span
                     layoutId="initiative-pill"
                     className="absolute inset-0 rounded-pill bg-inverse"
-                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
                 <span
                   className={cn(
-                    'relative transition-colors duration-base',
-                    isActive ? 'text-inverse-fg' : 'text-paragraph hover:text-heading'
+                    "relative transition-colors duration-base",
+                    isActive
+                      ? "text-inverse-fg"
+                      : "text-paragraph hover:text-heading",
                   )}
                 >
                   {g.label}
@@ -105,7 +117,8 @@ export default function DiversityInitiatives() {
 
               <ul className="mt-8 grid gap-5 md:grid-cols-3">
                 {group.items.map((item, index) => {
-                  const Icon = icons[index % Math.max(icons.length, 1)] ?? Users;
+                  const Icon =
+                    icons[index % Math.max(icons.length, 1)] ?? Users;
 
                   return (
                     <li
@@ -113,7 +126,11 @@ export default function DiversityInitiatives() {
                       className="group rounded-card border border-line bg-background p-7 transition-all duration-slow hover:-translate-y-1 hover:border-accent/50 hover:shadow-float"
                     >
                       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition-colors duration-slow group-hover:bg-accent group-hover:text-primary-fg">
-                        <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+                        <Icon
+                          className="h-6 w-6"
+                          strokeWidth={1.75}
+                          aria-hidden="true"
+                        />
                       </span>
                       <h3 className="mt-6 text-h3 font-bold leading-tight text-heading">
                         {item.title}

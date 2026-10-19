@@ -1,8 +1,3 @@
-/**
- * Every URL in the site lives here. Change a path once and every header,
- * footer, hero and CTA across the three pages follows.
- */
-
 export const routes = {
   home: "/",
   jobs: "/jobs",
@@ -50,7 +45,6 @@ export const routes = {
   },
 } as const;
 
-/** In-page anchors, per page. */
 export const anchors = {
   landing: {
     home: "#home",
@@ -73,14 +67,12 @@ export const anchors = {
   },
 } as const;
 
-/** Cross-page links (landing ➝ jobs / for-business and back). */
 export const crossLinks = {
   findJob: routes.jobs,
   hireTalent: routes.business,
   backHome: routes.home,
   contactOnHome: `${routes.home}${anchors.landing.contact}`,
-  /** The real contact form lives on /for-business — used by pages (like
-   *  industries) that don't have a contact section of their own. */
+
   contact: `${routes.business}${anchors.business.contact}`,
 } as const;
 

@@ -14,7 +14,6 @@ import BusinessesMegaMenu from "./BusinessesMegaMenu";
 const panel =
   "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] h-[590px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
 
-/** Same shell as `panel`, but height follows the content (card grid). */
 const panelAuto =
   "fixed left-1/2 top-[94px] z-dropdown w-[80vw] max-w-[1250px] -translate-x-1/2 overflow-hidden border border-line bg-surface shadow-menu transition-all duration-fast";
 
@@ -56,7 +55,6 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Navigation Trigger */}
       <button
         type="button"
         onClick={() => {
@@ -96,7 +94,6 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
         {label}
       </button>
 
-      {/* Mega Menu */}
       <div
         aria-hidden={!isOpen}
         className={cn(
@@ -111,52 +108,49 @@ export function NavDropdown({ menu }: { menu: NavMenu }) {
           <BusinessesMegaMenu onNavigate={() => setIsOpen(false)} />
         ) : (
           <>
-        {/* LEFT — CONTENT + CTA */}
-        <div className="flex flex-col justify-start border-r border-line px-[32px] py-[36px]">
-          <h3 className="font-heading text-[26px] font-medium leading-[1.2] text-heading underline decoration-teal-700 decoration-[1px] underline-offset-[5px]">
-            {kicker ?? label}
-          </h3>
+            <div className="flex flex-col justify-start border-r border-line px-[32px] py-[36px]">
+              <h3 className="font-heading text-[26px] font-medium leading-[1.2] text-heading underline decoration-teal-700 decoration-[1px] underline-offset-[5px]">
+                {kicker ?? label}
+              </h3>
 
-          <p className="mt-[34px] max-w-[48ch] text-[15px] leading-[1.48] text-paragraph">
-            {description}
-          </p>
+              <p className="mt-[34px] max-w-[48ch] text-[15px] leading-[1.48] text-paragraph">
+                {description}
+              </p>
 
-          <CtaPair className="mt-[34px] flex gap-3" size="sm" />
-        </div>
+              <CtaPair className="mt-[34px] flex gap-3" size="sm" />
+            </div>
 
-        {/* MIDDLE — LINK LIST */}
-        <div className="overflow-y-auto border-r border-line">
-          {links.map((link) => (
-            <Link key={link.label} href={link.href} className={menuLink}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
+            <div className="overflow-y-auto border-r border-line">
+              {links.map((link) => (
+                <Link key={link.label} href={link.href} className={menuLink}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-        {/* RIGHT — IMAGE + DESCRIPTION */}
-        <div className="bg-[#f1f2f2] p-[12px]">
-          <div className="flex h-full flex-col bg-white">
-            {panelImage && (
-              <div className="relative h-[205px] w-full shrink-0 overflow-hidden">
-                <Image
-                  src={panelImage}
-                  alt={panelImageAlt ?? ""}
-                  fill
-                  className="object-cover"
-                  sizes="400px"
-                />
+            <div className="bg-[#f1f2f2] p-[12px]">
+              <div className="flex h-full flex-col bg-white">
+                {panelImage && (
+                  <div className="relative h-[205px] w-full shrink-0 overflow-hidden">
+                    <Image
+                      src={panelImage}
+                      alt={panelImageAlt ?? ""}
+                      fill
+                      className="object-cover"
+                      sizes="400px"
+                    />
+                  </div>
+                )}
+
+                {panelDescription && (
+                  <div className="px-[26px] py-[26px]">
+                    <p className="text-[15px] leading-[1.55] text-paragraph">
+                      {panelDescription}
+                    </p>
+                  </div>
+                )}
               </div>
-            )}
-
-            {panelDescription && (
-              <div className="px-[26px] py-[26px]">
-                <p className="text-[15px] leading-[1.55] text-paragraph">
-                  {panelDescription}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
+            </div>
           </>
         )}
       </div>

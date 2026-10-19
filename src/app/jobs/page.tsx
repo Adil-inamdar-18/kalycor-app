@@ -1,7 +1,7 @@
-import { Suspense } from 'react';
-import { Footer, Header } from '@/components/landing';
-import { JobBoard } from '@/components/jobs';
-import { anchors } from '@/config/routes';
+import { Suspense } from "react";
+import { Footer, Header } from "@/components/landing";
+import { JobBoard } from "@/components/jobs";
+import { anchors } from "@/config/routes";
 
 export default function JobsPage() {
   return (

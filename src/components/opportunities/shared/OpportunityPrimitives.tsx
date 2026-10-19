@@ -7,26 +7,18 @@ import { heroMedia, type HeroMedia } from "@/data/opportunities/heroMedia";
 import { cn } from "@/lib/utils";
 import OpportunityHero, { type HeroAction } from "./OpportunityHero";
 
-/* -------------------------------------------------------------------------
-   Small building blocks shared by every Opportunities page.
-   Keeping the refined look (pill buttons, soft cards, eyebrow labels,
-   ring-focus inputs) in one file means a tweak here restyles all six pages.
-   ------------------------------------------------------------------------- */
-
 export function Crumb({ label = "Join Us" }: { label?: string }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-4 text-caption text-muted">
-      <Link href={routes.opportunities.home} className="hover:text-primary">Opportunities</Link>
+      <Link href={routes.opportunities.home} className="hover:text-primary">
+        Opportunities
+      </Link>
       <span className="mx-2">/</span>
       <span className="text-heading">{label}</span>
     </nav>
   );
 }
 
-/**
- * Top-of-page hero for task-focused pages (forms, search, agenda). It is the
- * same hero the other Opportunities pages use, so every page opens the same way.
- */
 export function PageHeader({
   crumb,
   kicker,
@@ -59,13 +51,18 @@ export function PageHeader({
   );
 }
 
-/** Small uppercase label above a section heading. */
-export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
+export function Eyebrow({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <p
       className={cn(
         "mb-4 flex items-center gap-3 text-[12.5px] font-semibold uppercase tracking-[0.22em] text-primary",
-        className
+        className,
       )}
     >
       <span aria-hidden className="h-0.5 w-8 rounded-full bg-accent" />
@@ -74,10 +71,10 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
   );
 }
 
-/** Shared card surface: soft radius, hairline border, gentle lift on hover. */
 export const cardCls =
   "rounded-2xl border border-line bg-surface shadow-raised transition-all duration-base";
-export const cardHoverCls = "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-float";
+export const cardHoverCls =
+  "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-float";
 
 const btnBase =
   "group inline-flex items-center justify-center gap-2 rounded-pill font-heading font-semibold transition-all duration-base disabled:pointer-events-none disabled:opacity-55";
@@ -98,17 +95,22 @@ type OppButtonProps = {
   variant?: keyof typeof btnVariants;
   size?: keyof typeof btnSizes;
   block?: boolean;
-  /** Adds a small arrow that nudges forward on hover. */
+
   arrow?: boolean;
-  /** Icon shown before the label. */
+
   icon?: ReactNode;
   className?: string;
 } & (
-  | ({ href: string } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">)
-  | ({ href?: undefined } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">)
+  | ({ href: string } & Omit<
+      ButtonHTMLAttributes<HTMLButtonElement>,
+      "className" | "children"
+    >)
+  | ({ href?: undefined } & Omit<
+      ButtonHTMLAttributes<HTMLButtonElement>,
+      "className" | "children"
+    >)
 );
 
-/** Pill button used across the Opportunities pages (link or <button>). */
 export function OppButton({
   children,
   variant = "solid",
@@ -120,13 +122,22 @@ export function OppButton({
   href,
   ...rest
 }: OppButtonProps) {
-  const classes = cn(btnBase, btnSizes[size], btnVariants[variant], block && "w-full", className);
+  const classes = cn(
+    btnBase,
+    btnSizes[size],
+    btnVariants[variant],
+    block && "w-full",
+    className,
+  );
   const content = (
     <>
       {icon}
       {children}
       {arrow ? (
-        <ArrowRight className="size-4 transition-transform duration-base group-hover:translate-x-1" aria-hidden />
+        <ArrowRight
+          className="size-4 transition-transform duration-base group-hover:translate-x-1"
+          aria-hidden
+        />
       ) : null}
     </>
   );
@@ -140,7 +151,11 @@ export function OppButton({
   }
   const buttonRest = rest as ButtonHTMLAttributes<HTMLButtonElement>;
   return (
-    <button type={buttonRest.type ?? "button"} className={classes} {...buttonRest}>
+    <button
+      type={buttonRest.type ?? "button"}
+      className={classes}
+      {...buttonRest}
+    >
       {content}
     </button>
   );
@@ -160,7 +175,9 @@ export function Field({
 }) {
   return (
     <label className={cn("block", className)}>
-      <span className="mb-1.5 block text-small font-semibold text-heading">{label}</span>
+      <span className="mb-1.5 block text-small font-semibold text-heading">
+        {label}
+      </span>
       {children}
     </label>
   );
@@ -184,7 +201,7 @@ export function Chip({
         "rounded-pill border px-4 py-1.5 text-[13px] font-semibold transition-all duration-base",
         active
           ? "border-primary bg-primary text-primary-fg shadow-[0_8px_18px_-10px_hsl(var(--primary)/0.8)]"
-          : "border-line bg-surface text-muted hover:border-primary/50 hover:text-primary"
+          : "border-line bg-surface text-muted hover:border-primary/50 hover:text-primary",
       )}
     >
       {children}

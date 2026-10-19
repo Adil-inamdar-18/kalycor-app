@@ -25,11 +25,6 @@ import {
   aboutValues,
 } from "@/data/aboutUs";
 
-/**
- * About Us is a company-story page: it reads top to bottom as
- * who we are → why we exist → what we believe → how we got here →
- * where we stand → who leads us → what we do.
- */
 export default function AboutUsPage() {
   return (
     <main>

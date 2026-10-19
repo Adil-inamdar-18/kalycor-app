@@ -1,16 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
 interface ArticleTocProps {
   headings: readonly { id: string; text: string }[];
 }
 
-/** "In this article" list that highlights the section being read. */
 export default function ArticleToc({ headings }: ArticleTocProps) {
-  const [active, setActive] = useState<string>(headings[0]?.id ?? '');
+  const [active, setActive] = useState<string>(headings[0]?.id ?? "");
 
   useEffect(() => {
     const elements = headings
@@ -25,7 +24,7 @@ export default function ArticleToc({ headings }: ArticleTocProps) {
           if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      { rootMargin: '-20% 0px -70% 0px' }
+      { rootMargin: "-20% 0px -70% 0px" },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -47,12 +46,12 @@ export default function ArticleToc({ headings }: ArticleTocProps) {
             <li key={heading.id}>
               <a
                 href={`#${heading.id}`}
-                aria-current={isActive ? 'location' : undefined}
+                aria-current={isActive ? "location" : undefined}
                 className={clsx(
-                  '-ml-px block border-l-2 py-1.5 pl-4 text-small leading-5 transition-colors duration-base',
+                  "-ml-px block border-l-2 py-1.5 pl-4 text-small leading-5 transition-colors duration-base",
                   isActive
-                    ? 'border-accent font-semibold text-heading'
-                    : 'border-transparent text-muted hover:text-heading'
+                    ? "border-accent font-semibold text-heading"
+                    : "border-transparent text-muted hover:text-heading",
                 )}
               >
                 {heading.text}

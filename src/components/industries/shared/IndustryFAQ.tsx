@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import { useId, useState } from 'react';
-import { Minus, Plus } from 'lucide-react';
+import { useId, useState } from "react";
+import { Minus, Plus } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
-/** No transitions, scroll effects or animation anywhere in this section, by design. */
-export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
+export function IndustryFAQ({ faq }: { faq: IndustryPage["faq"] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const baseId = useId();
 
@@ -16,7 +15,6 @@ export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
     <Section as="section" tone="surface">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          {/* Heading */}
           <div>
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
               <span className="h-px w-10 bg-accent" aria-hidden="true" />
@@ -27,14 +25,16 @@ export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
               {faq.heading}
             </h2>
 
-            <div className="mt-6 h-1 w-28 rounded-full bg-accent" aria-hidden="true" />
+            <div
+              className="mt-6 h-1 w-28 rounded-full bg-accent"
+              aria-hidden="true"
+            />
 
             <p className="mt-6 max-w-md text-body-lg leading-8 text-muted">
               {faq.description}
             </p>
           </div>
 
-          {/* Questions */}
           <div className="flex flex-col gap-4">
             {faq.items.map((item, index) => {
               const isOpen = openIndex === index;
@@ -46,8 +46,8 @@ export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
                   key={item.question}
                   className={`rounded-2xl border ${
                     isOpen
-                      ? 'border-accent/40 bg-surface shadow-tile'
-                      : 'border-line bg-surface-alt hover:border-accent/30'
+                      ? "border-accent/40 bg-surface shadow-tile"
+                      : "border-line bg-surface-alt hover:border-accent/30"
                   }`}
                 >
                   <h3>
@@ -61,7 +61,7 @@ export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
                     >
                       <span className="flex items-center gap-4">
                         <span className="hidden font-heading text-body-sm font-semibold text-accent sm:inline">
-                          {String(index + 1).padStart(2, '0')}
+                          {String(index + 1).padStart(2, "0")}
                         </span>
                         <span className="text-body font-semibold leading-snug text-heading sm:text-body-lg">
                           {item.question}
@@ -71,8 +71,8 @@ export function IndustryFAQ({ faq }: { faq: IndustryPage['faq'] }) {
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
                           isOpen
-                            ? 'bg-accent text-primary-fg'
-                            : 'bg-teal-100 text-teal-700'
+                            ? "bg-accent text-primary-fg"
+                            : "bg-teal-100 text-teal-700"
                         }`}
                         aria-hidden="true"
                       >

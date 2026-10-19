@@ -1,13 +1,15 @@
-import type { SVGProps } from 'react';
-
-// Small reusable inline SVG icons used across the header, hero search,
-// job cards and trending category cards. Kept as simple presentational
-// components rather than an icon library, since the set is small and
-// project-specific (matches the original inline SVGs 1:1).
+import type { SVGProps } from "react";
 
 export function SearchIconThin(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      {...props}
+    >
       <circle cx="11" cy="11" r="7" />
       <path d="M16 16L21 21" />
     </svg>
@@ -16,7 +18,13 @@ export function SearchIconThin(props: SVGProps<SVGSVGElement>) {
 
 export function LocationIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      {...props}
+    >
       <path d="M20 10.5C20 16 12 21 12 21S4 16 4 10.5A8 8 0 0 1 20 10.5Z" />
       <circle cx="12" cy="10" r="2.5" />
     </svg>

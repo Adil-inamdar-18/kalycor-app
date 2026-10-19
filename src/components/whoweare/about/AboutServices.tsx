@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Briefcase,
   Cpu,
   UserCheck,
   Users,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { aboutServices } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { aboutServices } from "@/data/aboutUs";
 
 type AboutServicesProps = typeof aboutServices;
 
@@ -34,11 +34,10 @@ export function AboutServices(content: AboutServicesProps) {
   return (
     <Section as="section" tone="surface">
       <Container>
-        {/* Centered heading flanked by lines */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
@@ -46,15 +45,20 @@ export function AboutServices(content: AboutServicesProps) {
             {content.kicker}
           </p>
           <div className="flex items-center gap-6">
-            <span className="hidden h-px flex-1 bg-line sm:block" aria-hidden="true" />
+            <span
+              className="hidden h-px flex-1 bg-line sm:block"
+              aria-hidden="true"
+            />
             <h2 className="mx-auto text-h2 font-bold leading-[1.1] tracking-tight text-heading sm:mx-0">
               {content.heading}
             </h2>
-            <span className="hidden h-px flex-1 bg-line sm:block" aria-hidden="true" />
+            <span
+              className="hidden h-px flex-1 bg-line sm:block"
+              aria-hidden="true"
+            />
           </div>
         </motion.div>
 
-        {/* Connected pillars */}
         <div className="relative">
           <span
             className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-px bg-line lg:block"
@@ -70,12 +74,16 @@ export function AboutServices(content: AboutServicesProps) {
                   key={item.number}
                   initial={{ opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.5, delay: index * 0.12 }}
                   className="group relative text-center"
                 >
                   <span className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full border-4 border-surface bg-teal-100 text-teal-700 shadow-tile transition-colors duration-slow group-hover:bg-accent group-hover:text-primary-fg">
-                    <Icon className="h-7 w-7" strokeWidth={1.75} aria-hidden="true" />
+                    <Icon
+                      className="h-7 w-7"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
                   </span>
 
                   <p className="mt-5 font-heading text-caption font-semibold tracking-kicker text-accent">

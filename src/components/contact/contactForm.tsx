@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState, type FormEvent } from 'react';
-import { CheckCircle2, Send } from 'lucide-react';
+import { useState, type FormEvent } from "react";
+import { CheckCircle2, Send } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { contactPage } from '@/data/contact';
+import { Container, Section } from "@/components/layout";
+import { contactPage } from "@/data/contact";
 
 const field =
-  'w-full rounded-button border border-line bg-surface px-4 py-3 text-body text-heading outline-none transition-colors placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/20';
-const label = 'mb-2 block text-body-sm font-semibold text-heading';
+  "w-full rounded-button border border-line bg-surface px-4 py-3 text-body text-heading outline-none transition-colors placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/20";
+const label = "mb-2 block text-body-sm font-semibold text-heading";
 
 export function ContactForm() {
   const { form, offices } = contactPage;
@@ -17,8 +17,7 @@ export function ContactForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // TODO: send the values to your API / email service here.
-    // Until then this only confirms on screen, like the other forms on the site.
+
     event.currentTarget.reset();
     setSent(true);
   };
@@ -44,7 +43,7 @@ export function ContactForm() {
 
             {email && (
               <p className="mt-6 text-body-sm text-muted">
-                Prefer email?{' '}
+                Prefer email?{" "}
                 <a
                   href={`mailto:${email}`}
                   className="font-semibold text-heading transition-colors duration-300 hover:text-accent"
@@ -57,8 +56,14 @@ export function ContactForm() {
 
           <div className="rounded-card border border-line bg-surface-alt p-6 sm:p-8 lg:p-10">
             {sent ? (
-              <div role="status" className="flex flex-col items-start gap-4 py-6">
-                <CheckCircle2 className="h-9 w-9 text-accent" aria-hidden="true" />
+              <div
+                role="status"
+                className="flex flex-col items-start gap-4 py-6"
+              >
+                <CheckCircle2
+                  className="h-9 w-9 text-accent"
+                  aria-hidden="true"
+                />
                 <h3 className="text-h3 font-semibold text-heading">
                   Thanks, your message is in.
                 </h3>
@@ -110,7 +115,8 @@ export function ContactForm() {
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="contactPhone" className={label}>
-                      Phone <span className="font-normal text-muted">(optional)</span>
+                      Phone{" "}
+                      <span className="font-normal text-muted">(optional)</span>
                     </label>
                     <input
                       id="contactPhone"

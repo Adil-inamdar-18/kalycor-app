@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Eye, Target } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Eye, Target } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { aboutMissionVision } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { aboutMissionVision } from "@/data/aboutUs";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
 type AboutMissionVisionProps = typeof aboutMissionVision;
 
@@ -22,7 +22,7 @@ export function AboutMissionVision(content: AboutMissionVisionProps) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mb-12 max-w-2xl"
         >
@@ -33,11 +33,10 @@ export function AboutMissionVision(content: AboutMissionVisionProps) {
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {/* Mission — dark, confident */}
           <motion.article
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6 }}
             className="relative overflow-hidden rounded-panel bg-inverse p-8 text-inverse-fg md:p-12"
           >
@@ -45,10 +44,14 @@ export function AboutMissionVision(content: AboutMissionVisionProps) {
               aria-hidden="true"
               className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/25 blur-[100px]"
               animate={{ opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             />
             <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-accent text-primary-fg">
-              <Target className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+              <Target
+                className="h-6 w-6"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
             </span>
             <p className="relative mt-8 font-heading text-kicker font-semibold uppercase tracking-kicker text-teal-200">
               {content.mission.label}
@@ -61,11 +64,10 @@ export function AboutMissionVision(content: AboutMissionVisionProps) {
             </p>
           </motion.article>
 
-          {/* Vision — light, forward-looking */}
           <motion.article
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.12 }}
             className="relative overflow-hidden rounded-panel border border-line bg-surface p-8 md:p-12"
           >

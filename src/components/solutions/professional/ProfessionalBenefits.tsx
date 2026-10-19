@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { SolutionBenefitsContent } from '@/types';
+import { Container, Section } from "@/components/layout";
+import type { SolutionBenefitsContent } from "@/types";
 
 export function ProfessionalBenefits(content: SolutionBenefitsContent) {
   return (
@@ -13,7 +13,7 @@ export function ProfessionalBenefits(content: SolutionBenefitsContent) {
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         animate={{ opacity: [0.5, 0.85, 0.5] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <div
         className="pointer-events-none absolute -bottom-48 -left-40 h-[380px] w-[380px] rounded-full bg-accent/10 blur-[120px]"
@@ -25,7 +25,7 @@ export function ProfessionalBenefits(content: SolutionBenefitsContent) {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
@@ -45,7 +45,7 @@ export function ProfessionalBenefits(content: SolutionBenefitsContent) {
           <motion.ul
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={{ show: { transition: { staggerChildren: 0.12 } } }}
             className="rounded-2xl border border-inverse-fg/10 bg-inverse-fg/[0.04] p-7 md:p-9"
           >

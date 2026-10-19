@@ -1,11 +1,10 @@
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
 export function ReferCandidateSection() {
   return (
     <Section as="section" tone="surface">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
-          {/* Left Content */}
           <div className="lg:sticky lg:top-28">
             <p className="mb-4 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
               Refer a Candidate
@@ -15,10 +14,7 @@ export function ReferCandidateSection() {
               Know Someone Who Could Be a Great Fit?
             </h2>
 
-            <div
-              className="mt-6 h-px w-16 bg-accent"
-              aria-hidden="true"
-            />
+            <div className="mt-6 h-px w-16 bg-accent" aria-hidden="true" />
 
             <p className="mt-6 max-w-xl text-body-lg leading-8 text-muted">
               Help connect talented professionals with the right opportunities.
@@ -26,7 +22,6 @@ export function ReferCandidateSection() {
             </p>
           </div>
 
-          {/* Right Form */}
           <div className="rounded-card border border-line bg-surface-alt p-6 sm:p-8 lg:p-10">
             <form className="space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">

@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import type { AboutJourneyContent } from '@/data/aboutUs';
-import { cn } from '@/lib/utils';
+import { Container, Section } from "@/components/layout";
+import type { AboutJourneyContent } from "@/data/aboutUs";
+import { cn } from "@/lib/utils";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
 export function AboutJourney(content: AboutJourneyContent) {
   const listRef = useRef<HTMLOListElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: listRef,
-    offset: ['start 70%', 'end 70%'],
+    offset: ["start 70%", "end 70%"],
   });
   const progress = useSpring(scrollYProgress, {
     stiffness: 110,
@@ -33,7 +33,7 @@ export function AboutJourney(content: AboutJourneyContent) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mx-auto mb-16 max-w-3xl text-center"
         >
@@ -47,14 +47,13 @@ export function AboutJourney(content: AboutJourneyContent) {
         </motion.div>
 
         <div className="relative">
-          {/* Track + scroll-drawn progress line */}
           <span
             aria-hidden="true"
             className="absolute bottom-0 left-5 top-0 w-px -translate-x-1/2 bg-line md:left-1/2"
           />
           <motion.span
             aria-hidden="true"
-            style={{ scaleY: progress, transformOrigin: 'top' }}
+            style={{ scaleY: progress, transformOrigin: "top" }}
             className="absolute bottom-0 left-5 top-0 w-0.5 -translate-x-1/2 bg-accent md:left-1/2"
           />
 
@@ -75,11 +74,13 @@ export function AboutJourney(content: AboutJourneyContent) {
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -28 : 28 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-80px' }}
+                    viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6 }}
                     className={cn(
-                      'rounded-card border border-line bg-surface p-6 shadow-raised transition-shadow duration-slow hover:shadow-float md:p-8',
-                      isLeft ? 'md:col-start-1 md:text-right' : 'md:col-start-2'
+                      "rounded-card border border-line bg-surface p-6 shadow-raised transition-shadow duration-slow hover:shadow-float md:p-8",
+                      isLeft
+                        ? "md:col-start-1 md:text-right"
+                        : "md:col-start-2",
                     )}
                   >
                     <p className="font-heading text-caption font-semibold uppercase tracking-kicker text-accent">

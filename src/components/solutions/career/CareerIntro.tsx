@@ -1,19 +1,14 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Puzzle, Quote, Target, type LucideIcon } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Puzzle, Quote, Target, type LucideIcon } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { SolutionIntroContent } from '@/types';
+import { Container, Section } from "@/components/layout";
+import type { SolutionIntroContent } from "@/types";
 
-/**
- * Short eyebrow + icon for each supporting paragraph, in order. If a page
- * has more or fewer supporting paragraphs than this, the extras render
- * plainly and the list is never indexed out of range.
- */
 const pointMeta: ReadonlyArray<{ label: string; icon: LucideIcon }> = [
-  { label: 'What We Do', icon: Puzzle },
-  { label: 'Our Approach', icon: Target },
+  { label: "What We Do", icon: Puzzle },
+  { label: "Our Approach", icon: Target },
 ];
 
 const fadeUp = {
@@ -32,7 +27,7 @@ export function CareerIntro(content: SolutionIntroContent) {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             variants={fadeUp}
           >
@@ -47,7 +42,7 @@ export function CareerIntro(content: SolutionIntroContent) {
 
             <motion.div
               initial={{ width: 0 }}
-              whileInView={{ width: '7rem' }}
+              whileInView={{ width: "7rem" }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-6 h-1 rounded-full bg-accent"
@@ -55,13 +50,12 @@ export function CareerIntro(content: SolutionIntroContent) {
             />
           </motion.div>
 
-          {/* Copy */}
           <div className="max-w-3xl">
             {lead && (
               <motion.blockquote
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: '-80px' }}
+                viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 variants={fadeUp}
                 className="relative rounded-2xl border border-line bg-surface-alt p-7 sm:p-9"
@@ -88,13 +82,17 @@ export function CareerIntro(content: SolutionIntroContent) {
                       key={paragraph}
                       initial="hidden"
                       whileInView="show"
-                      viewport={{ once: true, margin: '-60px' }}
+                      viewport={{ once: true, margin: "-60px" }}
                       transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
                       variants={fadeUp}
                       className="rounded-2xl border border-line bg-surface p-6 shadow-tile transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:shadow-float"
                     >
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-teal-700">
-                        <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
+                        <Icon
+                          className="h-5 w-5"
+                          strokeWidth={1.75}
+                          aria-hidden="true"
+                        />
                       </span>
 
                       {meta && (

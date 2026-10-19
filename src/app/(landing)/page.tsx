@@ -6,7 +6,7 @@ import {
   Reviews,
   Services,
   Stats,
-} from '@/components/landing';
+} from "@/components/landing";
 
 export default function HomePage() {
   return (

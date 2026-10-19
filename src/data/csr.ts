@@ -1,11 +1,3 @@
-/* --------------------------------------------------------------------------
-   Corporate Social Responsibility content.
-
-   ⚠ ILLUSTRATIVE FIGURES — every number, target and progress value in this
-   file is a placeholder so the layout can be reviewed. Replace them with
-   verified results, then set `csrDraftNotice` to false to remove the small
-   "illustrative figures" note that currently appears on the page.
-   -------------------------------------------------------------------------- */
 
 export const csrDraftNotice = true;
 

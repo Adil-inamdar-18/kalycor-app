@@ -101,13 +101,6 @@ export const aboutCta = {
   secondaryHref: "/contact",
 } as const;
 
-/* --------------------------------------------------------------------------
-   DRAFT COPY — the sections below were written from what the site already
-   says about Kalycor. Review the mission/vision wording, replace the journey
-   chapters with your real history (add a `period` such as a year), and add
-   real leader names/roles before publishing.
-   -------------------------------------------------------------------------- */
-
 export const aboutMissionVision = {
   kicker: "Purpose",
   heading: "Why we exist, and where we are headed.",
@@ -183,7 +176,7 @@ export const aboutJourney: AboutJourneyContent = {
 };
 
 export interface MilestoneItem {
-  /** Numeric values animate as counters; `text` is shown when there is no number. */
+
   value?: number;
   text?: string;
   label: string;
@@ -196,7 +189,7 @@ export interface AboutMilestonesContent {
   items: readonly MilestoneItem[];
 }
 
-/* The numbers below mirror the "Kalycor at a glance" stats on the home page. */
+
 export const aboutMilestones: AboutMilestonesContent = {
   kicker: "Key Milestones",
   heading: "Where we stand today.",
@@ -227,7 +220,7 @@ export const aboutMilestones: AboutMilestonesContent = {
 export interface LeaderItem {
   role: string;
   focus: string;
-  /** Add a real name and it appears on the card automatically. */
+
   name?: string;
 }
 

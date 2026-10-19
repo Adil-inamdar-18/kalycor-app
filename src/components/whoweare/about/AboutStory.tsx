@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import type { aboutStory } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { aboutStory } from "@/data/aboutUs";
 
 type AboutStoryProps = typeof aboutStory;
 
@@ -21,7 +21,7 @@ export function AboutStory(content: AboutStoryProps) {
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
             className="relative"
           >
@@ -43,7 +43,7 @@ export function AboutStory(content: AboutStoryProps) {
           <motion.div
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
@@ -57,7 +57,10 @@ export function AboutStory(content: AboutStoryProps) {
 
             <div className="mt-6 space-y-5">
               {content.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="text-body leading-8 text-paragraph">
+                <p
+                  key={paragraph}
+                  className="text-body leading-8 text-paragraph"
+                >
                   {paragraph}
                 </p>
               ))}
@@ -69,4 +72,4 @@ export function AboutStory(content: AboutStoryProps) {
   );
 }
 
-export default AboutStory;
+export default AboutStory;

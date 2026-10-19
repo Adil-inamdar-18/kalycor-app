@@ -4,7 +4,6 @@ interface ContactSectionHeaderProps {
   description: string;
 }
 
-/** Shared heading block: title on the left, supporting copy on the right. */
 export function ContactSectionHeader({
   kicker,
   heading,

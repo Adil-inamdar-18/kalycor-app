@@ -7,19 +7,13 @@ import {
   aboutValues,
 } from "@/data/aboutUs";
 
-/* --------------------------------------------------------------------------
-   /whoweare — main "Who We Are" overview page.
-   Story, services, values and milestones are read from the existing About /
-   Join Us data, so the overview never drifts from those pages.
-   -------------------------------------------------------------------------- */
-
 const solutionsHref = `${routes.home}${anchors.landing.solutions}`;
 
 export const whoWeAreHero = {
   kicker: "Who We Are",
   heading: "Connecting People, Businesses & Opportunities.",
   body: "Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.",
-  /** Shown while the video loads, and instead of it for reduced motion. */
+
   image: "/images/opportunities/referral-program.jpg",
   imageAlt: "Kalycor professionals collaborating around a table",
   video: "/videos/Workforce creation & deployment.mp4",
@@ -178,7 +172,7 @@ export const whoWeAreCta = {
   primaryLabel: "Contact Us",
   primaryHref: anchors.landing.contact,
   secondaryLabel: "Explore Solutions",
-  /** Was a bare "#solutions", which does not exist on this page. */
+
   secondaryHref: solutionsHref,
   audience: [
     { prompt: "Hiring?", label: "Hire Talent", href: routes.business },

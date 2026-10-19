@@ -1,12 +1,8 @@
-import Image from 'next/image';
-import { Container } from '@/components/layout';
-import type { ReachUsPageData } from '@/types/reach-us';
+import Image from "next/image";
+import { Container } from "@/components/layout";
+import type { ReachUsPageData } from "@/types/reach-us";
 
-export function ReachUsHero({
-  hero,
-}: {
-  hero: ReachUsPageData['hero'];
-}) {
+export function ReachUsHero({ hero }: { hero: ReachUsPageData["hero"] }) {
   return (
     <section className="relative isolate min-h-[620px] overflow-hidden bg-primary text-primary-fg sm:min-h-[680px]">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -49,10 +45,7 @@ export function ReachUsHero({
             ))}
           </h1>
 
-          <div
-            className="mt-7 h-px w-16 bg-accent"
-            aria-hidden="true"
-          />
+          <div className="mt-7 h-px w-16 bg-accent" aria-hidden="true" />
 
           <p className="mt-7 max-w-2xl text-body-lg leading-8 text-primary-fg/70">
             {hero.description}

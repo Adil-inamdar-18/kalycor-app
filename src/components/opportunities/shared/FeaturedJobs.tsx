@@ -40,7 +40,10 @@ export default function FeaturedJobs() {
 
         <div className="grid gap-3.5">
           {featured.map((job) => (
-            <JobCard job={job} key={`${job.title}-${job.company}-${job.date}`} />
+            <JobCard
+              job={job}
+              key={`${job.title}-${job.company}-${job.date}`}
+            />
           ))}
         </div>
 

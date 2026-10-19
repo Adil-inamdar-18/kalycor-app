@@ -1,5 +1,5 @@
-import type { Job } from '@/types';
-import JobCard from './JobCard';
+import type { Job } from "@/types";
+import JobCard from "./JobCard";
 
 export function JobList({ jobs }: { jobs: readonly Job[] }) {
   return (

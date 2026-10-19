@@ -1,8 +1,8 @@
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
-export function IndustryAreas({ areas }: { areas: IndustryPage['areas'] }) {
+export function IndustryAreas({ areas }: { areas: IndustryPage["areas"] }) {
   return (
     <Section as="section" tone="surface">
       <Container>
@@ -24,7 +24,6 @@ export function IndustryAreas({ areas }: { areas: IndustryPage['areas'] }) {
           </p>
         </div>
 
-        {/* Cards: a plain grid so every card lines up and nothing is cut off */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {areas.items.map((item) => (
             <article
@@ -43,7 +42,6 @@ export function IndustryAreas({ areas }: { areas: IndustryPage['areas'] }) {
                 {item.description}
               </p>
 
-              {/* Accent line that grows on hover */}
               <span
                 className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-slow group-hover:scale-x-100"
                 aria-hidden="true"

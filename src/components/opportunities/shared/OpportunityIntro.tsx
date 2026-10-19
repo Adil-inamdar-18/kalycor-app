@@ -1,7 +1,11 @@
 import { Container } from "@/components/layout";
 import type { OpportunityIntroContent } from "@/types";
 
-export default function OpportunityIntro({ kicker, heading, paragraphs }: OpportunityIntroContent) {
+export default function OpportunityIntro({
+  kicker,
+  heading,
+  paragraphs,
+}: OpportunityIntroContent) {
   return (
     <section className="bg-background py-20 md:py-20">
       <Container>

@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import { ArrowRight, Check } from 'lucide-react';
+import Image from "next/image";
+import { ArrowRight, Check } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { Button } from '@/components/ui';
-import { whoWeAreCulture as culture } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { Button } from "@/components/ui";
+import { whoWeAreCulture as culture } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreCulture() {
   return (
@@ -34,7 +34,7 @@ export default function WhoWeAreCulture() {
                   <p className="text-body leading-7 text-muted">
                     <span className="font-semibold text-heading">
                       {point.title}.
-                    </span>{' '}
+                    </span>{" "}
                     {point.description}
                   </p>
                 </li>

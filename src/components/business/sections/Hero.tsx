@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
-import { ButtonLink } from '@/components/business/shared/Button';
-import { getBusinessData } from '@/services/siteService';
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { ButtonLink } from "@/components/business/shared/Button";
+import { getBusinessData } from "@/services/siteService";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -15,7 +15,6 @@ export function Hero() {
       className="relative flex min-h-screen items-center overflow-hidden bg-offwhite pt-16 lg:pt-20"
     >
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:gap-8 lg:px-10">
-        {/* Left — text content */}
         <div className="lg:col-span-6 xl:col-span-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -56,7 +55,11 @@ export function Hero() {
             transition={{ duration: 0.7, ease, delay: 0.45 }}
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
-            <ButtonLink href={heroData.primaryCtaHref} variant="primary" size="lg">
+            <ButtonLink
+              href={heroData.primaryCtaHref}
+              variant="primary"
+              size="lg"
+            >
               {heroData.primaryCta}
             </ButtonLink>
             <motion.div
@@ -75,7 +78,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — hero image */}
         <motion.div
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -83,7 +85,6 @@ export function Hero() {
           className="relative lg:col-span-6 xl:col-span-7"
         >
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-[5/4.5]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={heroData.image}
               alt={heroData.imageAlt}
@@ -92,8 +93,6 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
-
-      
     </section>
   );
 }

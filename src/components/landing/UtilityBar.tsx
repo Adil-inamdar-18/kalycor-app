@@ -1,8 +1,7 @@
-import { Container } from '@/components/layout';
-import { getLandingData } from '@/services/siteService';
-import { LinkList } from '@/components/ui';
+import { Container } from "@/components/layout";
+import { getLandingData } from "@/services/siteService";
+import { LinkList } from "@/components/ui";
 
-/** Thin dark bar above the header. Hidden below the nav breakpoint. */
 export function UtilityBar() {
   const { utilityLinks } = getLandingData();
   return (

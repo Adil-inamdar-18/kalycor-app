@@ -1,21 +1,20 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion, useReducedMotion, type MotionProps } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import Image from "next/image";
+import { motion, useReducedMotion, type MotionProps } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { Button } from '@/components/ui';
-import { whoWeAreHero as hero } from '@/data/whoweare';
+import { Container } from "@/components/layout";
+import { Button } from "@/components/ui";
+import { whoWeAreHero as hero } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
+import { Kicker } from "./shared/Kicker";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function WhoWeAreHero() {
   const reduceMotion = useReducedMotion();
 
-  // One entrance sequence for the whole hero; skipped for reduced motion.
   const enter = (delay: number): MotionProps =>
     reduceMotion
       ? {}
@@ -30,8 +29,6 @@ export default function WhoWeAreHero() {
       id="home"
       className="relative isolate flex min-h-[calc(100svh-76px)] overflow-hidden bg-primary text-primary-fg"
     >
-      {/* Background: the image paints first and stays as the fallback; the
-          video plays over it and is left out for reduced motion. */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <Image
           src={hero.image}
@@ -108,7 +105,7 @@ export default function WhoWeAreHero() {
       >
         <motion.span
           animate={reduceMotion ? undefined : { y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
           <ChevronDown className="h-5 w-5" aria-hidden="true" />
         </motion.span>

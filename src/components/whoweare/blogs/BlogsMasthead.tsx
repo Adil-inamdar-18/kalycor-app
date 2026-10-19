@@ -1,16 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Container } from '@/components/layout';
-import { blogCategories, blogPosts, blogsMasthead } from '@/data/blogs';
+import { Container } from "@/components/layout";
+import { blogCategories, blogPosts, blogsMasthead } from "@/data/blogs";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/**
- * A magazine-style masthead — big serif headline on a plain page, no photo —
- * so the content below is what draws the eye.
- */
 export default function BlogsMasthead() {
   return (
     <section className="border-b border-line bg-background">
@@ -29,8 +25,10 @@ export default function BlogsMasthead() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="max-w-4xl font-display text-[clamp(44px,7vw,92px)] font-medium leading-[1.02] tracking-tight text-heading"
         >
-          {blogsMasthead.heading}{' '}
-          <span className="italic text-accent">{blogsMasthead.headingAccent}</span>
+          {blogsMasthead.heading}{" "}
+          <span className="italic text-accent">
+            {blogsMasthead.headingAccent}
+          </span>
         </motion.h1>
 
         <motion.div

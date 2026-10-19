@@ -6,11 +6,6 @@ import DiversityInitiatives from "@/components/whoweare/diversity/DiversityIniti
 import DiversityPillars from "@/components/whoweare/diversity/DiversityPillars";
 import DiversityProgress from "@/components/whoweare/diversity/DiversityProgress";
 
-/**
- * Diversity & Inclusion is a people-and-belonging page: a warm split hero,
- * a statement of belonging, interactive commitments, initiatives by
- * audience, accountability, and two ways to connect.
- */
 export default function DiversityInclusionPage() {
   return (
     <main>

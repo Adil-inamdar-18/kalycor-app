@@ -1,28 +1,39 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Container } from '@/components/layout';
-import { getLandingData } from '@/services/siteService';
-import { anchors } from '@/config/routes';
-import { cn } from '@/lib/utils';
+import { useEffect, useRef, useState } from "react";
+import { Container } from "@/components/layout";
+import { getLandingData } from "@/services/siteService";
+import { anchors } from "@/config/routes";
+import { cn } from "@/lib/utils";
 
 const cardBase =
-  'relative min-h-[340px] flex-col rounded-xl border border-teal-700/10 bg-white/[0.66] px-[26px] py-[30px] shadow-quote backdrop-blur-[10px] transition-all duration-[350ms] hover:-translate-y-2.5 hover:border-teal-700/[0.28] hover:shadow-quote-hover tp:min-h-[350px] tp:px-[38px] tp:pb-[30px] tp:pt-[34px]';
+  "relative min-h-[340px] flex-col rounded-xl border border-teal-700/10 bg-white/[0.66] px-[26px] py-[30px] shadow-quote backdrop-blur-[10px] transition-all duration-[350ms] hover:-translate-y-2.5 hover:border-teal-700/[0.28] hover:shadow-quote-hover tp:min-h-[350px] tp:px-[38px] tp:pb-[30px] tp:pt-[34px]";
 
 export function Reviews() {
   const { reviews } = getLandingData();
   const [index, setIndex] = useState(0);
-  // Above 780px every card is visible (a grid); below that the cards become a
-  // one-at-a-time carousel. Start as "wide" so the server HTML matches the
-  // original markup, then sync with the real viewport after mount.
   const [isWide, setIsWide] = useState(true);
 
   useEffect(() => {
     const sync = () => setIsWide(window.innerWidth > 780);
     sync();
-    window.addEventListener('resize', sync);
-    return () => window.removeEventListener('resize', sync);
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
   }, []);
+
+  // Swipe left / right on the single-card (mobile) carousel.
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (isWide || touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(dx) < 50) return;
+    if (dx < 0) next();
+    else prev();
+  };
 
   const prev = () => setIndex((i) => (i - 1 + reviews.length) % reviews.length);
   const next = () => setIndex((i) => (i + 1) % reviews.length);
@@ -41,23 +52,27 @@ export function Reviews() {
             Don&rsquo;t just take our word for it.
           </h2>
           <p className="mt-5 max-w-[58ch] text-body leading-[1.65] text-teal-300 tp:text-body-lg">
-            Hear from talented professionals and organizations who have found success
-            through our people-first approach.
+            Hear from talented professionals and organizations who have found
+            success through our people-first approach.
           </p>
         </div>
 
-        <div className="block items-center gap-[34px] tp:grid tp:grid-cols-2 dw:grid-cols-3">
+        <div
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          className="block touch-pan-y items-center gap-[34px] tp:grid tp:grid-cols-2 dw:grid-cols-3"
+        >
           {reviews.map((review, i) => (
             <article
               key={review.name}
               className={cn(
                 cardBase,
-                i === index || isWide ? 'flex' : 'hidden',
-                // The middle card is the emphasised one on wide screens.
+                i === index || isWide ? "flex" : "hidden",
+
                 i === 1 &&
-                  'tp:min-h-[410px] tp:border-teal-700/25 tp:bg-teal-50/[0.86] tp:shadow-quote-featured',
-                // The third card only appears once there are three columns.
-                i === 2 && 'tp:hidden dw:flex'
+                  "tp:min-h-[410px] tp:border-teal-700/25 tp:bg-teal-50/[0.86] tp:shadow-quote-featured",
+
+                i === 2 && "tp:hidden dw:flex",
               )}
             >
               <div className="mb-7 font-editorial text-[72px] leading-[0.55] text-sky-400">
@@ -99,14 +114,19 @@ export function Reviews() {
                 key={review.name}
                 type="button"
                 aria-label={`Review ${i + 1}`}
+                aria-current={i === index}
                 onClick={() => setIndex(i)}
-                className={cn(
-                  'rounded-full transition-all duration-slow',
-                  i === index
-                    ? 'h-[11px] w-[11px] bg-sky-400'
-                    : 'h-[9px] w-[9px] bg-teal-700/[0.18]'
-                )}
-              />
+                className="flex h-7 w-7 items-center justify-center"
+              >
+                <span
+                  className={cn(
+                    "rounded-full transition-all duration-slow",
+                    i === index
+                      ? "h-[11px] w-[11px] bg-sky-400"
+                      : "h-[9px] w-[9px] bg-teal-700/[0.18]",
+                  )}
+                />
+              </button>
             ))}
           </div>
           <button

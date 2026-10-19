@@ -1,11 +1,3 @@
-/* --------------------------------------------------------------------------
-   Blog content.
-
-   Articles are draft editorial copy written to match the topics already
-   listed on the site. Swap in your real articles (or wire this file to a
-   CMS) — the listing page, category filters, and article pages all read from
-   `blogPosts`, so adding an entry here publishes a new page automatically.
-   -------------------------------------------------------------------------- */
 
 export type BlogCategory =
   | "Workforce"
@@ -25,9 +17,9 @@ export interface BlogPost {
   slug: string;
   category: BlogCategory;
   title: string;
-  /** Short summary shown on cards and as the article standfirst. */
+
   description: string;
-  /** ISO date (YYYY-MM-DD). */
+
   date: string;
   author: string;
   authorRole: string;

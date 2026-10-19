@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { AnimatedImage } from '@/components/business/shared/AnimatedImage';
-import { getBusinessData } from '@/services/siteService';
+import { motion } from "framer-motion";
+import { AnimatedImage } from "@/components/business/shared/AnimatedImage";
+import { getBusinessData } from "@/services/siteService";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -10,9 +10,12 @@ export function Support() {
   const { supportData } = getBusinessData();
   return (
     <section className="relative overflow-hidden bg-plum py-16 lg:py-20">
-      {/* Curved line graphics */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800">
+        <svg
+          className="h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 800"
+        >
           <path
             d="M 0 200 Q 400 50 800 250 T 1200 150"
             stroke="white"
@@ -38,7 +41,7 @@ export function Support() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, ease }}
           className="mb-16 max-w-3xl"
         >
@@ -54,11 +57,10 @@ export function Support() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-6">
-          {/* Large image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease }}
             className="lg:col-span-7"
           >
@@ -71,12 +73,11 @@ export function Support() {
             </div>
           </motion.div>
 
-          {/* Right column: small image + content block */}
           <div className="flex flex-col gap-8 lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease, delay: 0.15 }}
               className="overflow-hidden rounded-lg"
             >
@@ -90,7 +91,7 @@ export function Support() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, ease, delay: 0.25 }}
               className="rounded-lg border border-cream/15 p-8"
             >

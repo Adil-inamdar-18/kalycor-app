@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
-import { site } from '@/config/site';
+import type { Metadata } from "next";
+import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: `${site.name} for Business | ${site.tagline}`,
   description:
-    'Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.',
+    "Kalycor connects people, businesses, and opportunities through smarter solutions built for a changing world.",
   openGraph: {
     title: `${site.name} for Business | ${site.tagline}`,
     description:
-      'We connect people, businesses, and opportunities through smarter solutions built for a changing world.',
-    type: 'website',
+      "We connect people, businesses, and opportunities through smarter solutions built for a changing world.",
+    type: "website",
   },
 };
 

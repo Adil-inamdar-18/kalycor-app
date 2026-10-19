@@ -28,7 +28,6 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-/** Only the slugs in data/blogs.ts exist; anything else is a 404. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -56,11 +55,6 @@ export async function generateMetadata({
   };
 }
 
-/**
- * A single article: header with byline, wide cover, a sticky contents list
- * beside a comfortable reading column, then author, previous/next and
- * related reading.
- */
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -77,7 +71,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <ArticleProgress targetId="article-body" />
 
       <article>
-        {/* Header */}
         <header className="bg-background pb-10 pt-12 md:pb-14 md:pt-16">
           <Container size="narrow">
             <nav aria-label="Breadcrumb" className="text-small text-muted">
@@ -127,7 +120,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </Container>
         </header>
 
-        {/* Cover */}
         <Container>
           <div className="relative aspect-[16/8] overflow-hidden rounded-panel shadow-float">
             <Image
@@ -141,7 +133,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
         </Container>
 
-        {/* Reading column with sticky contents */}
         <div className="bg-background py-14 md:py-20">
           <Container>
             <div className="mx-auto grid max-w-[64rem] gap-12 lg:grid-cols-[13rem_minmax(0,42rem)] lg:justify-center lg:gap-16">
@@ -152,7 +143,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </aside>
 
               <div id="article-body">
-                {/* Key takeaways */}
                 <div className="mb-10 rounded-card border border-teal-200 bg-teal-50 p-6 md:p-7">
                   <p className="flex items-center gap-2 font-heading text-caption font-semibold uppercase tracking-kicker text-teal-800">
                     <Lightbulb className="h-4 w-4" aria-hidden="true" />
@@ -176,7 +166,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
                 <ArticleBody blocks={post.body} />
 
-                {/* Author */}
                 <div className="mt-14 flex items-start gap-5 rounded-card border border-line bg-surface p-6">
                   <span
                     aria-hidden="true"
@@ -192,8 +181,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {post.author}
                     </p>
                     <p className="mt-1 text-small leading-6 text-paragraph">
-                      {post.authorRole}. Perspectives on people, business, and the
-                      changing world of work.
+                      {post.authorRole}. Perspectives on people, business, and
+                      the changing world of work.
                     </p>
                   </div>
                 </div>
@@ -202,7 +191,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </Container>
         </div>
 
-        {/* Previous / next */}
         {(newer || older) && (
           <nav
             aria-label="More articles"
@@ -250,7 +238,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </nav>
         )}
 
-        {/* Related reading */}
         <section className="bg-surface-alt py-16 md:py-20">
           <Container>
             <h2 className="font-heading text-h2 font-bold leading-[1.1] tracking-tight text-heading">

@@ -1,8 +1,5 @@
 import type { Job, JobType, SortOption, TrendingCategory } from '@/types';
 
-/* -------------------------------------------------------------- listings -- */
-
-/** Job listings — preserved verbatim from the original site's `jobs` array. */
 export const jobs: readonly Job[] = [
   {
     title: "Frontend Developer",
@@ -276,8 +273,6 @@ export const jobs: readonly Job[] = [
   },
 ];
 
-/* ----------------------------------------------------------- filter UI -- */
-
 export const jobTypeOptions: readonly JobType[] = [
   'Full-time',
   'Part-time',
@@ -301,10 +296,6 @@ export const sortOptions: readonly SortOption[] = [
   { value: 'company', label: 'Company' },
 ];
 
-/* ------------------------------------------------------ trending search -- */
-
-/** "Trending Job Searches" cards. `label` is an array of lines — the original
- *  markup breaks a couple of labels onto a second line. */
 export const trendingCategories: readonly TrendingCategory[] = [
   { category: 'Aerospace', icon: 'aerospace', label: ['Aerospace'] },
   { category: 'Automotive', icon: 'automotive', label: ['Automotive'] },

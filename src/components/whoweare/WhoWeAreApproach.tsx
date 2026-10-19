@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import { whoWeAreApproach as approach } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { whoWeAreApproach as approach } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreApproach() {
   const reduceMotion = useReducedMotion();
@@ -35,14 +35,13 @@ export default function WhoWeAreApproach() {
           </Reveal>
         </div>
 
-        {/* The four steps are a real sequence, so they are numbered and joined by a line. */}
         <ol className="relative mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <motion.span
             aria-hidden="true"
             className="absolute left-6 right-6 top-6 hidden h-px origin-left bg-primary-fg/25 lg:block"
             initial={reduceMotion ? false : { scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           />
 

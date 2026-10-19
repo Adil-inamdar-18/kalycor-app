@@ -1,13 +1,17 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { formatDate, getSortedPosts, postHref, readingMinutes } from '@/lib/blog';
+import { Container } from "@/components/layout";
+import {
+  formatDate,
+  getSortedPosts,
+  postHref,
+  readingMinutes,
+} from "@/lib/blog";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/** Featured story plus two "top stories" — the classic magazine front page. */
 export default function BlogFeatured() {
   const [lead, ...others] = getSortedPosts();
   const topStories = others.slice(0, 2);
@@ -20,7 +24,6 @@ export default function BlogFeatured() {
         <Kicker className="mb-8">Featured</Kicker>
 
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-14">
-          {/* Lead story */}
           <article className="group">
             <Link href={postHref(lead.slug)} className="block">
               <div className="relative aspect-[16/10] overflow-hidden rounded-panel shadow-float">
@@ -59,15 +62,20 @@ export default function BlogFeatured() {
             </Link>
           </article>
 
-          {/* Top stories */}
-          <aside aria-label="Top stories" className="lg:border-l lg:border-line lg:pl-14">
+          <aside
+            aria-label="Top stories"
+            className="lg:border-l lg:border-line lg:pl-14"
+          >
             <h2 className="font-heading text-caption font-semibold uppercase tracking-kicker text-muted">
               Top stories
             </h2>
             <ol className="mt-6 divide-y divide-line">
               {topStories.map((post, index) => (
                 <li key={post.slug} className="py-6 first:pt-0 last:pb-0">
-                  <Link href={postHref(post.slug)} className="group/story flex gap-5">
+                  <Link
+                    href={postHref(post.slug)}
+                    className="group/story flex gap-5"
+                  >
                     <span
                       aria-hidden="true"
                       className="font-display text-[40px] font-medium italic leading-none text-teal-200"
@@ -82,7 +90,9 @@ export default function BlogFeatured() {
                         {post.title}
                       </h3>
                       <p className="mt-2 text-caption text-muted">
-                        <time dateTime={post.date}>{formatDate(post.date)}</time>
+                        <time dateTime={post.date}>
+                          {formatDate(post.date)}
+                        </time>
                         <span aria-hidden="true"> &middot; </span>
                         {readingMinutes(post)} min read
                       </p>

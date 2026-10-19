@@ -1,8 +1,8 @@
-import { Container, Section } from '@/components/layout';
-import { whoWeAreIntro } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { whoWeAreIntro } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreIntro() {
   const [lead, ...rest] = whoWeAreIntro.paragraphs;

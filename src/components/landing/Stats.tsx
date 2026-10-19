@@ -13,24 +13,21 @@ export function Stats() {
   const { stats } = getLandingData();
 
   const counters = stats.flatMap((stat) =>
-    stat.type === "count" ? [stat] : []
+    stat.type === "count" ? [stat] : [],
   );
 
   const sectionRef = useRef<HTMLElement>(null);
 
-  const [values, setValues] = useState<number[]>(() =>
-    counters.map(() => 0)
-  );
+  const [values, setValues] = useState<number[]>(() => counters.map(() => 0));
 
-  // Start counters when the section enters the screen
   useEffect(() => {
     const section = sectionRef.current;
 
     if (!section) return;
 
-    const reduceMotion = window
-      .matchMedia("(prefers-reduced-motion: reduce)")
-      .matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     let animated = false;
 
@@ -76,7 +73,7 @@ export function Stats() {
           if (entry.isIntersecting) animateStats();
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     observer.observe(section);
@@ -125,7 +122,6 @@ export function Stats() {
       "
     >
       <Container className="relative z-[1]">
-        {/* Section intro */}
         <div className="mb-2 font-heading text-body italic text-inverse-fg/60">
           We believe in what we do
         </div>
@@ -134,7 +130,6 @@ export function Stats() {
           KALYCOR AT A GLANCE
         </div>
 
-        {/* Stats grid */}
         <div
           className="
             grid
@@ -269,10 +264,7 @@ export function Stats() {
                     group-hover:border-inverse-fg/[0.32]
                   "
                 >
-                  <span
-                    aria-hidden
-                    className="mr-2 text-small text-primary"
-                  >
+                  <span aria-hidden className="mr-2 text-small text-primary">
                     ✓
                   </span>
 

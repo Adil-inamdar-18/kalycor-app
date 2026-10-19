@@ -1,26 +1,21 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import { csrSustainability } from '@/data/csr';
+import { Container, Section } from "@/components/layout";
+import { csrSustainability } from "@/data/csr";
 
-import { CountUp } from '../shared/CountUp';
-import { Kicker } from '../shared/Kicker';
+import { CountUp } from "../shared/CountUp";
+import { Kicker } from "../shared/Kicker";
 
-/** Commitments shown as progress against a target, drawn as animated bars. */
 export default function CsrSustainability() {
   return (
-    <Section
-      as="section"
-      tone="inverse"
-      className="relative overflow-hidden"
-    >
+    <Section as="section" tone="inverse" className="relative overflow-hidden">
       <motion.span
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         animate={{ opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <Container className="relative">
@@ -28,7 +23,7 @@ export default function CsrSustainability() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-28 lg:self-start"
           >
@@ -49,7 +44,7 @@ export default function CsrSustainability() {
                 key={item.label}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="rounded-card border border-inverse-fg/10 bg-inverse-fg/[0.04] p-6 md:p-7"
               >
@@ -61,7 +56,9 @@ export default function CsrSustainability() {
                     <CountUp value={item.progress} suffix="%" />
                   </p>
                 </div>
-                <p className="mt-1 text-small text-inverse-fg/60">{item.detail}</p>
+                <p className="mt-1 text-small text-inverse-fg/60">
+                  {item.detail}
+                </p>
 
                 <div
                   role="progressbar"
@@ -75,7 +72,11 @@ export default function CsrSustainability() {
                     initial={{ width: 0 }}
                     whileInView={{ width: `${item.progress}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.2, delay: 0.2 + index * 0.1, ease: 'easeOut' }}
+                    transition={{
+                      duration: 1.2,
+                      delay: 0.2 + index * 0.1,
+                      ease: "easeOut",
+                    }}
                     className="h-full rounded-pill bg-accent"
                   />
                 </div>

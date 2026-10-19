@@ -1,5 +1,5 @@
-import { getJobsData } from '@/services/siteService';
-import type { JobType } from '@/types';
+import { getJobsData } from "@/services/siteService";
+import type { JobType } from "@/types";
 
 export interface FilterSidebarProps {
   selectedTypes: readonly JobType[];
@@ -16,8 +16,8 @@ function toggleValue<T>(list: readonly T[], value: T): T[] {
 }
 
 const optionClass =
-  'mb-[11px] flex cursor-pointer items-center gap-2.5 text-small text-muted last:mb-0';
-const checkboxClass = 'h-4 w-4 accent-primary';
+  "mb-[11px] flex cursor-pointer items-center gap-2.5 text-small text-muted last:mb-0";
+const checkboxClass = "h-4 w-4 accent-primary";
 
 export function FilterSidebar({
   selectedTypes,
@@ -41,7 +41,9 @@ export function FilterSidebar({
       </div>
 
       <div className="border-b border-line-soft py-[22px]">
-        <h4 className="mb-[15px] text-small font-semibold text-heading">Job Type</h4>
+        <h4 className="mb-[15px] text-small font-semibold text-heading">
+          Job Type
+        </h4>
         {jobTypeOptions.map((option) => (
           <label className={optionClass} key={option}>
             <input
@@ -57,14 +59,18 @@ export function FilterSidebar({
       </div>
 
       <div className="py-[22px]">
-        <h4 className="mb-[15px] text-small font-semibold text-heading">Location</h4>
+        <h4 className="mb-[15px] text-small font-semibold text-heading">
+          Location
+        </h4>
         {locationOptions.map((option) => (
           <label className={optionClass} key={option}>
             <input
               type="checkbox"
               value={option}
               checked={selectedLocations.includes(option)}
-              onChange={() => onLocationsChange(toggleValue(selectedLocations, option))}
+              onChange={() =>
+                onLocationsChange(toggleValue(selectedLocations, option))
+              }
               className={checkboxClass}
             />
             {option}

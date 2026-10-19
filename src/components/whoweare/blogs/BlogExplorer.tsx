@@ -1,32 +1,31 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Search } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { BlogCategory, BlogPost } from '@/data/blogs';
-import { clsx } from 'clsx';
+import { Container, Section } from "@/components/layout";
+import type { BlogCategory, BlogPost } from "@/data/blogs";
+import { clsx } from "clsx";
 
-import BlogCard from './BlogCard';
+import BlogCard from "./BlogCard";
 
 interface BlogExplorerProps {
   posts: readonly BlogPost[];
   categories: readonly BlogCategory[];
-  /** Hidden while browsing "All" because it is already featured above. */
+
   featuredSlug?: string;
 }
 
-const ALL = 'All' as const;
+const ALL = "All" as const;
 
-/** Category chips + search + card grid. */
 export default function BlogExplorer({
   posts,
   categories,
   featuredSlug,
 }: BlogExplorerProps) {
   const [category, setCategory] = useState<BlogCategory | typeof ALL>(ALL);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const counts = useMemo(() => {
     const map = new Map<string, number>();
@@ -36,12 +35,12 @@ export default function BlogExplorer({
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const browsingEverything = category === ALL && q === '';
+    const browsingEverything = category === ALL && q === "";
 
     return posts.filter((post) => {
       if (browsingEverything && post.slug === featuredSlug) return false;
       if (category !== ALL && post.category !== category) return false;
-      if (q === '') return true;
+      if (q === "") return true;
       return `${post.title} ${post.description} ${post.category}`
         .toLowerCase()
         .includes(q);
@@ -51,7 +50,12 @@ export default function BlogExplorer({
   const chips: readonly (BlogCategory | typeof ALL)[] = [ALL, ...categories];
 
   return (
-    <Section as="section" id="articles" tone="page" className="scroll-mt-16 bg-surface-alt">
+    <Section
+      as="section"
+      id="articles"
+      tone="page"
+      className="scroll-mt-16 bg-surface-alt"
+    >
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <h2 className="font-heading text-h2 font-bold leading-[1.1] tracking-tight text-heading">
@@ -81,7 +85,7 @@ export default function BlogExplorer({
         >
           {chips.map((chip) => {
             const isActive = chip === category;
-            const count = chip === ALL ? posts.length : counts.get(chip) ?? 0;
+            const count = chip === ALL ? posts.length : (counts.get(chip) ?? 0);
 
             return (
               <button
@@ -91,17 +95,17 @@ export default function BlogExplorer({
                 disabled={count === 0}
                 onClick={() => setCategory(chip)}
                 className={clsx(
-                  'rounded-pill border px-4 py-2 font-heading text-small font-semibold transition-colors duration-base disabled:opacity-40',
+                  "rounded-pill border px-4 py-2 font-heading text-small font-semibold transition-colors duration-base disabled:opacity-40",
                   isActive
-                    ? 'border-inverse bg-inverse text-inverse-fg'
-                    : 'border-line bg-surface text-paragraph hover:border-accent hover:text-accent'
+                    ? "border-inverse bg-inverse text-inverse-fg"
+                    : "border-line bg-surface text-paragraph hover:border-accent hover:text-accent",
                 )}
               >
                 {chip}
                 <span
                   className={clsx(
-                    'ml-2 text-micro',
-                    isActive ? 'text-inverse-fg/60' : 'text-muted'
+                    "ml-2 text-micro",
+                    isActive ? "text-inverse-fg/60" : "text-muted",
                   )}
                 >
                   {count}
@@ -112,11 +116,14 @@ export default function BlogExplorer({
         </div>
 
         <p className="sr-only" role="status" aria-live="polite">
-          {visible.length} {visible.length === 1 ? 'article' : 'articles'} shown
+          {visible.length} {visible.length === 1 ? "article" : "articles"} shown
         </p>
 
         {visible.length > 0 ? (
-          <motion.ul layout className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.ul
+            layout
+            className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
             <AnimatePresence mode="popLayout">
               {visible.map((post) => (
                 <motion.li
@@ -144,7 +151,7 @@ export default function BlogExplorer({
               type="button"
               onClick={() => {
                 setCategory(ALL);
-                setQuery('');
+                setQuery("");
               }}
               className="mt-6 rounded-button border border-line px-5 py-2.5 font-heading text-small font-semibold text-heading transition-colors duration-base hover:border-accent hover:text-accent"
             >

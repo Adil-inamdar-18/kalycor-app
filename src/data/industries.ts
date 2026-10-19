@@ -1,13 +1,3 @@
-// Industry page content. Industry names, talent domains, workforce strategies
-// and proof points are based on the Collabera industry pages:
-//   https://www.collabera.com/banking-financial-services-and-insurance/
-//   https://www.collabera.com/healthcare-pharma-and-lifesciences/
-//   https://www.collabera.com/telecom-media-and-technology/
-//   https://www.collabera.com/energy-oil-and-gas/
-//   https://www.collabera.com/semiconductor/
-//
-// URLs are never hard-coded here — they come from src/config/routes.ts,
-// matching the pattern used by src/data/landing.ts and src/data/business.ts.
 
 import { crossLinks } from "@/config/routes";
 import type { IndustryPage } from "@/types";
@@ -19,7 +9,6 @@ const contactCtaAlt = {
   href: crossLinks.contact,
 };
 
-/** Shared "why Kalycor" block, worded per industry. */
 function buildWhy(industry: string, heading: string) {
   return {
     kicker: "Why Kalycor",
@@ -58,8 +47,6 @@ function buildWhy(industry: string, heading: string) {
     ],
   };
 }
-
-/* ------------------------------------------------------------------ BFSI -- */
 
 export const bfsi: IndustryPage = {
   slug: "bfsi",
@@ -320,8 +307,6 @@ export const bfsi: IndustryPage = {
   },
 };
 
-/* ------------------------------------------------------------- Healthcare -- */
-
 export const healthcare: IndustryPage = {
   slug: "healthcare-pharma-lifesciences",
   name: "Healthcare, Pharma & Life Sciences",
@@ -548,8 +533,6 @@ export const healthcare: IndustryPage = {
     buttonLabel: contactCtaAlt.label,
   },
 };
-
-/* -------------------------------------------------- Telecom, Media & Tech -- */
 
 export const tmt: IndustryPage = {
   slug: "telecom-media-technology",
@@ -799,8 +782,6 @@ export const tmt: IndustryPage = {
     buttonLabel: contactCtaAlt.label,
   },
 };
-
-/* ------------------------------------------------------------ Energy, Oil -- */
 
 export const energy: IndustryPage = {
   slug: "energy-oil-gas",
@@ -1064,8 +1045,6 @@ export const energy: IndustryPage = {
   },
 };
 
-/* ------------------------------------------------------------ Semiconductor -- */
-
 export const semiconductor: IndustryPage = {
   slug: "semiconductor",
   name: "Semiconductor",
@@ -1326,7 +1305,7 @@ export const semiconductor: IndustryPage = {
   },
 };
 
-/** Every industry page, keyed by its URL slug (`/industries/[slug]`). */
+
 export const industryPages = {
   bfsi,
   "healthcare-pharma-lifesciences": healthcare,

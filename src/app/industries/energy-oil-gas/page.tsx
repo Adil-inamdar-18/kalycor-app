@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { Footer, Header } from '@/components/landing';
+import type { Metadata } from "next";
+import { Footer, Header } from "@/components/landing";
 import {
   IndustryHero,
   IndustryStats,
@@ -8,11 +8,11 @@ import {
   IndustryAreas,
   IndustryWhyKalycor,
   IndustryFAQ,
-} from '@/components/industries/shared';
-import { getIndustryData } from '@/services/siteService';
-import { site } from '@/config/site';
+} from "@/components/industries/shared";
+import { getIndustryData } from "@/services/siteService";
+import { site } from "@/config/site";
 
-const data = getIndustryData('energy-oil-gas');
+const data = getIndustryData("energy-oil-gas");
 
 export const metadata: Metadata = {
   title: `${data.metaTitle} | ${site.name}`,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${data.metaTitle} | ${site.name}`,
     description: data.metaDescription,
-    type: 'website',
+    type: "website",
   },
 };
 

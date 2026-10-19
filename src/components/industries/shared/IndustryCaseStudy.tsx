@@ -1,18 +1,17 @@
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
 export function IndustryCaseStudy({
   caseStudy,
 }: {
-  caseStudy: NonNullable<IndustryPage['caseStudy']>;
+  caseStudy: NonNullable<IndustryPage["caseStudy"]>;
 }) {
   return (
     <Section as="section" tone="surface">
       <Container>
         <div className="overflow-hidden rounded-panel border border-line bg-surface-alt">
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:p-16">
-            {/* Story */}
             <div>
               <p className="font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
                 {caseStudy.kicker}
@@ -47,7 +46,6 @@ export function IndustryCaseStudy({
               </div>
             </div>
 
-            {/* Results */}
             <div className="flex flex-col justify-center gap-1 rounded-card bg-surface p-8 shadow-float sm:p-10">
               <p className="mb-4 font-heading text-caption font-semibold uppercase tracking-kicker text-muted">
                 The Results

@@ -11,7 +11,6 @@ export function IndustryCTA({ cta }: { cta: IndustryPage["cta"] }) {
     <Section as="section" tone="inverse">
       <Container>
         <div className="relative overflow-hidden rounded-panel bg-accent px-7 py-14 text-primary-fg sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-          {/* Decorative circles */}
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-primary-fg/10"
             aria-hidden="true"
@@ -27,7 +26,6 @@ export function IndustryCTA({ cta }: { cta: IndustryPage["cta"] }) {
             aria-hidden="true"
           />
 
-          {/* Content */}
           <div className="relative max-w-4xl">
             <p className="mb-5 font-heading text-kicker font-semibold uppercase tracking-kicker text-primary-fg/70">
               {cta.kicker}
@@ -69,7 +67,6 @@ export function IndustryCTA({ cta }: { cta: IndustryPage["cta"] }) {
             </div>
           </div>
 
-          {/* Arrow */}
           <div
             className="absolute bottom-8 right-8 hidden h-16 w-16 items-center justify-center rounded-full border border-primary-fg/20 text-primary-fg transition-all duration-slow hover:border-primary-fg/50 hover:bg-primary-fg/10 sm:flex"
             aria-hidden="true"
@@ -79,7 +76,6 @@ export function IndustryCTA({ cta }: { cta: IndustryPage["cta"] }) {
             </span>
           </div>
 
-          {/* Bottom accent */}
           <div
             className="absolute bottom-0 left-0 h-0.5 w-24 bg-primary-fg/40 sm:w-32"
             aria-hidden="true"

@@ -24,11 +24,16 @@ export default function OpportunityBenefits({
           </div>
 
           <div>
-            <p className="max-w-2xl text-base leading-8 text-white/70 md:text-lg">{body}</p>
+            <p className="max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+              {body}
+            </p>
 
             <ul className="mt-8 space-y-5">
               {points.map((point) => (
-                <li key={point} className="flex items-start gap-4 text-base text-white/85">
+                <li
+                  key={point}
+                  className="flex items-start gap-4 text-base text-white/85"
+                >
                   <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-[#e9c176]/15 text-[#e9c176]">
                     <Check className="size-4" />
                   </span>

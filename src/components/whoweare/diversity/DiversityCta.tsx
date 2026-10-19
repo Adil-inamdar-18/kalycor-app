@@ -1,16 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { diversityCta } from '@/data/diversityInclusion';
+import { Container, Section } from "@/components/layout";
+import { diversityCta } from "@/data/diversityInclusion";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/** Closing section: two clear paths depending on who is reading. */
 export default function DiversityCta() {
   return (
     <Section as="section" tone="page">
@@ -19,7 +18,7 @@ export default function DiversityCta() {
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
             className="relative min-h-[320px] overflow-hidden rounded-t-[10rem] rounded-b-3xl shadow-float"
           >
@@ -35,7 +34,7 @@ export default function DiversityCta() {
           <motion.div
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="flex flex-col justify-center"
           >

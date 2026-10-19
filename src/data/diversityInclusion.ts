@@ -1,9 +1,3 @@
-/* --------------------------------------------------------------------------
-   Diversity & Inclusion content.
-   The initiative and pledge wording is DRAFT copy written from the approach
-   already described on the site. Review it with your People team so every
-   line reflects what Kalycor actually does before publishing.
-   -------------------------------------------------------------------------- */
 
 export const diversityHero = {
   kicker: "Diversity & Inclusion",

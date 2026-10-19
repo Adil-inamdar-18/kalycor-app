@@ -1,9 +1,3 @@
-// One icon per trending-search category, matching the original inline SVGs
-// exactly. Note: in the source markup the Automotive/Energy icons share the
-// same paths, and the Banking/Retail icons share the same paths too — that
-// duplication is preserved here rather than "fixed", per the migration
-// brief (don't redesign or alter the original's decisions).
-
 export function AerospaceIcon() {
   return (
     <svg
@@ -71,7 +65,6 @@ export function BankingIcon() {
   );
 }
 
-// Same shape as AutomotiveIcon in the original source.
 export function EnergyIcon() {
   return (
     <svg
@@ -111,7 +104,6 @@ export function PharmaIcon() {
   );
 }
 
-// Same shape as BankingIcon in the original source.
 export function RetailIcon() {
   return (
     <svg

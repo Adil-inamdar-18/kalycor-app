@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,8 +21,6 @@ import { cn } from "@/lib/utils";
 import NavDropdown from "./NavDropdown";
 import CtaPair from "./CtaPair";
 
-/** Where each mega-menu's "overview" link goes — mirrors the click
- *  behaviour of the desktop NavDropdown trigger. */
 const menuOverviewHref: Record<string, string> = {
   solutions: `${routes.home}${anchors.landing.solutions}`,
   industries: `${routes.home}${anchors.landing.industries}`,
@@ -24,43 +28,30 @@ const menuOverviewHref: Record<string, string> = {
   "who-we-are": routes.whoWeAre.home,
 };
 
-/** Scroll distance (as a share of the hero height) over which the header
- *  background fades from transparent to white, clamped to a sensible range so
- *  it starts immediately and finishes well before the hero has scrolled away. */
 const FADE_HERO_RATIO = 0.6;
 const FADE_MIN_PX = 160;
 const FADE_MAX_PX = 520;
 
-/** Below the desktop-nav breakpoint the hero text sits right under the bar, so
- *  the fade is shortened: still transparent at the top, but white before the
- *  heading scrolls behind it. */
 const COMPACT_BREAKPOINT_PX = 981;
 const COMPACT_FADE_PX = 120;
 
-/** Progress at which text/logo/icons switch from light to dark. */
 const LIGHT_UNTIL = 0.5;
 
-/** Shadow only appears once the bar is mostly white. */
 const SHADOW_FROM = 0.6;
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
-/** Pages whose first section is not a full-bleed image/video hero. Only used
- *  to pick the correct first paint; the real check runs on the DOM below. */
 const NO_HERO_PATHS = ["/for-business", "/jobs"];
 
-/** Industry pages keep the original solid sticky header (no scroll fade). */
 const SOLID_HEADER_PATHS = ["/industries"];
 const isSolidHeaderPath = (path?: string | null) =>
   SOLID_HEADER_PATHS.some(
     (base) => path === base || path?.startsWith(`${base}/`),
   );
 
-/** useLayoutEffect on the client (no SSR warning, runs before first paint). */
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-/** Finds the hero: the first <section> rendered right after the header. */
 function findHeroSection(header: HTMLElement): HTMLElement | null {
   let el = header.nextElementSibling as HTMLElement | null;
   for (let i = 0; i < 3 && el && el.tagName !== "SECTION"; i += 1) {
@@ -70,7 +61,6 @@ function findHeroSection(header: HTMLElement): HTMLElement | null {
   return el && el.tagName === "SECTION" ? el : null;
 }
 
-/** True when the section carries a full-bleed background image or video. */
 function hasBackgroundMedia(section: HTMLElement): boolean {
   const box = section.getBoundingClientRect();
   if (box.width === 0 || box.height === 0) return false;
@@ -90,17 +80,14 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLElement | null>(null);
 
-  /** Page opens with a full-bleed hero the header can float over. */
   const [overHero, setOverHero] = useState(
     () =>
       !isSolidHeaderPath(pathname) &&
       !NO_HERO_PATHS.some((path) => pathname?.startsWith(path)),
   );
-  /** Header content uses light colours (only while the bar is still mostly
-   *  transparent over the hero). Colours change; opacity never does. */
+
   const [light, setLight] = useState(false);
-  /** Scroll progress 0 (top) → 1 (fully white). Kept in a ref and written to
-   *  the DOM directly so scrolling never re-renders the menus. */
+
   const progressRef = useRef(0);
   const menuOpenRef = useRef(false);
 
@@ -116,7 +103,6 @@ export function Header() {
     setOpenSection((current) => (current === key ? null : key));
   };
 
-  /** Paints the background/border/shadow for the current progress. */
   const paint = useCallback(() => {
     const header = headerRef.current;
     if (!header) return;
@@ -130,16 +116,17 @@ export function Header() {
       return;
     }
 
-    // Open mobile menu always sits on a white bar so the panel stays legible.
     const p = menuOpenRef.current ? 1 : progressRef.current;
     const shadow = clamp01((p - SHADOW_FROM) / (1 - SHADOW_FROM));
 
-    // Only the background layers carry alpha; content colours are untouched.
     header.style.backgroundColor = `hsl(var(--surface) / ${p})`;
     header.style.borderBottomColor = `hsl(var(--line) / ${p})`;
-    header.style.backdropFilter = p > 0 ? `blur(${(8 * p).toFixed(1)}px)` : "none";
+    header.style.backdropFilter =
+      p > 0 ? `blur(${(8 * p).toFixed(1)}px)` : "none";
     header.style.boxShadow =
-      shadow > 0 ? `0 4px 20px -6px rgba(15, 23, 42, ${0.16 * shadow})` : "none";
+      shadow > 0
+        ? `0 4px 20px -6px rgba(15, 23, 42, ${0.16 * shadow})`
+        : "none";
 
     setLight(p < LIGHT_UNTIL);
   }, []);
@@ -162,7 +149,6 @@ export function Header() {
     paint();
   }, [paint]);
 
-  // Detect the hero once the page is in the DOM, then follow scroll/resize.
   useIsoLayoutEffect(() => {
     const header = headerRef.current;
     if (!header) return;
@@ -201,13 +187,11 @@ export function Header() {
     };
   }, [pathname, solidHeader, updateScrollState, paint]);
 
-  // Re-paint when the mobile menu opens/closes.
   useIsoLayoutEffect(() => {
     menuOpenRef.current = menuOpen;
     paint();
   }, [menuOpen, paint]);
 
-  /** Light content colours: only over the hero, while the bar is mostly clear. */
   const transparent = overHero && light;
 
   const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -251,9 +235,9 @@ export function Header() {
         overHero
           ? [
               "fixed inset-x-0 top-0",
-              // Background is scroll-driven; this only smooths wheel/touch steps.
+
               "transition-[background-color,border-color,box-shadow] duration-150 ease-out",
-              // Start fully transparent (before JS paints) — never affects content.
+
               "bg-transparent border-transparent",
               transparent && [
                 "[&_nav>.group>button]:!text-white [&_nav>.group>button:hover]:!text-white/80",
@@ -266,7 +250,6 @@ export function Header() {
       )}
     >
       <Container className="flex min-h-[76px] items-center justify-between">
-        {/* Logo */}
         <Brand
           href={anchors.landing.home}
           onClick={handleLogoClick}
@@ -295,13 +278,11 @@ export function Header() {
           }
         />
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-7 nav:flex">
           {navMenus.map((menu) => (
             <NavDropdown key={menu.key} menu={menu} />
           ))}
 
-          {/* Contact CTA */}
           <Link
             href={anchors.landing.contact}
             className={cn(
@@ -317,7 +298,6 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           className="p-2 nav:hidden"
@@ -332,7 +312,6 @@ export function Header() {
         </button>
       </Container>
 
-      {/* Mobile Navigation */}
       <nav
         id="mobilePanel"
         className={cn(
@@ -423,7 +402,6 @@ export function Header() {
           );
         })}
 
-        {/* Mobile Contact CTA */}
         <Link
           href={anchors.landing.contact}
           onClick={closeMenu}

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Container } from '@/components/layout';
-import { csrFocus, csrPurpose } from '@/data/csr';
+import { Container } from "@/components/layout";
+import { csrFocus, csrPurpose } from "@/data/csr";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
 export default function CsrPurpose() {
   return (
@@ -15,7 +15,7 @@ export default function CsrPurpose() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
             <Kicker className="mb-4">{csrPurpose.kicker}</Kicker>
@@ -23,7 +23,6 @@ export default function CsrPurpose() {
               {csrPurpose.heading}
             </h2>
 
-            {/* Quick links to each focus area */}
             <ul className="mt-8 flex flex-wrap gap-2">
               {csrFocus.areas.map((area) => (
                 <li key={area.id}>
@@ -44,12 +43,12 @@ export default function CsrPurpose() {
                 key={paragraph}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
+                viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={
                   index === 0
-                    ? 'text-h3 font-semibold leading-snug text-heading'
-                    : 'text-body-lg leading-8 text-paragraph'
+                    ? "text-h3 font-semibold leading-snug text-heading"
+                    : "text-body-lg leading-8 text-paragraph"
                 }
               >
                 {paragraph}
