@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { whoWeAreLinks as links } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { whoWeAreLinks as links } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreLinks() {
   return (

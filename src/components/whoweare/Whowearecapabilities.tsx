@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import {
   ArrowUpRight,
   Briefcase,
@@ -6,17 +6,15 @@ import {
   UserCheck,
   Users,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { Button } from '@/components/ui';
-import { whoWeAreCapabilities as capabilities } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { Button } from "@/components/ui";
+import { whoWeAreCapabilities as capabilities } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
-// Same order as the items in data/aboutUs.ts: workforce, recruitment,
-// professional services, technology.
 const icons: readonly LucideIcon[] = [Users, UserCheck, Briefcase, Cpu];
 
 export default function WhoWeAreCapabilities() {

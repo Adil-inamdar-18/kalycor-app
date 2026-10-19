@@ -12,7 +12,6 @@ export function IndustryFuture({ future }: { future: IndustryPage["future"] }) {
     >
       <Container>
         <div className="relative min-h-[480px] overflow-hidden rounded-panel border border-inverse-fg/10 bg-inverse-fg/[0.03]">
-          {/* Background decoration */}
           <div
             className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full border border-accent/20 transition-transform duration-slow"
             aria-hidden="true"
@@ -28,7 +27,6 @@ export function IndustryFuture({ future }: { future: IndustryPage["future"] }) {
             aria-hidden="true"
           />
 
-          {/* Content */}
           <div className="relative flex min-h-[480px] items-center px-7 py-16 sm:px-12 sm:py-20 lg:px-16 lg:py-16">
             <div className="max-w-4xl">
               <p className="mb-5 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
@@ -55,7 +53,6 @@ export function IndustryFuture({ future }: { future: IndustryPage["future"] }) {
             </div>
           </div>
 
-          {/* Accent Arrow */}
           <div
             className="absolute bottom-7 right-7 hidden h-16 w-16 items-center justify-center rounded-full border border-accent/40 text-accent transition-all duration-slow hover:border-accent hover:bg-accent hover:text-inverse sm:flex"
             aria-hidden="true"
@@ -65,7 +62,6 @@ export function IndustryFuture({ future }: { future: IndustryPage["future"] }) {
             </span>
           </div>
 
-          {/* Bottom accent line */}
           <div
             className="absolute bottom-0 left-0 h-0.5 w-24 bg-accent sm:w-32"
             aria-hidden="true"

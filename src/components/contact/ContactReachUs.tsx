@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { contactPage } from '@/data/contact';
+import { Container, Section } from "@/components/layout";
+import { contactPage } from "@/data/contact";
 
-import { ContactSectionHeader } from './ContactSectionHeader';
+import { ContactSectionHeader } from "./ContactSectionHeader";
 
 export function ContactReachUs() {
   const { reachUs } = contactPage;

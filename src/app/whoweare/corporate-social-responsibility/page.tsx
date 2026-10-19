@@ -6,11 +6,6 @@ import CsrInvolved from "@/components/whoweare/csr/CsrInvolved";
 import CsrPurpose from "@/components/whoweare/csr/CsrPurpose";
 import CsrSustainability from "@/components/whoweare/csr/CsrSustainability";
 
-/**
- * CSR is an impact-report page: headline KPIs first, then each focus area
- * with its initiatives and outcome, sustainability progress against
- * targets, and ways to get involved.
- */
 export default function CorporateSocialResponsibilityPage() {
   return (
     <main>

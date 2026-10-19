@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { Button } from '@/components/ui/Button';
-import { csrCta } from '@/data/csr';
+import { Container, Section } from "@/components/layout";
+import { Button } from "@/components/ui/Button";
+import { csrCta } from "@/data/csr";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
 export default function CsrCta() {
   return (
@@ -17,7 +17,7 @@ export default function CsrCta() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden rounded-3xl bg-teal-900 px-7 py-14 text-center text-white md:px-16 md:py-20"
         >
@@ -25,7 +25,7 @@ export default function CsrCta() {
             aria-hidden="true"
             className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-200/25 blur-[100px]"
             animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.08, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           />
 
           <div className="relative mx-auto max-w-2xl">

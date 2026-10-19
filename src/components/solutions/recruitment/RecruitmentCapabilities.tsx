@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Briefcase,
   Handshake,
   Link2,
   UserSearch,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { SolutionCapabilitiesContent } from '@/types';
+import { Container, Section } from "@/components/layout";
+import type { SolutionCapabilitiesContent } from "@/types";
 
 const iconRules: ReadonlyArray<[RegExp, LucideIcon]> = [
   [/identification/i, UserSearch],
@@ -19,7 +19,12 @@ const iconRules: ReadonlyArray<[RegExp, LucideIcon]> = [
   [/relationship/i, Handshake],
 ];
 
-const fallbackIcons: readonly LucideIcon[] = [UserSearch, Link2, Briefcase, Handshake];
+const fallbackIcons: readonly LucideIcon[] = [
+  UserSearch,
+  Link2,
+  Briefcase,
+  Handshake,
+];
 
 function iconFor(title: string, index: number): LucideIcon {
   return (
@@ -35,7 +40,7 @@ export function RecruitmentCapabilities(content: SolutionCapabilitiesContent) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mb-12 max-w-3xl"
         >
@@ -58,7 +63,7 @@ export function RecruitmentCapabilities(content: SolutionCapabilitiesContent) {
                 key={item.title}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -6 }}
                 className="group relative overflow-hidden rounded-2xl border border-line bg-surface p-8 shadow-tile transition-colors duration-slow hover:border-accent/50 hover:shadow-float"
@@ -69,7 +74,11 @@ export function RecruitmentCapabilities(content: SolutionCapabilitiesContent) {
                 />
 
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition-colors duration-slow group-hover:bg-accent group-hover:text-primary-fg">
-                  <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+                  <Icon
+                    className="h-6 w-6"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
                 </span>
 
                 <h3 className="mt-6 text-h3 font-bold leading-tight text-heading">

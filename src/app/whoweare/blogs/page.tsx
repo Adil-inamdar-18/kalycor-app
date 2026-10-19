@@ -6,11 +6,6 @@ import BlogsMasthead from "@/components/whoweare/blogs/BlogsMasthead";
 import { blogCategories } from "@/data/blogs";
 import { getSortedPosts } from "@/lib/blog";
 
-/**
- * Blogs is an editorial page: masthead, a featured story with top stories,
- * then a filterable, searchable article grid. Each card opens a full
- * article at /whoweare/blogs/[slug].
- */
 export default function BlogsPage() {
   const posts = getSortedPosts();
 

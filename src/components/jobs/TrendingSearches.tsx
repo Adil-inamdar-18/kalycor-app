@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Fragment, useRef, type ReactElement } from 'react';
-import { Container } from '@/components/layout';
-import { getJobsData } from '@/services/siteService';
-import type { TrendingIconKey } from '@/types';
+import { Fragment, useRef, type ReactElement } from "react";
+import { Container } from "@/components/layout";
+import { getJobsData } from "@/services/siteService";
+import type { TrendingIconKey } from "@/types";
 import {
   AerospaceIcon,
   AutomotiveIcon,
@@ -11,8 +11,8 @@ import {
   EnergyIcon,
   PharmaIcon,
   RetailIcon,
-} from './categoryIcons';
-import { ArrowRightIcon } from './icons';
+} from "./categoryIcons";
+import { ArrowRightIcon } from "./icons";
 
 const iconComponents: Record<TrendingIconKey, () => ReactElement> = {
   aerospace: AerospaceIcon,
@@ -35,7 +35,7 @@ export function TrendingSearches({ onSelectCategory }: TrendingSearchesProps) {
     const track = trackRef.current;
     const card = track?.firstElementChild as HTMLElement | null;
     if (!track || !card) return;
-    track.scrollBy({ left: card.offsetWidth + 20, behavior: 'smooth' });
+    track.scrollBy({ left: card.offsetWidth + 20, behavior: "smooth" });
   }
 
   return (

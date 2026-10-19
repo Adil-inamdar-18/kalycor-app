@@ -1,33 +1,28 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { diversityProgress } from '@/data/diversityInclusion';
+import { Container, Section } from "@/components/layout";
+import { diversityProgress } from "@/data/diversityInclusion";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/** Accountability: a four-step loop plus the pledge we hold ourselves to. */
 export default function DiversityProgress() {
   return (
-    <Section
-      as="section"
-      tone="inverse"
-      className="relative overflow-hidden"
-    >
+    <Section as="section" tone="inverse" className="relative overflow-hidden">
       <motion.span
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         animate={{ opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <Container className="relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
@@ -42,7 +37,6 @@ export default function DiversityProgress() {
           </p>
         </motion.div>
 
-        {/* The loop */}
         <ol className="relative mt-14 grid gap-8 md:grid-cols-4 md:gap-6">
           <span
             aria-hidden="true"
@@ -53,7 +47,7 @@ export default function DiversityProgress() {
               key={step.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
               className="relative flex gap-5 md:block md:text-center"
             >
@@ -72,11 +66,10 @@ export default function DiversityProgress() {
           ))}
         </ol>
 
-        {/* The pledge */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7 }}
           className="mt-16 rounded-panel border border-inverse-fg/10 bg-inverse-fg/[0.04] p-8 md:p-12"
         >

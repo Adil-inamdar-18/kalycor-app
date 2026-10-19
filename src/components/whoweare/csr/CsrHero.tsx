@@ -1,19 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { csrDraftNotice, csrHero } from '@/data/csr';
+import { Container } from "@/components/layout";
+import { csrDraftNotice, csrHero } from "@/data/csr";
 
-import { CountUp } from '../shared/CountUp';
-import { Kicker } from '../shared/Kicker';
+import { CountUp } from "../shared/CountUp";
+import { Kicker } from "../shared/Kicker";
 
-/**
- * Impact-report style hero: a full-bleed photo with the headline, and a
- * row of headline KPIs sitting on the seam with the next section.
- */
 export default function CsrHero() {
   return (
     <section className="relative isolate bg-background pb-20 md:pb-28">
@@ -34,7 +30,7 @@ export default function CsrHero() {
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 top-1/4 h-[400px] w-[400px] rounded-full bg-accent/25 blur-[120px]"
           animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.08, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <Container className="relative z-10 flex min-h-[600px] flex-col justify-center pb-40 pt-20 md:pb-32">
@@ -79,12 +75,11 @@ export default function CsrHero() {
         </Container>
       </div>
 
-      {/* KPI strip overlapping the hero */}
       <Container className="relative z-20">
         <motion.dl
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.7 }}
           className="-mt-24 grid grid-cols-2 overflow-hidden rounded-panel border border-line bg-surface shadow-deep md:-mt-20 lg:grid-cols-4"
         >
@@ -92,23 +87,25 @@ export default function CsrHero() {
             <div
               key={kpi.label}
               className={
-                'flex flex-col justify-center p-6 md:p-8 ' +
-                (index > 0 ? 'lg:border-l lg:border-line ' : '') +
-                (index % 2 === 1 ? 'border-l border-line ' : '') +
-                (index > 1 ? 'border-t border-line lg:border-t-0 ' : '')
+                "flex flex-col justify-center p-6 md:p-8 " +
+                (index > 0 ? "lg:border-l lg:border-line " : "") +
+                (index % 2 === 1 ? "border-l border-line " : "") +
+                (index > 1 ? "border-t border-line lg:border-t-0 " : "")
               }
             >
               <dt className="order-2 mt-3 text-small leading-5 text-paragraph">
                 {kpi.label}
               </dt>
               <dd className="order-1 font-heading text-[clamp(32px,3.6vw,48px)] font-bold leading-none tracking-[-0.03em] text-heading">
-                <CountUp value={kpi.value} prefix={kpi.prefix} suffix={kpi.suffix} />
+                <CountUp
+                  value={kpi.value}
+                  prefix={kpi.prefix}
+                  suffix={kpi.suffix}
+                />
               </dd>
             </div>
           ))}
         </motion.dl>
-
-        
       </Container>
     </section>
   );

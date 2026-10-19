@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Kalycor — Centralized content data
-   All section content lives here for easy updates.
-   ========================================================================== */
 
 export const heroData = {
   headline: 'Shaping What\u2019s Next.',

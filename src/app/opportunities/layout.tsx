@@ -1,11 +1,13 @@
-
 export default function OpportunitiesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div data-surface="landing" className="min-h-screen bg-background text-paragraph">
+    <div
+      data-surface="landing"
+      className="min-h-screen bg-background text-paragraph"
+    >
       {children}
     </div>
   );

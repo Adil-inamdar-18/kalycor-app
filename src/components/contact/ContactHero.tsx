@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion, useReducedMotion, type MotionProps } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import Image from "next/image";
+import { motion, useReducedMotion, type MotionProps } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { contactPage } from '@/data/contact';
+import { Container } from "@/components/layout";
+import { contactPage } from "@/data/contact";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,7 +13,6 @@ export function ContactHero() {
   const { hero, offices } = contactPage;
   const reduceMotion = useReducedMotion();
 
-  // One entrance sequence for the whole hero; skipped for reduced motion.
   const enter = (delay: number): MotionProps =>
     reduceMotion
       ? {}
@@ -25,25 +24,24 @@ export function ContactHero() {
 
   const jumpLinks = [
     {
-      href: '#help',
-      title: 'How we can help',
-      note: 'Talent, jobs and referrals',
+      href: "#help",
+      title: "How we can help",
+      note: "Talent, jobs and referrals",
     },
     {
-      href: '#offices',
-      title: 'Our offices',
+      href: "#offices",
+      title: "Our offices",
       note: `${offices.india.length} in India, ${offices.international.length} worldwide`,
     },
     {
-      href: '#message',
-      title: 'Send a message',
-      note: offices.india[0]?.email ?? 'Write to our team',
+      href: "#message",
+      title: "Send a message",
+      note: offices.india[0]?.email ?? "Write to our team",
     },
   ];
 
   return (
     <section className="relative isolate flex min-h-[calc(100svh-76px)] flex-col overflow-hidden bg-primary text-primary-fg">
-      {/* Full-bleed background image with a light navy overlay */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <Image
           src={hero.image}
@@ -93,7 +91,6 @@ export function ContactHero() {
         </div>
       </Container>
 
-      {/* Jump links: one tap to each part of the page */}
       <motion.div
         {...enter(0.34)}
         className="relative border-t border-primary-fg/20 bg-primary/40 backdrop-blur-sm"

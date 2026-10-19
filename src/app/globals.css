@@ -2,40 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==========================================================================
-   KALYCOR — GLOBAL DESIGN TOKENS
-   --------------------------------------------------------------------------
-   This is the ONLY stylesheet in the project. Everything else is Tailwind.
-
-   How it fits together:
-
-       GLOBAL VARIABLES (this file)
-              ↓
-       TAILWIND THEME TOKENS (tailwind.config.ts)
-              ↓
-       REUSABLE COMPONENTS (src/components)
-              ↓
-       PAGES (src/app)
-
-   Sections below, in order:
-     1. PALETTE     raw brand colours — change a brand colour once, here
-     2. TYPOGRAPHY  font families + the semantic type scale
-     3. SPACING     section rhythm, container, gaps
-     4. LAYOUT      container width, radius, border width, shadows
-     5. MOTION      durations + easing
-     6. SEMANTIC    background / heading / body / primary … per surface
-     7. COMPONENTS  button + card defaults, resolved from the above
-     8. BASE        the handful of rules Tailwind utilities can't express
-
-   Colours are stored as HSL channel triplets (e.g. `214 68% 13%`) because
-   Tailwind consumes them as `hsl(var(--token) / <alpha>)`. That is what makes
-   `bg-primary/90`, `border-line/40` and friends work on every token.
-   ========================================================================== */
-
 :root {
-  /* ======================================================= 1. PALETTE ==== */
-
-  /* --- brand navy/blue ---------------------------------------------- */
   --k-navy-950: 214 71% 10%;
   --k-navy-900: 214 68% 14%;
   --k-navy-800: 210 74% 17%;
@@ -45,7 +12,6 @@
   --k-blue-100: 208 45% 94%;
   --k-blue-50: 210 40% 96%;
 
-  /* --- brand teal ---------------------------------------------------- */
   --k-teal-900: 186 70% 20%;
   --k-teal-800: 184 77% 29%;
   --k-teal-700: 183 76% 31%;
@@ -58,11 +24,6 @@
   --k-teal-100: 168 53% 89%;
   --k-teal-50: 166 63% 95%;
 
-  /* --- brand plum/purple (business surface) --------------------------
-     Repointed to the navy/blue palette so the business surface matches
-     the landing (home) theme. Variable names are kept so every existing
-     bg-plum / text-brand / bg-cream / text-lavender / etc. class across
-     the business components stays valid but now resolves to navy/blue. */
   --k-plum: var(--k-navy-900);
   --k-plum-light: var(--k-navy-700);
   --k-purple: var(--k-blue-700);
@@ -72,7 +33,6 @@
   --k-plum-ink: var(--k-ink-950);
   --k-plum-gray: var(--k-ink-500);
 
-  /* --- neutrals ------------------------------------------------------ */
   --k-white: 0 0% 100%;
   --k-paper-50: 210 43% 97%;
   --k-paper-100: 216 39% 98%;
@@ -93,20 +53,15 @@
   --k-ink-900: 213 28% 16%;
   --k-ink-950: 0 0% 7%;
 
-  /* --- status -------------------------------------------------------- */
   --k-success: 152 48% 36%;
   --k-warning: 38 92% 45%;
   --k-error: 0 62% 45%;
 
-  /* ==================================================== 2. TYPOGRAPHY ==== */
-  /* Families. The --font-* variables are injected by next/font in layout.tsx.
-     Swap a family here and every heading / paragraph follows.              */
   --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
   --font-heading: var(--font-space-grotesk), var(--font-inter), sans-serif;
   --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-editorial: Georgia, "Times New Roman", serif;
 
-  /* Semantic type scale. Used by Tailwind as text-display, text-h1, … */
   --text-display: clamp(48px, 9vw, 108px);
   --text-h1: clamp(42px, 5.2vw, 70px);
   --text-h2: clamp(30px, 3.6vw, 44px);
@@ -130,7 +85,6 @@
   --tracking-wide: 0.02em;
   --tracking-kicker: 0.02em;
 
-  /* ======================================================= 3. SPACING ==== */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -141,16 +95,15 @@
   --space-8: 64px;
   --space-9: 80px;
 
-  --section-py: 64px; /* default vertical rhythm for <Section> */
+  --section-py: 64px;
   --section-py-sm: 48px;
   --section-py-lg: 80px;
-  --content-gap: 24px; /* gap between cards / grid cells          */
+  --content-gap: 24px;
   --card-padding: 24px;
 
-  /* ======================================================== 4. LAYOUT ==== */
-  --container-max: 1200px; /* max content width                       */
-  --container-pad: 32px; /* inner horizontal padding                */
-  --container-gutter: 0px; /* outer breathing room                    */
+  --container-max: 1200px;
+  --container-pad: 32px;
+  --container-gutter: 0px;
 
   --radius-none: 0px;
   --radius-xs: 2px;
@@ -183,7 +136,23 @@
   --shadow-quote-featured: 0 26px 60px hsl(var(--k-teal-400) / 0.13);
   --shadow-chip: 0 6px 18px hsl(var(--k-teal-400) / 0.12);
 
-  /* Gradients that are part of the design rather than one-off decoration. */
+  --glass-blur: 22px;
+  --glass-saturate: 1.8;
+  --glass-opacity: 0.4;
+  --glass-opacity-on-dark: 0.9;
+  --glass-band-opacity: 0.4;
+  --glass-border-opacity: 0.5;
+  --glass-sheen: linear-gradient(
+    135deg,
+    hsl(var(--k-white) / 0.5) 0%,
+    hsl(var(--k-white) / 0.04) 50%,
+    hsl(var(--k-white) / 0.22) 100%
+  );
+  --glass-edge:
+    inset 0 1px 0 0 hsl(var(--k-white) / 0.95),
+    inset 0 0 0 1px hsl(var(--k-white) / 0.5),
+    0 14px 34px -14px hsl(var(--k-navy-800) / 0.28);
+
   --gradient-hero-wash: linear-gradient(
     90deg,
     hsl(var(--k-navy-800) / 0.48),
@@ -203,7 +172,6 @@
     hsl(var(--k-paper-50)) 100%
   );
 
-  /* ======================================================== 5. MOTION ==== */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-fast: 160ms;
@@ -211,14 +179,10 @@
   --duration-slow: 300ms;
   --duration-slower: 600ms;
 
-  /* --- z-index ------------------------------------------------------- */
   --z-header: 200;
   --z-dropdown: 300;
   --z-overlay: 400;
 
-  /* ====================================================== 6. SEMANTIC ==== */
-  /* Defaults. Each surface below re-declares the ones it changes, so a page
-     is re-themed by editing one block instead of hunting through components. */
   --bg: var(--k-paper-50);
   --surface: var(--k-white);
   --surface-alt: var(--k-blue-50);
@@ -241,8 +205,6 @@
   --warning: var(--k-warning);
   --error: var(--k-error);
 
-  /* ==================================================== 7. COMPONENTS ==== */
-  /* Button — every variant resolves from the semantic layer above. */
   --btn-radius: var(--radius-button);
   --btn-font: var(--font-heading);
   --btn-solid-bg: var(--primary);
@@ -256,13 +218,11 @@
   --btn-light-bg-hover: var(--k-blue-50);
   --btn-light-fg: var(--primary);
 
-  /* Card */
   --card-bg: var(--surface);
   --card-border: var(--line);
   --card-radius: var(--radius-card);
   --card-shadow: var(--shadow-sm);
 
-  /* Brand lock-up */
   --brand-gap: var(--space-3);
   --brand-mark: 58px;
   --brand-font: var(--font-body);
@@ -271,11 +231,6 @@
   --brand-primary: var(--primary);
   --brand-secondary: var(--heading);
 }
-
-/* --------------------------------------------------------------------------
-   SURFACE THEMES
-   The three pages share every component; only these variables differ.
-   -------------------------------------------------------------------------- */
 
 [data-surface="landing"] {
   --bg: var(--k-paper-50);
@@ -363,8 +318,6 @@
   --btn-font: var(--font-heading);
 }
 
-/* ============================================================ 8. BASE ==== */
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -393,12 +346,6 @@
     text-wrap: balance;
   }
 
-  /* Headings always resolve their own color above, so they never pick up
-     an ancestor's text color through inheritance — even when a section
-     opts into light text with `text-white` / `text-inverse-fg` for a dark
-     background. Let headings inherit in that case instead of forcing the
-     surface's (dark) --heading tone on them. Scoped to text color only, so
-     it never touches backgrounds on this or any other section. */
   .text-white h1,
   .text-white h2,
   .text-white h3,
@@ -414,13 +361,11 @@
     color: inherit;
   }
 
-  /* Keyboard focus ring follows the active surface's primary colour. */
   :focus-visible {
     outline: 2px solid hsl(var(--primary));
     outline-offset: 3px;
   }
 
-  /* <details> is used for the industries accordion; hide the native marker. */
   summary {
     list-style: none;
   }
@@ -428,7 +373,6 @@
     display: none;
   }
 
-  /* Native form controls should inherit the type scale. */
   button,
   input,
   select,
@@ -437,9 +381,6 @@
     color: inherit;
   }
 
-  /* Never let a stray element widen the page on small screens (no sideways
-     scroll). `clip` doesn't create a scroll container, so sticky/fixed
-     headers keep working. */
   html,
   body {
     max-width: 100%;
@@ -474,5 +415,267 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+[data-surface] {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-surface]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      40rem 32rem at 4% 6%,
+      hsl(var(--k-teal-500) / 0.34),
+      transparent 65%
+    ),
+    radial-gradient(
+      38rem 36rem at 98% 24%,
+      hsl(var(--k-blue-400) / 0.4),
+      transparent 64%
+    ),
+    radial-gradient(
+      44rem 34rem at 12% 78%,
+      hsl(var(--k-blue-400) / 0.3),
+      transparent 64%
+    ),
+    radial-gradient(
+      36rem 30rem at 92% 96%,
+      hsl(var(--k-teal-500) / 0.3),
+      transparent 64%
+    ),
+    hsl(var(--k-paper-50));
+}
+
+[data-surface]
+  section:is(
+    .bg-background,
+    .bg-surface,
+    .bg-surface-alt,
+    .bg-white,
+    .bg-cream,
+    .bg-offwhite,
+    .bg-sky-50
+  ):not([class*="rounded"]) {
+  --tw-bg-opacity: var(--glass-band-opacity);
+}
+
+[data-surface]
+  :is(
+    .rounded-card,
+    .rounded-panel,
+    .rounded-xl,
+    .rounded-2xl,
+    .rounded-3xl
+  ):is(
+    .bg-surface,
+    .bg-surface-alt,
+    .bg-background,
+    .bg-white,
+    .bg-cream,
+    .bg-offwhite,
+    .bg-sky-50,
+    .bg-teal-50,
+    .bg-primary-soft,
+    .bg-inverse-fg
+  ):not(
+    button,
+    input,
+    select,
+    textarea,
+    img,
+    svg,
+    section,
+    header,
+    footer,
+    main
+  ) {
+  --tw-bg-opacity: var(--glass-opacity);
+  --tw-border-opacity: var(--glass-border-opacity);
+  --tw-ring-shadow: var(--glass-edge);
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow, 0 0 #0000);
+  background-image: var(--glass-sheen);
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+[data-surface]
+  [class*="bg-white/"][class*="rounded"]:not(
+    button,
+    input,
+    select,
+    textarea,
+    img,
+    svg
+  ) {
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+[data-surface]
+  :is(
+    .bg-inverse,
+    .bg-primary,
+    .bg-secondary,
+    [class*="bg-navy-"],
+    [class*="bg-plum"],
+    [class*="bg-primary"],
+    [class*="bg-inverse"],
+    [class*="bg-teal-8"],
+    [class*="bg-teal-9"]
+  )
+  :is(
+    .rounded-card,
+    .rounded-panel,
+    .rounded-xl,
+    .rounded-2xl,
+    .rounded-3xl
+  ):is(
+    .bg-surface,
+    .bg-surface-alt,
+    .bg-background,
+    .bg-white,
+    .bg-cream,
+    .bg-offwhite,
+    .bg-sky-50,
+    .bg-teal-50,
+    .bg-primary-soft,
+    .bg-inverse-fg
+  ):not(
+    button,
+    input,
+    select,
+    textarea,
+    img,
+    svg,
+    section,
+    header,
+    footer,
+    main
+  ) {
+  --tw-bg-opacity: var(--glass-opacity-on-dark);
+}
+
+[data-surface] :is(.overflow-x-auto, .overflow-x-scroll) * {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+@media (hover: none) {
+  [data-surface]
+    :is(.overflow-x-auto, .overflow-x-scroll)
+    :is(
+      .rounded-card,
+      .rounded-panel,
+      .rounded-xl,
+      .rounded-2xl,
+      .rounded-3xl
+    ):is(
+      .bg-surface,
+      .bg-surface-alt,
+      .bg-background,
+      .bg-white,
+      .bg-cream,
+      .bg-offwhite,
+      .bg-sky-50,
+      .bg-teal-50,
+      .bg-primary-soft,
+      .bg-inverse-fg
+    ):not(
+      button,
+      input,
+      select,
+      textarea,
+      img,
+      svg,
+      section,
+      header,
+      footer,
+      main
+    ) {
+    --tw-bg-opacity: 0.94;
+    --tw-ring-shadow: 0 0 #0000;
+    background-image: none;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --glass-blur: 14px;
+  }
+}
+
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  :root {
+    --glass-opacity: 0.92;
+    --glass-band-opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-opacity: 1;
+    --glass-opacity-on-dark: 1;
+    --glass-band-opacity: 1;
+  }
+  [data-surface] * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  [data-surface]::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-surface="landing"] {
+    --container-pad: 20px;
+    --section-py: 48px;
+    --section-py-sm: 36px;
+    --section-py-lg: 56px;
+  }
+
+  [data-surface="business"] {
+    --container-pad: 20px;
+    --section-py: 48px;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  a,
+  button,
+  summary,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  label {
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li {
+    overflow-wrap: break-word;
   }
 }

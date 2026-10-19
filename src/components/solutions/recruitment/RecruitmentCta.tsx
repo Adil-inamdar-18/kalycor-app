@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { Container, Section } from "@/components/layout";
 import type { SolutionCtaContent } from "@/types";
 
-/** Closing banner: dark rounded strip with photo, message and actions. */
 export function RecruitmentCta(content: SolutionCtaContent) {
   return (
     <Section as="section" tone="surface">
@@ -22,7 +21,6 @@ export function RecruitmentCta(content: SolutionCtaContent) {
             />
           </div>
 
-          {/* Message */}
           <div className="flex flex-1 flex-col justify-center gap-2 px-6 py-8 md:px-10 md:py-10">
             <h2 className="max-w-[24ch] font-heading text-[clamp(22px,2.6vw,30px)] font-medium leading-[1.2] tracking-tight text-white">
               {content.heading}
@@ -32,7 +30,6 @@ export function RecruitmentCta(content: SolutionCtaContent) {
             </p>
           </div>
 
-          {/* Actions */}
           <div className="flex shrink-0 flex-col gap-3 px-6 pb-8 sm:flex-row md:items-center md:px-10 md:py-10 md:pl-0">
             <Link
               href={content.primaryHref}

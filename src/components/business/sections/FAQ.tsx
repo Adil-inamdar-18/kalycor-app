@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus } from 'lucide-react';
-import { ButtonLink } from '@/components/business/shared/Button';
-import { AnimatedImage } from '@/components/business/shared/AnimatedImage';
-import { getBusinessData } from '@/services/siteService';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
+import { ButtonLink } from "@/components/business/shared/Button";
+import { AnimatedImage } from "@/components/business/shared/AnimatedImage";
+import { getBusinessData } from "@/services/siteService";
+import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -15,14 +15,16 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-cream py-16 lg:py-20">
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-cream py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left — heading + accordion */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease }}
           >
             <span className="text-sm font-medium uppercase tracking-[0.18em] text-brand">
@@ -36,10 +38,7 @@ export function FAQ() {
               {faqData.items.map((item, i) => {
                 const isOpen = openIndex === i;
                 return (
-                  <div
-                    key={item.question}
-                    className="border-b border-plum/10"
-                  >
+                  <div key={item.question} className="border-b border-plum/10">
                     <button
                       className="flex w-full items-center justify-between gap-4 py-5 text-left"
                       onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -47,8 +46,8 @@ export function FAQ() {
                     >
                       <span
                         className={cn(
-                          'text-base font-medium transition-colors duration-200 sm:text-lg',
-                          isOpen ? 'text-plum' : 'text-ink/80'
+                          "text-base font-medium transition-colors duration-200 sm:text-lg",
+                          isOpen ? "text-plum" : "text-ink/80",
                         )}
                       >
                         {item.question}
@@ -57,10 +56,10 @@ export function FAQ() {
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.25 }}
                         className={cn(
-                          'flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-200',
+                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-200",
                           isOpen
-                            ? 'border-brand bg-brand text-white'
-                            : 'border-plum/20 text-plum'
+                            ? "border-brand bg-brand text-white"
+                            : "border-plum/20 text-plum",
                         )}
                       >
                         <Plus className="h-4 w-4" />
@@ -70,7 +69,7 @@ export function FAQ() {
                       {isOpen && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
+                          animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease }}
                           className="overflow-hidden"
@@ -93,11 +92,10 @@ export function FAQ() {
             </div>
           </motion.div>
 
-          {/* Right — image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
             className="hidden lg:block"
           >

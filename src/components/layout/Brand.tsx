@@ -7,10 +7,8 @@ import { cn } from "@/lib/utils";
 import { site } from "@/config/site";
 
 export interface BrandProps {
-  /** Where the lock-up links to. Defaults to the site root. */
   href?: string;
 
-  /** The mark: an <Image>, an inline SVG, anything. Omit for wordmark only. */
   mark?: ReactNode;
 
   markOnly?: boolean;
@@ -27,14 +25,9 @@ export interface BrandProps {
 
   "aria-label"?: string;
 
-  /** Click handler for the brand link. */
   onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
-/**
- * Logo + two-tone wordmark. Size, gap and colours come from the --brand-
- * variables, so each surface dresses the same component differently.
- */
 export function Brand({
   href = site.routes.home,
   mark,

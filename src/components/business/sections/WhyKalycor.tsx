@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { getBusinessData } from '@/services/siteService';
+import { motion } from "framer-motion";
+import { getBusinessData } from "@/services/siteService";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,7 +13,7 @@ export function WhyKalycor() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, ease }}
           className="mb-16 max-w-3xl"
         >
@@ -31,7 +31,7 @@ export function WhyKalycor() {
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease, delay: i * 0.1 }}
               className="group relative bg-offwhite p-8 transition-colors duration-300 hover:bg-cream lg:p-10"
             >
@@ -44,7 +44,7 @@ export function WhyKalycor() {
               <p className="mt-3 text-base leading-relaxed text-gray-muted">
                 {item.description}
               </p>
-              {/* Bottom accent line */}
+
               <div className="mt-8 h-[2px] w-12 bg-brand/30 transition-all duration-300 group-hover:w-full group-hover:bg-brand" />
             </motion.div>
           ))}

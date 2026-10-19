@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import { diversityBelonging } from '@/data/diversityInclusion';
+import { Container, Section } from "@/components/layout";
+import { diversityBelonging } from "@/data/diversityInclusion";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
 export default function DiversityBelonging() {
   return (
@@ -14,14 +14,14 @@ export default function DiversityBelonging() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
           <Kicker className="mb-6 justify-center">
             {diversityBelonging.kicker}
           </Kicker>
           <h2 className="font-display text-[clamp(30px,4.4vw,52px)] font-medium leading-[1.15] tracking-tight text-heading">
-            {diversityBelonging.statementLead}{' '}
+            {diversityBelonging.statementLead}{" "}
             <span className="italic text-accent">
               {diversityBelonging.statementAccent}
             </span>
@@ -31,7 +31,7 @@ export default function DiversityBelonging() {
         <motion.ul
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: "-60px" }}
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
           className="mt-10 flex flex-wrap justify-center gap-3"
         >
@@ -55,7 +55,7 @@ export default function DiversityBelonging() {
               key={paragraph}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-body-lg leading-8 text-paragraph"
             >

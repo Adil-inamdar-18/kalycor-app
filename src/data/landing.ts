@@ -1,5 +1,3 @@
-// All copy and links below are taken verbatim from the original landing page.
-// URLs are never hard-coded here — they come from src/config/routes.ts.
 
 import { anchors, crossLinks, routes } from "@/config/routes";
 import { businesses, businessesMenu } from "@/config/businesses";
@@ -170,8 +168,6 @@ export const whoWeAreNavLinks: readonly LinkItem[] = [
   },
 ];
 
-//  Main navigation. Header renders one <NavDropdown> per entry, so adding a
-//  menu is a data change rather than a markup change.
 export const navMenus: readonly NavMenu[] = [
   {
     key: "who-we-are",
@@ -249,8 +245,6 @@ export const mobileLinks: readonly LinkItem[] = [
   { label: "Contact", href: a.contact },
 ];
 
-/** Where each service card's pill button goes — keyed by the pill's exact
- *  label so any card can reuse a pill without repeating its href. */
 export const servicePillHref: Record<string, string> = {
   "Talent Acquisition": routes.solutions.talentAcquisition,
   "Workforce Solutions": routes.solutions.workforce,
@@ -265,7 +259,7 @@ export const services: readonly Service[] = [
     title: "Leadership & Strategic Hiring ",
     description:
       "We connect organizations with exceptional leaders and critical talent to drive growth and shape long-term success.",
-    image: "",
+    image: "/images/services/Leadership strategic hiring.jpg",
     video: "/videos/technology-and-platform.mp4",
     alt: "Talent solutions professionals",
     pills: ["Talent Acquisition", "Workforce Solutions"],
@@ -274,7 +268,7 @@ export const services: readonly Service[] = [
     title: "Technology & Platform",
     description:
       "We enable smarter hiring with innovative technology and connected platforms that simplify and strengthen the recruitment process.",
-    image: "",
+    image: "/images/services/Technology platform.jpg",
     video: "/videos/Technology & platform.mp4",
     alt: "Technology and platform professionals",
     pills: ["IT Staffing", "Digital Delivery Support"],
@@ -284,7 +278,7 @@ export const services: readonly Service[] = [
     title: "Scalled Hiring",
     description:
       "We support technical delivery and modernization with talent that already understands the stack.",
-    image: "",
+    image: "/images/services/skilled hiring.jpg",
     video: "/videos/Scaled Hiring.mp4",
     alt: "Technology and platform professionals",
     pills: ["IT Staffing", "Digital Delivery Support"],
@@ -294,7 +288,7 @@ export const services: readonly Service[] = [
     title: "Workforce Creation & Deployment",
     description:
       "We create and deploy talent pipelines designed for long-term impact.",
-    image: "",
+    image: "/images/services/Workforce creation deployment.jpg",
     video: "/videos/Workforce creation & deployment.mp4",
 
     alt: "Workforce team collaborating",
@@ -305,7 +299,7 @@ export const services: readonly Service[] = [
     title: "Talent & Platforms",
     description:
       "We connect businesses with skilled professionals and scalable talent solutions.",
-    image: "",
+    image: "/images/services/Talent platforms.jpg",
     video: "/videos/talent.mp4",
     alt: "Talent solutions professionals",
     pills: ["Talent Acquisition", "Workforce Solutions"],
@@ -315,7 +309,7 @@ export const services: readonly Service[] = [
     title: "Flexible Workforce Solutions",
     description:
       "We connect you with skilled professionals and adaptable workforce solutions designed to meet your changing business needs.",
-    image: "",
+    image: "/images/services/flexible workforce.jpg",
     video: "/videos/flexible work solution.mp4",
 
     alt: "Workforce team collaborating",
@@ -323,11 +317,6 @@ export const services: readonly Service[] = [
   },
 ];
 
-/**
- * The four photos in the editorial "Our Approach" composition.
- * `position` holds the placement classes: the photos stack on mobile and
- * become an absolutely-positioned collage from 781px up.
- */
 export const approachPhotos: readonly ApproachPhoto[] = [
   {
     src: "/images/aproch1.jpg",
@@ -342,7 +331,7 @@ export const approachPhotos: readonly ApproachPhoto[] = [
     alt: "Professional at work",
     width: 354,
     height: 199,
-    /* portrait source: keep the faces in the landscape crop */
+  
     objectPosition: "50% 22%",
     position:
       "h-[220px] tp:absolute tp:right-[2%] tp:top-[40px] tp:h-[199px] tp:w-[354px] dl:right-[4%]",

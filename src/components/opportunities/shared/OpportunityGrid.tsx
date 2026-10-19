@@ -4,7 +4,11 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout";
 import type { OpportunityGridContent } from "@/types";
 
-export default function OpportunityGrid({ kicker, heading, items }: OpportunityGridContent) {
+export default function OpportunityGrid({
+  kicker,
+  heading,
+  items,
+}: OpportunityGridContent) {
   return (
     <section className="bg-muted/30 py-20 md:py-20">
       <Container>
@@ -36,9 +40,13 @@ export default function OpportunityGrid({ kicker, heading, items }: OpportunityG
                   />
                 </div>
 
-                <h3 className="text-2xl font-semibold text-heading">{item.title}</h3>
+                <h3 className="text-2xl font-semibold text-heading">
+                  {item.title}
+                </h3>
 
-                <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                <p className="mt-4 text-base leading-7 text-muted">
+                  {item.description}
+                </p>
               </Link>
             ) : (
               <article
@@ -49,11 +57,15 @@ export default function OpportunityGrid({ kicker, heading, items }: OpportunityG
                   {item.number}
                 </p>
 
-                <h3 className="text-2xl font-semibold text-heading">{item.title}</h3>
+                <h3 className="text-2xl font-semibold text-heading">
+                  {item.title}
+                </h3>
 
-                <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                <p className="mt-4 text-base leading-7 text-muted">
+                  {item.description}
+                </p>
               </article>
-            )
+            ),
           )}
         </div>
       </Container>

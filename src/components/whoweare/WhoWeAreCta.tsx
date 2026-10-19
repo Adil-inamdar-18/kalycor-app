@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { Button } from '@/components/ui';
-import { whoWeAreCta as cta } from '@/data/whoweare';
+import { Container } from "@/components/layout";
+import { Button } from "@/components/ui";
+import { whoWeAreCta as cta } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreCta() {
   return (
@@ -60,7 +60,7 @@ export default function WhoWeAreCta() {
           <ul className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-primary-fg/20 pt-7 text-body-sm">
             {cta.audience.map((item) => (
               <li key={item.label} className="text-primary-fg/70">
-                {item.prompt}{' '}
+                {item.prompt}{" "}
                 <Link
                   href={item.href}
                   className="font-semibold text-primary-fg underline-offset-4 transition-colors duration-300 hover:text-teal-200 hover:underline"

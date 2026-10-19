@@ -1,19 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, Heart } from 'lucide-react';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, Heart } from "lucide-react";
 
-import { Container } from '@/components/layout';
-import { Button } from '@/components/ui/Button';
-import { diversityHero } from '@/data/diversityInclusion';
+import { Container } from "@/components/layout";
+import { Button } from "@/components/ui/Button";
+import { diversityHero } from "@/data/diversityInclusion";
 
-import { Kicker } from '../shared/Kicker';
+import { Kicker } from "../shared/Kicker";
 
-/**
- * A warm, light, split hero — text on the left, a mosaic of real people on
- * the right — the pattern inclusive-employer careers sites tend to use.
- */
 export default function DiversityHero() {
   const { images } = diversityHero;
 
@@ -23,7 +19,7 @@ export default function DiversityHero() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 -top-32 -z-10 h-[520px] w-[520px] rounded-full bg-teal-100 blur-[110px]"
         animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.06, 1] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
       <span
         aria-hidden="true"
@@ -46,7 +42,7 @@ export default function DiversityHero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-h1 font-bold tracking-tight text-heading"
           >
-            {diversityHero.headingLead}{' '}
+            {diversityHero.headingLead}{" "}
             <span className="font-display font-medium italic text-accent">
               {diversityHero.headingAccent}
             </span>
@@ -75,13 +71,16 @@ export default function DiversityHero() {
             >
               {diversityHero.primaryLabel}
             </Button>
-            <Button href={diversityHero.secondaryHref} variant="outline" size="lg">
+            <Button
+              href={diversityHero.secondaryHref}
+              variant="outline"
+              size="lg"
+            >
               {diversityHero.secondaryLabel}
             </Button>
           </motion.div>
         </div>
 
-        {/* Photo mosaic */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -120,10 +119,9 @@ export default function DiversityHero() {
             />
           </div>
 
-          {/* Floating belonging badge */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -left-2 bottom-8 flex max-w-[15rem] items-start gap-3 rounded-card border border-line bg-surface p-4 shadow-glass sm:-left-8"
           >
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary-fg">

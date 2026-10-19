@@ -1,25 +1,16 @@
-/**
- * Shared content types used by the data layer and the components.
- */
-
-/** A navigation / footer link. */
 export interface LinkItem {
   label: string;
   href: string;
 
-  /** Open in a new tab. */
   external?: boolean;
 }
 
-/** A titled group of links (footer columns, mega-menu groups). */
 export interface LinkGroup {
   title: string;
   links: readonly LinkItem[];
 }
 
-/* -------------------------------------------------------------- landing -- */
-
-export type NavMenuLayout = 'split' | 'grid' | 'list' | 'businesses';
+export type NavMenuLayout = "split" | "grid" | "list" | "businesses";
 
 export interface NavMenu {
   key: string;
@@ -41,16 +32,9 @@ export interface Service {
   alt: string;
   pills: readonly string[];
 
-  /** Optional card media: a short looping video, shown instead of the image. */
   video?: string;
 }
 
-/* ---------------------------------------------------- solution pages -- */
-
-/**
- * Shared content shape for the reusable solution-detail template —
- * the five sections every `/solutions/<slug>` page is built from.
- */
 export interface SolutionHeroContent {
   kicker: string;
   heading: string;
@@ -102,14 +86,6 @@ export interface SolutionPageContent {
   cta: SolutionCtaContent;
 }
 
-/* --------------------------------------------------- opportunities pages -- */
-
-/**
- * Shared content shape for the reusable opportunities-portal template —
- * the sections every `/opportunities` / `/opportunities/<slug>` page is
- * built from. Mirrors the Solution*Content shapes above by design, so the
- * two template families stay easy to reason about together.
- */
 export interface OpportunityHeroContent {
   kicker: string;
   heading: string;
@@ -124,11 +100,6 @@ export interface OpportunityIntroContent {
   paragraphs: readonly string[];
 }
 
-/**
- * A grid item that can optionally act as a link to another opportunities
- * page — used by the hub page's "Explore Opportunities" grid so each
- * pathway card is real portal navigation, not just decorative copy.
- */
 export interface OpportunityGridItem extends NumberedItem {
   href?: string;
 }
@@ -162,10 +133,8 @@ export interface ApproachPhoto {
   width: number;
   height: number;
 
-  /** CSS object-position for the crop, e.g. "50% 22%". Defaults to centre. */
   objectPosition?: string;
 
-  /** Tailwind classes that place the photo in the editorial composition. */
   position: string;
 }
 
@@ -177,8 +146,8 @@ export interface Industry {
 }
 
 export type Stat =
-  | { type: 'count'; count: number; label: string }
-  | { type: 'badge'; icon: string; badge: string; note: string };
+  | { type: "count"; count: number; label: string }
+  | { type: "badge"; icon: string; badge: string; note: string };
 
 export interface Review {
   quote: string;
@@ -192,13 +161,7 @@ export interface SocialLink {
   href: string;
 }
 
-/* ----------------------------------------------------------------- jobs -- */
-
-export type JobType =
-  | 'Full-time'
-  | 'Part-time'
-  | 'Contract'
-  | 'Internship';
+export type JobType = "Full-time" | "Part-time" | "Contract" | "Internship";
 
 export interface Job {
   title: string;
@@ -208,18 +171,15 @@ export interface Job {
   type: JobType;
   category: string;
 
-  /** ISO date, e.g. "2026-09-15". */
   date: string;
 }
 
-export type SortKey = 'latest' | 'oldest' | 'title' | 'company';
+export type SortKey = "latest" | "oldest" | "title" | "company";
 
 export interface SortOption {
   value: SortKey;
   label: string;
 }
-
-/* ------------------------------------------------------------ industries -- */
 
 export interface NumberedItem {
   number: string;
@@ -230,7 +190,6 @@ export interface NumberedItem {
 export interface IndustryPage {
   slug: string;
 
-  /** Nav-facing name, e.g. "Agriculture". */
   name: string;
 
   metaTitle: string;
@@ -244,23 +203,19 @@ export interface IndustryPage {
     primaryCta: LinkItem;
     secondaryCta: LinkItem;
 
-    /** Index of the title line rendered with the green gradient. */
     accentLine?: number;
 
-    /** Two small floating cards over the image (icon = lucide name key). */
     badges?: readonly {
       icon: string;
       title: string;
       subtitle: string;
     }[];
 
-    /** Feature row shown under the buttons. */
     highlights?: readonly {
       icon: string;
       label: string;
     }[];
 
-    /** Video for the "Watch Our Story" button. Button hidden when omitted. */
     storyVideo?: string;
   };
 
@@ -291,10 +246,6 @@ export interface IndustryPage {
       title: string;
       description: string;
 
-      /**
-       * Card image is required.
-       * Every industry process step must provide its own image.
-       */
       image: string;
     }[];
   };
@@ -319,7 +270,6 @@ export interface IndustryPage {
     }[];
   };
 
-  /** Proof points shown as a second stat strip ("Success Stories"). */
   successStories: {
     kicker: string;
     heading: string;
@@ -378,17 +328,16 @@ export interface IndustryPage {
 }
 
 export type TrendingIconKey =
-  | 'aerospace'
-  | 'automotive'
-  | 'banking'
-  | 'energy'
-  | 'pharma'
-  | 'retail';
+  | "aerospace"
+  | "automotive"
+  | "banking"
+  | "energy"
+  | "pharma"
+  | "retail";
 
 export interface TrendingCategory {
   category: string;
   icon: TrendingIconKey;
 
-  /** The original markup breaks some labels over two lines. */
   label: readonly string[];
 }

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import { whoWeAreHighlights as highlights } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { whoWeAreHighlights as highlights } from "@/data/whoweare";
 
-import { CountUp } from './shared/CountUp';
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { CountUp } from "./shared/CountUp";
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreHighlights() {
   const reduceMotion = useReducedMotion();
@@ -22,9 +22,11 @@ export default function WhoWeAreHighlights() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 -top-16 h-[380px] w-[380px] rounded-full bg-accent/20 blur-[120px]"
         animate={
-          reduceMotion ? undefined : { opacity: [0.4, 0.8, 0.4], scale: [1, 1.08, 1] }
+          reduceMotion
+            ? undefined
+            : { opacity: [0.4, 0.8, 0.4], scale: [1, 1.08, 1] }
         }
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <Container className="relative">
@@ -38,7 +40,7 @@ export default function WhoWeAreHighlights() {
 
         <ul className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
           {highlights.items.map((item, index) => {
-            const hasValue = 'value' in item && typeof item.value === 'number';
+            const hasValue = "value" in item && typeof item.value === "number";
 
             return (
               <li key={item.label}>
@@ -54,7 +56,7 @@ export default function WhoWeAreHighlights() {
                       />
                     ) : (
                       <span className="text-[clamp(28px,3vw,40px)]">
-                        {'text' in item ? item.text : null}
+                        {"text" in item ? item.text : null}
                       </span>
                     )}
                   </p>

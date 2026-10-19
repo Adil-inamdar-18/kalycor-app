@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Container, Section } from '@/components/layout';
-import type { AboutMilestonesContent } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { AboutMilestonesContent } from "@/data/aboutUs";
 
-import { CountUp } from '../shared/CountUp';
-import { Kicker } from '../shared/Kicker';
+import { CountUp } from "../shared/CountUp";
+import { Kicker } from "../shared/Kicker";
 
 export function AboutMilestones(content: AboutMilestonesContent) {
   return (
@@ -20,7 +20,7 @@ export function AboutMilestones(content: AboutMilestonesContent) {
         aria-hidden="true"
         className="pointer-events-none absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         animate={{ opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <Container className="relative">
@@ -28,7 +28,7 @@ export function AboutMilestones(content: AboutMilestonesContent) {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
             <Kicker tone="light" className="mb-4">
@@ -42,7 +42,7 @@ export function AboutMilestones(content: AboutMilestonesContent) {
           <motion.ul
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={{ show: { transition: { staggerChildren: 0.12 } } }}
             className="grid gap-4 sm:grid-cols-2"
           >
@@ -57,7 +57,7 @@ export function AboutMilestones(content: AboutMilestonesContent) {
                 className="group rounded-card border border-inverse-fg/10 bg-inverse-fg/[0.04] p-7 transition-colors duration-slow hover:border-accent/60 hover:bg-inverse-fg/[0.07]"
               >
                 <p className="font-heading text-[clamp(40px,4.4vw,60px)] font-bold leading-none tracking-[-0.03em] text-inverse-fg">
-                  {typeof item.value === 'number' ? (
+                  {typeof item.value === "number" ? (
                     <CountUp value={item.value} />
                   ) : (
                     item.text

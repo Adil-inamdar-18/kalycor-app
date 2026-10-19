@@ -19,7 +19,11 @@ function Photo({ photo }: { photo: ApproachPhoto }) {
         width={photo.width}
         height={photo.height}
         className="block h-full w-full object-cover"
-        style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
+        style={
+          photo.objectPosition
+            ? { objectPosition: photo.objectPosition }
+            : undefined
+        }
       />
     </div>
   );

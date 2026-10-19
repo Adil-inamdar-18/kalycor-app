@@ -1,13 +1,8 @@
-import { Container } from '@/components/layout';
+import { Container } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
-/**
- * A floating proof-point strip that sits just below the hero,
- * rather than a full-width band — keeps the page from reading as a stack
- * of identical horizontal sections.
- */
-export function IndustryStats({ stats }: { stats: IndustryPage['stats'] }) {
+export function IndustryStats({ stats }: { stats: IndustryPage["stats"] }) {
   return (
     <div className="relative z-10 mt-6 lg:mt-10">
       <Container>

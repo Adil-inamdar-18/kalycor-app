@@ -1,15 +1,14 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-import type { BlogPost } from '@/data/blogs';
-import { formatDate, postHref, readingMinutes } from '@/lib/blog';
+import type { BlogPost } from "@/data/blogs";
+import { formatDate, postHref, readingMinutes } from "@/lib/blog";
 
 interface BlogCardProps {
   post: BlogPost;
 }
 
-/** Standard article card: cover, category, title, excerpt, date and read time. */
 export default function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface transition-all duration-slow hover:-translate-y-1 hover:shadow-float">

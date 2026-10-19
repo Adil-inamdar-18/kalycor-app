@@ -1,21 +1,16 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
 export function IndustryProcess({
   process,
 }: {
-  process: IndustryPage['process'];
+  process: IndustryPage["process"];
 }) {
   return (
-    <Section
-      as="section"
-      tone="inverse"
-      className="relative overflow-hidden"
-    >
-      {/* Soft glows */}
+    <Section as="section" tone="inverse" className="relative overflow-hidden">
       <div
         className="pointer-events-none absolute -right-40 -top-40 h-[420px] w-[420px] rounded-full bg-accent/20 blur-[120px]"
         aria-hidden="true"
@@ -27,14 +22,10 @@ export function IndustryProcess({
       />
 
       <Container className="relative">
-        {/* Header */}
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-16">
           <div className="max-w-2xl">
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
-              <span
-                className="h-px w-10 bg-accent"
-                aria-hidden="true"
-              />
+              <span className="h-px w-10 bg-accent" aria-hidden="true" />
 
               {process.kicker}
             </p>
@@ -49,7 +40,6 @@ export function IndustryProcess({
           </p>
         </div>
 
-        {/* Process Cards */}
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {process.steps.map((step) => (
             <div
@@ -70,7 +60,6 @@ export function IndustryProcess({
                   motion-reduce:transition-none
                 "
               >
-                {/* Front - Image */}
                 <div
                   className="
                     absolute inset-0
@@ -88,13 +77,9 @@ export function IndustryProcess({
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Dark overlay */}
                   <div className="absolute inset-0 bg-black/20" />
-
-                
                 </div>
 
-                {/* Back - Content */}
                 <div
                   className="
                     absolute inset-0

@@ -1,23 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { Container } from '@/components/layout';
-import { clsx } from 'clsx';
+import { Container } from "@/components/layout";
+import { clsx } from "clsx";
 
 const links = [
-  { id: 'story', label: 'Our story' },
-  { id: 'mission', label: 'Mission & vision' },
-  { id: 'values', label: 'Values' },
-  { id: 'journey', label: 'Journey' },
-  { id: 'milestones', label: 'Milestones' },
-  { id: 'leadership', label: 'Leadership' },
+  { id: "story", label: "Our story" },
+  { id: "mission", label: "Mission & vision" },
+  { id: "values", label: "Values" },
+  { id: "journey", label: "Journey" },
+  { id: "milestones", label: "Milestones" },
+  { id: "leadership", label: "Leadership" },
 ] as const;
 
-/**
- * Sticky in-page navigation, as seen on long corporate "About" pages.
- * Highlights the section currently in view and jumps on click.
- */
 export function AboutSubnav() {
   const [active, setActive] = useState<string>(links[0].id);
 
@@ -34,7 +30,7 @@ export function AboutSubnav() {
           if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      { rootMargin: '-30% 0px -60% 0px' }
+      { rootMargin: "-30% 0px -60% 0px" },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -55,20 +51,18 @@ export function AboutSubnav() {
               <li key={link.id} className="shrink-0">
                 <a
                   href={`#${link.id}`}
-                  aria-current={isActive ? 'location' : undefined}
+                  aria-current={isActive ? "location" : undefined}
                   className={clsx(
-                    'relative block rounded-button px-4 py-2 font-heading text-small font-medium transition-colors duration-base',
-                    isActive
-                      ? 'text-heading'
-                      : 'text-muted hover:text-heading'
+                    "relative block rounded-button px-4 py-2 font-heading text-small font-medium transition-colors duration-base",
+                    isActive ? "text-heading" : "text-muted hover:text-heading",
                   )}
                 >
                   {link.label}
                   <span
                     aria-hidden="true"
                     className={clsx(
-                      'absolute inset-x-4 -bottom-2 h-0.5 rounded-full bg-accent transition-opacity duration-base',
-                      isActive ? 'opacity-100' : 'opacity-0'
+                      "absolute inset-x-4 -bottom-2 h-0.5 rounded-full bg-accent transition-opacity duration-base",
+                      isActive ? "opacity-100" : "opacity-0",
                     )}
                   />
                 </a>

@@ -15,10 +15,6 @@ interface HeroPanelProps {
   buttonClassName?: string;
 }
 
-/**
- * One audience panel inside the hero.
- * Same component is used for businesses and job seekers.
- */
 function HeroPanel({
   tag,
   title,
@@ -41,7 +37,6 @@ function HeroPanel({
         className,
       )}
     >
-      {/* Subtle panel glow */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-slow group-hover:opacity-100" />
 
       <div className="relative z-[1] flex h-full flex-col">
@@ -53,7 +48,6 @@ function HeroPanel({
           {title}
         </h2>
 
-        {/* CTA: solid button, same square radius as the rest of the site */}
         <Link
           href={cta.href}
           className={cn(
@@ -97,7 +91,6 @@ export function Hero() {
         text-primary-fg
       "
     >
-      {/* BACKGROUND VIDEO */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           className="
@@ -118,7 +111,6 @@ export function Hero() {
         </video>
       </div>
 
-      {/* VIDEO OVERLAY */}
       <div
         className="
           pointer-events-none
@@ -129,7 +121,6 @@ export function Hero() {
         "
       />
 
-      {/* ADDITIONAL SUBTLE GRADIENT */}
       <div
         className="
           pointer-events-none
@@ -143,7 +134,6 @@ export function Hero() {
         "
       />
 
-      {/* HERO CONTENT */}
       <Container className="relative z-[2]">
         <div
           className="
@@ -159,7 +149,6 @@ export function Hero() {
             tp:pt-[156px]
           "
         >
-          {/* MAIN HEADING */}
           <h1
             className="
               mx-auto
@@ -181,7 +170,6 @@ export function Hero() {
             Starts Here
           </h1>
 
-          {/* AUDIENCE PANELS */}
           <div
             className="
               mx-auto
@@ -197,7 +185,6 @@ export function Hero() {
               tp:gap-6
             "
           >
-            {/* BUSINESS PANEL */}
             <HeroPanel
               tag="For Businesses"
               title="Find Amazing Talent"
@@ -211,7 +198,6 @@ export function Hero() {
               "
             />
 
-            {/* JOB SEEKER PANEL */}
             <HeroPanel
               id="dream-job-cta"
               tag="For Job Seekers"
@@ -229,7 +215,6 @@ export function Hero() {
         </div>
       </Container>
 
-      {/* BOTTOM SCROLL INDICATOR */}
       <div
         className="
           absolute
@@ -243,20 +228,7 @@ export function Hero() {
           text-primary-fg/60
           tp:flex
         "
-      >
-        {/* <span
-          className="
-            text-[11px]
-            font-medium
-            uppercase
-            tracking-[0.18em]
-          "
-        >
-          Scroll
-        </span> */}
-
-        {/* <span className="h-8 w-px bg-primary-fg/40" /> */}
-      </div>
+      ></div>
     </section>
   );
 }

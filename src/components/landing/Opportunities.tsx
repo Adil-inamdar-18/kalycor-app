@@ -1,9 +1,8 @@
-import { Button } from '@/components/ui';
-import { Container, Section } from '@/components/layout';
-import { site } from '@/config/site';
-import { anchors } from '@/config/routes';
+import { Button } from "@/components/ui";
+import { Container, Section } from "@/components/layout";
+import { site } from "@/config/site";
+import { anchors } from "@/config/routes";
 
-/** "Your Next Step Starts Here" CTA band. */
 export function Opportunities() {
   const cta = site.ctas.exploreOpportunities;
 

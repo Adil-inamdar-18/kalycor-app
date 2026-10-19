@@ -1,9 +1,9 @@
-import { Container, Section } from '@/components/layout';
-import { contactPage } from '@/data/contact';
-import type { ContactOffice } from '@/types/contact';
+import { Container, Section } from "@/components/layout";
+import { contactPage } from "@/data/contact";
+import type { ContactOffice } from "@/types/contact";
 
-import { ContactOfficeCard } from './ContactOfficeCard';
-import { ContactSectionHeader } from './ContactSectionHeader';
+import { ContactOfficeCard } from "./ContactOfficeCard";
+import { ContactSectionHeader } from "./ContactSectionHeader";
 
 function OfficeGroup({
   title,
@@ -21,7 +21,7 @@ function OfficeGroup({
           {title}
         </h3>
         <p className="mt-1 text-body-sm text-muted">
-          {offices.length} {offices.length === 1 ? 'office' : 'offices'}
+          {offices.length} {offices.length === 1 ? "office" : "offices"}
         </p>
       </div>
 
@@ -42,11 +42,7 @@ export function ContactOffices() {
   const { offices } = contactPage;
 
   return (
-    <Section
-      as="section"
-      id="offices"
-      className="scroll-mt-20 bg-surface-alt"
-    >
+    <Section as="section" id="offices" className="scroll-mt-20 bg-surface-alt">
       <Container>
         <ContactSectionHeader
           kicker={offices.kicker}

@@ -6,15 +6,14 @@ import { motion, useReducedMotion } from "framer-motion";
 interface RevealProps {
   children: ReactNode;
   className?: string;
-  /** Seconds. Use small steps (0.08–0.12) to stagger siblings. */
+
   delay?: number;
-  /** Slide in from a side instead of rising. */
+
   from?: "up" | "left" | "right";
 }
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/** Fades content in once, the first time it scrolls into view. */
 export function Reveal({
   children,
   className,

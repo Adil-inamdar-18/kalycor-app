@@ -14,23 +14,25 @@ import type { OpportunityHeroContent } from "@/types";
 export interface HeroAction {
   label: string;
   href: string;
-  /** `primary` is the solid white pill; `ghost` is the glass outline pill. */
+
   variant?: "primary" | "ghost";
 }
 
-interface OpportunityHeroProps extends Omit<OpportunityHeroContent, "image" | "imageAlt"> {
-  /** Poster / fallback image. Also the only background for reduced-motion visitors. */
+interface OpportunityHeroProps extends Omit<
+  OpportunityHeroContent,
+  "image" | "imageAlt"
+> {
   image: string;
   imageAlt?: string;
-  /** Optional looping background video (muted, decorative). */
+
   video?: string;
-  /** Current page label for the breadcrumb, e.g. "Search Jobs". */
+
   crumb?: string;
-  /** Renders an embedded quick job-search form (title + location) in the hero. */
+
   search?: boolean;
-  /** Call-to-action pills under the copy. */
+
   actions?: readonly HeroAction[];
-  /** Extra hero content (e.g. a custom search form), rendered under the actions. */
+
   children?: ReactNode;
 }
 
@@ -46,12 +48,6 @@ const rise: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
 };
 
-/**
- * Full-width hero shown at the top of every Opportunities page: background
- * video (with an image poster), layered navy scrims for legibility, and
- * staggered-in copy. The wording, colours and fonts all come from the site's
- * existing tokens, so it stays on-brand.
- */
 export default function OpportunityHero({
   kicker,
   heading,
@@ -67,9 +63,6 @@ export default function OpportunityHero({
   const reduce = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
-
-  // The video may already have data by the time React hydrates, in which case
-  // `onLoadedData` never fires for us — check once on mount.
   useEffect(() => {
     if (videoRef.current && videoRef.current.readyState >= 2) setReady(true);
   }, []);
@@ -78,7 +71,6 @@ export default function OpportunityHero({
 
   return (
     <section className="relative isolate overflow-hidden bg-primary text-white">
-      {/* ---------- BACKGROUND MEDIA ---------- */}
       <motion.div
         aria-hidden={showVideo ? true : undefined}
         className="absolute inset-0 -z-20"
@@ -100,7 +92,7 @@ export default function OpportunityHero({
             ref={videoRef}
             className={cn(
               "absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms]",
-              ready ? "opacity-100" : "opacity-0"
+              ready ? "opacity-100" : "opacity-0",
             )}
             autoPlay
             muted
@@ -116,7 +108,6 @@ export default function OpportunityHero({
         ) : null}
       </motion.div>
 
-      {/* ---------- SCRIMS: legibility + brand tint ---------- */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/55 md:via-primary/65 md:to-primary/25"
@@ -129,7 +120,7 @@ export default function OpportunityHero({
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_88%_8%,hsl(var(--k-teal-500)/0.28),transparent)]"
       />
-      {/* faint architectural grid, fading out toward the bottom */}
+
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
@@ -139,7 +130,6 @@ export default function OpportunityHero({
         className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
       />
 
-      {/* ---------- CONTENT ---------- */}
       <Container className="relative flex min-h-[500px] flex-col justify-center py-14 sm:min-h-[540px] md:min-h-[600px] md:py-24">
         <motion.div
           variants={stagger}
@@ -152,12 +142,17 @@ export default function OpportunityHero({
             aria-label="Breadcrumb"
             className="mb-7 inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/10 px-3.5 py-1.5 text-caption font-medium text-white/70 backdrop-blur-md"
           >
-            <Link href={routes.opportunities.home} className="transition-colors hover:text-white">
+            <Link
+              href={routes.opportunities.home}
+              className="transition-colors hover:text-white"
+            >
               Opportunities
             </Link>
             {crumb ? (
               <>
-                <span aria-hidden className="text-white/35">/</span>
+                <span aria-hidden className="text-white/35">
+                  /
+                </span>
                 <span className="text-white">{crumb}</span>
               </>
             ) : null}
@@ -195,7 +190,7 @@ export default function OpportunityHero({
                     "group inline-flex min-h-[50px] items-center justify-center gap-2 rounded-pill px-7 font-heading text-button font-semibold transition-all duration-base",
                     a.variant === "ghost"
                       ? "border border-white/35 bg-white/10 text-white backdrop-blur-md hover:border-white/60 hover:bg-white/20"
-                      : "bg-white text-primary shadow-[0_12px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:bg-teal-50"
+                      : "bg-white text-primary shadow-[0_12px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:bg-teal-50",
                   )}
                 >
                   {a.label}
@@ -248,7 +243,9 @@ export default function OpportunityHero({
           </form>
         ) : null}
 
-        {children ? <div className="relative mt-9 w-full max-w-4xl">{children}</div> : null}
+        {children ? (
+          <div className="relative mt-9 w-full max-w-4xl">{children}</div>
+        ) : null}
       </Container>
     </section>
   );

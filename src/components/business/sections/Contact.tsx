@@ -1,35 +1,37 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
-import { getBusinessData } from '@/services/siteService';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
+import { getBusinessData } from "@/services/siteService";
+import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Contact() {
   const { contactData } = getBusinessData();
   const [submitted, setSubmitted] = useState(false);
-  const [selectedInterest, setSelectedInterest] = useState<string>('');
+  const [selectedInterest, setSelectedInterest] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
     (e.target as HTMLFormElement).reset();
-    setSelectedInterest('');
+    setSelectedInterest("");
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-offwhite py-16 lg:py-20">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-offwhite py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left — heading */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
@@ -59,11 +61,10 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right — form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
           >
             <form
@@ -91,10 +92,10 @@ export function Contact() {
                       type="button"
                       onClick={() => setSelectedInterest(option)}
                       className={cn(
-                        'rounded-md border px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        "rounded-md border px-4 py-2 text-sm font-medium transition-colors duration-200",
                         selectedInterest === option
-                          ? 'border-brand bg-brand text-white'
-                          : 'border-plum/15 text-ink/70 hover:border-plum/40'
+                          ? "border-brand bg-brand text-white"
+                          : "border-plum/15 text-ink/70 hover:border-plum/40",
                       )}
                     >
                       {option}
@@ -122,10 +123,10 @@ export function Contact() {
               <button
                 type="submit"
                 className={cn(
-                  'mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-plum px-6 py-4 text-base font-medium text-cream transition-colors duration-200 hover:bg-plum/90'
+                  "mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-plum px-6 py-4 text-base font-medium text-cream transition-colors duration-200 hover:bg-plum/90",
                 )}
               >
-                {submitted ? 'Thank you!' : 'Get Started'}
+                {submitted ? "Thank you!" : "Get Started"}
                 <Send className="h-4 w-4" />
               </button>
 
@@ -135,7 +136,8 @@ export function Contact() {
                   animate={{ opacity: 1 }}
                   className="text-sm text-brand"
                 >
-                  We&rsquo;ve received your message. We&rsquo;ll be in touch shortly.
+                  We&rsquo;ve received your message. We&rsquo;ll be in touch
+                  shortly.
                 </motion.p>
               )}
             </form>
@@ -149,7 +151,7 @@ export function Contact() {
 function FormField({
   label,
   name,
-  type = 'text',
+  type = "text",
   required = false,
 }: {
   label: string;

@@ -1,29 +1,27 @@
-import { Quote, Star } from 'lucide-react';
+import { Quote, Star } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
-/** "Portfolio Manager" -> "PM" */
 function initials(text: string) {
   return text
     .split(/\s+/)
     .filter((word) => /^[A-Za-z]/.test(word))
     .slice(0, 2)
     .map((word) => word[0].toUpperCase())
-    .join('');
+    .join("");
 }
 
 export function IndustryTestimonials({
   testimonials,
 }: {
-  testimonials: NonNullable<IndustryPage['testimonials']>;
+  testimonials: NonNullable<IndustryPage["testimonials"]>;
 }) {
   return (
     <Section as="section" tone="inverse" className="relative overflow-hidden">
-      {/* Soft glows */}
       <div
         className="pointer-events-none absolute -left-40 top-0 h-[400px] w-[400px] rounded-full bg-accent/15 blur-[120px]"
         aria-hidden="true"
@@ -54,17 +52,18 @@ export function IndustryTestimonials({
               <figure
                 key={item.name}
                 className={cn(
-                  'group relative flex flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-slow hover:-translate-y-1',
+                  "group relative flex flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-slow hover:-translate-y-1",
                   featured
-                    ? 'border-accent/50 bg-gradient-to-b from-accent/15 to-inverse-fg/[0.03] shadow-deep'
-                    : 'border-inverse-fg/10 bg-inverse-fg/[0.04] hover:border-accent/40 hover:bg-inverse-fg/[0.07]'
+                    ? "border-accent/50 bg-gradient-to-b from-accent/15 to-inverse-fg/[0.03] shadow-deep"
+                    : "border-inverse-fg/10 bg-inverse-fg/[0.04] hover:border-accent/40 hover:bg-inverse-fg/[0.07]",
                 )}
               >
-                {/* Top accent line */}
                 <span
                   className={cn(
-                    'absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-accent to-transparent transition-opacity duration-slow',
-                    featured ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    "absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-accent to-transparent transition-opacity duration-slow",
+                    featured
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-100",
                   )}
                   aria-hidden="true"
                 />
@@ -77,9 +76,17 @@ export function IndustryTestimonials({
                     <Quote className="h-5 w-5 fill-current" />
                   </span>
 
-                  <div className="flex gap-1 text-accent" role="img" aria-label="5 out of 5 stars">
+                  <div
+                    className="flex gap-1 text-accent"
+                    role="img"
+                    aria-label="5 out of 5 stars"
+                  >
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-current"
+                        aria-hidden="true"
+                      />
                     ))}
                   </div>
                 </div>

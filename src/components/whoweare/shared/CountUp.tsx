@@ -1,27 +1,26 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { animate, useInView, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import { animate, useInView, useReducedMotion } from "framer-motion";
 
 interface CountUpProps {
   value: number;
   prefix?: string;
   suffix?: string;
-  /** Seconds. */
+
   duration?: number;
   className?: string;
 }
 
-/** Counts from 0 to `value` the first time it scrolls into view. */
 export function CountUp({
   value,
-  prefix = '',
-  suffix = '',
+  prefix = "",
+  suffix = "",
   duration = 1.6,
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
+  const inView = useInView(ref, { once: true, margin: "-40px" });
   const reduceMotion = useReducedMotion();
   const [display, setDisplay] = useState(0);
 
@@ -35,7 +34,7 @@ export function CountUp({
 
     const controls = animate(0, value, {
       duration,
-      ease: 'easeOut',
+      ease: "easeOut",
       onUpdate: (latest) => setDisplay(Math.round(latest)),
     });
 
@@ -45,7 +44,7 @@ export function CountUp({
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {display.toLocaleString('en-US')}
+      {display.toLocaleString("en-US")}
       {suffix}
     </span>
   );

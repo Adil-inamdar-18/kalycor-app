@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import {
   ArrowRight,
   MessageCircle,
@@ -8,11 +8,11 @@ import {
   TrendingUp,
   Users,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Button } from '@/components/ui';
-import { Container } from '@/components/layout';
-import type { IndustryPage } from '@/types';
+import { Button } from "@/components/ui";
+import { Container } from "@/components/layout";
+import type { IndustryPage } from "@/types";
 
 const icons: Record<string, LucideIcon> = {
   sprout: Sprout,
@@ -22,7 +22,13 @@ const icons: Record<string, LucideIcon> = {
   users: Users,
 };
 
-function IconBubble({ name, className = 'h-11 w-11' }: { name: string; className?: string }) {
+function IconBubble({
+  name,
+  className = "h-11 w-11",
+}: {
+  name: string;
+  className?: string;
+}) {
   const Icon = icons[name] ?? Sprout;
   return (
     <span
@@ -34,12 +40,11 @@ function IconBubble({ name, className = 'h-11 w-11' }: { name: string; className
   );
 }
 
-export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
+export function IndustryHero({ hero }: { hero: IndustryPage["hero"] }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-surface via-surface to-teal-50/60">
       <Container>
         <div className="grid gap-10 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12 lg:py-14">
-          {/* Content */}
           <div>
             <span className="inline-flex items-center gap-2 rounded-pill bg-teal-50 px-4 py-2 font-heading text-caption font-semibold uppercase tracking-kicker text-teal-700">
               <Sprout className="h-4 w-4" aria-hidden="true" />
@@ -52,8 +57,8 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
                   key={line}
                   className={
                     index === hero.accentLine
-                      ? 'block bg-gradient-to-r from-teal-500 to-teal-800 bg-clip-text text-transparent'
-                      : 'block lg:whitespace-nowrap'
+                      ? "block bg-gradient-to-r from-teal-500 to-teal-800 bg-clip-text text-transparent"
+                      : "block lg:whitespace-nowrap"
                   }
                 >
                   {line}
@@ -61,7 +66,10 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
               ))}
             </h1>
 
-            <div className="mt-4 flex h-1 w-24 overflow-hidden rounded-full bg-teal-100" aria-hidden="true">
+            <div
+              className="mt-4 flex h-1 w-24 overflow-hidden rounded-full bg-teal-100"
+              aria-hidden="true"
+            >
               <span className="h-full w-1/2 rounded-full bg-teal-600" />
             </div>
 
@@ -70,10 +78,7 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button
-                href={hero.primaryCta.href}
-                size="lg"
-              >
+              <Button href={hero.primaryCta.href} size="lg">
                 {hero.primaryCta.label}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Button>
@@ -94,7 +99,7 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
                   <li
                     key={item.label}
                     className={`flex items-center gap-3 sm:px-4 ${
-                      i > 0 ? 'sm:border-l sm:border-line' : 'sm:pl-0'
+                      i > 0 ? "sm:border-l sm:border-line" : "sm:pl-0"
                     }`}
                   >
                     <IconBubble name={item.icon} className="h-9 w-9" />
@@ -107,7 +112,6 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
             )}
           </div>
 
-          {/* Visual */}
           <div className="relative w-full">
             <div className="relative h-[320px] overflow-hidden rounded-panel shadow-deep sm:h-[400px] lg:h-[440px]">
               <Image
@@ -122,7 +126,6 @@ export function IndustryHero({ hero }: { hero: IndustryPage['hero'] }) {
           </div>
         </div>
       </Container>
-
     </section>
   );
 }

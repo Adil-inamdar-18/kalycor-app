@@ -1,13 +1,13 @@
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
 export function IndustryWhyKalycor({
   whyKalycor,
 }: {
-  whyKalycor: IndustryPage['whyKalycor'];
+  whyKalycor: IndustryPage["whyKalycor"];
 }) {
   return (
     <Section as="section" tone="surface">
@@ -26,14 +26,13 @@ export function IndustryWhyKalycor({
           </p>
         </div>
 
-        {/* Bento grid of strengths */}
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {whyKalycor.items.map((item, index) => (
             <div
               key={item.number}
               className={cn(
-                'group relative overflow-hidden rounded-card border border-line bg-surface-alt p-8 transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:shadow-float',
-                index === 0 && 'sm:col-span-2 lg:col-span-1 lg:row-span-2'
+                "group relative overflow-hidden rounded-card border border-line bg-surface-alt p-8 transition-all duration-slow hover:-translate-y-1 hover:border-accent/40 hover:shadow-float",
+                index === 0 && "sm:col-span-2 lg:col-span-1 lg:row-span-2",
               )}
             >
               <div className="relative z-10">

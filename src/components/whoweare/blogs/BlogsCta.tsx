@@ -5,13 +5,11 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout";
 import { blogsCta } from "@/data/blogs";
 
-/** Closing banner: dark rounded strip with photo, message and actions. */
 export default function BlogsCta() {
   return (
     <section className="bg-background py-14 md:py-20">
       <Container>
         <div className="flex flex-col overflow-hidden rounded-[28px] bg-inverse text-inverse-fg shadow-deep md:flex-row md:items-stretch">
-          {/* Photo */}
           <div className="relative h-48 w-full shrink-0 md:h-auto md:w-[280px] lg:w-[340px]">
             <Image
               src="/images/approach-new1.jpeg"
@@ -22,7 +20,6 @@ export default function BlogsCta() {
             />
           </div>
 
-          {/* Message */}
           <div className="flex flex-1 flex-col justify-center gap-2 px-6 py-8 md:px-10 md:py-10">
             <h2 className="max-w-[24ch] font-heading text-[clamp(22px,2.6vw,30px)] font-medium leading-[1.2] tracking-tight text-white">
               {blogsCta.heading}
@@ -32,7 +29,6 @@ export default function BlogsCta() {
             </p>
           </div>
 
-          {/* Actions */}
           <div className="flex shrink-0 flex-col gap-3 px-6 pb-8 sm:flex-row md:items-center md:px-10 md:py-10 md:pl-0">
             <Link
               href={blogsCta.primaryHref}

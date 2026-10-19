@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import type { aboutCta } from '@/data/aboutUs';
+import { Container, Section } from "@/components/layout";
+import type { aboutCta } from "@/data/aboutUs";
 
 type AboutCtaProps = typeof aboutCta;
 
@@ -17,7 +17,7 @@ export function AboutCta(content: AboutCtaProps) {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="relative grid overflow-hidden rounded-3xl bg-inverse text-inverse-fg lg:grid-cols-2"
         >
@@ -25,7 +25,7 @@ export function AboutCta(content: AboutCtaProps) {
             aria-hidden="true"
             className="pointer-events-none absolute -left-32 -top-32 h-[360px] w-[360px] rounded-full bg-accent/25 blur-[110px]"
             animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.06, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           />
 
           <div className="relative px-7 py-12 md:px-12 md:py-16">
@@ -38,7 +38,10 @@ export function AboutCta(content: AboutCtaProps) {
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <Link
                   href={content.primaryHref}
                   className="inline-flex items-center justify-center gap-2 rounded-button bg-accent px-7 py-3.5 font-heading text-button font-semibold text-primary-fg hover:bg-teal-700"
@@ -48,7 +51,10 @@ export function AboutCta(content: AboutCtaProps) {
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <Link
                   href={content.secondaryHref}
                   className="inline-flex items-center justify-center rounded-button border border-inverse-fg/30 px-7 py-3.5 font-heading text-button font-semibold text-inverse-fg hover:border-inverse-fg hover:bg-inverse-fg/10"

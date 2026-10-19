@@ -1,37 +1,32 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { Container } from '@/components/layout';
-import { getJobsData } from '@/services/siteService';
-import type { JobType, SortKey } from '@/types';
-import { anchors } from '@/config/routes';
-import Hero from './Hero';
-import TrendingSearches from './TrendingSearches';
-import FilterSidebar from './FilterSidebar';
-import JobList from './JobList';
-import Pagination from './Pagination';
+import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { Container } from "@/components/layout";
+import { getJobsData } from "@/services/siteService";
+import type { JobType, SortKey } from "@/types";
+import { anchors } from "@/config/routes";
+import Hero from "./Hero";
+import TrendingSearches from "./TrendingSearches";
+import FilterSidebar from "./FilterSidebar";
+import JobList from "./JobList";
+import Pagination from "./Pagination";
 
 const PER_PAGE = 6;
 
 function scrollToJobs() {
   document
     .getElementById(anchors.jobs.jobs.slice(1))
-    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export function JobBoard() {
   const { jobs, sortOptions } = getJobsData();
-  // Supports arriving pre-filtered from another page's quick-search form,
-  // e.g. the opportunities hub (?q=...&location=...) — falls back to empty
-  // when there's nothing in the URL, so /jobs behaves exactly as before.
-  const searchParams = useSearchParams();
-  const initialKeyword = searchParams.get('q') ?? '';
-  const initialLocation = searchParams.get('location') ?? '';
 
-  // Hero search inputs (what's typed) vs. applied search terms (what's
-  // actually filtered on) are kept separate, matching the original behaviour:
-  // typing in the hero fields doesn't filter live — only submitting does.
+  const searchParams = useSearchParams();
+  const initialKeyword = searchParams.get("q") ?? "";
+  const initialLocation = searchParams.get("location") ?? "";
+
   const [keywordInput, setKeywordInput] = useState(initialKeyword);
   const [locationInput, setLocationInput] = useState(initialLocation);
   const [appliedKeyword, setAppliedKeyword] = useState(initialKeyword);
@@ -39,8 +34,8 @@ export function JobBoard() {
 
   const [selectedTypes, setSelectedTypes] = useState<JobType[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
-  const [category, setCategory] = useState('');
-  const [sort, setSort] = useState<SortKey>('latest');
+  const [category, setCategory] = useState("");
+  const [sort, setSort] = useState<SortKey>("latest");
   const [page, setPage] = useState(1);
 
   const filteredJobs = useMemo(() => {
@@ -52,13 +47,15 @@ export function JobBoard() {
         (job) =>
           job.title.toLowerCase().includes(keyword) ||
           job.company.toLowerCase().includes(keyword) ||
-          job.category.toLowerCase().includes(keyword)
+          job.category.toLowerCase().includes(keyword),
       );
     }
 
     const location = appliedLocation.trim().toLowerCase();
     if (location) {
-      result = result.filter((job) => job.location.toLowerCase().includes(location));
+      result = result.filter((job) =>
+        job.location.toLowerCase().includes(location),
+      );
     }
 
     if (selectedTypes.length) {
@@ -71,28 +68,34 @@ export function JobBoard() {
 
     if (category) {
       result = result.filter((job) =>
-        job.category.toLowerCase().includes(category.toLowerCase())
+        job.category.toLowerCase().includes(category.toLowerCase()),
       );
     }
 
     const time = (value: string) => new Date(value).getTime();
-    if (sort === 'latest') {
+    if (sort === "latest") {
       result.sort((a, b) => time(b.date) - time(a.date));
-    } else if (sort === 'oldest') {
+    } else if (sort === "oldest") {
       result.sort((a, b) => time(a.date) - time(b.date));
-    } else if (sort === 'title') {
+    } else if (sort === "title") {
       result.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sort === 'company') {
+    } else if (sort === "company") {
       result.sort((a, b) => a.company.localeCompare(b.company));
     }
 
     return result;
-  }, [appliedKeyword, appliedLocation, selectedTypes, selectedLocations, category, sort]);
+  }, [
+    appliedKeyword,
+    appliedLocation,
+    selectedTypes,
+    selectedLocations,
+    category,
+    sort,
+  ]);
 
   const total = filteredJobs.length;
   const totalPages = Math.ceil(total / PER_PAGE);
 
-  // Keep the current page in range if filtering shrinks the result set.
   useEffect(() => {
     if (totalPages > 0 && page > totalPages) {
       setPage(totalPages);
@@ -104,10 +107,10 @@ export function JobBoard() {
   const visibleJobs = filteredJobs.slice(start, start + PER_PAGE);
 
   function resetSearchAndFilters() {
-    setKeywordInput('');
-    setLocationInput('');
-    setAppliedKeyword('');
-    setAppliedLocation('');
+    setKeywordInput("");
+    setLocationInput("");
+    setAppliedKeyword("");
+    setAppliedLocation("");
     setSelectedTypes([]);
     setSelectedLocations([]);
   }
@@ -116,7 +119,7 @@ export function JobBoard() {
     event.preventDefault();
     setAppliedKeyword(keywordInput);
     setAppliedLocation(locationInput);
-    setCategory('');
+    setCategory("");
     setSelectedTypes([]);
     setSelectedLocations([]);
     setPage(1);
@@ -132,8 +135,8 @@ export function JobBoard() {
 
   function handleClearFilters() {
     resetSearchAndFilters();
-    setCategory('');
-    setSort('latest');
+    setCategory("");
+    setSort("latest");
     setPage(1);
   }
 
@@ -164,7 +167,8 @@ export function JobBoard() {
               Explore Opportunities
             </h2>
             <p className="mt-2.5 text-body-sm text-muted">
-              Discover roles that match your skills, experience and career goals.
+              Discover roles that match your skills, experience and career
+              goals.
             </p>
           </div>
 
@@ -186,7 +190,7 @@ export function JobBoard() {
             <div>
               <div className="mb-[18px] flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
                 <div className="text-small text-muted">
-                  Showing {total} {total === 1 ? 'job' : 'jobs'}
+                  Showing {total} {total === 1 ? "job" : "jobs"}
                 </div>
                 <div className="flex items-center gap-2.5 text-small text-muted">
                   <label htmlFor="sortSelect">Sort by</label>
@@ -219,7 +223,9 @@ export function JobBoard() {
                 </>
               ) : (
                 <div className="rounded-card border border-line bg-white px-5 py-[60px] text-center">
-                  <h3 className="mb-[7px] text-[21px] text-heading">No jobs found</h3>
+                  <h3 className="mb-[7px] text-[21px] text-heading">
+                    No jobs found
+                  </h3>
                   <p className="text-small text-muted">
                     Try changing your search or filters.
                   </p>

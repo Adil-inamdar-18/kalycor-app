@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, Section } from "@/components/layout";
@@ -8,11 +8,6 @@ import { SectionTitle } from "@/components/ui";
 import { getLandingData } from "@/services/siteService";
 import { anchors } from "@/config/routes";
 
-/**
- * Fixed hit-area around each card. Hover is read from this element (which
- * never moves) while the inner card does the lift/scale, so the cursor can
- * never "fall off" a moving card and retrigger hover. Also drives the video.
- */
 function ServiceCardShell({ children }: { children: React.ReactNode }) {
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -24,7 +19,10 @@ function ServiceCardShell({ children }: { children: React.ReactNode }) {
 
   const handleEnter = (event: React.MouseEvent<HTMLDivElement>) => {
     if (resetTimer.current) clearTimeout(resetTimer.current);
-    event.currentTarget.querySelector("video")?.play().catch(() => {});
+    event.currentTarget
+      .querySelector("video")
+      ?.play()
+      .catch(() => {});
   };
 
   const handleLeave = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -33,8 +31,6 @@ function ServiceCardShell({ children }: { children: React.ReactNode }) {
 
     video.pause();
 
-    // Rewind only after the card has finished settling back, so the frame
-    // never changes while the image is still animating.
     resetTimer.current = setTimeout(() => {
       video.currentTime = 0;
     }, 350);
@@ -50,8 +46,11 @@ function ServiceCardShell({ children }: { children: React.ReactNode }) {
         relative
         z-[1]
         flex
-        flex-[0_0_82vw]
+        snap-center
+        snap-always
+        flex-[0_0_100%]
         hover:z-[100]
+        sm:snap-start
         sm:flex-[0_0_340px]
         nav:flex-[0_0_calc((100%_-_72px)/4)]
       "
@@ -65,12 +64,19 @@ export function Services() {
   const { services, servicePillHref } = getLandingData();
   const gridRef = useRef<HTMLDivElement>(null);
 
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const sync = () => setCanHover(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
   const targetRef = useRef(0);
   const frameRef = useRef<number | null>(null);
   const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // One eased scroll loop shared by arrows + mouse wheel, so scrolling never
-  // fights itself (no stacked smooth-scroll queues = no jitter).
   const animateTo = useCallback((target: number) => {
     const grid = gridRef.current;
     if (!grid) return;
@@ -79,6 +85,8 @@ export function Services() {
     targetRef.current = Math.max(0, Math.min(max, target));
 
     if (frameRef.current !== null) return;
+
+    grid.style.scrollSnapType = "none";
 
     const step = () => {
       const el = gridRef.current;
@@ -91,6 +99,7 @@ export function Services() {
 
       if (Math.abs(diff) < 0.5) {
         el.scrollLeft = targetRef.current;
+        el.style.scrollSnapType = "";
         frameRef.current = null;
         return;
       }
@@ -102,7 +111,6 @@ export function Services() {
     frameRef.current = requestAnimationFrame(step);
   }, []);
 
-  // Move cards with arrows
   const slideCards = (direction: "left" | "right") => {
     const grid = gridRef.current;
     if (!grid) return;
@@ -110,10 +118,16 @@ export function Services() {
     const card = grid.querySelector<HTMLElement>("article");
     if (!card) return;
 
-    const gap = 24;
-    const scrollAmount = (card.offsetWidth + gap) * 4;
+    const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+    const stepWidth = card.offsetWidth + gap;
+    const perView = Math.max(
+      1,
+      Math.floor((grid.clientWidth + gap) / stepWidth + 0.05),
+    );
+    const scrollAmount = stepWidth * perView;
     const max = grid.scrollWidth - grid.clientWidth;
-    const base = frameRef.current !== null ? targetRef.current : grid.scrollLeft;
+    const base =
+      frameRef.current !== null ? targetRef.current : grid.scrollLeft;
 
     if (direction === "right") {
       animateTo(base >= max - 10 ? 0 : base + scrollAmount);
@@ -126,9 +140,8 @@ export function Services() {
     const grid = gridRef.current;
     if (!grid) return;
 
-    // Native, non-passive wheel listener (React's onWheel is passive, so
-    // preventDefault there is ignored and the page scrolls at the same time).
     const onWheel = (event: WheelEvent) => {
+      if (!window.matchMedia("(min-width: 981px)").matches) return;
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
       const max = grid.scrollWidth - grid.clientWidth;
@@ -137,16 +150,17 @@ export function Services() {
       const atStart = base <= 0 && event.deltaY < 0;
       const atEnd = base >= max && event.deltaY > 0;
 
-      // Let the page scroll normally once the carousel hits either end.
       if (atStart || atEnd) return;
 
       event.preventDefault();
       animateTo(base + event.deltaY);
     };
 
-    // While the list is moving, cards sweeping under a still cursor must not
-    // trigger hover on/off (that was the flicker). Re-enabled right after.
+    const canHover = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
     const onScroll = () => {
+      if (!canHover) return;
       grid.dataset.scrolling = "true";
       if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
       scrollTimerRef.current = setTimeout(() => {
@@ -223,7 +237,6 @@ export function Services() {
             </svg>
           </button>
 
-          {/* Service cards */}
           <div
             ref={gridRef}
             className="
@@ -231,13 +244,17 @@ export function Services() {
               -mt-3
               flex
               gap-[18px]
+              snap-x
+              snap-mandatory
               overflow-x-auto
               overflow-y-visible
+              overscroll-x-contain
               pb-8
               pt-8
               scrollbar-none
               data-[scrolling=true]:[&_.svc-shell]:pointer-events-none
               sm:gap-6
+              nav:snap-none
               nav:gap-6
             "
             style={{
@@ -247,8 +264,6 @@ export function Services() {
             }}
           >
             {services.map((service) => (
-              /* Stable hit-area: never moves, so hover can't flicker when the
-                 card lifts away from the cursor. It also owns the sizing. */
               <ServiceCardShell key={service.title}>
                 <article
                   className="
@@ -266,8 +281,8 @@ export function Services() {
                     transition-[transform,border-color]
                     duration-slow
                     ease-[var(--ease)]
-                    will-change-transform
-                    [backface-visibility:hidden]
+                    nav:will-change-transform
+                    nav:[backface-visibility:hidden]
                     isolate
                     group-hover/shell:-translate-y-3
                     group-hover/shell:scale-[1.045]
@@ -276,9 +291,8 @@ export function Services() {
                     nav:min-h-[420px]
                   "
                 >
-                  {/* Image / video */}
                   <div className="relative isolate overflow-hidden">
-                    {service.video ? (
+                    {service.video && canHover ? (
                       <video
                         src={service.video}
                         poster={service.image}
@@ -304,26 +318,26 @@ export function Services() {
                       <Image
                         src={service.image}
                         alt={service.alt}
-                        width={800}
-                        height={600}
-                        loading="lazy"
+                        width={720}
+                        height={405}
+                        sizes="(max-width: 640px) 80vw, (max-width: 980px) 340px, 25vw"
+                        loading="eager"
+                        draggable={false}
                         className="
                           block
                           h-[175px]
                           w-full
+                          select-none
                           object-cover
                           transition-transform
                           duration-slow
                           ease-[var(--ease)]
-                          will-change-transform
-                          [backface-visibility:hidden]
                           group-hover:scale-[1.06]
                         "
                       />
                     )}
                   </div>
 
-                  {/* Card content */}
                   <div className="flex flex-grow flex-col px-5 pb-5 pt-5">
                     <h3 className="mb-[9px] text-h3 text-secondary">
                       {service.title}
@@ -365,7 +379,6 @@ export function Services() {
             ))}
           </div>
 
-          {/* Right arrow */}
           <button
             type="button"
             aria-label="Next services"

@@ -1,21 +1,20 @@
-'use client';
+"use client";
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Handshake,
   Heart,
   ShieldCheck,
   Sparkles,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { whoWeAreValues as values } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { whoWeAreValues as values } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
-// Same order as aboutValues: People First, Integrity, Partnership, Possibility.
 const icons: readonly LucideIcon[] = [Heart, ShieldCheck, Handshake, Sparkles];
 
 export default function WhoWeAreValues() {
@@ -45,13 +44,12 @@ export default function WhoWeAreValues() {
               <li key={item.title}>
                 <Reveal delay={index * 0.1}>
                   <div className="relative border-t border-line pt-7">
-                    {/* The accent rule draws itself as the value scrolls in. */}
                     <motion.span
                       aria-hidden="true"
                       className="absolute -top-px left-0 h-0.5 w-16 origin-left bg-accent"
                       initial={reduceMotion ? false : { scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true, margin: '-80px' }}
+                      viewport={{ once: true, margin: "-80px" }}
                       transition={{
                         duration: 0.8,
                         delay: 0.25 + index * 0.1,

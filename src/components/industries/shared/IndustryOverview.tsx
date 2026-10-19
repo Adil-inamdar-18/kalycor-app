@@ -17,17 +17,12 @@ import {
   Wrench,
   Zap,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
+import { Container, Section } from "@/components/layout";
 
-import type { IndustryPage } from '@/types';
+import type { IndustryPage } from "@/types";
 
-/**
- * Picks an icon from the focus-area label so the industry data stays a plain
- * list of strings. First matching rule wins; anything unmatched falls back
- * to the cycle below.
- */
 const iconRules: ReadonlyArray<[RegExp, LucideIcon]> = [
   [/cyber|security|protection|compliance/i, ShieldCheck],
   [/risk/i, AlertTriangle],
@@ -67,13 +62,12 @@ function iconFor(area: string, index: number): LucideIcon {
 export function IndustryOverview({
   overview,
 }: {
-  overview: IndustryPage['overview'];
+  overview: IndustryPage["overview"];
 }) {
   return (
     <Section id={overview.id} as="section" tone="surface">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
-          {/* Heading */}
           <div>
             <p className="mb-4 flex items-center gap-3 font-heading text-kicker font-semibold uppercase tracking-kicker text-accent">
               <span className="h-px w-10 bg-accent" aria-hidden="true" />
@@ -84,19 +78,24 @@ export function IndustryOverview({
               {overview.heading}
             </h2>
 
-            <div className="mt-6 h-1 w-28 rounded-full bg-accent" aria-hidden="true" />
+            <div
+              className="mt-6 h-1 w-28 rounded-full bg-accent"
+              aria-hidden="true"
+            />
 
             <p className="mt-6 max-w-lg text-body-lg leading-8 text-muted">
               {overview.paragraph}
             </p>
           </div>
 
-          {/* Focus areas */}
           <div>
             <p className="font-heading text-caption font-semibold uppercase tracking-kicker text-muted">
               Where We Focus
             </p>
-            <div className="mb-6 mt-3 h-[3px] w-16 rounded-full bg-accent" aria-hidden="true" />
+            <div
+              className="mb-6 mt-3 h-[3px] w-16 rounded-full bg-accent"
+              aria-hidden="true"
+            />
 
             <ul className="grid gap-4 sm:grid-cols-2">
               {overview.areas.map((area, index) => {
@@ -115,7 +114,7 @@ export function IndustryOverview({
                     </span>
 
                     <span className="font-heading text-body-sm font-semibold text-accent">
-                      {String(index + 1).padStart(2, '0')}
+                      {String(index + 1).padStart(2, "0")}
                     </span>
 
                     <span className="text-body-sm font-medium leading-snug text-heading">

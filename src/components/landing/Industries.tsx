@@ -41,7 +41,6 @@ export function Industries() {
       className="bg-background py-[70px] tl:py-[100px]"
     >
       <Container>
-        {/* SECTION HEADING */}
         <div className="mx-auto mb-12 max-w-[800px] text-center tl:mb-16">
           <div className="font-editorial text-[40px] font-normal italic leading-[1.05] tracking-[-1.8px] text-heading tl:text-[clamp(40px,4.5vw,60px)]">
             Innovation Across{" "}
@@ -57,7 +56,6 @@ export function Industries() {
           </p>
         </div>
 
-        {/* INDUSTRIES */}
         <div
           className="
             mx-auto
@@ -72,7 +70,6 @@ export function Industries() {
           "
           data-industries-accordion
         >
-          {/* LEFT SIDE */}
           <div className="border-t border-sand-300">
             {industries.map((industry, index) => {
               const isOpen = openIndex === index;
@@ -87,7 +84,6 @@ export function Industries() {
                     setOpenIndex(index);
                   }}
                 >
-                  {/* TITLE */}
                   <button
                     type="button"
                     onClick={() => {
@@ -146,7 +142,6 @@ export function Industries() {
                     </span>
                   </button>
 
-                  {/* CONTENT */}
                   <div
                     className={`
                       grid
@@ -173,7 +168,6 @@ export function Industries() {
             })}
           </div>
 
-          {/* RIGHT SIDE IMAGE */}
           <div
             className="
               relative
@@ -207,10 +201,8 @@ export function Industries() {
               "
             />
 
-            {/* IMAGE OVERLAY */}
             <div className="absolute inset-0 bg-black/5" />
 
-            {/* IMAGE TITLE */}
             <div
               className="
                 absolute

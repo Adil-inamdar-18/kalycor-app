@@ -1,27 +1,31 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import Image from 'next/image';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { useRef } from "react";
+import Image from "next/image";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-import { Container, Section } from '@/components/layout';
-import { Button } from '@/components/ui';
-import { whoWeAreStory as story } from '@/data/whoweare';
+import { Container, Section } from "@/components/layout";
+import { Button } from "@/components/ui";
+import { whoWeAreStory as story } from "@/data/whoweare";
 
-import { Kicker } from './shared/Kicker';
-import { Reveal } from './shared/Reveal';
+import { Kicker } from "./shared/Kicker";
+import { Reveal } from "./shared/Reveal";
 
 export default function WhoWeAreStory() {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
-  // The main photo drifts a little slower than the page as it scrolls by.
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
+    offset: ["start end", "end start"],
   });
-  const drift = useTransform(scrollYProgress, [0, 1], ['-7%', '7%']);
+  const drift = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
 
   return (
     <Section as="section" id="story" tone="page" className="scroll-mt-20 pt-0">
@@ -58,7 +62,6 @@ export default function WhoWeAreStory() {
             </div>
           </Reveal>
 
-          {/* Copy */}
           <Reveal from="right" delay={0.1}>
             <Kicker>{story.kicker}</Kicker>
 
@@ -72,11 +75,7 @@ export default function WhoWeAreStory() {
               ))}
             </div>
 
-            <Button
-              href={story.linkHref}
-              variant="outline"
-              className="mt-9"
-            >
+            <Button href={story.linkHref} variant="outline" className="mt-9">
               {story.linkLabel}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
