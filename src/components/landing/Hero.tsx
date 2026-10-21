@@ -85,7 +85,7 @@ export function Hero() {
       className="
         relative
         isolate
-        min-h-screen min-h-svh
+        min-h-screen 
         overflow-hidden
         bg-primary
         text-primary-fg
@@ -138,7 +138,7 @@ export function Hero() {
         <div
           className="
             flex
-            min-h-screen min-h-svh
+            min-h-screen 
             flex-col
             justify-center
             pb-12
