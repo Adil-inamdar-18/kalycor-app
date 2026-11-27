@@ -164,3 +164,20 @@ original stylesheets used: `tp` 781px, `ts` 851px, `tl` 901px, `nav` 981px,
 - **Forms** — the only form is the job-board hero search. It filters the local
   `src/data/jobs.ts` list client-side, exactly as before. There was no backend
   and none was added.
+
+  
+## Features
+- Easy-to-use interface
+- Organized application structure
+- Responsive design (if supported)
+
+## Tech Stack
+Add the actual technologies used in this project.
+
+## Installation
+Add the actual steps required to install and run the project.
+
+## Contributors
+- Adil Inamdar
+- Preeti
+
