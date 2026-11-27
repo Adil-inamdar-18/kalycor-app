@@ -164,3 +164,13 @@ original stylesheets used: `tp` 781px, `ts` 851px, `tl` 901px, `nav` 981px,
 - **Forms** — the only form is the job-board hero search. It filters the local
   `src/data/jobs.ts` list client-side, exactly as before. There was no backend
   and none was added.
+
+  # Kalycor App
+
+## About
+Kalycor is a project developed to provide its intended application functionality
+through a simple and user-friendly interface.
+
+## Contributors
+- Adil Inamdar
+- Preeti
